@@ -1,0 +1,47 @@
+.headerContainer {
+  position: fixed;
+  width: 100%;
+  height: max-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 6px 0px 6px 0px;
+  background-color: #465a75;
+
+  .headerLink,
+  .activeHeaderLink {
+    padding: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  .headerLink {
+    &:hover {
+      background-color: #394a5f;
+      border-radius: 8px;
+    }
+  }
+
+  .activeHeaderLink {
+    background-color: #394a5f;
+    border-radius: 8px;
+  }
+
+  .websiteNameInHeader {
+    position: absolute;
+    right: 20px;
+    padding: 10px;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: default;
+
+    background: linear-gradient(
+      90deg,
+      rgba(176, 38, 38, 1) 20%,
+      rgba(118, 118, 118, 1) 100%
+    );
+  }
+}
