@@ -1,37 +1,51 @@
 import StatisticPage from '@/components/statisticPage/StatisticPage'
-import axios, { AxiosResponse } from 'axios'
 
-export async function handler(): Promise<AxiosResponse<any, any> | null> {
-  try {
-    const response = await axios.get(
-      'https://api.steampowered.com/IDOTA2Match_570/GetMatchHistory/v1/',
+interface Match {
+  result: {
+    status: number
+    num_results: number
+    total_results: number
+    results_remaining: number
+    matches: [
       {
-        params: {
-          key: '<3F8B2C146EB3A63816DE36C34A2F95E0>',
-          access_token:
-            'eyAidHlwIjogIkpXVCIsICJhbGciOiAiRWREU0EiIH0.eyAiaXNzIjogInI6MTY3QV8yNDFCRDNDOF9ERkM2QSIsICJzdWIiOiAiNzY1NjExOTgzNDA4MzY5NTEiLCAiYXVkIjogWyAid2ViOnN0b3JlIiBdLCAiZXhwIjogMTcyMTcyNzcxNCwgIm5iZiI6IDE3MTMwMDA3NzMsICJpYXQiOiAxNzIxNjQwNzczLCAianRpIjogIjBGOTNfMjRDMDk4RDdfNkU1QTMiLCAib2F0IjogMTcxMDg2MTc3OSwgInJ0X2V4cCI6IDE3Mjg5MTY3NjMsICJwZXIiOiAwLCAiaXBfc3ViamVjdCI6ICI0Ni4xNTAuMTAuNzYiLCAiaXBfY29uZmlybWVyIjogIjQ2LjE1MC4xMC43NiIgfQ.iqxauloWZ1_09zOqjltuGQWfFiOjtz5Qmiov4wS9HgJM0ey7aRm8117-qMOnsSCgVKt1Z0UTqQRiBgefuZ3WBQ',
-        },
+        match_id: number
+        match_seq_num: number
+        start_time: number
+        lobby_type: number
+        radiant_team_id: number
+        dire_team_id: number
+
+        players: [
+          {
+            account_id: number
+            player_slot: number
+            team_number: number
+            team_slot: number
+            hero_id: number
+            hero_variant: number
+          }
+        ]
       }
-    )
-    console.log(response.data)
-    return response
-  } catch (error) {
-    console.error(error)
-    console.error('Failed to fetch data from Steam API')
-    return null
+    ]
   }
 }
 
+const getMatchData = async () => {
+  const responseMatchHistory = fetch(
+    'https://api.steampowered.com/IDOTA2Match_570/GetMatchHistory/V001/?key=3F8B2C146EB3A63816DE36C34A2F95E0&account_id=380571223'
+  )
+
+  const dataMatchHistory: Promise<Match> = (await responseMatchHistory).json()
+
+  const matchHistoryIDs: number[] = (await dataMatchHistory).result.matches.map(
+    (match) => match.match_id
+  )
+}
+
+;`http://api.steampowered.com/IDOTA2Match_570/GetMatchDetails/v1/?key=3F8B2C146EB3A63816DE36C34A2F95E0&match_id=2638507303`
+
 export default async function Home() {
-  const response: AxiosResponse<any, any> | null = await handler()
-
-  if (response === null) {
-    console.log('Error: response === NULL')
-    return <StatisticPage />
-  }
-
-  const data = response.data
-  console.log('data:', data)
-
-  return <StatisticPage />
+  const dotaData = await getDotaData()
+  console.log(dotaData)
+  return <StatisticPage dotaData={dotaData} />
 }
