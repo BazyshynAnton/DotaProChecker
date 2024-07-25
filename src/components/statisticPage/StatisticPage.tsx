@@ -1,16 +1,51 @@
-import React from 'react'
+'use client'
+import { useEffect, useState } from '@/components/shared/reactImports'
 
-interface DotaAPI {
-  dotaData: {
-    matchHistory: number[]
-    heroesList: number[]
-  }
-}
+import type {
+  DotaMatchStatisticData,
+  Match,
+  MatchDetails,
+} from '@/types/staticPage/staticPageTypes'
 
-export default function StatisticPage({ dotaData }: DotaAPI) {
-  console.log(dotaData)
+export default function StatisticPage({
+  matchStatisticData,
+}: DotaMatchStatisticData) {
+  const [matchHistory, setMatchHistory] = useState<Match | {}>({})
+  const [matchDetails, setMatchDetails] = useState<MatchDetails | {}>({})
+  const [matchHistoryIDs, setMatchHistoryIDsData] = useState<number[] | []>([])
+  const [allMatchDetails, setAllMatchDetails] = useState<MatchDetails[] | []>(
+    []
+  )
 
-  const matches = dotaData.matchHistory || []
+  useEffect(() => {
+    setMatchHistory(matchStatisticData.matchHistoryData)
+    setMatchDetails(matchStatisticData.matchDetailsData)
+    setMatchHistoryIDsData(matchStatisticData.matchHistoryIDsData)
+  }, [])
+
+  useEffect(() => {
+    const getAllMatchDetails = async () => {
+      try {
+        const promises = matchHistoryIDs.map((id) =>
+          fetch(`https://api.opendota.com/api/matches/${id}`)
+        )
+
+        const responseAllMatchDetails = await Promise.all(promises)
+
+        const dataAllMatchDetails = await Promise.all(
+          responseAllMatchDetails.map((response) => response.json())
+        )
+
+        setAllMatchDetails(dataAllMatchDetails)
+      } catch (error) {
+        console.error(`Failed to fetch data: ${error}`)
+      }
+    }
+
+    if (matchHistoryIDs.length > 0) {
+      getAllMatchDetails()
+    }
+  }, [matchHistoryIDs])
 
   return <div></div>
 }
