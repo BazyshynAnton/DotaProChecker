@@ -1,10 +1,11 @@
 import Header from '@/components/header/Header'
+import StoreProvider from '@/store/StoreProvider'
 
 import type { Metadata } from 'next'
+import { Roboto } from 'next/font/google'
 
 import './globals.scss'
 
-import { Roboto } from 'next/font/google'
 const roboto = Roboto({
   weight: ['400', '500', '700', '900'],
   style: ['normal'],
@@ -26,12 +27,14 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={roboto.className}>
-        <Header />
-        {children}
-      </body>
-    </html>
+    <StoreProvider>
+      <html lang="en">
+        <body className={roboto.className}>
+          <Header />
+          {children}
+        </body>
+      </html>
+    </StoreProvider>
   )
 }
 
