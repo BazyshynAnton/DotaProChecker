@@ -122,10 +122,10 @@ export interface MatchDetails {
   ]
 }
 
-export interface DotaMatchStatisticData {
-  matchStatisticData: {
-    matchHistoryData: Match
-    matchDetailsData: MatchDetails
-    matchHistoryIDsData: number[]
+export interface DotaMatchesStatisticData {
+  matchesStatisticData: {
+    matchesHistoryData: Match
+    matchesDetailsData: MatchDetails
+    matchesHistoryIDsData: number[]
   }
 }
