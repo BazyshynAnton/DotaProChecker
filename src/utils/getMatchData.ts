@@ -1,35 +1,33 @@
 import type { Match, MatchDetails } from "@/types/staticPage/staticPageTypes"
 
-export const getMatchData = async (startAtMatchId: number | null = null) => {
+export const getMatchData = async () => {
   let matchHistoryUrl =
-    "https://api.steampowered.com/IDOTA2Match_570/GetMatchHistory/V001/?key=3F8B2C146EB3A63816DE36C34A2F95E0&account_id=380571223&matches_requested=40"
-  if (startAtMatchId) {
-    matchHistoryUrl += `&start_at_match_id=${startAtMatchId.toString}`
-  }
+    "https://api.steampowered.com/IDOTA2Match_570/GetMatchHistory/V001/?key=3F8B2C146EB3A63816DE36C34A2F95E0&account_id=380571223"
 
-  //   TODO
-  const matchDetailsUrl = "https://api.opendota.com/api/matches/7857969163"
+  const matchDetailsUrl = "https://api.opendota.com/api/matches/"
 
   try {
-    const [responseMatchHistory, responseMatchesDetailsData] =
-      await Promise.all([fetch(matchHistoryUrl), fetch(matchDetailsUrl)])
+    const responseMatchHistory = await fetch(matchHistoryUrl)
 
-    if (!responseMatchHistory.ok || !responseMatchesDetailsData.ok) {
+    if (!responseMatchHistory.ok) {
       throw new Error("Failed to fetch data.")
     }
 
     const matchesHistoryData: Match = await responseMatchHistory.json()
-    const matchesDetailsData: MatchDetails =
-      await responseMatchesDetailsData.json()
     const matchesHistoryIDsData: number[] = []
 
     matchesHistoryData.result.matches.map((match) =>
       matchesHistoryIDsData.push(match.match_id)
     )
 
+    const responseMatchDetailsData = await fetch(
+      matchDetailsUrl + matchesHistoryIDsData[0]
+    )
+    const matchDetailsData: MatchDetails = await responseMatchDetailsData.json()
+
     const matchesStatisticData = {
       matchesHistoryData,
-      matchesDetailsData,
+      matchDetailsData,
       matchesHistoryIDsData,
     }
 

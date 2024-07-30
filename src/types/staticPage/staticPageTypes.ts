@@ -29,6 +29,7 @@ export interface Match {
 }
 
 export interface MatchDetails {
+  error: string
   players: [
     {
       account_id: number
@@ -122,10 +123,14 @@ export interface MatchDetails {
   ]
 }
 
+export interface ErrorMatchDetails {
+  error: string
+}
+
 export interface DotaMatchesStatisticData {
   matchesStatisticData: {
     matchesHistoryData: Match
-    matchesDetailsData: MatchDetails
+    matchDetailsData: MatchDetails
     matchesHistoryIDsData: number[]
   }
 }
