@@ -1,0 +1,52 @@
+import { useEffect, useState } from "@/components/shared/reactImports"
+import { useSelector } from "@/components/shared/reduxImports"
+import {
+  filterPlayersByTeam,
+  getMatchResult,
+} from "@/utils/statisticPage/matchDetailsUtils"
+
+import type { RootState } from "@/store/store"
+import type {
+  MatchResult,
+  PlayersByTeam,
+} from "@/types/staticPage/matchDetailsTypes"
+
+import styles from "@/styles/statisticPage/MatchDetails.module.scss"
+import PlayersTableDetails from "./reusableMatchDetails/PlayersTableDetails"
+
+export default function MatchDetails() {
+  const { matchDetails } = useSelector(
+    (store: RootState) => store.statisticPageSlice
+  )
+
+  const [resultOfMatch, setResultOfMatch] = useState<MatchResult>()
+  const [playersByTeam, setPlayersByTeam] = useState<PlayersByTeam>()
+  useEffect(() => {
+    if (matchDetails) {
+      setResultOfMatch(getMatchResult(380571223, matchDetails))
+      setPlayersByTeam(filterPlayersByTeam(matchDetails))
+    }
+  }, [matchDetails])
+
+  if (!playersByTeam) return <div>Loading...</div>
+
+  return (
+    <div className={styles.matchContainer}>
+      <div className={styles.matchHeader}>
+        <div className={styles.playedHero}></div>
+        <div className={styles.matchResult}>
+          <h4>
+            YOUR TEAM {resultOfMatch?.playerSide} {resultOfMatch?.resultOfMatch}
+          </h4>
+          <div className={styles.matchScoreAndTime}>
+            <p>{resultOfMatch?.radiantScore}</p>
+            <p>{resultOfMatch?.matchDuration}</p>
+            <p>{resultOfMatch?.direScore}</p>
+          </div>
+        </div>
+      </div>
+      <PlayersTableDetails playersTeam={playersByTeam?.playersRadiant} />
+      <PlayersTableDetails playersTeam={playersByTeam?.playersDire} />
+    </div>
+  )
+}

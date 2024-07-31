@@ -9,12 +9,13 @@ import {
 import { AppDispatch, RootState } from "@/store/store"
 
 import type { DotaMatchesStatisticData } from "@/types/staticPage/staticPageTypes"
-
-export let cache: DotaMatchesStatisticData
+import MatchDetails from "./MatchDetails"
 
 export default function StatisticPage({
   matchesStatisticData,
-}: DotaMatchesStatisticData) {
+}: {
+  matchesStatisticData: DotaMatchesStatisticData
+}) {
   const { matchDetails } = useSelector(
     (store: RootState) => store.statisticPageSlice
   )
@@ -24,12 +25,6 @@ export default function StatisticPage({
     dispatch(setMatchDetails(matchesStatisticData.matchDetailsData))
     dispatch(setMatchesHistory(matchesStatisticData.matchesHistoryData))
     dispatch(setMatchHistoryID(matchesStatisticData.matchesHistoryIDsData[0]))
-    cache.matchesStatisticData.matchDetailsData =
-      matchesStatisticData.matchDetailsData
-    cache.matchesStatisticData.matchesHistoryData =
-      matchesStatisticData.matchesHistoryData
-    cache.matchesStatisticData.matchesHistoryIDsData =
-      matchesStatisticData.matchesHistoryIDsData
   }, [
     dispatch,
     matchesStatisticData.matchDetailsData,
@@ -38,18 +33,12 @@ export default function StatisticPage({
   ])
 
   if (!matchDetails) {
-    console.error(
-      "[API Error] (Daily api limit exceeded - Call Limit 2000 per day)"
+    return (
+      <div>
+        <h1>API limit per day - 2000 calls.</h1>
+      </div>
     )
-
-    return <></>
   }
 
-  return (
-    <div style={{ marginTop: "5rem" }}>
-      {matchDetails.players.map((player, idx) => (
-        <div key={idx}>{player.gold}</div>
-      ))}
-    </div>
-  )
+  return <>MatchResult</>
 }

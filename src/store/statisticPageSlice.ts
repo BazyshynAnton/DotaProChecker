@@ -1,9 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
-import type {
-  ErrorMatchDetails,
-  Match,
-  MatchDetails,
-} from "@/types/staticPage/staticPageTypes"
+import type { Match, MatchDetails } from "@/types/staticPage/staticPageTypes"
 
 interface InitialState {
   matches: Match | null
@@ -28,9 +24,7 @@ export const statisticPageSlice = createSlice({
       state.matchHistoryID = action.payload
     },
     setMatchDetails: (state, action) => {
-      state.matchDetails = action.payload.filter(
-        (match: MatchDetails) => !match.error
-      )
+      state.matchDetails = action.payload
       console.log("[STATE ALL MATCHES DETAILS]: ", state.matchDetails)
     },
   },

@@ -7,7 +7,9 @@ export const getMatchData = async () => {
   const matchDetailsUrl = "https://api.opendota.com/api/matches/"
 
   try {
-    const responseMatchHistory = await fetch(matchHistoryUrl)
+    const responseMatchHistory = await fetch(matchHistoryUrl, {
+      cache: "force-cache",
+    })
 
     if (!responseMatchHistory.ok) {
       throw new Error("Failed to fetch data.")
@@ -21,7 +23,8 @@ export const getMatchData = async () => {
     )
 
     const responseMatchDetailsData = await fetch(
-      matchDetailsUrl + matchesHistoryIDsData[0]
+      matchDetailsUrl + matchesHistoryIDsData[0],
+      { cache: "force-cache" }
     )
     const matchDetailsData: MatchDetails = await responseMatchDetailsData.json()
 
