@@ -35,13 +35,22 @@ export default function MatchDetails() {
       <div className={styles.matchHeader}>
         <div className={styles.playedHero}></div>
         <div className={styles.matchResult}>
-          <h4>
-            YOUR TEAM {resultOfMatch?.playerSide} {resultOfMatch?.resultOfMatch}
+          <h4
+            style={{
+              color:
+                resultOfMatch?.resultOfMatch === "WIN" ? "#92A525" : "#C23C2A ",
+            }}
+          >
+            YOUR TEAM {"("}
+            {resultOfMatch?.playerSide}
+            {")"} {resultOfMatch?.resultOfMatch}
           </h4>
           <div className={styles.matchScoreAndTime}>
-            <p>{resultOfMatch?.radiantScore}</p>
-            <p>{resultOfMatch?.matchDuration}</p>
-            <p>{resultOfMatch?.direScore}</p>
+            <p className={styles.radiantScore}>{resultOfMatch?.radiantScore}</p>
+            <p className={styles.matchDuration}>
+              {resultOfMatch?.matchDuration}
+            </p>
+            <p className={styles.direScore}>{resultOfMatch?.direScore}</p>
           </div>
         </div>
       </div>

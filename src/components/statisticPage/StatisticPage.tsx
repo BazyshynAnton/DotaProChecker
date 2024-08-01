@@ -40,5 +40,5 @@ export default function StatisticPage({
     )
   }
 
-  return <>MatchResult</>
+  return <MatchDetails />
 }

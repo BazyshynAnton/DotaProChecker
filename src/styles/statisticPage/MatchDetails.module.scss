@@ -1,0 +1,159 @@
+.matchContainer {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0px 30px;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.matchHeader {
+  margin-top: 6rem;
+
+  margin-bottom: 3rem;
+  width: 100%;
+
+  .playedHero {
+  }
+
+  .matchResult {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .matchScoreAndTime {
+      display: flex;
+      gap: 0.5rem;
+      .radiantScore {
+        color: #92a525;
+      }
+      .matchDuration {
+        color: #fff;
+      }
+      .direScore {
+        color: #c23c2a;
+      }
+    }
+  }
+}
+
+.teamResult {
+  width: 100%;
+  .team {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    .tableContainer {
+      width: 100%;
+
+      table {
+        width: 100%;
+        padding: 10px;
+        background-color: #465a75;
+
+        thead {
+          width: 100%;
+          border: 2px solid #fff;
+          border-collapse: collapse;
+          tr {
+            height: 40px;
+            text-align: left;
+            color: #fff;
+            .helperAfter {
+              position: relative;
+              &::before {
+                content: "/";
+                position: absolute;
+                right: -5px;
+                top: 0px;
+                color: #888888;
+              }
+            }
+          }
+        }
+      }
+
+      tbody {
+        .playerTableRow {
+          width: 100%;
+          height: max-content;
+          text-align: left;
+
+          .playerTableDataCell {
+            width: 170px;
+
+            .playerInTableCellContainer {
+              display: flex;
+              gap: 1rem;
+              align-items: center;
+
+              .playerHeroAndVariant {
+                position: relative;
+
+                span {
+                  // TODO: position on right bottom angle.
+                }
+              }
+
+              .playerNicknameAndRank {
+                display: flex;
+                flex-direction: column;
+              }
+            }
+          }
+
+          .lvlTableDataCell {
+            width: 41px;
+          }
+
+          .killsTableDataCell,
+          .deathsTableDataCell,
+          .assistsTableDataCell {
+            width: 21px;
+          }
+
+          .lasthitsTableDataCell,
+          .deniesTableDataCell {
+            width: 21px;
+          }
+
+          .networthTableDataCell {
+            width: 32px;
+          }
+
+          .gpmTableDataCell,
+          .xpmTableDataCell {
+            width: 25px;
+          }
+
+          .heroDamageTableDataCell,
+          .buildingsDamageTableDataCell,
+          .heroesHealingTableDataCell {
+            width: 32px;
+          }
+
+          .itemsTableDataCell {
+            width: 240px;
+
+            .itemsInTableDataCellContainer {
+              display: flex;
+              flex-direction: column;
+              .mainSlotItems {
+                display: flex;
+              }
+              .backpackItems {
+                display: flex;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
