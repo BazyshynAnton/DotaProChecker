@@ -43,6 +43,7 @@
 
 .teamResult {
   width: 100%;
+  margin-bottom: 5rem;
   .team {
     width: 100%;
     display: flex;
@@ -63,16 +64,41 @@
           border-collapse: collapse;
           tr {
             height: 40px;
-            text-align: left;
             color: #fff;
+
+            th {
+              text-align: right;
+              &:first-child {
+                text-align: left;
+              }
+              &:last-child {
+                text-align: left;
+                padding-left: 10px;
+              }
+
+              .lasthitsTableHeaderCell,
+              .gpmTableHeaderCell {
+                padding-left: 20px;
+              }
+
+              .deniesTableHeaderCell,
+              .xpmTableHeaderCell {
+                text-align: left;
+                padding-left: 6px;
+                padding-right: 10px;
+              }
+            }
+
             .helperAfter {
               position: relative;
+              z-index: 0;
               &::before {
                 content: "/";
                 position: absolute;
-                right: -5px;
-                top: 0px;
-                color: #888888;
+                right: -7px;
+                top: 0;
+                color: #fff;
+                font-weight: 100;
               }
             }
           }
@@ -85,8 +111,13 @@
           height: max-content;
           text-align: left;
 
+          td {
+            text-align: right;
+          }
+
           .playerTableDataCell {
             width: 170px;
+            text-align: left;
 
             .playerInTableCellContainer {
               display: flex;
@@ -112,6 +143,10 @@
             width: 41px;
           }
 
+          .killsTableDataCell {
+            padding-left: 20px;
+          }
+
           .killsTableDataCell,
           .deathsTableDataCell,
           .assistsTableDataCell {
@@ -121,6 +156,25 @@
           .lasthitsTableDataCell,
           .deniesTableDataCell {
             width: 21px;
+          }
+          .lasthitsTableDataCell,
+          .gpmTableDataCell {
+            position: relative;
+            z-index: 0;
+            &::before {
+              content: "/";
+              position: absolute;
+              top: 10px;
+              right: -7px;
+              color: #fff;
+              font-weight: 100;
+            }
+          }
+
+          .deniesTableDataCell,
+          .xpmTableDataCell {
+            text-align: left;
+            padding-left: 6px;
           }
 
           .networthTableDataCell {
@@ -138,17 +192,24 @@
             width: 32px;
           }
 
+          .buildingsDamageTableDataCell,
+          .heroesHealingTableDataCell {
+            padding-left: 10px;
+          }
+
           .itemsTableDataCell {
-            width: 240px;
+            width: 20%;
+            text-align: left;
+            padding-left: 10px;
 
             .itemsInTableDataCellContainer {
               display: flex;
               flex-direction: column;
-              .mainSlotItems {
-                display: flex;
-              }
+              align-items: center;
+              .mainSlotItems,
               .backpackItems {
                 display: flex;
+                gap: 2px;
               }
             }
           }

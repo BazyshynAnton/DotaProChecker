@@ -1,4 +1,11 @@
-import { MatchDetails } from "@/types/staticPage/staticPageTypes"
+import {
+  heroAbilities,
+  HeroList,
+  MatchDetails,
+  Player,
+} from "@/types/staticPage/staticPageTypes"
+import hero_abilities from "../../../public/data/heroAbilities/hero_abilities.json"
+import { log } from "console"
 
 export const getMatchResult = (userID: number, matchDetails: MatchDetails) => {
   const players = matchDetails.players
@@ -33,3 +40,23 @@ export const filterPlayersByTeam = (matchDetails: MatchDetails) => {
 
   return { playersRadiant, playersDire }
 }
+
+//TODO: get icons.
+// export const findAppropriateHero = (player: Player, heroList: HeroList[]) => {
+//   const heroAbilities: heroAbilities[] = hero_abilities
+
+//   let res = {
+//     heroLocalizedName: "",
+//     heroVariant: "",
+//   }
+
+//   for (let i = 0; i < heroList.length; ++i) {
+//     const hero = heroList[i]
+
+//     if (player.hero_id === hero.id) {
+//         res.heroLocalizedName = hero.localized_name
+//     }
+//   }
+
+//   for
+// }

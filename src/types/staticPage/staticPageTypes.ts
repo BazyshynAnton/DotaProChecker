@@ -28,7 +28,7 @@ export interface Match {
   }
 }
 
-export type Players = {
+export type Player = {
   account_id: number
   player_slot: number
   team_number: number
@@ -119,7 +119,7 @@ export type Players = {
 }
 
 export interface MatchDetails {
-  players: Players[]
+  players: Player[]
 
   radiant_win: boolean
   duration: number
@@ -159,8 +159,33 @@ export interface MatchDetails {
   region: number
 }
 
+export interface HeroList {
+  id: number
+  name: string
+  localized_name: string
+}
+
+export interface heroAbilities {
+  [key: string]: {
+    abilities: string[]
+    talents: {
+      name: string
+      level: number
+    }[]
+    facets: {
+      name: string
+      icon: string
+      color: string
+      gradient_id: number
+      title: string
+      description: string
+    }[]
+  }
+}
+
 export interface DotaMatchesStatisticData {
   matchesHistoryData: Match
   matchDetailsData: MatchDetails
   matchesHistoryIDsData: number[]
+  heroListData: HeroList[]
 }

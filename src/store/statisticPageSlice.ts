@@ -1,16 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit"
-import type { Match, MatchDetails } from "@/types/staticPage/staticPageTypes"
+import type { InitialStatisticState } from "@/types/redux/statisticPageSliceTypes"
 
-interface InitialState {
-  matches: Match | null
-  matchHistoryID: number | null
-  matchDetails: MatchDetails | null
-}
-
-const initialState: InitialState = {
+const initialState: InitialStatisticState = {
   matches: null,
   matchHistoryID: null,
   matchDetails: null,
+  heroList: null,
 }
 
 export const statisticPageSlice = createSlice({
@@ -25,12 +20,18 @@ export const statisticPageSlice = createSlice({
     },
     setMatchDetails: (state, action) => {
       state.matchDetails = action.payload
-      console.log("[STATE ALL MATCHES DETAILS]: ", state.matchDetails)
+    },
+    setHeroList: (state, action) => {
+      state.heroList = action.payload
     },
   },
 })
 
-export const { setMatchesHistory, setMatchHistoryID, setMatchDetails } =
-  statisticPageSlice.actions
+export const {
+  setMatchesHistory,
+  setMatchHistoryID,
+  setMatchDetails,
+  setHeroList,
+} = statisticPageSlice.actions
 
 export default statisticPageSlice.reducer

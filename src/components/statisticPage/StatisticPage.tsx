@@ -1,7 +1,10 @@
 "use client"
+import MatchDetails from "./MatchDetails"
+
 import { useEffect } from "@/components/shared/reactImports"
 import { useDispatch, useSelector } from "@/components/shared/reduxImports"
 import {
+  setHeroList,
   setMatchDetails,
   setMatchesHistory,
   setMatchHistoryID,
@@ -9,7 +12,6 @@ import {
 import { AppDispatch, RootState } from "@/store/store"
 
 import type { DotaMatchesStatisticData } from "@/types/staticPage/staticPageTypes"
-import MatchDetails from "./MatchDetails"
 
 export default function StatisticPage({
   matchesStatisticData,
@@ -25,11 +27,13 @@ export default function StatisticPage({
     dispatch(setMatchDetails(matchesStatisticData.matchDetailsData))
     dispatch(setMatchesHistory(matchesStatisticData.matchesHistoryData))
     dispatch(setMatchHistoryID(matchesStatisticData.matchesHistoryIDsData[0]))
+    dispatch(setHeroList(matchesStatisticData.heroListData))
   }, [
     dispatch,
     matchesStatisticData.matchDetailsData,
     matchesStatisticData.matchesHistoryData,
     matchesStatisticData.matchesHistoryIDsData,
+    matchesStatisticData.heroListData,
   ])
 
   if (!matchDetails) {

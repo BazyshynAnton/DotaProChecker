@@ -1,4 +1,4 @@
-import { Players } from "./staticPageTypes"
+import { Player } from "./staticPageTypes"
 
 export interface MatchResult {
   resultOfMatch: string
@@ -9,6 +9,6 @@ export interface MatchResult {
 }
 
 export interface PlayersByTeam {
-  playersRadiant: Players[] | never[]
-  playersDire: Players[] | never[]
+  playersRadiant: Player[] | never[]
+  playersDire: Player[] | never[]
 }

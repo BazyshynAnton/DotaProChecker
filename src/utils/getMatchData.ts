@@ -1,10 +1,16 @@
-import type { Match, MatchDetails } from "@/types/staticPage/staticPageTypes"
+import type {
+  HeroList,
+  Match,
+  MatchDetails,
+} from "@/types/staticPage/staticPageTypes"
 
 export const getMatchData = async () => {
   let matchHistoryUrl =
     "https://api.steampowered.com/IDOTA2Match_570/GetMatchHistory/V001/?key=3F8B2C146EB3A63816DE36C34A2F95E0&account_id=380571223"
 
   const matchDetailsUrl = "https://api.opendota.com/api/matches/"
+
+  const heroListUrl = "https://api.opendota.com/api/heroes"
 
   try {
     const responseMatchHistory = await fetch(matchHistoryUrl, {
@@ -28,10 +34,14 @@ export const getMatchData = async () => {
     )
     const matchDetailsData: MatchDetails = await responseMatchDetailsData.json()
 
+    const responseHeroList = await fetch(heroListUrl, { cache: "force-cache" })
+    const heroListData: HeroList[] = await responseHeroList.json()
+
     const matchesStatisticData = {
       matchesHistoryData,
       matchDetailsData,
       matchesHistoryIDsData,
+      heroListData,
     }
 
     return matchesStatisticData

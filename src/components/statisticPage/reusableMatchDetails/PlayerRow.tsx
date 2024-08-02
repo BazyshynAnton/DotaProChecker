@@ -1,8 +1,8 @@
-import { Players } from "@/types/staticPage/staticPageTypes"
+import { Player } from "@/types/staticPage/staticPageTypes"
 
 import styles from "@/styles/statisticPage/MatchDetails.module.scss"
 
-export default function PlayerRow({ playersTeam }: { playersTeam: Players[] }) {
+export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
   return (
     <>
       {playersTeam.map((player) => (

@@ -1,4 +1,4 @@
-import { Players } from "@/types/staticPage/staticPageTypes"
+import { Player } from "@/types/staticPage/staticPageTypes"
 import PlayerRow from "./PlayerRow"
 
 import styles from "@/styles/statisticPage/MatchDetails.module.scss"
@@ -6,7 +6,7 @@ import styles from "@/styles/statisticPage/MatchDetails.module.scss"
 export default function PlayersTableDetails({
   playersTeam,
 }: {
-  playersTeam: Players[]
+  playersTeam: Player[]
 }) {
   return (
     <div className={styles.teamResult}>
@@ -36,14 +36,33 @@ export default function PlayersTableDetails({
 function TableHeaderCell({ str, title }: { str: string; title: string }) {
   return (
     <th>
-      <div>
+      {str === "LH" ? (
         <div
           title={title}
-          className={str === "LH" || str === "GPM" ? styles.helperAfter : ""}
+          className={`${styles.lasthitsTableHeaderCell} ${styles.helperAfter}`}
         >
           {str}
         </div>
-      </div>
+      ) : str === "DN" ? (
+        <div title={title} className={styles.deniesTableHeaderCell}>
+          {str}
+        </div>
+      ) : str === "GPM" ? (
+        <div
+          title={title}
+          className={`${styles.gpmTableHeaderCell} ${styles.helperAfter}`}
+        >
+          {str}
+        </div>
+      ) : str === "XPM" ? (
+        <div title={title} className={styles.xpmTableHeaderCell}>
+          {str}
+        </div>
+      ) : (
+        <div title={title} className={styles.otherTableHeaderCell}>
+          {str}
+        </div>
+      )}
     </th>
   )
 }
