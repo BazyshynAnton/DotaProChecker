@@ -12,3 +12,12 @@ export interface PlayersByTeam {
   playersRadiant: Player[] | never[]
   playersDire: Player[] | never[]
 }
+
+export interface DetailsAboutHero {
+  heroLocalizedName: string
+  heroVariant: {
+    icon: string
+    title: string
+    description: string
+  }
+}

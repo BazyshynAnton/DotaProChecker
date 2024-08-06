@@ -165,7 +165,7 @@ export interface HeroList {
   localized_name: string
 }
 
-export interface heroAbilities {
+export interface HeroAbilities {
   [key: string]: {
     abilities: string[]
     talents: {

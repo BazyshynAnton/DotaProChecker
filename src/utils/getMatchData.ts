@@ -1,4 +1,5 @@
 import type {
+  HeroAbilities,
   HeroList,
   Match,
   MatchDetails,

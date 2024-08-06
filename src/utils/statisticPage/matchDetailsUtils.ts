@@ -1,11 +1,13 @@
-import {
-  heroAbilities,
+import hero_abilities from "../../../public/data/heroAbilities/hero_abilities.json"
+
+import type {
+  HeroAbilities,
   HeroList,
   MatchDetails,
   Player,
 } from "@/types/staticPage/staticPageTypes"
-import hero_abilities from "../../../public/data/heroAbilities/hero_abilities.json"
-import { log } from "console"
+
+import type { DetailsAboutHero } from "@/types/staticPage/matchDetailsTypes"
 
 export const getMatchResult = (userID: number, matchDetails: MatchDetails) => {
   const players = matchDetails.players
@@ -41,22 +43,47 @@ export const filterPlayersByTeam = (matchDetails: MatchDetails) => {
   return { playersRadiant, playersDire }
 }
 
-//TODO: get icons.
-// export const findAppropriateHero = (player: Player, heroList: HeroList[]) => {
-//   const heroAbilities: heroAbilities[] = hero_abilities
+export const findAppropriateHero = (
+  player: Player,
+  heroList: HeroList[]
+): DetailsAboutHero => {
+  const heroAbilities: HeroAbilities = hero_abilities
 
-//   let res = {
-//     heroLocalizedName: "",
-//     heroVariant: "",
-//   }
+  let res: DetailsAboutHero = {
+    heroLocalizedName: "",
+    heroVariant: {
+      icon: "",
+      title: "",
+      description: "",
+    },
+  }
 
-//   for (let i = 0; i < heroList.length; ++i) {
-//     const hero = heroList[i]
+  let currentHero = ""
 
-//     if (player.hero_id === hero.id) {
-//         res.heroLocalizedName = hero.localized_name
-//     }
-//   }
+  for (let i = 0; i < heroList.length; ++i) {
+    const hero = heroList[i]
 
-//   for
-// }
+    if (player.hero_id === hero.id) {
+      res.heroLocalizedName = hero.localized_name
+      currentHero = hero.name
+    }
+  }
+
+  for (const [heroID, value] of Object.entries(heroAbilities)) {
+    if (currentHero === heroID) {
+      if (player.hero_variant === 1) {
+        res.heroVariant.icon = value.facets[0].icon
+        res.heroVariant.title = value.facets[0].title
+        res.heroVariant.description = value.facets[0].description
+      }
+
+      if (player.hero_variant === 2) {
+        res.heroVariant.icon = value.facets[1].icon
+        res.heroVariant.title = value.facets[1].title
+        res.heroVariant.description = value.facets[1].description
+      }
+    }
+  }
+
+  return res
+}
