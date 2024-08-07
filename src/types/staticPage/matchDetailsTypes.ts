@@ -17,7 +17,9 @@ export interface DetailsAboutHero {
   heroLocalizedName: string
   heroVariant: {
     icon: string
+    color: string
     title: string
     description: string
   }
+  playerColor: string
 }

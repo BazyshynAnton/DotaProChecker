@@ -28,23 +28,33 @@ export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
           heroList
         )
 
-        console.log(detailsAboutHero.heroLocalizedName)
-
         return (
           <tr key={player.account_id} className={styles.playerTableRow}>
             <td className={styles.playerTableDataCell}>
               <div className={styles.playerInTableCellContainer}>
                 <div className={styles.playerHeroAndVariant}>
-                  <Image
-                    src={`/pictures/dotaHeroIcon/${detailsAboutHero.heroLocalizedName}.png`}
-                    alt={""}
-                    width={256}
-                    height={144}
-                  />
-                  <span>
+                  <div
+                    className={styles.heroIconContainer}
+                    style={{
+                      borderRight: `2px solid ${detailsAboutHero.playerColor}`,
+                    }}
+                  >
+                    {/* TODO: border right in className={styles.heroIconContainer} */}
+                    <Image
+                      src={`/pictures/dotaHeroIcon/${detailsAboutHero.heroLocalizedName}.png`}
+                      alt={detailsAboutHero.heroLocalizedName}
+                      width={256}
+                      height={144}
+                    />
+                  </div>
+                  <span
+                    style={{
+                      background: `${detailsAboutHero.heroVariant.color}`,
+                    }}
+                  >
                     <Image
                       src={`/pictures/dotaHeroFacetIcon/${detailsAboutHero.heroVariant.icon}.png`}
-                      alt={""}
+                      alt={detailsAboutHero.heroVariant.icon}
                       width={72}
                       height={72}
                     />
