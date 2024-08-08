@@ -6,6 +6,7 @@ const initialState: InitialStatisticState = {
   matchHistoryID: null,
   matchDetails: null,
   heroList: null,
+  playersProfiles: null,
 }
 
 export const statisticPageSlice = createSlice({
@@ -24,6 +25,9 @@ export const statisticPageSlice = createSlice({
     setHeroList: (state, action) => {
       state.heroList = action.payload
     },
+    setPlayersProfiles: (state, action) => {
+      state.playersProfiles = action.payload
+    },
   },
 })
 
@@ -32,6 +36,7 @@ export const {
   setMatchHistoryID,
   setMatchDetails,
   setHeroList,
+  setPlayersProfiles,
 } = statisticPageSlice.actions
 
 export default statisticPageSlice.reducer

@@ -1,22 +1,29 @@
+import { Image } from "@/components/shared/nextjsImports"
+
 import { useSelector } from "@/components/shared/reduxImports"
-import { findAppropriateHero } from "@/utils/statisticPage/matchDetailsUtils"
+import {
+  findAppropriateHero,
+  findAppropriatePlayer,
+} from "@/utils/statisticPage/matchDetailsUtils"
 
 import type { Player } from "@/types/staticPage/staticPageTypes"
 import type { RootState } from "@/store/store"
-import type { DetailsAboutHero } from "@/types/staticPage/matchDetailsTypes"
+import type {
+  DetailsAboutHero,
+  DetailsAboutPlayer,
+} from "@/types/staticPage/matchDetailsTypes"
 
 import styles from "@/styles/statisticPage/MatchDetails.module.scss"
-import Image from "next/image"
 
 export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
-  const { heroList } = useSelector(
+  const { heroList, playersProfiles } = useSelector(
     (store: RootState) => store.statisticPageSlice
   )
 
-  if (heroList === null)
+  if (heroList === null || playersProfiles === null)
     return (
       <div>
-        Cannot find the {'"'}list of heroes{'"'}
+        Cannot find the {'"'}list of heroes{'"'} or {'"'}players profiles{'"'}
       </div>
     )
 
@@ -28,43 +35,91 @@ export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
           heroList
         )
 
+        const detailsAboutPlayer: DetailsAboutPlayer = findAppropriatePlayer(
+          player,
+          playersProfiles
+        )
+
         return (
-          <tr key={player.account_id} className={styles.playerTableRow}>
+          <tr key={player.hero_id} className={styles.playerTableRow}>
             <td className={styles.playerTableDataCell}>
               <div className={styles.playerInTableCellContainer}>
-                <div className={styles.playerHeroAndVariant}>
-                  <div
-                    className={styles.heroIconContainer}
-                    style={{
-                      borderRight: `2px solid ${detailsAboutHero.playerColor}`,
-                    }}
-                  >
-                    {/* TODO: border right in className={styles.heroIconContainer} */}
-                    <Image
-                      src={`/pictures/dotaHeroIcon/${detailsAboutHero.heroLocalizedName}.png`}
-                      alt={detailsAboutHero.heroLocalizedName}
-                      width={256}
-                      height={144}
-                    />
+                <div
+                  style={{ display: "flex", alignItems: "center", gap: "1rem" }}
+                >
+                  <div className={styles.playerHeroAndVariant}>
+                    <div
+                      className={styles.heroIconContainer}
+                      style={{
+                        borderRight: `2px solid ${detailsAboutHero.playerColor}`,
+                      }}
+                    >
+                      <Image
+                        src={`/pictures/dotaHeroIcon/${detailsAboutHero.heroLocalizedName}.png`}
+                        alt={detailsAboutHero.heroLocalizedName}
+                        width={256}
+                        height={144}
+                      />
+                    </div>
+                    <span
+                      style={{
+                        background: `${detailsAboutHero.heroVariant.color}`,
+                      }}
+                    >
+                      <Image
+                        src={`/pictures/dotaHeroFacetIcon/${detailsAboutHero.heroVariant.icon}.png`}
+                        alt={detailsAboutHero.heroVariant.icon}
+                        width={72}
+                        height={72}
+                      />
+                    </span>
                   </div>
-                  <span
-                    style={{
-                      background: `${detailsAboutHero.heroVariant.color}`,
-                    }}
-                  >
-                    <Image
-                      src={`/pictures/dotaHeroFacetIcon/${detailsAboutHero.heroVariant.icon}.png`}
-                      alt={detailsAboutHero.heroVariant.icon}
-                      width={72}
-                      height={72}
-                    />
-                  </span>
+                  <div className={styles.playerNicknameAndRank}>
+                    <div
+                      style={{
+                        color: `${
+                          player.team_number === 0 ? "#92A525" : "#C23C2A"
+                        }`,
+                      }}
+                    >
+                      {player.personaname ? player.personaname : "Anonymous"}
+                    </div>
+                    <div>
+                      {player.personaname ? player.rank_tier : "Unknown"}
+                    </div>
+                  </div>
                 </div>
-                <div className={styles.playerNicknameAndRank}>
-                  <div>
-                    {player.personaname ? player.personaname : "Anonymous"}
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <div style={{ width: "40px", height: "40px" }}>
+                    <Image
+                      src={
+                        detailsAboutPlayer.rank_tier_info !== null
+                          ? `/pictures/dotaPlayerRanks/${detailsAboutPlayer.rank_tier_info}.png`
+                          : "/pictures/dotaPlayerRanks/00.png"
+                      }
+                      alt={""}
+                      width={40}
+                      height={40}
+                    />
                   </div>
-                  <div>{player.personaname ? player.rank_tier : "Unknown"}</div>
+                  <div style={{ width: "24px", height: "24px" }}>
+                    <Image
+                      src={
+                        detailsAboutPlayer.profileInfo.avatar !== ""
+                          ? detailsAboutPlayer.profileInfo.avatar
+                          : "/pictures/dotaPlayerIcon/anonymous.jpg"
+                      }
+                      alt={""}
+                      width={24}
+                      height={24}
+                    />
+                  </div>
                 </div>
               </div>
             </td>

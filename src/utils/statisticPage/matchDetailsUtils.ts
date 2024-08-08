@@ -5,8 +5,12 @@ import type {
   HeroList,
   MatchDetails,
   Player,
+  PlayerProfile,
 } from "@/types/staticPage/staticPageTypes"
-import type { DetailsAboutHero } from "@/types/staticPage/matchDetailsTypes"
+import type {
+  DetailsAboutHero,
+  DetailsAboutPlayer,
+} from "@/types/staticPage/matchDetailsTypes"
 
 // GET DETAILS ABOUT MATCH RESULT
 export const getMatchResult = (userID: number, matchDetails: MatchDetails) => {
@@ -127,22 +131,77 @@ export const findAppropriateHero = (
   // GET INFORMATION ABOUT HERO FACET >
   for (const [heroID, value] of Object.entries(heroAbilities)) {
     if (currentHero === heroID) {
-      if (player.hero_variant === 1) {
-        res.heroVariant.icon = value.facets[0].icon
-        res.heroVariant.color = value.facets[0].color
-        res.heroVariant.title = value.facets[0].title
-        res.heroVariant.description = value.facets[0].description
-      }
+      switch (player.hero_variant) {
+        case 1:
+          res.heroVariant.icon = value.facets[0].icon
+          res.heroVariant.color = value.facets[0].color
+          res.heroVariant.title = value.facets[0].title
+          res.heroVariant.description = value.facets[0].description
+          break
 
-      if (player.hero_variant === 2) {
-        res.heroVariant.icon = value.facets[1].icon
-        res.heroVariant.color = value.facets[1].color
-        res.heroVariant.title = value.facets[1].title
-        res.heroVariant.description = value.facets[1].description
+        case 2:
+          res.heroVariant.icon = value.facets[1].icon
+          res.heroVariant.color = value.facets[1].color
+          res.heroVariant.title = value.facets[1].title
+          res.heroVariant.description = value.facets[1].description
+          break
+
+        case 3:
+          res.heroVariant.icon = value.facets[2].icon
+          res.heroVariant.color = value.facets[2].color
+          res.heroVariant.title = value.facets[2].title
+          res.heroVariant.description = value.facets[2].description
+          break
+
+        case 4:
+          res.heroVariant.icon = value.facets[3].icon
+          res.heroVariant.color = value.facets[3].color
+          res.heroVariant.title = value.facets[3].title
+          res.heroVariant.description = value.facets[3].description
+          break
+
+        case 5:
+          res.heroVariant.icon = value.facets[4].icon
+          res.heroVariant.color = value.facets[4].color
+          res.heroVariant.title = value.facets[4].title
+          res.heroVariant.description = value.facets[4].description
+          break
+
+        default:
+          break
       }
     }
   }
   // < GET INFORMATION ABOUT HERO FACET
+
+  return res
+}
+
+export function findAppropriatePlayer(
+  player: Player,
+  playersProfiles: PlayerProfile[]
+): DetailsAboutPlayer {
+  const res: DetailsAboutPlayer = {
+    profileInfo: {
+      avatar: "",
+      profileurl: "",
+    },
+    rank_tier_info: null,
+    leaderboard_rank_info: null,
+  }
+
+  if ("account_id" in player) {
+    playersProfiles.forEach((playerProfile) => {
+      if ("profile" in playerProfile) {
+        if (player.account_id === playerProfile.profile.account_id) {
+          res.profileInfo.avatar = playerProfile.profile.avatar
+          res.profileInfo.profileurl = playerProfile.profile.profileurl
+          res.leaderboard_rank_info = playerProfile.leaderboard_rank
+          res.rank_tier_info = playerProfile.rank_tier
+        }
+      }
+    })
+  }
 
   return res
 }

@@ -23,3 +23,12 @@ export interface DetailsAboutHero {
   }
   playerColor: string
 }
+
+export interface DetailsAboutPlayer {
+  profileInfo: {
+    avatar: string
+    profileurl: string
+  }
+  rank_tier_info: number | null
+  leaderboard_rank_info: number | null
+}

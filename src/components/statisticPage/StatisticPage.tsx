@@ -8,6 +8,7 @@ import {
   setMatchDetails,
   setMatchesHistory,
   setMatchHistoryID,
+  setPlayersProfiles,
 } from "@/store/statisticPageSlice"
 import { AppDispatch, RootState } from "@/store/store"
 
@@ -28,12 +29,14 @@ export default function StatisticPage({
     dispatch(setMatchesHistory(matchesStatisticData.matchesHistoryData))
     dispatch(setMatchHistoryID(matchesStatisticData.matchesHistoryIDsData[0]))
     dispatch(setHeroList(matchesStatisticData.heroListData))
+    dispatch(setPlayersProfiles(matchesStatisticData.playersProfilesData))
   }, [
     dispatch,
     matchesStatisticData.matchDetailsData,
     matchesStatisticData.matchesHistoryData,
     matchesStatisticData.matchesHistoryIDsData,
     matchesStatisticData.heroListData,
+    matchesStatisticData.playersProfilesData,
   ])
 
   if (!matchDetails) {

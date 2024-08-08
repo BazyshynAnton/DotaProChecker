@@ -183,9 +183,23 @@ export interface HeroAbilities {
   }
 }
 
+export interface PlayerProfile {
+  error: any
+  profile: {
+    account_id: number
+    avatar: string
+    avatarmedium: string
+    avatarfull: string
+    profileurl: string
+  }
+  rank_tier: number | null
+  leaderboard_rank: number | null
+}
+
 export interface DotaMatchesStatisticData {
   matchesHistoryData: Match
   matchDetailsData: MatchDetails
   matchesHistoryIDsData: number[]
   heroListData: HeroList[]
+  playersProfilesData: PlayerProfile[]
 }
