@@ -23,7 +23,7 @@ export default function MatchDetails() {
   const [playersByTeam, setPlayersByTeam] = useState<PlayersByTeam>()
   useEffect(() => {
     if (matchDetails) {
-      setResultOfMatch(getMatchResult(380571223, matchDetails))
+      setResultOfMatch(getMatchResult(386383012, matchDetails))
       setPlayersByTeam(filterPlayersByTeam(matchDetails))
     }
   }, [matchDetails])

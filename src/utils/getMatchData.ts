@@ -7,7 +7,7 @@ import type {
 
 export const getMatchData = async () => {
   const matchHistoryUrl =
-    "https://api.steampowered.com/IDOTA2Match_570/GetMatchHistory/V001/?key=3F8B2C146EB3A63816DE36C34A2F95E0&account_id=380571223"
+    "https://api.steampowered.com/IDOTA2Match_570/GetMatchHistory/V001/?key=3F8B2C146EB3A63816DE36C34A2F95E0&account_id=386383012"
 
   const matchDetailsUrl = "https://api.opendota.com/api/matches/"
   const heroListUrl = "https://api.opendota.com/api/heroes"
@@ -43,7 +43,6 @@ export const getMatchData = async () => {
       playersAccountIDs.push(player.account_id)
     )
 
-    // Fetch player profiles using all IDs from playersAccountIDs
     const playerProfilesPromises = playersAccountIDs.map((accountID) =>
       fetch(`${playerProfileUrl}${accountID}`, { cache: "force-cache" })
     )

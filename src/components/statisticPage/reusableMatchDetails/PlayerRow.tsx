@@ -59,7 +59,11 @@ export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
                         alt={detailsAboutHero.heroLocalizedName}
                         width={256}
                         height={144}
+                        quality={100}
                       />
+                    </div>
+                    <div className={styles.playerLevelContainer}>
+                      {player.level}
                     </div>
                     <span
                       style={{
@@ -74,18 +78,15 @@ export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
                       />
                     </span>
                   </div>
-                  <div className={styles.playerNicknameAndRank}>
+                  <div className={styles.playerNickname}>
                     <div
                       style={{
                         color: `${
-                          player.team_number === 0 ? "#92A525" : "#C23C2A"
+                          player.team_number === 0 ? "#2eb872" : "#fa4659"
                         }`,
                       }}
                     >
                       {player.personaname ? player.personaname : "Anonymous"}
-                    </div>
-                    <div>
-                      {player.personaname ? player.rank_tier : "Unknown"}
                     </div>
                   </div>
                 </div>
@@ -94,18 +95,30 @@ export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "space-between",
+                    position: "relative",
+                    gap: "4px",
+                    zIndex: 6,
                   }}
                 >
                   <div style={{ width: "40px", height: "40px" }}>
                     <Image
                       src={
-                        detailsAboutPlayer.rank_tier_info !== null
-                          ? `/pictures/dotaPlayerRanks/${detailsAboutPlayer.rank_tier_info}.png`
-                          : "/pictures/dotaPlayerRanks/00.png"
+                        detailsAboutPlayer.leaderboard_rank_info !== null &&
+                        detailsAboutPlayer.leaderboard_rank_info > 100
+                          ? `/pictures/dotaPlayerRanksIcon/${detailsAboutPlayer.rank_tier_info}.png`
+                          : detailsAboutPlayer.leaderboard_rank_info !== null &&
+                            detailsAboutPlayer.leaderboard_rank_info < 10
+                          ? `/pictures/dotaPlayerRanksIcon/${
+                              detailsAboutPlayer.rank_tier_info + 1
+                            }.png`
+                          : detailsAboutPlayer.rank_tier_info !== null
+                          ? `/pictures/dotaPlayerRanksIcon/${detailsAboutPlayer.rank_tier_info}.png`
+                          : "/pictures/dotaPlayerRanksIcon/00.png"
                       }
-                      alt={""}
+                      alt={"Player's Rank"}
                       width={40}
                       height={40}
+                      quality={100}
                     />
                   </div>
                   <div style={{ width: "24px", height: "24px" }}>
@@ -115,15 +128,16 @@ export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
                           ? detailsAboutPlayer.profileInfo.avatar
                           : "/pictures/dotaPlayerIcon/anonymous.jpg"
                       }
-                      alt={""}
+                      alt={"Player's Avatar"}
                       width={24}
                       height={24}
+                      quality={100}
+                      unoptimized
                     />
                   </div>
                 </div>
               </div>
             </td>
-            <td className={styles.lvlTableDataCell}>{player.level}</td>
             <td className={styles.killsTableDataCell}>{player.kills}</td>
             <td className={styles.deathsTableDataCell}>{player.deaths}</td>
             <td className={styles.assistsTableDataCell}>{player.assists}</td>

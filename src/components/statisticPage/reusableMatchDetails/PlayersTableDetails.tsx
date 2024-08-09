@@ -36,7 +36,19 @@ export default function PlayersTableDetails({
 function TableHeaderCell({ str, title }: { str: string; title: string }) {
   return (
     <th>
-      {str === "LH" ? (
+      {str === "K" ? (
+        <div title={title} className={`${styles.killsTableHeaderCell} `}>
+          {str}
+        </div>
+      ) : str === "D" ? (
+        <div title={title} className={`${styles.deathsTableHeaderCell} `}>
+          {str}
+        </div>
+      ) : str === "A" ? (
+        <div title={title} className={`${styles.assistsTableHeaderCell} `}>
+          {str}
+        </div>
+      ) : str === "LH" ? (
         <div
           title={title}
           className={`${styles.lasthitsTableHeaderCell} ${styles.helperAfter}`}
@@ -71,7 +83,6 @@ function HeaderCells() {
   return (
     <>
       <TableHeaderCell str={"PLAYER"} title={""} />
-      <TableHeaderCell str={"LVL"} title={"Hero Level"} />
       <TableHeaderCell str={"K"} title={"Hero Kills"} />
       <TableHeaderCell str={"D"} title={"Hero Deaths"} />
       <TableHeaderCell str={"A"} title={"Hero Assists"} />

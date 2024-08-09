@@ -2,6 +2,7 @@
 const nextConfig = {
   images: {
     domains: ["avatars.steamstatic.com"],
+    unoptimized: true,
   },
 }
 
