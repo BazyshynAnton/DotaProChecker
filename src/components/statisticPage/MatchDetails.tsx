@@ -1,9 +1,6 @@
+import { MatchDetailsUtility } from "@/utils/statisticPage/MatchDetailsUtility"
 import { useEffect, useState } from "@/components/shared/reactImports"
 import { useSelector } from "@/components/shared/reduxImports"
-import {
-  filterPlayersByTeam,
-  getMatchResult,
-} from "@/utils/statisticPage/matchDetailsUtils"
 
 import type { RootState } from "@/store/store"
 import type {
@@ -23,8 +20,9 @@ export default function MatchDetails() {
   const [playersByTeam, setPlayersByTeam] = useState<PlayersByTeam>()
   useEffect(() => {
     if (matchDetails) {
-      setResultOfMatch(getMatchResult(386383012, matchDetails))
-      setPlayersByTeam(filterPlayersByTeam(matchDetails))
+      const mdUtility = new MatchDetailsUtility()
+      setResultOfMatch(mdUtility.getMatchResult(386383012, matchDetails))
+      setPlayersByTeam(mdUtility.filterPlayersByTeam(matchDetails))
     }
   }, [matchDetails])
 
@@ -38,7 +36,7 @@ export default function MatchDetails() {
           <h4
             style={{
               color:
-                resultOfMatch?.resultOfMatch === "WIN" ? "#92A525" : "#C23C2A ",
+                resultOfMatch?.playerSide === "RADIANT" ? "#2eb872" : "#fa4659",
             }}
           >
             YOUR TEAM {"("}

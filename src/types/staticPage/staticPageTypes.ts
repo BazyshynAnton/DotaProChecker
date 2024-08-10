@@ -166,21 +166,23 @@ export interface HeroList {
 }
 
 export interface HeroAbilities {
-  [key: string]: {
-    abilities: string[]
-    talents: {
-      name: string
-      level: number
-    }[]
-    facets: {
-      name: string
-      icon: string
-      color: string
-      gradient_id: number
-      title: string
-      description: string
-    }[]
-  }
+  [key: string]: HeroAbilitiesValue
+}
+
+export interface HeroAbilitiesValue {
+  abilities: string[]
+  talents: {
+    name: string
+    level: number
+  }[]
+  facets: {
+    name: string
+    icon: string
+    color: string
+    gradient_id: number
+    title: string
+    description: string
+  }[]
 }
 
 export interface PlayerProfile {

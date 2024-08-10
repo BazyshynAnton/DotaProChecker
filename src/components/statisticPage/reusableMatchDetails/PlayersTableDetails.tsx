@@ -12,7 +12,7 @@ export default function PlayersTableDetails({
     <div className={styles.teamResult}>
       <section className={styles.team}>
         <header
-          style={{ color: playersTeam[0].isRadiant ? "#92a525" : "#c23c2a" }}
+          style={{ color: playersTeam[0].isRadiant ? "#2eb872" : "#fa4659" }}
         >
           THE {playersTeam[0].isRadiant ? "RADIANT" : "DIRE"}
         </header>

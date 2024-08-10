@@ -1,4 +1,9 @@
-import { Player } from "./staticPageTypes"
+import {
+  HeroList,
+  MatchDetails,
+  Player,
+  PlayerProfile,
+} from "./staticPageTypes"
 
 export interface MatchResult {
   resultOfMatch: string
@@ -13,22 +18,34 @@ export interface PlayersByTeam {
   playersDire: Player[] | never[]
 }
 
-export interface DetailsAboutHero {
-  heroLocalizedName: string
-  heroVariant: {
-    icon: string
-    color: string
-    title: string
-    description: string
+export interface PlayerColors {
+  radiant: {
+    team_number: number
+
+    colors: {
+      "0": string
+      "1": string
+      "2": string
+      "3": string
+      "4": string
+    }
   }
-  playerColor: string
+
+  dire: {
+    team_number: number
+
+    colors: {
+      "0": string
+      "1": string
+      "2": string
+      "3": string
+      "4": string
+    }
+  }
 }
 
-export interface DetailsAboutPlayer {
-  profileInfo: {
-    avatar: string
-    profileurl: string
-  }
-  rank_tier_info: number | null
-  leaderboard_rank_info: number | null
+export interface MDUtility {
+  getMatchResult(userID: number, matchDetails: MatchDetails): MatchResult
+
+  filterPlayersByTeam(matchDetails: MatchDetails): PlayersByTeam
 }

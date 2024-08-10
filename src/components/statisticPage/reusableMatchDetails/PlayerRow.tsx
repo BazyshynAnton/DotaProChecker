@@ -1,19 +1,15 @@
+import { PlayerRowDetailsUtility } from "@/utils/statisticPage/PlayerRowDetailsUtility"
 import { Image } from "@/components/shared/nextjsImports"
 
 import { useSelector } from "@/components/shared/reduxImports"
-import {
-  findAppropriateHero,
-  findAppropriatePlayer,
-} from "@/utils/statisticPage/matchDetailsUtils"
-
 import type { Player } from "@/types/staticPage/staticPageTypes"
 import type { RootState } from "@/store/store"
-import type {
-  DetailsAboutHero,
-  DetailsAboutPlayer,
-} from "@/types/staticPage/matchDetailsTypes"
 
 import styles from "@/styles/statisticPage/MatchDetails.module.scss"
+import {
+  DetailsAboutHero,
+  DetailsAboutPlayer,
+} from "@/types/staticPage/playerRowDetailsTypes"
 
 export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
   const { heroList, playersProfiles } = useSelector(
@@ -30,15 +26,12 @@ export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
   return (
     <>
       {playersTeam.map((player) => {
-        const detailsAboutHero: DetailsAboutHero = findAppropriateHero(
-          player,
-          heroList
-        )
+        const rdUtility = new PlayerRowDetailsUtility()
+        const detailsAboutHero: DetailsAboutHero =
+          rdUtility.findAppropriateHero(player, heroList)
 
-        const detailsAboutPlayer: DetailsAboutPlayer = findAppropriatePlayer(
-          player,
-          playersProfiles
-        )
+        const detailsAboutPlayer: DetailsAboutPlayer =
+          rdUtility.findAppropriatePlayer(player, playersProfiles)
 
         return (
           <tr key={player.hero_id} className={styles.playerTableRow}>
@@ -102,19 +95,7 @@ export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
                 >
                   <div style={{ width: "40px", height: "40px" }}>
                     <Image
-                      src={
-                        detailsAboutPlayer.leaderboard_rank_info !== null &&
-                        detailsAboutPlayer.leaderboard_rank_info > 100
-                          ? `/pictures/dotaPlayerRanksIcon/${detailsAboutPlayer.rank_tier_info}.png`
-                          : detailsAboutPlayer.leaderboard_rank_info !== null &&
-                            detailsAboutPlayer.leaderboard_rank_info < 10
-                          ? `/pictures/dotaPlayerRanksIcon/${
-                              detailsAboutPlayer.rank_tier_info + 1
-                            }.png`
-                          : detailsAboutPlayer.rank_tier_info !== null
-                          ? `/pictures/dotaPlayerRanksIcon/${detailsAboutPlayer.rank_tier_info}.png`
-                          : "/pictures/dotaPlayerRanksIcon/00.png"
-                      }
+                      src={rdUtility.findPictureOfPlayerRank()}
                       alt={"Player's Rank"}
                       width={40}
                       height={40}
@@ -123,11 +104,7 @@ export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
                   </div>
                   <div style={{ width: "24px", height: "24px" }}>
                     <Image
-                      src={
-                        detailsAboutPlayer.profileInfo.avatar !== ""
-                          ? detailsAboutPlayer.profileInfo.avatar
-                          : "/pictures/dotaPlayerIcon/anonymous.jpg"
-                      }
+                      src={rdUtility.findPlayerAvatar()}
                       alt={"Player's Avatar"}
                       width={24}
                       height={24}
