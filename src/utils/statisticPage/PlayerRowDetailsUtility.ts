@@ -1,9 +1,11 @@
 import hero_abilities from "../../../public/data/heroAbilities/hero_abilities.json"
+import items from "../../../public/data/items/items.json"
 
 import { PlayerColors } from "@/types/staticPage/matchDetailsTypes"
 import {
   DetailsAboutHero,
   DetailsAboutPlayer,
+  Item,
   RDUtility,
 } from "@/types/staticPage/playerRowDetailsTypes"
 import {
@@ -14,6 +16,8 @@ import {
   PlayerProfile,
 } from "@/types/staticPage/staticPageTypes"
 
+// [CLASS] FOR HANDLING DATA ABOUT APPROPRIATE PLAYER
+//         CLASS USES DEFAULT CONSTRUCTOR.
 export class PlayerRowDetailsUtility implements RDUtility {
   /* [PRIVATE MEMBERS] */
   //
@@ -30,7 +34,7 @@ export class PlayerRowDetailsUtility implements RDUtility {
   }
 
   // DETAILS ABOUT HERO FOR [FUNCTION](findAppropriatePlayer)
-  m_PlayerDetails: DetailsAboutPlayer = {
+  private m_PlayerDetails: DetailsAboutPlayer = {
     profileInfo: {
       avatar: "",
       profileurl: "",
@@ -66,6 +70,8 @@ export class PlayerRowDetailsUtility implements RDUtility {
       },
     },
   }
+
+  private m_Items: any[] = []
 
   /* [PUBLIC MEMBERS] */
   //
@@ -119,11 +125,11 @@ export class PlayerRowDetailsUtility implements RDUtility {
     const rankTier = this.m_PlayerDetails.rank_tier_info
 
     if (leaderboardRank && rankTier) {
-      if (leaderboardRank >= 10) {
+      if (leaderboardRank <= 10 && leaderboardRank >= 1) {
         return `/pictures/dotaPlayerRanksIcon/${rankTier + 2}.png`
       }
 
-      if (leaderboardRank < 10) {
+      if (leaderboardRank > 10 && leaderboardRank <= 100) {
         return `/pictures/dotaPlayerRanksIcon/${rankTier + 1}.png`
       }
 
@@ -143,6 +149,54 @@ export class PlayerRowDetailsUtility implements RDUtility {
     if (avatar !== "") return avatar
 
     return "/pictures/dotaPlayerIcon/anonymous.jpg"
+  }
+
+  public findItems(player: Player): Item[] | null {
+    const playerItems = items
+
+    // TODO: :)
+
+    // for (const [key, value] of Object.entries(playerItems)) {
+    //   switch (value.id) {
+    //     case player.item_0:
+    //       this.m_Items.push({  key: {
+    //         abilities: [{
+    //           type: value.abilities.type,
+    //           title: value.abilities.title,
+    //           description: value.abilities.description,
+    //         }],
+    //         id: value.id,
+    //         img: value.img,
+    //         dname: value.dname,
+    //         cost: value.cost,
+    //         behavior: value.behavior,
+    //         cd: value.,
+    //         lore: string,
+    //       }})
+    //       break
+    //     case player.item_1:
+    //       break
+    //     case player.item_2:
+    //       break
+    //     case player.item_3:
+    //       break
+    //     case player.item_4:
+    //       break
+    //     case player.item_5:
+    //       break
+    //     case player.backpack_0:
+    //       break
+    //     case player.backpack_1:
+    //       break
+    //     case player.backpack_2:
+    //       break
+
+    //     default:
+    //       break
+    //   }
+    // }
+
+    return this.m_Items
   }
 
   /* [PRIVATE MEMBERS] */
@@ -213,10 +267,12 @@ export class PlayerRowDetailsUtility implements RDUtility {
   }
 
   private setHeroFacet(value: HeroAbilitiesValue, facetID: number): void {
-    this.m_HeroDetails.heroVariant.icon = value.facets[facetID].icon
-    this.m_HeroDetails.heroVariant.color = value.facets[facetID].color
-    this.m_HeroDetails.heroVariant.title = value.facets[facetID].title
-    this.m_HeroDetails.heroVariant.description =
-      value.facets[facetID].description
+    if (value.facets[facetID]) {
+      this.m_HeroDetails.heroVariant.icon = value.facets[facetID].icon
+      this.m_HeroDetails.heroVariant.color = value.facets[facetID].color
+      this.m_HeroDetails.heroVariant.title = value.facets[facetID].title
+      this.m_HeroDetails.heroVariant.description =
+        value.facets[facetID].description
+    }
   }
 }

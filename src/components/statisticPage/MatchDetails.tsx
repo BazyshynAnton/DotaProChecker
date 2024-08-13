@@ -21,7 +21,7 @@ export default function MatchDetails() {
   useEffect(() => {
     if (matchDetails) {
       const mdUtility = new MatchDetailsUtility()
-      setResultOfMatch(mdUtility.getMatchResult(386383012, matchDetails))
+      setResultOfMatch(mdUtility.getMatchResult(86738694, matchDetails))
       setPlayersByTeam(mdUtility.filterPlayersByTeam(matchDetails))
     }
   }, [matchDetails])

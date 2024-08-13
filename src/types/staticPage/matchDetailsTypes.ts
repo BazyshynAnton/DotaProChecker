@@ -1,10 +1,12 @@
-import {
-  HeroList,
-  MatchDetails,
-  Player,
-  PlayerProfile,
-} from "./staticPageTypes"
+import { MatchDetails, Player } from "./staticPageTypes"
 
+export interface MDUtility {
+  getMatchResult(userID: number, matchDetails: MatchDetails): MatchResult
+
+  filterPlayersByTeam(matchDetails: MatchDetails): PlayersByTeam
+}
+
+// TYPES THAT INSIDE [INTERFACE] MDUtility
 export interface MatchResult {
   resultOfMatch: string
   playerSide: string
@@ -42,10 +44,4 @@ export interface PlayerColors {
       "4": string
     }
   }
-}
-
-export interface MDUtility {
-  getMatchResult(userID: number, matchDetails: MatchDetails): MatchResult
-
-  filterPlayersByTeam(matchDetails: MatchDetails): PlayersByTeam
 }

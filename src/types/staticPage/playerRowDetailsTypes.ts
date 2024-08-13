@@ -29,3 +29,20 @@ export interface DetailsAboutPlayer {
   rank_tier_info: number | null
   leaderboard_rank_info: number | null
 }
+
+export interface Item {
+  [key: string]: {
+    abilities: {
+      type: string
+      title: string
+      description: string
+    }[]
+    id: number
+    img: string
+    dname: string
+    cost: number
+    behavior: string
+    cd: number
+    lore: string
+  }
+}

@@ -189,6 +189,7 @@
                   font-size: 10px;
                   color: #fff;
                   background-color: #000000be;
+
                   cursor: default;
                 }
 
@@ -216,6 +217,28 @@
               .playerNickname {
                 display: flex;
                 flex-direction: column;
+              }
+
+              .rankAndAvatarContainer {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                position: relative;
+                gap: 4px;
+                z-index: 6;
+
+                .rankTierContainer {
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  right: 0;
+                  bottom: 0;
+                  background-color: #0000004f;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  color: #fff;
+                }
               }
             }
           }

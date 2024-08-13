@@ -63,12 +63,14 @@ export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
                         background: `${detailsAboutHero.heroVariant.color}`,
                       }}
                     >
-                      <Image
-                        src={`/pictures/dotaHeroFacetIcon/${detailsAboutHero.heroVariant.icon}.png`}
-                        alt={detailsAboutHero.heroVariant.icon}
-                        width={72}
-                        height={72}
-                      />
+                      {detailsAboutHero.heroVariant.icon && (
+                        <Image
+                          src={`/pictures/dotaHeroFacetIcon/${detailsAboutHero.heroVariant.icon}.png`}
+                          alt={detailsAboutHero.heroVariant.icon}
+                          width={72}
+                          height={72}
+                        />
+                      )}
                     </span>
                   </div>
                   <div className={styles.playerNickname}>
@@ -83,17 +85,14 @@ export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
                     </div>
                   </div>
                 </div>
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    position: "relative",
-                    gap: "4px",
-                    zIndex: 6,
-                  }}
-                >
-                  <div style={{ width: "40px", height: "40px" }}>
+                <div className={styles.rankAndAvatarContainer}>
+                  <div
+                    style={{
+                      position: "relative",
+                      width: "40px",
+                      height: "40px",
+                    }}
+                  >
                     <Image
                       src={rdUtility.findPictureOfPlayerRank()}
                       alt={"Player's Rank"}
@@ -101,6 +100,11 @@ export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
                       height={40}
                       quality={100}
                     />
+                    {detailsAboutPlayer.leaderboard_rank_info !== null && (
+                      <div className={styles.rankTierContainer}>
+                        {detailsAboutPlayer.leaderboard_rank_info}
+                      </div>
+                    )}
                   </div>
                   <div style={{ width: "24px", height: "24px" }}>
                     <Image
