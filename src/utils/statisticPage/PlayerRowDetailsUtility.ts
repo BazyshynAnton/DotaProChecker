@@ -6,6 +6,7 @@ import {
   DetailsAboutHero,
   DetailsAboutPlayer,
   Item,
+  ItemDetails,
   RDUtility,
 } from "@/types/staticPage/playerRowDetailsTypes"
 import {
@@ -71,7 +72,7 @@ export class PlayerRowDetailsUtility implements RDUtility {
     },
   }
 
-  private m_Items: any[] = []
+  private m_ItemsDetails: ItemDetails[] | any[] = []
 
   /* [PUBLIC MEMBERS] */
   //
@@ -151,52 +152,75 @@ export class PlayerRowDetailsUtility implements RDUtility {
     return "/pictures/dotaPlayerIcon/anonymous.jpg"
   }
 
-  public findItems(player: Player): Item[] | null {
-    const playerItems = items
+  public findItems(player: Player): ItemDetails[] | null {
+    const playerItems: Item = items
 
-    // TODO: :)
+    for (const [key, value] of Object.entries(playerItems)) {
+      const itemValue = {
+        abilities: value.abilities,
+        img: key,
+        id: value.id,
+        dname: value.dname,
+        cost: value.cost,
+        behavior: value.behavior,
+        cd: value.cd,
+        lore: value.lore,
+      }
 
-    // for (const [key, value] of Object.entries(playerItems)) {
-    //   switch (value.id) {
-    //     case player.item_0:
-    //       this.m_Items.push({  key: {
-    //         abilities: [{
-    //           type: value.abilities.type,
-    //           title: value.abilities.title,
-    //           description: value.abilities.description,
-    //         }],
-    //         id: value.id,
-    //         img: value.img,
-    //         dname: value.dname,
-    //         cost: value.cost,
-    //         behavior: value.behavior,
-    //         cd: value.,
-    //         lore: string,
-    //       }})
-    //       break
-    //     case player.item_1:
-    //       break
-    //     case player.item_2:
-    //       break
-    //     case player.item_3:
-    //       break
-    //     case player.item_4:
-    //       break
-    //     case player.item_5:
-    //       break
-    //     case player.backpack_0:
-    //       break
-    //     case player.backpack_1:
-    //       break
-    //     case player.backpack_2:
-    //       break
+      switch (value.id) {
+        case player.item_0:
+          this.m_ItemsDetails.push({
+            ["item_0"]: itemValue,
+          })
+          break
+        case player.item_1:
+          this.m_ItemsDetails.push({
+            ["item_1"]: itemValue,
+          })
+          break
+        case player.item_2:
+          this.m_ItemsDetails.push({
+            ["item_2"]: itemValue,
+          })
+          break
+        case player.item_3:
+          this.m_ItemsDetails.push({
+            ["item_3"]: itemValue,
+          })
+          break
+        case player.item_4:
+          this.m_ItemsDetails.push({
+            ["item_4"]: itemValue,
+          })
+          break
+        case player.item_5:
+          this.m_ItemsDetails.push({
+            ["item_5"]: itemValue,
+          })
+          break
+        case player.backpack_0:
+          this.m_ItemsDetails.push({
+            ["backpack_0"]: itemValue,
+          })
+          break
+        case player.backpack_1:
+          this.m_ItemsDetails.push({
+            ["backpack_1"]: itemValue,
+          })
+          break
+        case player.backpack_2:
+          this.m_ItemsDetails.push({
+            ["backpack_2"]: itemValue,
+          })
+          break
 
-    //     default:
-    //       break
-    //   }
-    // }
+        default:
+          break
+      }
+    }
 
-    return this.m_Items
+    console.log(this.m_ItemsDetails)
+    return this.m_ItemsDetails
   }
 
   /* [PRIVATE MEMBERS] */

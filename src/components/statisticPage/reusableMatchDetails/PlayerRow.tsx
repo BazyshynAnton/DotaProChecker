@@ -9,6 +9,7 @@ import styles from "@/styles/statisticPage/MatchDetails.module.scss"
 import {
   DetailsAboutHero,
   DetailsAboutPlayer,
+  ItemDetails,
 } from "@/types/staticPage/playerRowDetailsTypes"
 
 export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
@@ -32,6 +33,9 @@ export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
 
         const detailsAboutPlayer: DetailsAboutPlayer =
           rdUtility.findAppropriatePlayer(player, playersProfiles)
+
+        const detailsAboutItems: ItemDetails[] | null =
+          rdUtility.findItems(player)
 
         return (
           <tr key={player.hero_id} className={styles.playerTableRow}>
@@ -139,7 +143,22 @@ export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
             <td className={styles.itemsTableDataCell}>
               <div className={styles.itemsInTableDataCellContainer}>
                 <div className={styles.mainSlotItems}>
-                  <div>{player.item_0}</div>
+                  <div>
+                    {/* TODO: why it is undefined 
+                        use player.item_x and compare to item id [easy].
+                    */}
+                    {detailsAboutItems?.map((item, idx) => (
+                      <Image
+                        key={item[`item${idx}`]?.id}
+                        src={`/public/pictures/dotaItems/${
+                          item[`item${idx}`]?.img
+                        }.webp`}
+                        alt=""
+                        width={37}
+                        height={27}
+                      />
+                    ))}
+                  </div>
                   <div>{player.item_1}</div>
                   <div>{player.item_2}</div>
                   <div>{player.item_3}</div>
