@@ -44,6 +44,9 @@ export class PlayerRowDetailsUtility implements RDUtility {
     leaderboard_rank_info: null,
   }
 
+  // DETAILS ABOUT PLAYER'S ITEMS FOR [FUNCTION](findAppropriateItems)
+  private m_ItemDetails: ItemDetails | any = {}
+
   // CACHE FOR CURRENT HERO
   private m_CurrentHero: string = ""
 
@@ -71,8 +74,6 @@ export class PlayerRowDetailsUtility implements RDUtility {
       },
     },
   }
-
-  private m_ItemsDetails: ItemDetails[] | any[] = []
 
   /* [PUBLIC MEMBERS] */
   //
@@ -152,8 +153,31 @@ export class PlayerRowDetailsUtility implements RDUtility {
     return "/pictures/dotaPlayerIcon/anonymous.jpg"
   }
 
-  public findItems(player: Player): ItemDetails[] | null {
+  public findAppropriateItems(player: Player): ItemDetails | null {
     const playerItems: Item = items
+
+    const emptyValue = {
+      abilities: [],
+      img: "empty_slot",
+      id: "",
+      dname: "Empty Slot",
+      cost: null,
+      behavior: undefined,
+      cd: undefined,
+      lore: undefined,
+    }
+
+    this.m_ItemDetails = {
+      item_0: emptyValue,
+      item_1: emptyValue,
+      item_2: emptyValue,
+      item_3: emptyValue,
+      item_4: emptyValue,
+      item_5: emptyValue,
+      backpack_0: emptyValue,
+      backpack_1: emptyValue,
+      backpack_2: emptyValue,
+    }
 
     for (const [key, value] of Object.entries(playerItems)) {
       const itemValue = {
@@ -169,49 +193,31 @@ export class PlayerRowDetailsUtility implements RDUtility {
 
       switch (value.id) {
         case player.item_0:
-          this.m_ItemsDetails.push({
-            ["item_0"]: itemValue,
-          })
+          this.m_ItemDetails["item_0"] = itemValue
           break
         case player.item_1:
-          this.m_ItemsDetails.push({
-            ["item_1"]: itemValue,
-          })
+          this.m_ItemDetails["item_1"] = itemValue
           break
         case player.item_2:
-          this.m_ItemsDetails.push({
-            ["item_2"]: itemValue,
-          })
+          this.m_ItemDetails["item_2"] = itemValue
           break
         case player.item_3:
-          this.m_ItemsDetails.push({
-            ["item_3"]: itemValue,
-          })
+          this.m_ItemDetails["item_3"] = itemValue
           break
         case player.item_4:
-          this.m_ItemsDetails.push({
-            ["item_4"]: itemValue,
-          })
+          this.m_ItemDetails["item_4"] = itemValue
           break
         case player.item_5:
-          this.m_ItemsDetails.push({
-            ["item_5"]: itemValue,
-          })
+          this.m_ItemDetails["item_5"] = itemValue
           break
         case player.backpack_0:
-          this.m_ItemsDetails.push({
-            ["backpack_0"]: itemValue,
-          })
+          this.m_ItemDetails["backpack_0"] = itemValue
           break
         case player.backpack_1:
-          this.m_ItemsDetails.push({
-            ["backpack_1"]: itemValue,
-          })
+          this.m_ItemDetails["backpack_1"] = itemValue
           break
         case player.backpack_2:
-          this.m_ItemsDetails.push({
-            ["backpack_2"]: itemValue,
-          })
+          this.m_ItemDetails["backpack_2"] = itemValue
           break
 
         default:
@@ -219,8 +225,7 @@ export class PlayerRowDetailsUtility implements RDUtility {
       }
     }
 
-    console.log(this.m_ItemsDetails)
-    return this.m_ItemsDetails
+    return this.m_ItemDetails
   }
 
   /* [PRIVATE MEMBERS] */

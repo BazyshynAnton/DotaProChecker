@@ -11,6 +11,10 @@ import {
   DetailsAboutPlayer,
   ItemDetails,
 } from "@/types/staticPage/playerRowDetailsTypes"
+import {
+  ItemIcons,
+  BackpackItemIcons,
+} from "./playerRowReusable/PlayerRowReusable"
 
 export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
   const { heroList, playersProfiles } = useSelector(
@@ -34,8 +38,8 @@ export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
         const detailsAboutPlayer: DetailsAboutPlayer =
           rdUtility.findAppropriatePlayer(player, playersProfiles)
 
-        const detailsAboutItems: ItemDetails[] | null =
-          rdUtility.findItems(player)
+        const detailsAboutItems: ItemDetails | null =
+          rdUtility.findAppropriateItems(player)
 
         return (
           <tr key={player.hero_id} className={styles.playerTableRow}>
@@ -144,31 +148,24 @@ export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
               <div className={styles.itemsInTableDataCellContainer}>
                 <div className={styles.mainSlotItems}>
                   <div>
-                    {/* TODO: why it is undefined 
-                        use player.item_x and compare to item id [easy].
-                    */}
-                    {detailsAboutItems?.map((item, idx) => (
-                      <Image
-                        key={item[`item${idx}`]?.id}
-                        src={`/public/pictures/dotaItems/${
-                          item[`item${idx}`]?.img
-                        }.webp`}
-                        alt=""
-                        width={37}
-                        height={27}
-                      />
-                    ))}
+                    <ItemIcons
+                      image_name_0={detailsAboutItems?.item_0.img}
+                      image_name_1={detailsAboutItems?.item_1.img}
+                      image_name_2={detailsAboutItems?.item_2.img}
+                      image_name_3={detailsAboutItems?.item_3.img}
+                      image_name_4={detailsAboutItems?.item_4.img}
+                      image_name_5={detailsAboutItems?.item_5.img}
+                    />
                   </div>
-                  <div>{player.item_1}</div>
-                  <div>{player.item_2}</div>
-                  <div>{player.item_3}</div>
-                  <div>{player.item_4}</div>
-                  <div>{player.item_5}</div>
                 </div>
                 <div className={styles.backpackItems}>
-                  <div>{player.backpack_0}</div>
-                  <div>{player.backpack_1}</div>
-                  <div>{player.backpack_2}</div>
+                  <div>
+                    <BackpackItemIcons
+                      image_name_0={detailsAboutItems?.backpack_0.img}
+                      image_name_1={detailsAboutItems?.backpack_1.img}
+                      image_name_2={detailsAboutItems?.backpack_2.img}
+                    />
+                  </div>
                 </div>
               </div>
             </td>
