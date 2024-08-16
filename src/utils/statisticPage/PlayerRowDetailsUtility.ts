@@ -145,6 +145,7 @@ export class PlayerRowDetailsUtility implements RDUtility {
     return "/pictures/dotaPlayerRanksIcon/00.png"
   }
 
+  // [FUNCTION] FIND PLAYER AVATAR
   public findPlayerAvatar(): string {
     const avatar = this.m_PlayerDetails.profileInfo.avatar
 
@@ -153,6 +154,7 @@ export class PlayerRowDetailsUtility implements RDUtility {
     return "/pictures/dotaPlayerIcon/anonymous.jpg"
   }
 
+  // [FUNCTION] FIND DETAILS ABOUT ITEM
   public findAppropriateItems(player: Player): ItemDetails | null {
     const playerItems: Item = items
 

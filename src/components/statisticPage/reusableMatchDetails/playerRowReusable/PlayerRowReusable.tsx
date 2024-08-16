@@ -22,7 +22,7 @@ export function ItemIcons({
   return (
     <>
       <Image
-        src={`/pictures/dotaItems/${image_name_0}.webp`}
+        src={`/pictures/dotaItemIcon/${image_name_0}.webp`}
         alt=""
         width={37}
         height={27}
@@ -30,7 +30,7 @@ export function ItemIcons({
         unoptimized
       />
       <Image
-        src={`/pictures/dotaItems/${image_name_1}.webp`}
+        src={`/pictures/dotaItemIcon/${image_name_1}.webp`}
         alt=""
         width={37}
         height={27}
@@ -38,7 +38,7 @@ export function ItemIcons({
         unoptimized
       />
       <Image
-        src={`/pictures/dotaItems/${image_name_2}.webp`}
+        src={`/pictures/dotaItemIcon/${image_name_2}.webp`}
         alt=""
         width={37}
         height={27}
@@ -46,7 +46,7 @@ export function ItemIcons({
         unoptimized
       />
       <Image
-        src={`/pictures/dotaItems/${image_name_3}.webp`}
+        src={`/pictures/dotaItemIcon/${image_name_3}.webp`}
         alt=""
         width={37}
         height={27}
@@ -54,7 +54,7 @@ export function ItemIcons({
         unoptimized
       />
       <Image
-        src={`/pictures/dotaItems/${image_name_4}.webp`}
+        src={`/pictures/dotaItemIcon/${image_name_4}.webp`}
         alt=""
         width={37}
         height={27}
@@ -62,7 +62,7 @@ export function ItemIcons({
         unoptimized
       />
       <Image
-        src={`/pictures/dotaItems/${image_name_5}.webp`}
+        src={`/pictures/dotaItemIcon/${image_name_5}.webp`}
         alt=""
         width={37}
         height={27}
@@ -86,26 +86,26 @@ export function BackpackItemIcons({
   return (
     <>
       <Image
-        src={`/pictures/dotaItems/${image_name_0}.webp`}
+        src={`/pictures/dotaItemIcon/${image_name_0}.webp`}
         alt=""
         width={30}
-        height={20}
+        height={22}
         quality={100}
         unoptimized
       />{" "}
       <Image
-        src={`/pictures/dotaItems/${image_name_1}.webp`}
+        src={`/pictures/dotaItemIcon/${image_name_1}.webp`}
         alt=""
         width={30}
-        height={20}
+        height={22}
         quality={100}
         unoptimized
       />{" "}
       <Image
-        src={`/pictures/dotaItems/${image_name_2}.webp`}
+        src={`/pictures/dotaItemIcon/${image_name_2}.webp`}
         alt=""
         width={30}
-        height={20}
+        height={22}
         quality={100}
         unoptimized
       />

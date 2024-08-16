@@ -1,3 +1,5 @@
+@import "../scss/fontMixin.scss";
+
 .matchContainer {
   max-width: 1400px;
   width: 100%;
@@ -44,11 +46,19 @@
 .teamResult {
   width: 100%;
   margin-bottom: 5rem;
+
   .team {
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+
+    header {
+      @include FontFrizQuadrataRegular;
+      letter-spacing: 2px;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
 
     .tableContainer {
       width: 100%;
@@ -315,10 +325,13 @@
               display: flex;
               flex-direction: column;
               align-items: center;
+              gap: 4px;
+              width: 250px;
+
               .mainSlotItems,
               .backpackItems {
                 display: flex;
-                gap: 2px;
+                gap: 3px;
               }
             }
           }
@@ -339,5 +352,11 @@
         }
       }
     }
+  }
+}
+
+@media (max-width: 1300px) {
+  .teamResult {
+    overflow-x: scroll;
   }
 }

@@ -147,16 +147,14 @@ export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
             <td className={styles.itemsTableDataCell}>
               <div className={styles.itemsInTableDataCellContainer}>
                 <div className={styles.mainSlotItems}>
-                  <div>
-                    <ItemIcons
-                      image_name_0={detailsAboutItems?.item_0.img}
-                      image_name_1={detailsAboutItems?.item_1.img}
-                      image_name_2={detailsAboutItems?.item_2.img}
-                      image_name_3={detailsAboutItems?.item_3.img}
-                      image_name_4={detailsAboutItems?.item_4.img}
-                      image_name_5={detailsAboutItems?.item_5.img}
-                    />
-                  </div>
+                  <ItemIcons
+                    image_name_0={detailsAboutItems?.item_0.img}
+                    image_name_1={detailsAboutItems?.item_1.img}
+                    image_name_2={detailsAboutItems?.item_2.img}
+                    image_name_3={detailsAboutItems?.item_3.img}
+                    image_name_4={detailsAboutItems?.item_4.img}
+                    image_name_5={detailsAboutItems?.item_5.img}
+                  />
                 </div>
                 <div className={styles.backpackItems}>
                   <div>
