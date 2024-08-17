@@ -11,6 +11,7 @@ export default function PlayersTableDetails({
   return (
     <div className={styles.teamResult}>
       <section className={styles.team}>
+        {/* HEADER MOVES WITH TABLE BY X-AXIS */}
         <header
           style={{ color: playersTeam[0].isRadiant ? "#2eb872" : "#fa4659" }}
         >

@@ -19,7 +19,7 @@ export class MatchDetailsUtility implements MDUtility {
     const matchResult: MatchResult = {
       resultOfMatch: "NONE",
       playerSide: "NONE",
-      matchDuration: (matchDetails.duration / 60).toFixed(2),
+      matchDuration: (matchDetails.duration / 60).toFixed(2).replace(".", ":"),
       radiantScore: matchDetails.radiant_score.toString(),
       direScore: matchDetails.dire_score.toString(),
     }

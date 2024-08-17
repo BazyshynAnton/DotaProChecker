@@ -1,3 +1,5 @@
+@import "../scss/fontMixin.scss";
+
 .headerContainer {
   position: fixed;
   top: 0;
@@ -9,11 +11,13 @@
   align-items: center;
   gap: 1rem;
   padding: 6px 0px 6px 0px;
-  background-color: #465a75;
+  background-color: #393e46;
+  box-shadow: 0px 1px 10px #222831;
   z-index: 100;
 
   .headerLink,
   .activeHeaderLink {
+    @include FontFrizQuadrataRegular;
     padding: 10px;
     font-size: 1.5rem;
     cursor: pointer;
@@ -21,17 +25,18 @@
 
   .headerLink {
     &:hover {
-      background-color: #394a5f;
+      background-color: #222831;
       border-radius: 8px;
     }
   }
 
   .activeHeaderLink {
-    background-color: #394a5f;
+    background-color: #222831;
     border-radius: 8px;
   }
 
   .websiteNameInHeader {
+    @include FontFolkard;
     position: absolute;
     right: 20px;
     padding: 10px;
@@ -40,11 +45,5 @@
     font-weight: 500;
     border-radius: 8px;
     cursor: default;
-
-    background: linear-gradient(
-      90deg,
-      rgba(176, 38, 38, 1) 20%,
-      rgba(118, 118, 118, 1) 100%
-    );
   }
 }

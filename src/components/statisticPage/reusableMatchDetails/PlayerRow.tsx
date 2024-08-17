@@ -52,7 +52,7 @@ export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
                     <div
                       className={styles.heroIconContainer}
                       style={{
-                        borderRight: `2px solid ${detailsAboutHero.playerColor}`,
+                        borderRight: `3px solid ${detailsAboutHero.playerColor}`,
                       }}
                     >
                       <Image
@@ -147,6 +147,7 @@ export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
             <td className={styles.itemsTableDataCell}>
               <div className={styles.itemsInTableDataCellContainer}>
                 <div className={styles.mainSlotItems}>
+                  {/* CUSTOM WEB CURSOR */}
                   <ItemIcons
                     image_name_0={detailsAboutItems?.item_0.img}
                     image_name_1={detailsAboutItems?.item_1.img}
@@ -157,13 +158,11 @@ export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
                   />
                 </div>
                 <div className={styles.backpackItems}>
-                  <div>
-                    <BackpackItemIcons
-                      image_name_0={detailsAboutItems?.backpack_0.img}
-                      image_name_1={detailsAboutItems?.backpack_1.img}
-                      image_name_2={detailsAboutItems?.backpack_2.img}
-                    />
-                  </div>
+                  <BackpackItemIcons
+                    image_name_0={detailsAboutItems?.backpack_0.img}
+                    image_name_1={detailsAboutItems?.backpack_1.img}
+                    image_name_2={detailsAboutItems?.backpack_2.img}
+                  />
                 </div>
               </div>
             </td>

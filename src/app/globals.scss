@@ -10,7 +10,7 @@
 html,
 body {
   height: 100%;
-  background-color: #3e4f66;
+  background-color: #222831;
 }
 
 ul,
@@ -32,4 +32,9 @@ a {
 @font-face {
   font-family: "friz-quadrata-regular";
   src: url(/fonts/friz-quadrata/friz-quadrata-regular-os.ttf);
+}
+
+@font-face {
+  font-family: "folkard";
+  src: url(/fonts/folkard/folkard.ttf);
 }
