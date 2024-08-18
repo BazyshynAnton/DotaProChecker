@@ -148,14 +148,7 @@ export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
               <div className={styles.itemsInTableDataCellContainer}>
                 <div className={styles.mainSlotItems}>
                   {/* CUSTOM WEB CURSOR */}
-                  <ItemIcons
-                    image_name_0={detailsAboutItems?.item_0.img}
-                    image_name_1={detailsAboutItems?.item_1.img}
-                    image_name_2={detailsAboutItems?.item_2.img}
-                    image_name_3={detailsAboutItems?.item_3.img}
-                    image_name_4={detailsAboutItems?.item_4.img}
-                    image_name_5={detailsAboutItems?.item_5.img}
-                  />
+                  <ItemIcons detailsAboutItems={detailsAboutItems} />
                 </div>
                 <div className={styles.backpackItems}>
                   <BackpackItemIcons

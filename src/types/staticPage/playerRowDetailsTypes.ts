@@ -30,19 +30,6 @@ export interface DetailsAboutPlayer {
   leaderboard_rank_info: number | null
 }
 
-interface Attribute {
-  key: string
-  value: string
-  display?: string
-}
-
-// Define the type for an ability in the "abilities" array
-interface Ability {
-  type: string
-  title: string
-  description: string
-}
-
 export interface Item {
   [key: string]: {
     abilities?: Ability[]
@@ -67,6 +54,18 @@ export interface Item {
   }
 }
 
+interface Attribute {
+  key: string
+  display?: string
+  value: string
+}
+
+interface Ability {
+  type: string
+  title: string
+  description: string
+}
+
 export interface ItemDetails {
   [key: string]: {
     abilities?: Ability[]
@@ -74,6 +73,7 @@ export interface ItemDetails {
     id?: number
     dname?: string
     cost?: number | null
+    attrib?: Attribute[]
     behavior?: string[] | string | boolean
     cd?: number | boolean
     lore?: string
