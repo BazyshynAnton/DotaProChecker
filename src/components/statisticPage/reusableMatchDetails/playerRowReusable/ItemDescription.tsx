@@ -13,6 +13,16 @@ export default function ItemDescription({
 }) {
   if (!details) return <div>NULL</div>
 
+  let target: string = ""
+  if (Array.isArray(details[item].behavior)) {
+    details[item].behavior.forEach((str) => {
+      target += str + " / "
+    })
+
+    target = target.substring(0, target.length - 2)
+  } else if (typeof details[item].behavior === "string")
+    target = details[item].behavior
+
   return (
     <div className={styles.itemDescriptionContainer}>
       <div className={styles.itemNameAndCostWrapper}>
@@ -40,21 +50,170 @@ export default function ItemDescription({
         </div>
       </div>
       <div className={styles.descriptionWrapper}>
+        {details[item].behavior && (
+          <div className={styles.target}>
+            <span>TARGET:</span>
+            <span style={{ color: "#fff" }}> {target}</span>
+          </div>
+        )}
+        {details[item].dispellable && (
+          <div className={styles.dispellable}>
+            <span>DISPELLABLE: </span>
+            <span
+              style={{
+                color: `${
+                  details[item].dispellable === "Yes" ? "#5aa460" : "#8b0000"
+                }`,
+              }}
+            >
+              {" "}
+              {details[item].dispellable}
+            </span>
+          </div>
+        )}
+        {details[item].bkbpierce && (
+          <div className={styles.piercesDebuffImmunity}>
+            <span>PIERCES DEBUFF IMMUNITY: </span>
+            <span>
+              {" "}
+              <span
+                style={{
+                  color: `${
+                    details[item].bkbpierce === "Yes" ? "#5aa460" : "#8b0000"
+                  }`,
+                }}
+              >
+                {" "}
+                {details[item].bkbpierce}
+              </span>
+            </span>
+          </div>
+        )}
+        {details[item].behavior &&
+          details[item].dispellable &&
+          details[item].bkbpierce && (
+            <hr
+              style={{
+                width: "100%",
+                height: "1.5px",
+                background: "#6c7b7e",
+                border: "none",
+                margin: "18px 0px 13px 0px",
+              }}
+            />
+          )}
         <div className={styles.attrib}>
           {/* 
             TODO:
-              1. + {number need to be white} other gray.
-              2. remove string about cooldown.
               3. do something with overflow y?          
           */}
-          {details[item].attrib?.map((att) => (
-            <span key={att.key}>
-              {att.display?.replace("{value}", att.value)}
-            </span>
-          ))}
+          {details[item].attrib?.map((att) => {
+            if (!att.display) return
+
+            const partsOfString = att.display.split("{value}")
+
+            return (
+              <div key={att.key} className={styles.attribTextWrapper}>
+                <span>{partsOfString[0]}</span>
+                <span style={{ color: "#fff" }}>{att.value}</span>
+                <span>{partsOfString[1]}</span>
+              </div>
+            )
+          })}
         </div>
-        {/* <div className={styles.activeAbility}></div>
-          <div className={styles.passiveAbility}></div>
+        {details[item].abilities && (
+          <div className={styles.abilities}>
+            {details[item].abilities.map((abil) => {
+              const formattedDescription = abil.description.replace(
+                /\n/g,
+                "<br/>"
+              )
+
+              return (
+                <div
+                  key={abil.title}
+                  className={`${
+                    abil.type === "active"
+                      ? styles.activeAbil
+                      : styles.passiveAbil
+                  }`}
+                >
+                  <div
+                    className={`${
+                      abil.type === "active"
+                        ? styles.activeAbilHeader
+                        : styles.passiveAbilHeader
+                    }`}
+                  >
+                    <div className={styles.content}>
+                      <span>
+                        {abil.type === "active" ? "Active" : "Passive"}:
+                      </span>
+                      <span> {abil.title}</span>
+                    </div>
+                    <div className={styles.manaAndCooldown}>
+                      {details[item].mc && (
+                        <div style={{ display: "flex", alignItems: "center" }}>
+                          <Image
+                            src="/pictures/dotaIcons/ability_manacost.png"
+                            alt=""
+                            width={20}
+                            height={20}
+                          />
+                          <span
+                            style={{
+                              color: "#fff",
+                              fontWeight: "400",
+                              letterSpacing: "0px",
+                              paddingLeft: "3px",
+                              fontSize: "1rem",
+                            }}
+                          >
+                            {details[item].mc}
+                          </span>
+                        </div>
+                      )}
+
+                      {details[item].cd && (
+                        <div style={{ display: "flex", alignItems: "center" }}>
+                          <Image
+                            src="/pictures/dotaIcons/ability_cooldown.png"
+                            alt=""
+                            width={20}
+                            height={20}
+                          />
+                          <span
+                            style={{
+                              color: "#fff",
+                              fontWeight: "400",
+                              letterSpacing: "0px",
+                              paddingLeft: "3px",
+                              fontSize: "1rem",
+                            }}
+                          >
+                            {details[item].cd}
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                  <div
+                    className={`${
+                      abil.type === "active"
+                        ? styles.activeAbilDescription
+                        : styles.passiveAbilDescription
+                    }`}
+                  >
+                    <span
+                      dangerouslySetInnerHTML={{ __html: formattedDescription }}
+                    />
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        )}
+        {/* <div className={styles.passiveAbility}></div>
           <div className={styles.hint}></div>
           <div className={styles.lore}></div>
           <div className={styles.components}></div> */}

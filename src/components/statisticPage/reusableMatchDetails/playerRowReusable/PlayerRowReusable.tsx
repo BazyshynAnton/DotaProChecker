@@ -22,6 +22,7 @@ export function ItemIcons({
   })
 
   if (
+    !detailsAboutItems?.item_0.img ||
     !detailsAboutItems?.item_1.img ||
     !detailsAboutItems?.item_2.img ||
     !detailsAboutItems?.item_3.img ||
@@ -33,6 +34,7 @@ export function ItemIcons({
 
   const itemIcons: string[] | null = []
 
+  itemIcons.push(detailsAboutItems?.item_0.img)
   itemIcons.push(detailsAboutItems?.item_1.img)
   itemIcons.push(detailsAboutItems?.item_2.img)
   itemIcons.push(detailsAboutItems?.item_3.img)
@@ -48,20 +50,10 @@ export function ItemIcons({
     })
   }
 
-  // [key: string]: {
-  // abilities?: Ability[]
-  // img?: string
-  // id?: number
-  // dname?: string
-  // cost?: number | null
-  // behavior?: string[] | string | boolean
-  // cd?: number | boolean
-  // lore?: string
-
   const details = (item: string): ItemDetails | null => {
     const res: ItemDetails = {}
 
-    for (const [key, value] of Object.entries(detailsAboutItems)) {
+    for (const [_, value] of Object.entries(detailsAboutItems)) {
       if (item === value.img) {
         res[item] = value
 

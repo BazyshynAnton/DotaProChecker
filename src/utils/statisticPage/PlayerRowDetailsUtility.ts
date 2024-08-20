@@ -166,6 +166,9 @@ export class PlayerRowDetailsUtility implements RDUtility {
       cost: null,
       attrib: [],
       behavior: undefined,
+      bkbpierce: undefined,
+      dispellable: undefined,
+      mc: undefined,
       cd: undefined,
       lore: undefined,
     }
@@ -191,6 +194,9 @@ export class PlayerRowDetailsUtility implements RDUtility {
         cost: value.cost,
         attrib: value.attrib,
         behavior: value.behavior,
+        bkbpierce: value.bkbpierce,
+        dispellable: value.dispellable,
+        mc: value.mc,
         cd: value.cd,
         lore: value.lore,
       }

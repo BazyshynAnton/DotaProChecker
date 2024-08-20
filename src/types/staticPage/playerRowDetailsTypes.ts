@@ -40,6 +40,8 @@ export interface Item {
     qual?: string
     cost?: number | null
     behavior?: string[] | string | boolean
+    bkbpierce?: string
+    dispellable?: string
     target_team?: string[] | string
     target_type?: string[] | string
     notes?: string
@@ -75,6 +77,9 @@ export interface ItemDetails {
     cost?: number | null
     attrib?: Attribute[]
     behavior?: string[] | string | boolean
+    bkbpierce?: string
+    dispellable?: string
+    mc?: number | boolean
     cd?: number | boolean
     lore?: string
   }
