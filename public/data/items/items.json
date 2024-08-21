@@ -105,10 +105,7 @@
     "hc": false,
     "cd": 15,
     "lore": "A horrifying dagger forged in the chaos maw and nigh untouchable by mortal hands.",
-    "components": [
-      "blink",
-      "reaver"
-    ],
+    "components": ["blink", "reaver", "recipe_overwhelming_blink"],
     "created": true,
     "charges": false
   },
@@ -163,10 +160,7 @@
     "hc": false,
     "cd": 15,
     "lore": "A cunning blade able to anticipate and enable its bearer's movements.",
-    "components": [
-      "blink",
-      "eagle"
-    ],
+    "components": ["blink", "eagle", "recipe_swift_blink"],
     "created": true,
     "charges": false
   },
@@ -217,10 +211,7 @@
     "hc": false,
     "cd": 9,
     "lore": "A revitalizing tool to help bear the weight of arcane expenditure.",
-    "components": [
-      "blink",
-      "mystic_staff"
-    ],
+    "components": ["blink", "mystic_staff", "recipe_arcane_blink"],
     "created": true,
     "charges": false
   },
@@ -550,10 +541,7 @@
     "dname": "Faerie Fire",
     "qual": "consumable",
     "cost": 65,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "target_team": "Friendly",
     "target_type": "Hero",
     "notes": "",
@@ -620,9 +608,7 @@
   },
   "wind_lace": {
     "abilities": [],
-    "hint": [
-      "Bonuses from multiple Wind Laces do not stack."
-    ],
+    "hint": ["Bonuses from multiple Wind Laces do not stack."],
     "id": 244,
     "img": "/apps/dota2/images/dota_react/items/wind_lace.png?t=1593393829403",
     "dname": "Wind Lace",
@@ -722,10 +708,7 @@
     "dname": "Moon Shard",
     "qual": "consumable",
     "cost": 4000,
-    "behavior": [
-      "Unit Target",
-      "Instant Cast"
-    ],
+    "behavior": ["Unit Target", "Instant Cast"],
     "target_team": "Friendly",
     "target_type": "Hero",
     "notes": "",
@@ -753,10 +736,7 @@
     "hc": false,
     "cd": false,
     "lore": "Said to be a tear from the lunar goddess Selemene.",
-    "components": [
-      "hyperstone",
-      "hyperstone"
-    ],
+    "components": ["hyperstone", "hyperstone"],
     "created": true,
     "charges": false
   },
@@ -1283,10 +1263,7 @@
     "dname": "Gem of True Sight",
     "qual": "component",
     "cost": 900,
-    "behavior": [
-      "Point Target",
-      "AOE"
-    ],
+    "behavior": ["Point Target", "AOE"],
     "notes": "Disabled while on a courier.",
     "attrib": [
       {
@@ -1372,10 +1349,7 @@
     "dname": "Cheese",
     "qual": "consumable",
     "cost": 1000,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "notes": "Cheese is shareable.",
     "attrib": [
       {
@@ -1409,10 +1383,7 @@
     "dname": "Magic Stick",
     "qual": "component",
     "cost": 200,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "notes": "Gains charges for spells cast by visible enemies in 1200 range.\nCertain abilities and item abilities will not add charges.",
     "attrib": [
       {
@@ -1466,10 +1437,7 @@
     "dname": "Magic Wand",
     "qual": "common",
     "cost": 450,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "notes": "Gains charges for spells cast by visible enemies in 1200 range.\nCertain abilities and item abilities will not add charges.",
     "attrib": [
       {
@@ -1494,11 +1462,7 @@
     "hc": false,
     "cd": 15,
     "lore": "A simple wand used to channel magic energies, it is favored by apprentice wizards and great warlocks alike.",
-    "components": [
-      "magic_stick",
-      "branches",
-      "branches"
-    ],
+    "components": ["magic_stick", "branches", "branches", "recipe_magic_wand"],
     "created": true,
     "charges": false
   },
@@ -1516,10 +1480,7 @@
     "dname": "Ghost Scepter",
     "qual": "component",
     "cost": 1500,
-    "behavior": [
-      "No Target",
-      "Instant Cast"
-    ],
+    "behavior": ["No Target", "Instant Cast"],
     "dispellable": "Yes",
     "notes": "Ends if you become Spell Immune, and will have no effect if you are already Spell Immune.\nShares cooldown with Ethereal Blade.",
     "attrib": [
@@ -1559,10 +1520,7 @@
     "dname": "Clarity",
     "qual": "consumable",
     "cost": 50,
-    "behavior": [
-      "Unit Target",
-      "Instant Cast"
-    ],
+    "behavior": ["Unit Target", "Instant Cast"],
     "dispellable": "Yes",
     "target_team": "Friendly",
     "target_type": "Hero",
@@ -1599,10 +1557,7 @@
     "dname": "Enchanted Mango",
     "qual": "consumable",
     "cost": 65,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "target_team": "Friendly",
     "target_type": "Hero",
     "notes": "Hold Control to use on a nearby allied hero.",
@@ -1639,10 +1594,7 @@
     "dname": "Healing Lotus",
     "qual": "consumable",
     "cost": 0,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "target_team": "Friendly",
     "target_type": "Hero",
     "notes": "Hold Control to use on a nearby allied hero.",
@@ -1674,10 +1626,7 @@
     "dname": "Great Healing Lotus",
     "qual": "consumable",
     "cost": 0,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "target_team": "Friendly",
     "target_type": "Hero",
     "notes": "Hold Control to use on a nearby allied hero.",
@@ -1691,11 +1640,7 @@
     "hc": false,
     "cd": 5,
     "lore": "",
-    "components": [
-      "famango",
-      "famango",
-      "famango"
-    ],
+    "components": ["famango", "famango", "famango"],
     "created": true,
     "charges": 1
   },
@@ -1713,10 +1658,7 @@
     "dname": "Greater Healing Lotus",
     "qual": "consumable",
     "cost": 0,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "target_team": "Friendly",
     "target_type": "Hero",
     "notes": "Hold Control to use on a nearby allied hero.",
@@ -1730,10 +1672,7 @@
     "hc": false,
     "cd": 5,
     "lore": "",
-    "components": [
-      "great_famango",
-      "great_famango"
-    ],
+    "components": ["great_famango", "great_famango"],
     "created": true,
     "charges": 1
   },
@@ -1751,15 +1690,9 @@
     "dname": "Blood Grenade",
     "qual": "consumable",
     "cost": 50,
-    "behavior": [
-      "Point Target",
-      "AOE"
-    ],
+    "behavior": ["Point Target", "AOE"],
     "target_team": "Enemy",
-    "target_type": [
-      "Hero",
-      "Basic"
-    ],
+    "target_type": ["Hero", "Basic"],
     "notes": "",
     "attrib": [
       {
@@ -1818,10 +1751,7 @@
     "dname": "Block of Cheese",
     "qual": "consumable",
     "cost": 2,
-    "behavior": [
-      "Unit Target",
-      "Instant Cast"
-    ],
+    "behavior": ["Unit Target", "Instant Cast"],
     "dispellable": "No",
     "target_team": "Friendly",
     "target_type": "Hero",
@@ -1862,10 +1792,7 @@
     "dname": "Healing Salve",
     "qual": "consumable",
     "cost": 100,
-    "behavior": [
-      "Unit Target",
-      "Instant Cast"
-    ],
+    "behavior": ["Unit Target", "Instant Cast"],
     "dispellable": "Yes",
     "target_team": "Friendly",
     "target_type": "Hero",
@@ -1906,10 +1833,7 @@
     "dname": "Dust of Appearance",
     "qual": "consumable",
     "cost": 80,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "dispellable": "Yes",
     "notes": "Places a debuff on enemy units in the area that reveals them when they are invisible.",
     "attrib": [
@@ -1961,10 +1885,7 @@
     "dname": "Bottle",
     "qual": "common",
     "cost": 675,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "target_team": "Friendly",
     "target_type": "Hero",
     "notes": "Bottle is shareable. Stored runes cannot be shared.\nUsing a stored Bounty or Water rune fully refills the bottle if the bottle was full when the rune was stored; otherwise, it refills two charges.",
@@ -2024,10 +1945,7 @@
     "dname": "Observer Ward",
     "qual": "consumable",
     "cost": 0,
-    "behavior": [
-      "Point Target",
-      "AOE"
-    ],
+    "behavior": ["Point Target", "AOE"],
     "target_team": "Friendly",
     "target_type": "Hero",
     "notes": "",
@@ -2071,10 +1989,7 @@
     "dname": "Sentry Ward",
     "qual": "consumable",
     "cost": 50,
-    "behavior": [
-      "Point Target",
-      "AOE"
-    ],
+    "behavior": ["Point Target", "AOE"],
     "target_team": "Friendly",
     "target_type": "Hero",
     "notes": "",
@@ -2122,10 +2037,7 @@
     "dname": "Observer and Sentry Wards",
     "qual": "common",
     "cost": 50,
-    "behavior": [
-      "Point Target",
-      "AOE"
-    ],
+    "behavior": ["Point Target", "AOE"],
     "target_team": "Friendly",
     "target_type": "Hero",
     "notes": "Hold Control to give one ward to an allied hero.",
@@ -2187,10 +2099,7 @@
     "hc": false,
     "cd": false,
     "lore": "Advancements in stacking efficiency have made wards easier to carry than ever.",
-    "components": [
-      "ward_sentry",
-      "ward_observer"
-    ],
+    "components": ["ward_sentry", "ward_observer"],
     "created": true,
     "charges": false
   },
@@ -2338,10 +2247,7 @@
     "dname": "Town Portal Scroll",
     "qual": "consumable",
     "cost": 100,
-    "behavior": [
-      "Point Target",
-      "Channeled"
-    ],
+    "behavior": ["Point Target", "Channeled"],
     "target_team": "Friendly",
     "target_type": "Building",
     "notes": "If multiple heroes teleport to the same location in succession, the channeling time will be increased for each successive hero.\nTeleport can be prevented or canceled by Root abilities.",
@@ -2430,9 +2336,7 @@
     "hc": false,
     "cd": false,
     "lore": "Winged boots that grant omnipresence.",
-    "components": [
-      "boots"
-    ],
+    "components": ["boots", "recipe_travel_boots"],
     "created": true,
     "charges": false
   },
@@ -2484,10 +2388,7 @@
     "hc": false,
     "cd": false,
     "lore": "Winged boots that grant omnipresence.",
-    "components": [
-      "travel_boots",
-      "recipe_travel_boots"
-    ],
+    "components": ["travel_boots", "recipe_travel_boots"],
     "created": true,
     "charges": false
   },
@@ -2507,10 +2408,7 @@
     "dname": "Phase Boots",
     "qual": "common",
     "cost": 1500,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "notes": "",
     "attrib": [
       {
@@ -2566,11 +2464,7 @@
     "hc": false,
     "cd": 8,
     "lore": "Boots that allow the wearer to travel between the ether.",
-    "components": [
-      "boots",
-      "chainmail",
-      "blades_of_attack"
-    ],
+    "components": ["boots", "chainmail", "blades_of_attack"],
     "created": true,
     "charges": false
   },
@@ -2903,10 +2797,7 @@
     "dname": "Power Treads",
     "qual": "common",
     "cost": 1400,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "notes": "Power Treads can be built using a Belt of Strength, Band of Elvenskin, or a Robe of the Magi.",
     "attrib": [
       {
@@ -2938,11 +2829,7 @@
     "hc": false,
     "cd": false,
     "lore": "A pair of tough-skinned boots that change to meet the demands of the wearer.",
-    "components": [
-      "boots",
-      "gloves",
-      "belt_of_strength"
-    ],
+    "components": ["boots", "gloves", "belt_of_strength"],
     "created": true,
     "charges": false
   },
@@ -2980,10 +2867,7 @@
     "dname": "Samurai Tabi",
     "qual": "common",
     "cost": 5250,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "notes": "",
     "attrib": [
       {
@@ -3056,7 +2940,8 @@
       "belt_of_strength",
       "boots_of_elves",
       "robe",
-      "ultimate_orb"
+      "ultimate_orb",
+      "recipe_samurai_tabi"
     ],
     "created": true,
     "charges": false
@@ -3093,10 +2978,7 @@
     "dname": "Hermes Sandals",
     "qual": "common",
     "cost": 4800,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "notes": "",
     "attrib": [
       {
@@ -3141,10 +3023,7 @@
     "hc": false,
     "cd": 10,
     "lore": "",
-    "components": [
-      "phase_boots",
-      "eagle"
-    ],
+    "components": ["phase_boots", "eagle", "recipe_hermes_sandals"],
     "created": true,
     "charges": false
   },
@@ -3223,7 +3102,8 @@
     "components": [
       "buckler",
       "ring_of_basilius",
-      "headdress"
+      "headdress",
+      "recipe_witches_switch"
     ],
     "created": true,
     "charges": false
@@ -3299,7 +3179,8 @@
     "components": [
       "cloak",
       "wind_lace",
-      "vitality_booster"
+      "vitality_booster",
+      "recipe_lunar_crest"
     ],
     "created": true,
     "charges": false
@@ -3368,10 +3249,7 @@
     "hc": false,
     "cd": 6,
     "lore": "",
-    "components": [
-      "point_booster",
-      "diadem"
-    ],
+    "components": ["point_booster", "diadem", "recipe_phylactery"],
     "created": true,
     "charges": false
   },
@@ -3465,10 +3343,7 @@
     "hc": false,
     "cd": 6,
     "lore": "",
-    "components": [
-      "phylactery",
-      "lesser_crit"
-    ],
+    "components": ["phylactery", "lesser_crit", "recipe_angels_demise"],
     "created": true,
     "charges": false
   },
@@ -3478,10 +3353,7 @@
     "dname": "Grandmaster's Glaive",
     "qual": "common",
     "cost": 5000,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "notes": "",
     "attrib": [
       {
@@ -3630,9 +3502,7 @@
     "hc": false,
     "cd": false,
     "lore": "Preserved through unknown magical means, the Hand of Midas is a weapon of greed, sacrificing animals to line the owner's pockets.",
-    "components": [
-      "gloves"
-    ],
+    "components": ["gloves", "recipe_hand_of_midas"],
     "created": true,
     "charges": 1
   },
@@ -3652,11 +3522,7 @@
     "dname": "Aetherial Hammer",
     "qual": "common",
     "cost": 5900,
-    "behavior": [
-      "Point Target",
-      "AOE",
-      "Channeled"
-    ],
+    "behavior": ["Point Target", "AOE", "Channeled"],
     "dmg_type": "Magical",
     "bkbpierce": "No",
     "notes": "",
@@ -3776,11 +3642,7 @@
     "hc": false,
     "cd": false,
     "lore": "Deceptively hidden as an ordinary staff, it is actually very powerful, much like the Eldritch who originally possessed it.",
-    "components": [
-      "blitz_knuckles",
-      "sobi_mask",
-      "robe"
-    ],
+    "components": ["blitz_knuckles", "sobi_mask", "robe"],
     "created": true,
     "charges": false
   },
@@ -3858,10 +3720,7 @@
     "hc": false,
     "cd": 9,
     "lore": "A spiteful blade inadvertently possessed by the soul of its incautious creator.",
-    "components": [
-      "oblivion_staff",
-      "chainmail"
-    ],
+    "components": ["oblivion_staff", "chainmail", "recipe_witch_blade"],
     "created": true,
     "charges": false
   },
@@ -3888,10 +3747,7 @@
     "hc": false,
     "cd": false,
     "lore": "A gem that grants heart to the bearer.",
-    "components": [
-      "ring_of_health",
-      "void_stone"
-    ],
+    "components": ["ring_of_health", "void_stone"],
     "created": true,
     "charges": false
   },
@@ -3975,9 +3831,7 @@
   },
   "satchel": {
     "abilities": [],
-    "hint": [
-      "Increases XP that you earn by 15%."
-    ],
+    "hint": ["Increases XP that you earn by 15%."],
     "id": 731,
     "img": "/apps/dota2/images/dota_react/items/satchel.png?t=1593393829403",
     "dname": "Satchel",
@@ -4021,9 +3875,7 @@
   },
   "bracer": {
     "abilities": [],
-    "hint": [
-      "Doubles its bonuses after minute 25."
-    ],
+    "hint": ["Doubles its bonuses after minute 25."],
     "id": 73,
     "img": "/apps/dota2/images/dota_react/items/bracer.png?t=1593393829403",
     "dname": "Bracer",
@@ -4069,10 +3921,7 @@
     "hc": false,
     "cd": false,
     "lore": "The bracer is a common choice to toughen up defenses and increase longevity.",
-    "components": [
-      "circlet",
-      "gauntlets"
-    ],
+    "components": ["circlet", "gauntlets", "recipe_bracer"],
     "created": true,
     "charges": false
   },
@@ -4094,9 +3943,7 @@
   },
   "wraith_band": {
     "abilities": [],
-    "hint": [
-      "Doubles its bonuses after minute 25."
-    ],
+    "hint": ["Doubles its bonuses after minute 25."],
     "id": 75,
     "img": "/apps/dota2/images/dota_react/items/wraith_band.png?t=1593393829403",
     "dname": "Wraith Band",
@@ -4138,10 +3985,7 @@
     "hc": false,
     "cd": false,
     "lore": "A circlet with faint whispers echoing about it.",
-    "components": [
-      "circlet",
-      "slippers"
-    ],
+    "components": ["circlet", "slippers", "recipe_wraith_band"],
     "created": true,
     "charges": false
   },
@@ -4163,9 +4007,7 @@
   },
   "null_talisman": {
     "abilities": [],
-    "hint": [
-      "Doubles its bonuses after minute 25."
-    ],
+    "hint": ["Doubles its bonuses after minute 25."],
     "id": 77,
     "img": "/apps/dota2/images/dota_react/items/null_talisman.png?t=1593393829403",
     "dname": "Null Talisman",
@@ -4207,10 +4049,7 @@
     "hc": false,
     "cd": false,
     "lore": "A small gemstone attached to several chains.",
-    "components": [
-      "circlet",
-      "mantle"
-    ],
+    "components": ["circlet", "mantle", "recipe_null_talisman"],
     "created": true,
     "charges": false
   },
@@ -4249,10 +4088,7 @@
     "dname": "Mekansm",
     "qual": "rare",
     "cost": 1775,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "notes": "Restore does not affect units that have been affected by Restore or Guardian Greaves Mend within Mekansm's cooldown.\nMultiple instances of Mekansm Aura do not stack.",
     "attrib": [
       {
@@ -4281,10 +4117,7 @@
     "hc": false,
     "cd": 50,
     "lore": "A glowing jewel formed out of assorted parts that somehow fit together perfectly.",
-    "components": [
-      "headdress",
-      "chainmail"
-    ],
+    "components": ["headdress", "chainmail", "recipe_mekansm"],
     "created": true,
     "charges": false
   },
@@ -4443,10 +4276,7 @@
     "hc": false,
     "cd": 60,
     "lore": "A sentient amulet whose animus shakes the courage of even the strongest foes.",
-    "components": [
-      "vladmir",
-      "point_booster"
-    ],
+    "components": ["vladmir", "point_booster", "recipe_wraith_pact"],
     "created": true,
     "charges": false
   },
@@ -4501,9 +4331,7 @@
     "hc": false,
     "cd": false,
     "lore": "A powerful shield that imbues the bearer with the strength of heroes past, it is capable of protecting entire armies in battle.",
-    "components": [
-      "ring_of_protection"
-    ],
+    "components": ["ring_of_protection", "recipe_buckler"],
     "created": true,
     "charges": false
   },
@@ -4557,9 +4385,7 @@
     "hc": false,
     "cd": false,
     "lore": "Ring given as a reward to the greatest mages.",
-    "components": [
-      "sobi_mask"
-    ],
+    "components": ["sobi_mask", "recipe_ring_of_basilius"],
     "created": true,
     "charges": false
   },
@@ -4598,10 +4424,7 @@
     "dname": "Holy Locket",
     "qual": "rare",
     "cost": 2250,
-    "behavior": [
-      "Unit Target",
-      "Instant Cast"
-    ],
+    "behavior": ["Unit Target", "Instant Cast"],
     "target_team": "Friendly",
     "target_type": "Hero",
     "notes": "",
@@ -4649,10 +4472,7 @@
     "hc": false,
     "cd": false,
     "lore": "A prized relic long thought lost forever in a failed crusade.",
-    "components": [
-      "diadem",
-      "magic_wand"
-    ],
+    "components": ["diadem", "magic_wand", "recipe_holy_locket"],
     "created": true,
     "charges": 1
   },
@@ -4691,10 +4511,7 @@
     "dname": "Pipe of Insight",
     "qual": "rare",
     "cost": 3725,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "notes": "Multiple instances of Barrier do not stack.\nStacks multiplicatively with other sources of magic resistance.",
     "attrib": [
       {
@@ -4752,11 +4569,7 @@
     "hc": false,
     "cd": 60,
     "lore": "A powerful artifact of mysterious origin, it creates barriers against magical forces.",
-    "components": [
-      "cloak",
-      "headdress",
-      "ring_of_tarrasque"
-    ],
+    "components": ["cloak", "headdress", "ring_of_tarrasque", "recipe_pipe"],
     "created": true,
     "charges": false
   },
@@ -4843,7 +4656,8 @@
     "components": [
       "sobi_mask",
       "ring_of_protection",
-      "fluffy_hat"
+      "fluffy_hat",
+      "recipe_urn_of_shadows"
     ],
     "created": true,
     "charges": false
@@ -4898,9 +4712,7 @@
     "hc": false,
     "cd": false,
     "lore": "Creates a soothing aura that restores allies in battle.",
-    "components": [
-      "ring_of_regen"
-    ],
+    "components": ["ring_of_regen", "recipe_headdress"],
     "created": true,
     "charges": false
   },
@@ -4937,10 +4749,7 @@
     "behavior": "Unit Target",
     "dispellable": "Strong Dispels Only",
     "target_team": "Enemy",
-    "target_type": [
-      "Hero",
-      "Basic"
-    ],
+    "target_type": ["Hero", "Basic"],
     "notes": "The target will have a base movement speed of 140, but buffs granting maximum movement speed won't be disabled.",
     "attrib": [
       {
@@ -4970,10 +4779,7 @@
     "hc": false,
     "cd": 20,
     "lore": "The most guarded relic among the cult of Vyse, it is the most coveted weapon among magi.",
-    "components": [
-      "mystic_staff",
-      "tiara_of_selemene"
-    ],
+    "components": ["mystic_staff", "tiara_of_selemene", "recipe_sheepstick"],
     "created": true,
     "charges": false
   },
@@ -4993,10 +4799,7 @@
     "cost": 5600,
     "dispellable": "Strong Dispels Only",
     "target_team": "Enemy",
-    "target_type": [
-      "Hero",
-      "Basic"
-    ],
+    "target_type": ["Hero", "Basic"],
     "notes": "If Caster Rapier is dropped and picked up by an enemy of its original owner, it cannot be dropped again except by death.",
     "attrib": [
       {
@@ -5054,10 +4857,7 @@
     "behavior": "Unit Target",
     "dispellable": "Yes",
     "target_team": "Enemy",
-    "target_type": [
-      "Hero",
-      "Basic"
-    ],
+    "target_type": ["Hero", "Basic"],
     "notes": "",
     "attrib": [
       {
@@ -5098,10 +4898,7 @@
     "hc": false,
     "cd": 18,
     "lore": "A garnet rod constructed from the essence of a fire demon.",
-    "components": [
-      "oblivion_staff",
-      "cornucopia"
-    ],
+    "components": ["oblivion_staff", "cornucopia", "recipe_orchid"],
     "created": true,
     "charges": false
   },
@@ -5144,10 +4941,7 @@
     "dmg_type": "Magical",
     "dispellable": "Yes",
     "target_team": "Enemy",
-    "target_type": [
-      "Hero",
-      "Basic"
-    ],
+    "target_type": ["Hero", "Basic"],
     "notes": "",
     "attrib": [
       {
@@ -5212,11 +5006,7 @@
     "hc": false,
     "cd": 15,
     "lore": "A reviled blade that bites deeper with each wriggle of its victim's final throes.",
-    "components": [
-      "orchid",
-      "javelin",
-      "hyperstone"
-    ],
+    "components": ["orchid", "javelin", "hyperstone", "recipe_bloodthorn"],
     "created": true,
     "charges": false
   },
@@ -5265,11 +5055,7 @@
     "hc": false,
     "cd": 5,
     "lore": "A deceptively swift blade imbued with resonant magic.",
-    "components": [
-      "ogre_axe",
-      "broadsword",
-      "void_stone"
-    ],
+    "components": ["ogre_axe", "broadsword", "void_stone"],
     "created": true,
     "charges": false
   },
@@ -5340,7 +5126,8 @@
     "components": [
       "staff_of_wizardry",
       "void_stone",
-      "wind_lace"
+      "wind_lace",
+      "recipe_cyclone"
     ],
     "created": true,
     "charges": false
@@ -5413,10 +5200,7 @@
     "hc": false,
     "cd": 16,
     "lore": "Proof enough to some that unseen forces manipulate the happenings of the material plane.",
-    "components": [
-      "cyclone",
-      "mystic_staff"
-    ],
+    "components": ["cyclone", "mystic_staff", "recipe_wind_waker"],
     "created": true,
     "charges": false
   },
@@ -5472,10 +5256,7 @@
     "hc": false,
     "cd": false,
     "lore": "Polished with the incantation of his final breath, the gift of a dying mage to his sickly son.",
-    "components": [
-      "energy_booster",
-      "void_stone"
-    ],
+    "components": ["energy_booster", "void_stone", "recipe_aether_lens"],
     "created": true,
     "charges": false
   },
@@ -5511,10 +5292,7 @@
     "cost": 2200,
     "behavior": "Unit Target",
     "target_team": "Both",
-    "target_type": [
-      "Hero",
-      "Basic"
-    ],
+    "target_type": ["Hero", "Basic"],
     "notes": "Self-cast will cause you to use Force on yourself.\nForce Staff doesn't interrupt the target's actions.\nWill not work on a unit inside Chronosphere, Duel, or Black Hole.",
     "attrib": [
       {
@@ -5544,10 +5322,7 @@
     "hc": false,
     "cd": 19,
     "lore": "Allows you to manipulate others, for good or evil.",
-    "components": [
-      "staff_of_wizardry",
-      "fluffy_hat"
-    ],
+    "components": ["staff_of_wizardry", "fluffy_hat", "recipe_force_staff"],
     "created": true,
     "charges": false
   },
@@ -5588,10 +5363,7 @@
     "cost": 4450,
     "behavior": "Unit Target",
     "target_team": "Both",
-    "target_type": [
-      "Hero",
-      "Basic"
-    ],
+    "target_type": ["Hero", "Basic"],
     "notes": "Self-cast will use Hurricane Pike on yourself.\nHurricane Pike doesn't interrupt the target's actions.\nWill not work on a unit inside Chronosphere, Duel, or Black Hole.",
     "attrib": [
       {
@@ -5660,10 +5432,7 @@
     "hc": false,
     "cd": 19,
     "lore": "A legendary pike once held as royal sigil of the ancient wyvern riders.",
-    "components": [
-      "force_staff",
-      "dragon_lance"
-    ],
+    "components": ["force_staff", "dragon_lance", "recipe_hurricane_pike"],
     "created": true,
     "charges": false
   },
@@ -5699,10 +5468,7 @@
     "cost": 2850,
     "behavior": "Unit Target",
     "target_team": "Enemy",
-    "target_type": [
-      "Hero",
-      "Basic"
-    ],
+    "target_type": ["Hero", "Basic"],
     "notes": "Instantly kills illusions.",
     "attrib": [
       {
@@ -5750,10 +5516,7 @@
     "hc": false,
     "cd": 27,
     "lore": "A lesser wand that grows in power the longer it is used, it brings magic to the fingertips of the user.",
-    "components": [
-      "diadem",
-      "voodoo_mask"
-    ],
+    "components": ["diadem", "voodoo_mask", "recipe_dagon"],
     "created": true,
     "charges": false
   },
@@ -5773,10 +5536,7 @@
     "cost": 4000,
     "behavior": "Unit Target",
     "target_team": "Enemy",
-    "target_type": [
-      "Hero",
-      "Basic"
-    ],
+    "target_type": ["Hero", "Basic"],
     "notes": "Instantly kills illusions.",
     "attrib": [
       {
@@ -5843,10 +5603,7 @@
     "cost": 5150,
     "behavior": "Unit Target",
     "target_team": "Enemy",
-    "target_type": [
-      "Hero",
-      "Basic"
-    ],
+    "target_type": ["Hero", "Basic"],
     "notes": "Instantly kills illusions.",
     "attrib": [
       {
@@ -5913,10 +5670,7 @@
     "cost": 6300,
     "behavior": "Unit Target",
     "target_team": "Enemy",
-    "target_type": [
-      "Hero",
-      "Basic"
-    ],
+    "target_type": ["Hero", "Basic"],
     "notes": "Instantly kills illusions.",
     "attrib": [
       {
@@ -5983,10 +5737,7 @@
     "cost": 7450,
     "behavior": "Unit Target",
     "target_team": "Enemy",
-    "target_type": [
-      "Hero",
-      "Basic"
-    ],
+    "target_type": ["Hero", "Basic"],
     "notes": "Instantly kills illusions.",
     "attrib": [
       {
@@ -6067,10 +5818,7 @@
     "dname": "Necronomicon",
     "qual": "rare",
     "cost": 2050,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "notes": "",
     "attrib": [
       {
@@ -6139,7 +5887,8 @@
     "components": [
       "sobi_mask",
       "sobi_mask",
-      "belt_of_strength"
+      "belt_of_strength",
+      "recipe_necronomicon"
     ],
     "created": true,
     "charges": false
@@ -6158,10 +5907,7 @@
     "dname": "Necronomicon",
     "qual": "rare",
     "cost": 3300,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "notes": "",
     "attrib": [
       {
@@ -6227,10 +5973,7 @@
     "hc": false,
     "cd": 80,
     "lore": "Considered the ultimate in necromancy and demonology, a powerful malefic force is locked within its pages.",
-    "components": [
-      "necronomicon",
-      "recipe_necronomicon"
-    ],
+    "components": ["necronomicon", "recipe_necronomicon"],
     "created": true,
     "charges": false
   },
@@ -6248,10 +5991,7 @@
     "dname": "Necronomicon",
     "qual": "rare",
     "cost": 4550,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "notes": "",
     "attrib": [
       {
@@ -6317,10 +6057,7 @@
     "hc": false,
     "cd": 80,
     "lore": "Considered the ultimate in necromancy and demonology, a powerful malefic force is locked within its pages.",
-    "components": [
-      "necronomicon_2",
-      "recipe_necronomicon"
-    ],
+    "components": ["necronomicon_2", "recipe_necronomicon"],
     "created": true,
     "charges": false
   },
@@ -6407,9 +6144,7 @@
     "hc": false,
     "cd": false,
     "lore": "The scepter of a wizard with demigod-like powers.",
-    "components": [
-      "ultimate_scepter"
-    ],
+    "components": ["ultimate_scepter", "recipe_ultimate_scepter_2"],
     "created": true,
     "charges": false
   },
@@ -6543,7 +6278,8 @@
     "components": [
       "cornucopia",
       "ring_of_tarrasque",
-      "tiara_of_selemene"
+      "tiara_of_selemene",
+      "recipe_refresher"
     ],
     "created": true,
     "charges": false
@@ -6612,11 +6348,7 @@
     "hc": false,
     "cd": false,
     "lore": "Forged in the depths of the nether reaches, this hellish mail provides an army with increased armor and attack speed.",
-    "components": [
-      "platemail",
-      "hyperstone",
-      "buckler"
-    ],
+    "components": ["platemail", "hyperstone", "buckler", "recipe_assault"],
     "created": true,
     "charges": false
   },
@@ -6659,10 +6391,7 @@
     "hc": false,
     "cd": false,
     "lore": "Preserved heart of an extinct monster, it bolsters the bearer's fortitude.",
-    "components": [
-      "ring_of_tarrasque",
-      "reaver"
-    ],
+    "components": ["ring_of_tarrasque", "reaver", "recipe_heart"],
     "created": true,
     "charges": false
   },
@@ -6696,10 +6425,7 @@
     "dname": "Black King Bar",
     "qual": "epic",
     "cost": 4050,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "notes": "Purchasing another Black King Bar will not reset its immunity duration.\nAbilities that pierce magic immunity will work fully even when Avatar is activated",
     "attrib": [
       {
@@ -6733,10 +6459,7 @@
     "hc": false,
     "cd": 95,
     "lore": "A powerful staff imbued with the strength of giants.",
-    "components": [
-      "ogre_axe",
-      "mithril_hammer"
-    ],
+    "components": ["ogre_axe", "mithril_hammer", "recipe_black_king_bar"],
     "created": true,
     "charges": false
   },
@@ -6816,10 +6539,7 @@
     "dname": "Shiva's Guard",
     "qual": "epic",
     "cost": 5175,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "dispellable": "Yes",
     "notes": "The wave extends at a speed of 400 to a max size of 900.\nThe Arctic Blast follows its caster.\nMultiple instances of Freezing Aura do not stack.",
     "attrib": [
@@ -6897,10 +6617,7 @@
     "hc": false,
     "cd": 27,
     "lore": "Said to have belonged to a goddess, today it retains much of its former power.",
-    "components": [
-      "veil_of_discord",
-      "platemail"
-    ],
+    "components": ["veil_of_discord", "platemail", "recipe_shivas_guard"],
     "created": true,
     "charges": false
   },
@@ -6918,10 +6635,7 @@
     "dname": "Bloodstone",
     "qual": "epic",
     "cost": 4400,
-    "behavior": [
-      "No Target",
-      "Instant Cast"
-    ],
+    "behavior": ["No Target", "Instant Cast"],
     "dmg_type": "Magical",
     "notes": "Using Bloodpact leaves you drained for 40 seconds and can't benefit from Bloodpact again during that time.",
     "attrib": [
@@ -6967,11 +6681,7 @@
     "hc": false,
     "cd": 35,
     "lore": "The Bloodstone's bright ruby color is unmistakable on the battlefield, as the owner seems to have infinite vitality and spirit.",
-    "components": [
-      "voodoo_mask",
-      "soul_booster",
-      "void_stone"
-    ],
+    "components": ["voodoo_mask", "soul_booster", "void_stone"],
     "created": true,
     "charges": false
   },
@@ -7047,10 +6757,7 @@
     "hc": false,
     "cd": 14,
     "lore": "This magical sphere once protected one of the most famous heroes in history.",
-    "components": [
-      "ultimate_orb",
-      "pers"
-    ],
+    "components": ["ultimate_orb", "pers", "recipe_sphere"],
     "created": true,
     "charges": false
   },
@@ -7118,11 +6825,7 @@
     "hc": false,
     "cd": 15,
     "lore": "The jewel at its center still reflects a pale image of its creator.",
-    "components": [
-      "pers",
-      "platemail",
-      "energy_booster"
-    ],
+    "components": ["pers", "platemail", "energy_booster", "recipe_lotus_orb"],
     "created": true,
     "charges": false
   },
@@ -7156,11 +6859,7 @@
     "dname": "Meteor Hammer",
     "qual": "epic",
     "cost": 2850,
-    "behavior": [
-      "Point Target",
-      "AOE",
-      "Channeled"
-    ],
+    "behavior": ["Point Target", "AOE", "Channeled"],
     "dmg_type": "Magical",
     "bkbpierce": "No",
     "notes": "",
@@ -7248,10 +6947,7 @@
     "hc": false,
     "cd": 24,
     "lore": "",
-    "components": [
-      "crown",
-      "kaya"
-    ],
+    "components": ["crown", "kaya", "recipe_meteor_hammer"],
     "created": true,
     "charges": false
   },
@@ -7271,10 +6967,7 @@
     "cost": 4375,
     "behavior": "Unit Target",
     "target_team": "Enemy",
-    "target_type": [
-      "Hero",
-      "Basic"
-    ],
+    "target_type": ["Hero", "Basic"],
     "notes": "Can be cast on invulnerable units.\nPierces magic immunity.",
     "attrib": [
       {
@@ -7314,10 +7007,7 @@
     "hc": false,
     "cd": 10,
     "lore": "",
-    "components": [
-      "relic",
-      "helm_of_iron_will"
-    ],
+    "components": ["relic", "helm_of_iron_will"],
     "created": true,
     "charges": false
   },
@@ -7389,10 +7079,7 @@
     "hc": false,
     "cd": 105,
     "lore": "",
-    "components": [
-      "vitality_booster",
-      "energy_booster"
-    ],
+    "components": ["vitality_booster", "energy_booster", "recipe_aeon_disk"],
     "created": true,
     "charges": false
   },
@@ -7445,18 +7132,13 @@
     "hc": false,
     "cd": false,
     "lore": "",
-    "components": [
-      "staff_of_wizardry",
-      "robe"
-    ],
+    "components": ["staff_of_wizardry", "robe", "recipe_kaya"],
     "created": true,
     "charges": false
   },
   "trident": {
     "abilities": [],
-    "hint": [
-      "Combines Sange, Yasha and Kaya together."
-    ],
+    "hint": ["Combines Sange, Yasha and Kaya together."],
     "id": 369,
     "img": "/apps/dota2/images/dota_react/items/trident.png?t=1593393829403",
     "dname": "Trident",
@@ -7518,12 +7200,7 @@
     "hc": false,
     "cd": false,
     "lore": "",
-    "components": [
-      "kaya",
-      "sange",
-      "yasha",
-      ""
-    ],
+    "components": ["kaya", "sange", "yasha", "recipe_trident"],
     "created": true,
     "charges": false
   },
@@ -7556,10 +7233,7 @@
     "dname": "Refresher Shard",
     "qual": "consumable",
     "cost": 1000,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "notes": "Refresher Shard is shareable.",
     "attrib": [
       {
@@ -7679,7 +7353,8 @@
     "lore": "",
     "components": [
       "urn_of_shadows",
-      "vitality_booster"
+      "vitality_booster",
+      "recipe_spirit_vessel"
     ],
     "created": true,
     "charges": false
@@ -7727,10 +7402,7 @@
     "hc": false,
     "cd": false,
     "lore": "A powerful shield that defends its wielder from even the most vicious of attacks.",
-    "components": [
-      "ring_of_health",
-      "vitality_booster"
-    ],
+    "components": ["ring_of_health", "vitality_booster"],
     "created": true,
     "charges": false
   },
@@ -7769,10 +7441,7 @@
     "dname": "Crimson Guard",
     "qual": "epic",
     "cost": 3725,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "dispellable": "Yes",
     "notes": "Multiple sources of damage block do not stack.",
     "attrib": [
@@ -7832,10 +7501,7 @@
     "hc": false,
     "cd": 40,
     "lore": "A cuirass originally built to protect against the dreaded Year Beast.",
-    "components": [
-      "vanguard",
-      "helm_of_iron_will"
-    ],
+    "components": ["vanguard", "helm_of_iron_will", "recipe_crimson_guard"],
     "created": true,
     "charges": false
   },
@@ -7874,10 +7540,7 @@
     "dname": "Blade Mail",
     "qual": "epic",
     "cost": 2300,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "notes": "Damage Return is calculated before any kind of reduction.\nDamage Return doesn't reflect damage from other forms of Blade Mail.\nReturned damage type is the same as it was received.",
     "attrib": [
       {
@@ -7915,10 +7578,7 @@
     "hc": false,
     "cd": 25,
     "lore": "A razor-sharp coat of mail, it is the choice of selfless martyrs in combat.",
-    "components": [
-      "broadsword",
-      "chainmail"
-    ],
+    "components": ["broadsword", "chainmail", "recipe_blade_mail"],
     "created": true,
     "charges": false
   },
@@ -7945,11 +7605,7 @@
     "hc": false,
     "cd": false,
     "lore": "Regain lost courage.",
-    "components": [
-      "vitality_booster",
-      "energy_booster",
-      "point_booster"
-    ],
+    "components": ["vitality_booster", "energy_booster", "point_booster"],
     "created": true,
     "charges": false
   },
@@ -7967,10 +7623,7 @@
     "dname": "Hood of Defiance",
     "qual": "epic",
     "cost": 0,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "notes": "Stacks multiplicatively with other sources of spell resistance.",
     "attrib": [
       {
@@ -8084,7 +7737,8 @@
     "components": [
       "cloak",
       "ogre_axe",
-      "vitality_booster"
+      "vitality_booster",
+      "recipe_eternal_shroud"
     ],
     "created": true,
     "charges": false
@@ -8129,10 +7783,7 @@
     "hc": false,
     "cd": 6,
     "lore": "So powerful, it cannot have a single owner.",
-    "components": [
-      "relic",
-      "demon_edge"
-    ],
+    "components": ["relic", "demon_edge"],
     "created": true,
     "charges": false
   },
@@ -8194,7 +7845,8 @@
     "components": [
       "demon_edge",
       "javelin",
-      "blitz_knuckles"
+      "blitz_knuckles",
+      "recipe_monkey_king_bar"
     ],
     "created": true,
     "charges": false
@@ -8255,10 +7907,7 @@
     "hc": false,
     "cd": false,
     "lore": "A divine weapon that causes damage and a bright burning effect that lays waste to nearby enemies.",
-    "components": [
-      "relic",
-      "talisman_of_evasion"
-    ],
+    "components": ["relic", "talisman_of_evasion"],
     "created": true,
     "charges": false
   },
@@ -8295,11 +7944,7 @@
     "hc": false,
     "cd": false,
     "lore": "Only the mightiest and most experienced of warriors can wield the Butterfly, but it provides incredible dexterity in combat.",
-    "components": [
-      "eagle",
-      "talisman_of_evasion",
-      "claymore"
-    ],
+    "components": ["eagle", "talisman_of_evasion", "claymore"],
     "created": true,
     "charges": false
   },
@@ -8353,10 +7998,7 @@
     "hc": false,
     "cd": false,
     "lore": "A weapon of incredible power that is difficult for even the strongest of warriors to control.",
-    "components": [
-      "lesser_crit",
-      "demon_edge"
-    ],
+    "components": ["lesser_crit", "demon_edge", "recipe_greater_crit"],
     "created": true,
     "charges": false
   },
@@ -8430,10 +8072,7 @@
     "hc": false,
     "cd": 2,
     "lore": "A feared weapon in the right hands, this maul's ability to shatter the defenses of its opponents should not be underestimated.",
-    "components": [
-      "mithril_hammer",
-      "belt_of_strength"
-    ],
+    "components": ["mithril_hammer", "belt_of_strength", "recipe_basher"],
     "created": true,
     "charges": false
   },
@@ -8542,7 +8181,8 @@
       "broadsword",
       "claymore",
       "cornucopia",
-      "quelling_blade"
+      "quelling_blade",
+      "recipe_bfury"
     ],
     "created": true,
     "charges": false
@@ -8650,10 +8290,7 @@
     "hc": false,
     "cd": 34,
     "lore": "An axe made of reflective materials that causes confusion amongst enemy ranks.",
-    "components": [
-      "yasha",
-      "diadem"
-    ],
+    "components": ["yasha", "diadem", "recipe_manta"],
     "created": true,
     "charges": false
   },
@@ -8711,10 +8348,7 @@
     "hc": false,
     "cd": false,
     "lore": "A blade forged from rare crystals, it seeks weak points in enemy armor.",
-    "components": [
-      "claymore",
-      "blades_of_attack"
-    ],
+    "components": ["claymore", "blades_of_attack", "recipe_lesser_crit"],
     "created": true,
     "charges": false
   },
@@ -8772,7 +8406,8 @@
     "lore": "The forward charge of the wyvern host grants no quarter.",
     "components": [
       "blade_of_alacrity",
-      "belt_of_strength"
+      "belt_of_strength",
+      "recipe_dragon_lance"
     ],
     "created": true,
     "charges": false
@@ -8862,7 +8497,8 @@
     "components": [
       "helm_of_iron_will",
       "gloves",
-      "blades_of_attack"
+      "blades_of_attack",
+      "recipe_armlet"
     ],
     "created": true,
     "charges": false
@@ -8881,10 +8517,7 @@
     "dname": "Shadow Blade",
     "qual": "epic",
     "cost": 3000,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "notes": "Has a 0.3 second fade time.\nIf the invisibility ends without attacking, the bonus damage is lost.",
     "attrib": [
       {
@@ -8918,11 +8551,7 @@
     "hc": false,
     "cd": 25,
     "lore": "The blade of a fallen king, it allows you to move unseen and strike from the shadows.",
-    "components": [
-      "shadow_amulet",
-      "blitz_knuckles",
-      "broadsword"
-    ],
+    "components": ["shadow_amulet", "blitz_knuckles", "broadsword"],
     "created": true,
     "charges": false
   },
@@ -8956,10 +8585,7 @@
     "dname": "Silver Edge",
     "qual": "epic",
     "cost": 5450,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "notes": "",
     "attrib": [
       {
@@ -9013,10 +8639,7 @@
     "hc": false,
     "cd": 20,
     "lore": "Once used to slay an unjust king, only to have the kingdom erupt into civil war in the aftermath.",
-    "components": [
-      "invis_sword",
-      "demon_edge"
-    ],
+    "components": ["invis_sword", "demon_edge", "recipe_silver_edge"],
     "created": true,
     "charges": false
   },
@@ -9068,10 +8691,7 @@
     "hc": false,
     "cd": false,
     "lore": "Sange and Yasha, when attuned by the moonlight and used together, become a very powerful combination.",
-    "components": [
-      "yasha",
-      "sange"
-    ],
+    "components": ["yasha", "sange"],
     "created": true,
     "charges": false
   },
@@ -9128,10 +8748,7 @@
     "hc": false,
     "cd": false,
     "lore": "Two of three known items of unimaginable power that many believe were crafted at the same enchanter's forge.",
-    "components": [
-      "sange",
-      "kaya"
-    ],
+    "components": ["sange", "kaya"],
     "created": true,
     "charges": false
   },
@@ -9188,10 +8805,7 @@
     "hc": false,
     "cd": false,
     "lore": "Yasha and Kaya when paired together share a natural resonance.",
-    "components": [
-      "kaya",
-      "yasha"
-    ],
+    "components": ["kaya", "yasha"],
     "created": true,
     "charges": false
   },
@@ -9214,10 +8828,7 @@
     "dname": "Satanic",
     "qual": "artifact",
     "cost": 5050,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "dispellable": "No",
     "notes": "",
     "attrib": [
@@ -9257,11 +8868,7 @@
     "hc": false,
     "cd": 30,
     "lore": "Immense power at the cost of your soul.",
-    "components": [
-      "lifesteal",
-      "claymore",
-      "reaver"
-    ],
+    "components": ["lifesteal", "claymore", "reaver"],
     "created": true,
     "charges": false
   },
@@ -9303,10 +8910,7 @@
     "behavior": "Unit Target",
     "dispellable": "Yes",
     "target_team": "Friendly",
-    "target_type": [
-      "Hero",
-      "Basic"
-    ],
+    "target_type": ["Hero", "Basic"],
     "notes": "Static Charge cannot trigger more than once per second.\nStatic Charge's shock deals magical damage centered on hero with the Static Charge. Static Charge's targets cannot be more than 900 range away.\nStatic Charge procs will not bounce to heroes that are invisible or hidden by Fog of War.",
     "attrib": [
       {
@@ -9388,10 +8992,7 @@
     "hc": false,
     "cd": 35,
     "lore": "Thor's magical hammer, made for him by the dwarves Brok and Eitri.",
-    "components": [
-      "maelstrom",
-      "hyperstone"
-    ],
+    "components": ["maelstrom", "hyperstone", "recipe_mjollnir"],
     "created": true,
     "charges": false
   },
@@ -9471,10 +9072,7 @@
     "hc": false,
     "cd": false,
     "lore": "Extremely rare artifact, guarded by the azure dragons.",
-    "components": [
-      "ultimate_orb",
-      "point_booster"
-    ],
+    "components": ["ultimate_orb", "point_booster", "recipe_skadi"],
     "created": true,
     "charges": false
   },
@@ -9522,10 +9120,7 @@
     "hc": false,
     "cd": false,
     "lore": "Sange is an unusually accurate weapon, seeking weak points automatically.",
-    "components": [
-      "ogre_axe",
-      "belt_of_strength"
-    ],
+    "components": ["ogre_axe", "belt_of_strength", "recipe_sange"],
     "created": true,
     "charges": false
   },
@@ -9626,7 +9221,8 @@
     "lore": "The powerful headpiece of a dead necromancer.",
     "components": [
       "helm_of_iron_will",
-      "diadem"
+      "diadem",
+      "recipe_helm_of_the_dominator"
     ],
     "created": true,
     "charges": false
@@ -9728,7 +9324,8 @@
     "lore": "The powerful headpiece of a dead necromancer.",
     "components": [
       "helm_of_the_dominator",
-      "ultimate_orb"
+      "ultimate_orb",
+      "recipe_helm_of_the_overlord"
     ],
     "created": true,
     "charges": false
@@ -9792,11 +9389,7 @@
     "hc": false,
     "cd": false,
     "lore": "A hammer forged for the gods themselves, Maelstrom allows its user to harness the power of lightning.",
-    "components": [
-      "mithril_hammer",
-      "javelin",
-      "gloves"
-    ],
+    "components": ["mithril_hammer", "javelin", "gloves"],
     "created": true,
     "charges": false
   },
@@ -9835,16 +9428,10 @@
     "dname": "Gleipnir",
     "qual": "artifact",
     "cost": 5450,
-    "behavior": [
-      "Point Target",
-      "AOE"
-    ],
+    "behavior": ["Point Target", "AOE"],
     "dispellable": "Yes",
     "target_team": "Enemy",
-    "target_type": [
-      "Hero",
-      "Basic"
-    ],
+    "target_type": ["Hero", "Basic"],
     "notes": "",
     "attrib": [
       {
@@ -9912,10 +9499,7 @@
     "hc": false,
     "cd": 18,
     "lore": "Bindings forged by impossible means to leash an ancient evil.",
-    "components": [
-      "maelstrom",
-      "rod_of_atos"
-    ],
+    "components": ["maelstrom", "rod_of_atos", "recipe_gungir"],
     "created": true,
     "charges": false
   },
@@ -9972,11 +9556,7 @@
     "hc": false,
     "cd": false,
     "lore": "A wicked weapon, used in torturing political criminals.",
-    "components": [
-      "mithril_hammer",
-      "mithril_hammer",
-      "blight_stone"
-    ],
+    "components": ["mithril_hammer", "mithril_hammer", "blight_stone"],
     "created": true,
     "charges": false
   },
@@ -10024,10 +9604,7 @@
     "hc": false,
     "cd": false,
     "lore": "Yasha is regarded as the swiftest weapon ever created.",
-    "components": [
-      "blade_of_alacrity",
-      "boots_of_elves"
-    ],
+    "components": ["blade_of_alacrity", "boots_of_elves", "recipe_yasha"],
     "created": true,
     "charges": false
   },
@@ -10050,10 +9627,7 @@
     "dname": "Mask of Madness",
     "qual": "artifact",
     "cost": 1900,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "dispellable": "Yes",
     "notes": "",
     "attrib": [
@@ -10092,10 +9666,7 @@
     "hc": false,
     "cd": 16,
     "lore": "Once this mask is worn, its bearer becomes an uncontrollable aggressive force.",
-    "components": [
-      "lifesteal",
-      "broadsword"
-    ],
+    "components": ["lifesteal", "broadsword"],
     "created": true,
     "charges": false
   },
@@ -10137,10 +9708,7 @@
     "behavior": "Unit Target",
     "dispellable": "Yes",
     "target_team": "Enemy",
-    "target_type": [
-      "Hero",
-      "Basic"
-    ],
+    "target_type": ["Hero", "Basic"],
     "notes": "Does not stack with other diffusal blades.",
     "attrib": [
       {
@@ -10186,10 +9754,7 @@
     "hc": false,
     "cd": 15,
     "lore": "An enchanted blade that allows the user to cut straight into the enemy's soul.",
-    "components": [
-      "blade_of_alacrity",
-      "robe"
-    ],
+    "components": ["blade_of_alacrity", "robe", "recipe_diffusal_blade"],
     "created": true,
     "charges": false
   },
@@ -10228,16 +9793,10 @@
     "dname": "Disperser",
     "qual": "artifact",
     "cost": 6100,
-    "behavior": [
-      "Unit Target",
-      "AOE"
-    ],
+    "behavior": ["Unit Target", "AOE"],
     "dispellable": "Yes",
     "target_team": "Both",
-    "target_type": [
-      "Hero",
-      "Basic"
-    ],
+    "target_type": ["Hero", "Basic"],
     "notes": "",
     "attrib": [
       {
@@ -10295,10 +9854,7 @@
     "hc": false,
     "cd": 15,
     "lore": "",
-    "components": [
-      "diffusal_blade",
-      "eagle"
-    ],
+    "components": ["diffusal_blade", "eagle", "recipe_disperser"],
     "created": true,
     "charges": false
   },
@@ -10334,10 +9890,7 @@
     "cost": 5375,
     "behavior": "Unit Target",
     "dispellable": "Yes",
-    "target_team": [
-      "Enemy",
-      "Friendly"
-    ],
+    "target_team": ["Enemy", "Friendly"],
     "target_type": "Hero",
     "notes": "Shares cooldown with Ghost Scepter.\nEthereal units take -40% bonus magic damage.\nFor Universal Heroes, their primary attribute is 60% the sum of all their attributes.\nUsing a Town Portal Scroll or Boots of Travel will not dispel Ethereal Form.",
     "attrib": [
@@ -10402,10 +9955,7 @@
     "hc": false,
     "cd": 22,
     "lore": "A flickering blade of a ghastly nature, it is capable of dealing damage in both magical and physical planes.",
-    "components": [
-      "aether_lens",
-      "ghost"
-    ],
+    "components": ["aether_lens", "ghost", "recipe_ethereal_blade"],
     "created": true,
     "charges": false
   },
@@ -10439,10 +9989,7 @@
     "dname": "Soul Ring",
     "qual": "common",
     "cost": 805,
-    "behavior": [
-      "No Target",
-      "Instant Cast"
-    ],
+    "behavior": ["No Target", "Instant Cast"],
     "notes": "If this mana is not used before the duration ends, the extra mana is lost.",
     "attrib": [
       {
@@ -10471,7 +10018,8 @@
     "components": [
       "ring_of_protection",
       "gauntlets",
-      "gauntlets"
+      "gauntlets",
+      "recipe_soul_ring"
     ],
     "created": true,
     "charges": false
@@ -10513,10 +10061,7 @@
     "dname": "Arcane Boots",
     "qual": "rare",
     "cost": 1300,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "notes": "Does not work on Meepo clones.",
     "attrib": [
       {
@@ -10550,10 +10095,7 @@
     "hc": false,
     "cd": 55,
     "lore": "Magi equipped with these boots are valued in battle.",
-    "components": [
-      "boots",
-      "ring_of_basilius"
-    ],
+    "components": ["boots", "ring_of_basilius", "recipe_arcane_boots"],
     "created": true,
     "charges": false
   },
@@ -10602,10 +10144,7 @@
     "hc": false,
     "cd": false,
     "lore": "At the core of spellcraft are spectrums only the very gifted can sense.",
-    "components": [
-      "tiara_of_selemene",
-      "soul_booster"
-    ],
+    "components": ["tiara_of_selemene", "soul_booster"],
     "created": true,
     "charges": false
   },
@@ -10741,11 +10280,7 @@
     "hc": false,
     "cd": false,
     "lore": "Seepage from the wounds of a warrior deity, sealed in an arcanist's orb following a campaign of vicious slaughter.",
-    "components": [
-      "orb_of_venom",
-      "ring_of_protection",
-      "gloves"
-    ],
+    "components": ["orb_of_venom", "ring_of_protection", "gloves"],
     "created": true,
     "charges": false
   },
@@ -10796,7 +10331,8 @@
     "components": [
       "fluffy_hat",
       "sobi_mask",
-      "blades_of_attack"
+      "blades_of_attack",
+      "recipe_falcon_blade"
     ],
     "created": true,
     "charges": false
@@ -10834,10 +10370,7 @@
     "dmg_type": "Magical",
     "dispellable": "Yes",
     "target_team": "Enemy",
-    "target_type": [
-      "Hero",
-      "Basic"
-    ],
+    "target_type": ["Hero", "Basic"],
     "notes": "",
     "attrib": [
       {
@@ -10877,10 +10410,7 @@
     "hc": false,
     "cd": false,
     "lore": "Forged by a secret order in The Third Age of Praxa'cia to fell the False King.",
-    "components": [
-      "cloak",
-      "oblivion_staff"
-    ],
+    "components": ["cloak", "oblivion_staff", "recipe_mage_slayer"],
     "created": true,
     "charges": false
   },
@@ -10919,10 +10449,7 @@
     "dname": "Drum of Endurance",
     "qual": "rare",
     "cost": 1650,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "notes": "",
     "attrib": [
       {
@@ -10967,7 +10494,8 @@
     "components": [
       "belt_of_strength",
       "robe",
-      "wind_lace"
+      "wind_lace",
+      "recipe_ancient_janggo"
     ],
     "created": true,
     "charges": 8
@@ -11007,10 +10535,7 @@
     "dname": "Boots of Bearing",
     "qual": "rare",
     "cost": 4275,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "notes": "",
     "attrib": [
       {
@@ -11064,7 +10589,8 @@
     "lore": "Resplendent footwear fashioned for the ancient herald that first dared spread the glory of Stonehall beyond the original borders of its nascent claim.",
     "components": [
       "tranquil_boots",
-      "ancient_janggo"
+      "ancient_janggo",
+      "recipe_boots_of_bearing"
     ],
     "created": true,
     "charges": false
@@ -11087,10 +10613,7 @@
     "bkbpierce": "No",
     "dispellable": "Yes",
     "target_team": "Both",
-    "target_type": [
-      "Hero",
-      "Basic"
-    ],
+    "target_type": ["Hero", "Basic"],
     "notes": "Shares cooldown with Solar Crest.",
     "attrib": [
       {
@@ -11116,11 +10639,7 @@
     "hc": false,
     "cd": 16,
     "lore": "The bearer has no fear of combat.",
-    "components": [
-      "chainmail",
-      "sobi_mask",
-      "blight_stone"
-    ],
+    "components": ["chainmail", "sobi_mask", "blight_stone"],
     "created": true,
     "charges": false
   },
@@ -11154,17 +10673,11 @@
     "dname": "Solar Crest",
     "qual": "rare",
     "cost": 2600,
-    "behavior": [
-      "Unit Target",
-      "Instant Cast"
-    ],
+    "behavior": ["Unit Target", "Instant Cast"],
     "bkbpierce": "No",
     "dispellable": "Yes",
     "target_team": "Friendly",
-    "target_type": [
-      "Hero",
-      "Basic"
-    ],
+    "target_type": ["Hero", "Basic"],
     "notes": "Shares cooldown with Pavise.",
     "attrib": [
       {
@@ -11217,11 +10730,7 @@
     "hc": false,
     "cd": 16,
     "lore": "A talisman forged to honor the daytime sky.",
-    "components": [
-      "pavise",
-      "crown",
-      "wind_lace"
-    ],
+    "components": ["pavise", "crown", "wind_lace", "recipe_solar_crest"],
     "created": true,
     "charges": false
   },
@@ -11255,17 +10764,11 @@
     "dname": "Pavise",
     "qual": "rare",
     "cost": 1400,
-    "behavior": [
-      "Unit Target",
-      "Instant Cast"
-    ],
+    "behavior": ["Unit Target", "Instant Cast"],
     "bkbpierce": "No",
     "dispellable": "Yes",
     "target_team": "Friendly",
-    "target_type": [
-      "Hero",
-      "Basic"
-    ],
+    "target_type": ["Hero", "Basic"],
     "notes": "",
     "attrib": [
       {
@@ -11299,7 +10802,8 @@
     "components": [
       "energy_booster",
       "ring_of_protection",
-      "fluffy_hat"
+      "fluffy_hat",
+      "recipe_pavise"
     ],
     "created": true,
     "charges": false
@@ -11368,10 +10872,7 @@
     "dname": "Tome of Knowledge",
     "qual": "consumable",
     "cost": 75,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "notes": "",
     "attrib": [
       {
@@ -11421,11 +10922,7 @@
     "dname": "Veil of Discord",
     "qual": "rare",
     "cost": 1725,
-    "behavior": [
-      "AOE",
-      "No Target",
-      "Instant Cast"
-    ],
+    "behavior": ["AOE", "No Target", "Instant Cast"],
     "dispellable": "Yes",
     "notes": "",
     "attrib": [
@@ -11461,10 +10958,7 @@
     "hc": false,
     "cd": 16,
     "lore": "The headwear of corrupt magi.",
-    "components": [
-      "helm_of_iron_will",
-      "crown"
-    ],
+    "components": ["helm_of_iron_will", "crown", "recipe_veil_of_discord"],
     "created": true,
     "charges": false
   },
@@ -11521,10 +11015,7 @@
     "hc": false,
     "cd": false,
     "lore": "The cursed brooch of a fallen guardian who stalks forever between the veil of life and death.",
-    "components": [
-      "relic",
-      "voodoo_mask"
-    ],
+    "components": ["relic", "voodoo_mask", "recipe_revenants_brooch"],
     "created": true,
     "charges": false
   },
@@ -11616,10 +11107,7 @@
     "hc": false,
     "cd": 7,
     "lore": "Devastating.",
-    "components": [
-      "witch_blade",
-      "mystic_staff"
-    ],
+    "components": ["witch_blade", "mystic_staff", "recipe_devastator"],
     "created": true,
     "charges": false
   },
@@ -11660,10 +11148,7 @@
     "dname": "Guardian Greaves",
     "qual": "rare",
     "cost": 4950,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "notes": "The aura boost only applies to heroes.\nMend does not affect units that have been affected by Mend or Mekansm Restore within Guardian Greaves' cooldown.",
     "attrib": [
       {
@@ -11737,7 +11222,8 @@
     "components": [
       "mekansm",
       "arcane_boots",
-      "buckler"
+      "buckler",
+      "recipe_guardian_greaves"
     ],
     "created": true,
     "charges": false
@@ -11775,10 +11261,7 @@
     "behavior": "Unit Target",
     "dispellable": "Yes",
     "target_team": "Enemy",
-    "target_type": [
-      "Hero",
-      "Basic"
-    ],
+    "target_type": ["Hero", "Basic"],
     "notes": "",
     "attrib": [
       {
@@ -11802,7 +11285,8 @@
     "lore": "Atos, the Lord of Blight, has his essence stored in this deceptively simple wand.",
     "components": [
       "staff_of_wizardry",
-      "vitality_booster"
+      "vitality_booster",
+      "recipe_rod_of_atos"
     ],
     "created": true,
     "charges": false
@@ -11871,10 +11355,7 @@
     "hc": false,
     "cd": 20,
     "lore": "A simple but effective weapon devised to quell a great Hellbear uprising.",
-    "components": [
-      "quelling_blade",
-      "ring_of_protection"
-    ],
+    "components": ["quelling_blade", "ring_of_protection", "recipe_iron_talon"],
     "created": true,
     "charges": false,
     "tier": 2
@@ -11922,10 +11403,7 @@
     "behavior": "Unit Target",
     "dispellable": "Strong Dispels Only",
     "target_team": "Enemy",
-    "target_type": [
-      "Hero",
-      "Basic"
-    ],
+    "target_type": ["Hero", "Basic"],
     "notes": "The stun is melee range.\nDoes not stack with other bashes, and does not grant bash to Clones and Tempest Doubles.\nMultiple sources of damage block do not stack.",
     "attrib": [
       {
@@ -11989,10 +11467,7 @@
     "hc": false,
     "cd": 35,
     "lore": "The lost blade of the Commander of the Abyss, this edge cuts into an enemy's soul.",
-    "components": [
-      "basher",
-      "vanguard"
-    ],
+    "components": ["basher", "vanguard", "recipe_abyssal_blade"],
     "created": true,
     "charges": false
   },
@@ -12028,10 +11503,7 @@
     "cost": 3500,
     "behavior": "Unit Target",
     "target_team": "Enemy",
-    "target_type": [
-      "Hero",
-      "Basic"
-    ],
+    "target_type": ["Hero", "Basic"],
     "notes": "",
     "attrib": [
       {
@@ -12067,10 +11539,7 @@
     "hc": false,
     "cd": 18,
     "lore": "This halberd moves with the speed of a smaller weapon, allowing the bearer to win duels that a heavy edge would not.",
-    "components": [
-      "sange",
-      "talisman_of_evasion"
-    ],
+    "components": ["sange", "talisman_of_evasion", "recipe_heavens_halberd"],
     "created": true,
     "charges": false
   },
@@ -12092,10 +11561,7 @@
     "img": "/apps/dota2/images/dota_react/items/ring_of_aquila.png?t=1593393829403",
     "dname": "Ring of Aquila",
     "cost": null,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "notes": "Multiple instances of Aquila Aura do not stack.",
     "attrib": [
       {
@@ -12204,11 +11670,7 @@
     "hc": false,
     "cd": 13,
     "lore": "While they increase the longevity of the wearer, this boot is not particularly reliable.",
-    "components": [
-      "boots",
-      "wind_lace",
-      "ring_of_regen"
-    ],
+    "components": ["boots", "wind_lace", "ring_of_regen"],
     "created": true,
     "charges": false
   },
@@ -12225,10 +11687,7 @@
     "img": "/apps/dota2/images/dota_react/items/shadow_amulet.png?t=1593393829403",
     "dname": "Shadow Amulet",
     "cost": 1000,
-    "behavior": [
-      "Instant Cast",
-      "Unit Target"
-    ],
+    "behavior": ["Instant Cast", "Unit Target"],
     "dispellable": "Yes",
     "target_team": "Friendly",
     "target_type": "Hero",
@@ -12286,16 +11745,10 @@
     "dname": "Glimmer Cape",
     "qual": "rare",
     "cost": 2150,
-    "behavior": [
-      "Instant Cast",
-      "Unit Target"
-    ],
+    "behavior": ["Instant Cast", "Unit Target", "recipe_glimmer_cape"],
     "dispellable": "Yes",
     "target_team": "Friendly",
-    "target_type": [
-      "Hero",
-      "Basic"
-    ],
+    "target_type": ["Hero", "Basic"],
     "notes": "",
     "attrib": [
       {
@@ -12328,10 +11781,7 @@
     "hc": false,
     "cd": 14,
     "lore": "The stolen cape of a master illusionist.",
-    "components": [
-      "shadow_amulet",
-      "cloak"
-    ],
+    "components": ["shadow_amulet", "cloak"],
     "created": true,
     "charges": false
   },
@@ -12523,10 +11973,7 @@
     "dname": "Tombstone",
     "qual": "consumable",
     "cost": 0,
-    "behavior": [
-      "No Target",
-      "Channeled"
-    ],
+    "behavior": ["No Target", "Channeled"],
     "notes": "",
     "attrib": [],
     "mc": false,
@@ -12592,10 +12039,7 @@
     "dname": "Pocket Roshan",
     "qual": "rare",
     "cost": 1000,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "notes": "",
     "attrib": [
       {
@@ -12784,10 +12228,7 @@
     "cost": 0,
     "behavior": "Unit Target",
     "target_team": "Both",
-    "target_type": [
-      "Hero",
-      "Basic"
-    ],
+    "target_type": ["Hero", "Basic"],
     "notes": "Does not trigger spell block or spell reflect.",
     "attrib": [
       {
@@ -12898,11 +12339,7 @@
     "img": "/apps/dota2/images/dota_react/items/seer_stone.png?t=1593393829403",
     "dname": "Seer Stone",
     "cost": 0,
-    "behavior": [
-      "Point Target",
-      "AOE",
-      "Instant Cast"
-    ],
+    "behavior": ["Point Target", "AOE", "Instant Cast"],
     "notes": "",
     "attrib": [
       {
@@ -12947,10 +12384,7 @@
     "img": "/apps/dota2/images/dota_react/items/greater_mango.png?t=1593393829403",
     "dname": "Greater Mango",
     "cost": 0,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "notes": "",
     "attrib": [],
     "mc": false,
@@ -12974,10 +12408,7 @@
     "img": "/apps/dota2/images/dota_react/items/elixer.png?t=1593393829403",
     "dname": "Elixir",
     "cost": 0,
-    "behavior": [
-      "Unit Target",
-      "Instant Cast"
-    ],
+    "behavior": ["Unit Target", "Instant Cast"],
     "dispellable": "Yes",
     "target_team": "Friendly",
     "target_type": "Hero",
@@ -13059,10 +12490,7 @@
     "img": "/apps/dota2/images/dota_react/items/force_field.png?t=1593393829403",
     "dname": "Arcanist's Armor",
     "cost": 0,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "notes": "",
     "attrib": [
       {
@@ -13187,10 +12615,7 @@
     "img": "/apps/dota2/images/dota_react/items/craggy_coat.png?t=1593393829403",
     "dname": "Craggy Coat",
     "cost": 0,
-    "behavior": [
-      "No Target",
-      "Instant Cast"
-    ],
+    "behavior": ["No Target", "Instant Cast"],
     "notes": "",
     "attrib": [
       {
@@ -13239,10 +12664,7 @@
     "dname": "Greater Faerie Fire",
     "qual": "consumable",
     "cost": 0,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "target_team": "Friendly",
     "target_type": "Hero",
     "notes": "",
@@ -13267,9 +12689,7 @@
   },
   "timeless_relic": {
     "abilities": [],
-    "hint": [
-      "Increases all outgoing spell damage and debuff duration."
-    ],
+    "hint": ["Increases all outgoing spell damage and debuff duration."],
     "id": 300,
     "img": "/apps/dota2/images/dota_react/items/timeless_relic.png?t=1593393829403",
     "dname": "Timeless Relic",
@@ -13413,10 +12833,7 @@
     "dname": "Royal Jelly",
     "qual": "consumable",
     "cost": 0,
-    "behavior": [
-      "Unit Target",
-      "Instant Cast"
-    ],
+    "behavior": ["Unit Target", "Instant Cast"],
     "target_team": "Friendly",
     "target_type": "Hero",
     "notes": "",
@@ -13463,9 +12880,7 @@
   },
   "pupils_gift": {
     "abilities": [],
-    "hint": [
-      "Increases both non-primary attributes."
-    ],
+    "hint": ["Increases both non-primary attributes."],
     "id": 306,
     "img": "/apps/dota2/images/dota_react/items/pupils_gift.png?t=1593393829403",
     "dname": "Pupil's Gift",
@@ -13500,10 +12915,7 @@
     "img": "/apps/dota2/images/dota_react/items/tome_of_aghanim.png?t=1593393829403",
     "dname": "Tome of Aghanim",
     "cost": 0,
-    "behavior": [
-      "Unit Target",
-      "Instant Cast"
-    ],
+    "behavior": ["Unit Target", "Instant Cast"],
     "target_team": "Friendly",
     "target_type": "Hero",
     "notes": "",
@@ -13535,10 +12947,7 @@
     "dname": "Repair Kit",
     "qual": "consumable",
     "cost": 0,
-    "behavior": [
-      "Unit Target",
-      "Instant Cast"
-    ],
+    "behavior": ["Unit Target", "Instant Cast"],
     "target_team": "Friendly",
     "target_type": "Building",
     "notes": "",
@@ -13803,10 +13212,7 @@
     "img": "/apps/dota2/images/dota_react/items/flicker.png?t=1593393829403",
     "dname": "Flicker",
     "cost": 0,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "notes": "",
     "attrib": [
       {
@@ -13888,10 +13294,7 @@
     "img": "/apps/dota2/images/dota_react/items/spider_legs.png?t=1593393829403",
     "dname": "Spider Legs",
     "cost": 0,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "notes": "",
     "attrib": [
       {
@@ -13967,10 +13370,7 @@
     "dname": "Vambrace",
     "qual": "common",
     "cost": 0,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "notes": "",
     "attrib": [
       {
@@ -14054,10 +13454,7 @@
     "img": "/apps/dota2/images/dota_react/items/fusion_rune.png?t=1593393829403",
     "dname": "Fusion Rune",
     "cost": 0,
-    "behavior": [
-      "Unit Target",
-      "Instant Cast"
-    ],
+    "behavior": ["Unit Target", "Instant Cast"],
     "target_team": "Friendly",
     "target_type": "Hero",
     "notes": "",
@@ -14194,10 +13591,7 @@
     "img": "/apps/dota2/images/dota_react/items/trusty_shovel.png?t=1593393829403",
     "dname": "Trusty Shovel",
     "cost": 0,
-    "behavior": [
-      "Point Target",
-      "Channeled"
-    ],
+    "behavior": ["Point Target", "Channeled"],
     "notes": "16% chance for a Bounty Rune.\n28% chance each for a Flask, an Enchanted Mango, or a kobold.\nThe same Trusty Shovel cannot find the same reward twice in a row.",
     "attrib": [
       {
@@ -14314,10 +13708,7 @@
     "img": "/apps/dota2/images/dota_react/items/essence_ring.png?t=1593393829403",
     "dname": "Essence Ring",
     "cost": 0,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "notes": "",
     "attrib": [
       {
@@ -14363,10 +13754,7 @@
     "behavior": "Unit Target",
     "bkbpierce": "No",
     "target_team": "Enemy",
-    "target_type": [
-      "Hero",
-      "Basic"
-    ],
+    "target_type": ["Hero", "Basic"],
     "notes": "",
     "attrib": [
       {
@@ -14443,10 +13831,7 @@
     "img": "/apps/dota2/images/dota_react/items/ninja_gear.png?t=1593393829403",
     "dname": "Ninja Gear",
     "cost": 0,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "notes": "",
     "attrib": [
       {
@@ -14503,10 +13888,7 @@
     "img": "/apps/dota2/images/dota_react/items/illusionsts_cape.png?t=1593393829403",
     "dname": "Illusionist's Cape",
     "cost": 0,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "notes": "",
     "attrib": [
       {
@@ -14568,10 +13950,7 @@
     "img": "/apps/dota2/images/dota_react/items/havoc_hammer.png?t=1593393829403",
     "dname": "Havoc Hammer",
     "cost": 0,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "notes": "",
     "attrib": [
       {
@@ -14751,10 +14130,7 @@
     "img": "/apps/dota2/images/dota_react/items/woodland_striders.png?t=1593393829403",
     "dname": "Woodland Striders",
     "cost": 0,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "notes": "",
     "attrib": [
       {
@@ -14813,10 +14189,7 @@
     "img": "/apps/dota2/images/dota_react/items/demonicon.png?t=1593393829403",
     "dname": "Book of the Dead",
     "cost": 0,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "notes": "",
     "attrib": [
       {
@@ -14945,10 +14318,7 @@
     "img": "/apps/dota2/images/dota_react/items/pirate_hat.png?t=1593393829403",
     "dname": "Pirate Hat",
     "cost": 0,
-    "behavior": [
-      "Point Target",
-      "Channeled"
-    ],
+    "behavior": ["Point Target", "Channeled"],
     "notes": "",
     "attrib": [
       {
@@ -14973,9 +14343,7 @@
   },
   "dimensional_doorway": {
     "abilities": [],
-    "hint": [
-      "Active Teleport instantly anywhere on the map."
-    ],
+    "hint": ["Active Teleport instantly anywhere on the map."],
     "id": 373,
     "img": "/apps/dota2/images/dota_react/items/dimensional_doorway.png?t=1593393829403",
     "dname": "Dimensional Doorway",
@@ -15004,10 +14372,7 @@
     "img": "/apps/dota2/images/dota_react/items/ex_machina.png?t=1593393829403",
     "dname": "Ex Machina",
     "cost": 0,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "notes": "",
     "attrib": [
       {
@@ -15112,10 +14477,7 @@
     "img": "/apps/dota2/images/dota_react/items/minotaur_horn.png?t=1593393829403",
     "dname": "Minotaur Horn",
     "cost": 0,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "notes": "",
     "attrib": [
       {
@@ -15225,10 +14587,7 @@
     "img": "/apps/dota2/images/dota_react/items/arcane_ring.png?t=1593393829403",
     "dname": "Arcane Ring",
     "cost": 0,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "notes": "",
     "attrib": [
       {
@@ -15332,10 +14691,7 @@
     "img": "/apps/dota2/images/dota_react/items/wizard_glass.png?t=1593393829403",
     "dname": "Wizard Glass",
     "cost": 0,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "notes": "",
     "attrib": [
       {
@@ -15530,10 +14886,7 @@
     "img": "/apps/dota2/images/dota_react/items/trickster_cloak.png?t=1593393829403",
     "dname": "Trickster Cloak",
     "cost": 0,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "notes": "",
     "attrib": [
       {
@@ -15773,10 +15126,7 @@
     "img": "/apps/dota2/images/dota_react/items/oakheart.png?t=1593393829403",
     "dname": "Oakheart",
     "cost": 0,
-    "behavior": [
-      "Unit Target",
-      "Instant Cast"
-    ],
+    "behavior": ["Unit Target", "Instant Cast"],
     "target_team": "Friendly",
     "target_type": "Hero",
     "notes": "",
@@ -15818,10 +15168,7 @@
     "cost": 0,
     "behavior": "Unit Target",
     "target_team": "Enemy",
-    "target_type": [
-      "Hero",
-      "Basic"
-    ],
+    "target_type": ["Hero", "Basic"],
     "notes": "",
     "attrib": [
       {
@@ -15863,15 +15210,9 @@
     "img": "/apps/dota2/images/dota_react/items/bullwhip.png?t=1593393829403",
     "dname": "Bullwhip",
     "cost": 0,
-    "behavior": [
-      "Unit Target",
-      "Instant Cast"
-    ],
+    "behavior": ["Unit Target", "Instant Cast"],
     "target_team": "Both",
-    "target_type": [
-      "Hero",
-      "Basic"
-    ],
+    "target_type": ["Hero", "Basic"],
     "notes": "Does not trigger spell block or spell reflect.",
     "attrib": [
       {
@@ -15921,10 +15262,7 @@
     "cost": 0,
     "behavior": "Unit Target",
     "target_team": "Enemy",
-    "target_type": [
-      "Hero",
-      "Basic"
-    ],
+    "target_type": ["Hero", "Basic"],
     "notes": "Does not trigger spell block or spell reflect.",
     "attrib": [
       {
@@ -16057,19 +15395,14 @@
         "description": "Target an enemy, ally or self. Causes the target to become untargetable from enemies to the caster, but also silenced, muted and disarmed for 4 seconds. Applies a Basic Dispel."
       }
     ],
-    "hint": [
-      "Dispel Type: Basic Dispel "
-    ],
+    "hint": ["Dispel Type: Basic Dispel "],
     "id": 677,
     "img": "/apps/dota2/images/dota_react/items/book_of_shadows.png?t=1593393829403",
     "dname": "Book of Shadows",
     "cost": 0,
     "behavior": "Unit Target",
     "target_team": "Both",
-    "target_type": [
-      "Hero",
-      "Basic"
-    ],
+    "target_type": ["Hero", "Basic"],
     "notes": "Does not trigger spell block or spell reflect.",
     "attrib": [
       {
@@ -16110,10 +15443,7 @@
     "dname": "Giant's Ring",
     "cost": 0,
     "target_team": "Enemy",
-    "target_type": [
-      "Hero",
-      "Basic"
-    ],
+    "target_type": ["Hero", "Basic"],
     "notes": "",
     "attrib": [
       {
@@ -16545,10 +15875,7 @@
     "behavior": "Unit Target",
     "bkbpierce": "No",
     "target_team": "Both",
-    "target_type": [
-      "Hero",
-      "Basic"
-    ],
+    "target_type": ["Hero", "Basic"],
     "notes": "",
     "attrib": [
       {
@@ -16617,10 +15944,7 @@
     "img": "/apps/dota2/images/dota_react/items/fortitude_ring.png?t=1593393829403",
     "dname": "Ring of Fortitude",
     "cost": 0,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "notes": "",
     "attrib": [
       {
@@ -16706,10 +16030,7 @@
     "behavior": "Unit Target",
     "dispellable": "Yes",
     "target_team": "Enemy",
-    "target_type": [
-      "Hero",
-      "Basic"
-    ],
+    "target_type": ["Hero", "Basic"],
     "notes": "Does not trigger spell block or spell reflect.",
     "attrib": [
       {
@@ -16747,10 +16068,7 @@
     "img": "/apps/dota2/images/dota_react/items/seeds_of_serenity.png?t=1593393829403",
     "dname": "Seeds of Serenity",
     "cost": 0,
-    "behavior": [
-      "Point Target",
-      "AOE"
-    ],
+    "behavior": ["Point Target", "AOE"],
     "notes": "",
     "attrib": [
       {
@@ -16984,16 +16302,10 @@
     "id": 940,
     "img": "/apps/dota2/images/dota_react/items/wand_of_the_brine.png?t=1593393829403",
     "cost": 0,
-    "behavior": [
-      "Instant Cast",
-      "Unit Target"
-    ],
+    "behavior": ["Instant Cast", "Unit Target"],
     "dispellable": "Yes",
     "target_team": "Friendly",
-    "target_type": [
-      "Hero",
-      "Basic"
-    ],
+    "target_type": ["Hero", "Basic"],
     "notes": "",
     "attrib": [
       {
@@ -17033,10 +16345,7 @@
     "id": 938,
     "img": "/apps/dota2/images/dota_react/items/slime_vial.png?t=1593393829403",
     "cost": 0,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "dispellable": "Yes",
     "notes": "",
     "attrib": [
@@ -17117,10 +16426,7 @@
     "cost": 4700,
     "behavior": "Unit Target",
     "target_team": "Enemy",
-    "target_type": [
-      "Hero",
-      "Basic"
-    ],
+    "target_type": ["Hero", "Basic"],
     "notes": "",
     "attrib": [
       {
@@ -17193,10 +16499,7 @@
     "hc": false,
     "cd": 19,
     "lore": "",
-    "components": [
-      "echo_sabre",
-      "diadem"
-    ],
+    "components": ["echo_sabre", "diadem", "recipe_harpoon"],
     "created": true,
     "charges": false
   },
@@ -17243,10 +16546,7 @@
     "id": 968,
     "img": "/apps/dota2/images/dota_react/items/arcane_scout.png?t=1593393829403",
     "cost": 0,
-    "behavior": [
-      "Instant Cast",
-      "Point Target"
-    ],
+    "behavior": ["Instant Cast", "Point Target"],
     "notes": "",
     "attrib": [
       {
@@ -17396,10 +16696,7 @@
     "id": 1000,
     "img": "/apps/dota2/images/dota_react/items/bottomless_chalice.png?t=1593393829403",
     "cost": 0,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "target_team": "Friendly",
     "target_type": "Hero",
     "notes": "",
@@ -17545,10 +16842,7 @@
     "img": "/apps/dota2/images/dota_react/items/dagger_of_ristul.png?t=1593393829403",
     "dname": "Dagger of Ristul",
     "cost": 0,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "notes": "",
     "attrib": [
       {
@@ -17622,10 +16916,7 @@
     "img": "/apps/dota2/images/dota_react/items/ofrenda_shovel.png?t=1593393829403",
     "dname": "Scrying Shovel",
     "cost": 0,
-    "behavior": [
-      "Point Target",
-      "Channeled"
-    ],
+    "behavior": ["Point Target", "Channeled"],
     "notes": "",
     "attrib": [],
     "mc": false,
@@ -17691,11 +16982,7 @@
     "bkbpierce": "No",
     "dispellable": "Yes",
     "target_team": "Enemy",
-    "target_type": [
-      "Hero",
-      "Basic",
-      "Tree"
-    ],
+    "target_type": ["Hero", "Basic", "Tree"],
     "notes": "Feared enemies are phased and unslowable.\nThe ricochet will travel 1x Dead Shot's cast range.",
     "attrib": [
       {
@@ -18359,10 +17646,7 @@
     "img": "/apps/dota2/images/dota_react/items/martyrs_plate.png?t=1593393829403",
     "dname": "Martyr's Plate",
     "cost": 0,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "notes": "",
     "attrib": [
       {
@@ -18431,10 +17715,7 @@
     "img": "/apps/dota2/images/dota_react/items/light_collector.png?t=1593393829403",
     "dname": "Light Collector",
     "cost": 0,
-    "behavior": [
-      "Instant Cast",
-      "No Target"
-    ],
+    "behavior": ["Instant Cast", "No Target"],
     "notes": "",
     "attrib": [
       {
@@ -18599,10 +17880,7 @@
     "dname": "Roshan's Banner",
     "qual": "artifact",
     "cost": 0,
-    "behavior": [
-      "Point Target",
-      "AOE"
-    ],
+    "behavior": ["Point Target", "AOE"],
     "notes": "",
     "attrib": [
       {
@@ -18783,10 +18061,7 @@
     "mc": false,
     "cd": 4,
     "lore": "An enchanted blade that allows the user to cut straight into the enemy's soul.",
-    "components": [
-      "diffusal_blade",
-      "recipe_diffusal_blade"
-    ],
+    "components": ["diffusal_blade", "recipe_diffusal_blade"],
     "created": true
   }
 }

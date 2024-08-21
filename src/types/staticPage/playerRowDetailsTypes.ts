@@ -71,6 +71,7 @@ interface Ability {
 export interface ItemDetails {
   [key: string]: {
     abilities?: Ability[]
+    hint?: string[]
     img?: string
     id?: number
     dname?: string
@@ -82,5 +83,6 @@ export interface ItemDetails {
     mc?: number | boolean
     cd?: number | boolean
     lore?: string
+    components?: string[] | null
   }
 }

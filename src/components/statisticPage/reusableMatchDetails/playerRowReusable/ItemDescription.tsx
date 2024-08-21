@@ -3,6 +3,7 @@ import { Image } from "@/components/shared/nextjsImports"
 import type { ItemDetails } from "@/types/staticPage/playerRowDetailsTypes"
 
 import styles from "@/styles/statisticPage/MatchDetails.module.scss"
+import { PlayerRowDetailsUtility } from "@/utils/statisticPage/PlayerRowDetailsUtility"
 
 export default function ItemDescription({
   details,
@@ -152,7 +153,7 @@ export default function ItemDescription({
                       <span> {abil.title}</span>
                     </div>
                     <div className={styles.manaAndCooldown}>
-                      {details[item].mc && (
+                      {abil.type === "active" && details[item].mc ? (
                         <div style={{ display: "flex", alignItems: "center" }}>
                           <Image
                             src="/pictures/dotaIcons/ability_manacost.png"
@@ -172,9 +173,11 @@ export default function ItemDescription({
                             {details[item].mc}
                           </span>
                         </div>
+                      ) : (
+                        <></>
                       )}
 
-                      {details[item].cd && (
+                      {abil.type === "active" && details[item].cd ? (
                         <div style={{ display: "flex", alignItems: "center" }}>
                           <Image
                             src="/pictures/dotaIcons/ability_cooldown.png"
@@ -194,6 +197,8 @@ export default function ItemDescription({
                             {details[item].cd}
                           </span>
                         </div>
+                      ) : (
+                        <></>
                       )}
                     </div>
                   </div>
@@ -213,10 +218,45 @@ export default function ItemDescription({
             })}
           </div>
         )}
-        {/* <div className={styles.passiveAbility}></div>
-          <div className={styles.hint}></div>
-          <div className={styles.lore}></div>
-          <div className={styles.components}></div> */}
+        {details[item].hint && details[item].hint.length > 0 && (
+          <div className={styles.hint}>{details[item].hint}</div>
+        )}
+        {details[item].lore && (
+          <div className={styles.lore}>
+            <i>{details[item].lore}</i>
+          </div>
+        )}
+        {details[item].components && details[item].components.length > 0 && (
+          <div className={styles.components}>
+            <span className={styles.componentsHeader}>Components:</span>
+            <div className={styles.componentsWrapper}>
+              {details[item].components.map((component, idx) => {
+                const rdUtility = new PlayerRowDetailsUtility()
+                const itemCost = rdUtility.findItemCostByName(component)
+                return (
+                  <div
+                    key={idx}
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      gap: "3px",
+                    }}
+                  >
+                    <Image
+                      src={`/pictures/dotaItemIcon/${component}.webp`}
+                      alt=""
+                      width={34}
+                      height={25}
+                    />
+                    <span>{itemCost}</span>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   )

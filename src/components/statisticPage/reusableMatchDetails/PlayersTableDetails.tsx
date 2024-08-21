@@ -11,14 +11,18 @@ export default function PlayersTableDetails({
   return (
     <div className={styles.teamResult}>
       <section className={styles.team}>
-        {/* HEADER MOVES WITH TABLE BY X-AXIS */}
         <header
           style={{ color: playersTeam[0].isRadiant ? "#2eb872" : "#fa4659" }}
         >
           THE {playersTeam[0].isRadiant ? "RADIANT" : "DIRE"}
         </header>
         <article className={styles.tableContainer}>
-          <table>
+          {/* 
+              TODO: 
+                   1.Drag and scroll
+                   2.Backpack items
+          */}
+          <table style={{ position: "relative" }}>
             <thead>
               <tr className={styles.headersTableRow}>
                 <HeaderCells />

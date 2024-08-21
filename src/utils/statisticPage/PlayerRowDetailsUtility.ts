@@ -160,6 +160,7 @@ export class PlayerRowDetailsUtility implements RDUtility {
 
     const emptyValue = {
       abilities: [],
+      hint: [],
       img: "empty_slot",
       id: "",
       dname: "Empty Slot",
@@ -171,6 +172,7 @@ export class PlayerRowDetailsUtility implements RDUtility {
       mc: undefined,
       cd: undefined,
       lore: undefined,
+      components: undefined,
     }
 
     this.m_ItemDetails = {
@@ -188,6 +190,7 @@ export class PlayerRowDetailsUtility implements RDUtility {
     for (const [key, value] of Object.entries(playerItems)) {
       const itemValue = {
         abilities: value.abilities,
+        hint: value.hint,
         img: key,
         id: value.id,
         dname: value.dname,
@@ -199,6 +202,7 @@ export class PlayerRowDetailsUtility implements RDUtility {
         mc: value.mc,
         cd: value.cd,
         lore: value.lore,
+        components: value.components,
       }
 
       switch (value.id) {
@@ -236,6 +240,19 @@ export class PlayerRowDetailsUtility implements RDUtility {
     }
 
     return this.m_ItemDetails
+  }
+
+  public findItemCostByName(item: string): string {
+    const playerItems: Item = items
+    let cost = 0
+
+    for (const [key, value] of Object.entries(playerItems)) {
+      if (item === key) {
+        if (value.cost) cost = value.cost
+      }
+    }
+
+    return cost.toString()
   }
 
   /* [PRIVATE MEMBERS] */

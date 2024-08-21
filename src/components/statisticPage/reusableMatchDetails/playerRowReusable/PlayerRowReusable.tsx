@@ -41,10 +41,19 @@ export function ItemIcons({
   itemIcons.push(detailsAboutItems?.item_4.img)
   itemIcons.push(detailsAboutItems?.item_5.img)
 
-  const handleMouse = (idx: number | string) => {
+  const handleMouseEnter = (idx: number | string) => {
     idx.toString()
     setToolTipStatus((prevState) => {
       const newState = { ...prevState, [idx]: true }
+
+      return newState
+    })
+  }
+
+  const handleMouseLeave = (idx: number | string) => {
+    idx.toString()
+    setToolTipStatus((prevState) => {
+      const newState = { ...prevState, [idx]: false }
 
       return newState
     })
@@ -79,8 +88,8 @@ export function ItemIcons({
               height={27}
               quality={100}
               unoptimized
-              onMouseEnter={() => handleMouse(idx)}
-              onMouseLeave={() => handleMouse(idx)}
+              onMouseEnter={() => handleMouseEnter(idx)}
+              onMouseLeave={() => handleMouseLeave(idx)}
             />
           </div>
         )
