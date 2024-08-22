@@ -1,5 +1,6 @@
 TODO: <br/>
-1. Drag and scroll <br/>
-2. Backpack items <br/>
-3. playedHero <br/>
-4. CUSTOM WEB CURSOR <br/>
+1. SCSS <br/>
+2. Drag and scroll <br/>
+3. Backpack items <br/>
+4. playedHero <br/>
+5. CUSTOM WEB CURSOR <br/>
