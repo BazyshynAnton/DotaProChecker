@@ -33,10 +33,10 @@ export default function MatchDetails() {
     resultOfMatch?.resultOfMatch === "WIN"
 
   return (
-    <div className={styles.matchContainer}>
-      <div className={styles.matchHeader}>
-        <div className={styles.playedHero}></div>
-        <div className={styles.matchResult}>
+    <div className={styles.match}>
+      <div className={styles.match__header}>
+        {/* <div className={styles.playedHero}></div> */}
+        <div className={styles.match__result}>
           <h4
             style={{
               color: condition ? "#2eb872" : "#fa4659",
@@ -44,12 +44,16 @@ export default function MatchDetails() {
           >
             TEAM {condition ? "RADIANT" : "DIRE"} {"WIN"}
           </h4>
-          <div className={styles.matchScoreAndTime}>
-            <p className={styles.radiantScore}>{resultOfMatch?.radiantScore}</p>
-            <p className={styles.matchDuration}>
+          <div className={styles.match__scoreAndTime}>
+            <p className={styles.match__scoreAndTime__radiantScore}>
+              {resultOfMatch?.radiantScore}
+            </p>
+            <p className={styles.match__scoreAndTime__duration}>
               {resultOfMatch?.matchDuration}
             </p>
-            <p className={styles.direScore}>{resultOfMatch?.direScore}</p>
+            <p className={styles.match__scoreAndTime__direScore}>
+              {resultOfMatch?.direScore}
+            </p>
           </div>
         </div>
       </div>

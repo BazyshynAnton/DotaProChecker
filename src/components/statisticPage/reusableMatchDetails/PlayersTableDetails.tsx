@@ -1,7 +1,8 @@
 import { Player } from "@/types/staticPage/staticPageTypes"
 import PlayerRow from "./PlayerRow"
 
-import styles from "@/styles/statisticPage/MatchDetails.module.scss"
+// import styles from "@/styles/statisticPage/MatchDetails.module.scss"
+import styles from "@/styles/statisticPage/PlayersTableDetails.module.scss"
 
 export default function PlayersTableDetails({
   playersTeam,
@@ -9,22 +10,21 @@ export default function PlayersTableDetails({
   playersTeam: Player[]
 }) {
   return (
-    <div className={styles.teamResult}>
-      <section className={styles.team}>
+    <div className={styles.result}>
+      <section className={styles.result__team}>
         <header
           style={{ color: playersTeam[0].isRadiant ? "#2eb872" : "#fa4659" }}
         >
           THE {playersTeam[0].isRadiant ? "RADIANT" : "DIRE"}
         </header>
-        <article className={styles.tableContainer}>
-          {/* 
-              TODO: 
-                   1.Drag and scroll
-                   2.Backpack items
-          */}
-          <table style={{ position: "relative" }}>
-            <thead>
-              <tr className={styles.headersTableRow}>
+        <article className={styles.result__team__tableWrapper}>
+          <table className={styles.result__team__tableWrapper__table}>
+            <thead className={styles.result__team__tableWrapper__theadWrapper}>
+              <tr
+                className={
+                  styles.result__team__tableWrapper__theadWrapper__headersTableRow
+                }
+              >
                 <HeaderCells />
               </tr>
             </thead>
@@ -42,41 +42,65 @@ function TableHeaderCell({ str, title }: { str: string; title: string }) {
   return (
     <th>
       {str === "K" ? (
-        <div title={title} className={`${styles.killsTableHeaderCell} `}>
+        <div
+          title={title}
+          className={`${styles.result__team__tableWrapper__theadWrapper__headersTableRow__killsTableHeaderCell} `}
+        >
           {str}
         </div>
       ) : str === "D" ? (
-        <div title={title} className={`${styles.deathsTableHeaderCell} `}>
+        <div
+          title={title}
+          className={`${styles.result__team__tableWrapper__theadWrapper__headersTableRow__deathsTableHeaderCell} `}
+        >
           {str}
         </div>
       ) : str === "A" ? (
-        <div title={title} className={`${styles.assistsTableHeaderCell} `}>
+        <div
+          title={title}
+          className={`${styles.result__team__tableWrapper__theadWrapper__headersTableRow__assistsTableHeaderCell} `}
+        >
           {str}
         </div>
       ) : str === "LH" ? (
         <div
           title={title}
-          className={`${styles.lasthitsTableHeaderCell} ${styles.helperAfter}`}
+          className={`${styles.result__team__tableWrapper__theadWrapper__headersTableRow__lasthitsTableHeaderCell} ${styles.result__team__tableWrapper__theadWrapper__headersTableRow_helperAfter}`}
         >
           {str}
         </div>
       ) : str === "DN" ? (
-        <div title={title} className={styles.deniesTableHeaderCell}>
+        <div
+          title={title}
+          className={
+            styles.result__team__tableWrapper__theadWrapper__headersTableRow__deniesTableHeaderCell
+          }
+        >
           {str}
         </div>
       ) : str === "GPM" ? (
         <div
           title={title}
-          className={`${styles.gpmTableHeaderCell} ${styles.helperAfter}`}
+          className={`${styles.result__team__tableWrapper__theadWrapper__headersTableRow__gpmTableHeaderCell} ${styles.result__team__tableWrapper__theadWrapper__headersTableRow_helperAfter}`}
         >
           {str}
         </div>
       ) : str === "XPM" ? (
-        <div title={title} className={styles.xpmTableHeaderCell}>
+        <div
+          title={title}
+          className={
+            styles.result__team__tableWrapper__theadWrapper__headersTableRow__xpmTableHeaderCell
+          }
+        >
           {str}
         </div>
       ) : (
-        <div title={title} className={styles.otherTableHeaderCell}>
+        <div
+          title={title}
+          className={
+            styles.result__team__tableWrapper__theadWrapper__headersTableRow__otherTableHeaderCell
+          }
+        >
           {str}
         </div>
       )}

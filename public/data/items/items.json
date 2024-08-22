@@ -5281,7 +5281,7 @@
       {
         "type": "active",
         "title": "Force",
-        "description": "Pushes any target unit 600 units in the direction it is facing. ."
+        "description": "Pushes any target unit 600 units in the direction it is facing."
       }
     ],
     "hint": [],

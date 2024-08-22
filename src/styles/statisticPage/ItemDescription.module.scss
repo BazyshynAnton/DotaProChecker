@@ -1,0 +1,176 @@
+.itemDescriptionContainer {
+  position: absolute;
+  top: -150px;
+  left: -405px;
+  width: 400px;
+  height: auto;
+  display: flex;
+  padding: 3px;
+  flex-direction: column;
+  background: #222c35;
+  border: 3px solid #1d2429;
+  z-index: 10;
+}
+
+.itemNameAndCostWrapper {
+  width: 100%;
+  display: flex;
+  padding: 20px;
+}
+
+.itemPicture {
+  img {
+    border: 1px solid black;
+  }
+}
+
+.nameAndCost {
+  padding-left: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.name {
+  color: #fff;
+  font-size: 1.3rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.cost {
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+  color: #e9bc37;
+  font-size: 1rem;
+}
+
+.descriptionWrapper {
+  width: 100%;
+  height: 100%;
+  background: #152128;
+  padding: 13px;
+  text-align: left;
+}
+
+.target,
+.dispellable {
+  padding-bottom: 5px;
+}
+
+.target,
+.dispellable,
+.piercesDebuffImmunity {
+  color: #6c7b7e;
+  font-size: 1rem;
+}
+
+.attrib {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.attribTextWrapper {
+  font-size: 1rem;
+  color: #6c7b7e;
+}
+
+.abilities {
+  width: 100%;
+  height: auto;
+}
+
+.activeAbil {
+  background: #181e30;
+}
+
+.passiveAbil {
+  background: #1c2630;
+}
+
+.activeAbilHeader,
+.passiveAbilHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px #000000c7;
+  letter-spacing: 1px;
+  padding: 6px 10px;
+  margin-top: 15px;
+}
+
+.manaAndCooldown {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  height: auto;
+  gap: 0.5rem;
+}
+
+.activeAbilHeader {
+  background-image: linear-gradient(to right, #373b7e, #181e30);
+  color: #9f9fcf;
+}
+
+.passiveAbilHeader {
+  background-image: linear-gradient(to right, #263540, #1c2630);
+  color: #7e8c9d;
+}
+
+.activeAbilDescription,
+.passiveAbilDescription {
+  padding: 6px 10px;
+
+  span {
+    text-shadow: 1px 1px 2px #00000052;
+  }
+}
+
+.activeAbilDescription {
+  color: #71779c;
+}
+
+.passiveAbilDescription {
+  color: #56616e;
+}
+
+.hint,
+.lore {
+  width: 100%;
+  height: auto;
+  padding: 6px 10px;
+  margin-top: 15px;
+}
+
+.hint {
+  background: #51565f;
+  color: #080d15;
+}
+
+.lore {
+  background: #0d1118;
+  color: #51565f;
+}
+
+.components {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  color: #51565f;
+}
+
+.componentsWrapper {
+  display: flex;
+  gap: 0.5rem;
+  padding-top: 5px;
+  color: #81681d;
+  font-size: 0.8rem;
+}

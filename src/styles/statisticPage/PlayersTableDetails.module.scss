@@ -1,0 +1,82 @@
+@import "../scss/fontMixin.scss";
+
+.result {
+  width: 100%;
+  margin-bottom: 5rem;
+}
+
+.result__team {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  header {
+    @include FontFrizQuadrataRegular;
+    letter-spacing: 2px;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+}
+
+.result__team__tableWrapper {
+  width: 100%;
+}
+
+.result__team__tableWrapper__table {
+  width: 100%;
+  padding: 10px;
+  background-color: #393e46;
+}
+.result__team__tableWrapper__theadWrapper {
+  width: 100%;
+  border: 2px solid #fff;
+  border-collapse: collapse;
+}
+
+.result__team__tableWrapper__theadWrapper__headersTableRow {
+  height: 40px;
+  color: #fff;
+
+  th {
+    text-align: right;
+    &:first-child {
+      text-align: left;
+    }
+    &:last-child {
+      text-align: left;
+      padding-left: 10px;
+    }
+
+    .result__team__tableWrapper__theadWrapper__headersTableRow__killsTableHeaderCell,
+    .result__team__tableWrapper__theadWrapper__headersTableRow__deathsTableHeaderCell,
+    .result__team__tableWrapper__theadWrapper__headersTableRow__assistsTableHeaderCell,
+    .result__team__tableWrapper__theadWrapper__headersTableRow__gpmTableHeaderCell {
+      padding-left: 20px;
+    }
+
+    .result__team__tableWrapper__theadWrapper__headersTableRow__lasthitsTableHeaderCell {
+      padding-left: 35px;
+    }
+
+    .result__team__tableWrapper__theadWrapper__headersTableRow__deniesTableHeaderCell,
+    .result__team__tableWrapper__theadWrapper__headersTableRow__xpmTableHeaderCell {
+      text-align: left;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+}
+
+.result__team__tableWrapper__theadWrapper__headersTableRow_helperAfter {
+  position: relative;
+  z-index: 0;
+  &::before {
+    content: "/";
+    position: absolute;
+    right: -10px;
+    top: 0;
+    color: #fff;
+    font-weight: 100;
+  }
+}

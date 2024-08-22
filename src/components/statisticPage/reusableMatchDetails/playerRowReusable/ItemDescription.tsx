@@ -2,7 +2,7 @@ import { Image } from "@/components/shared/nextjsImports"
 
 import type { ItemDetails } from "@/types/staticPage/playerRowDetailsTypes"
 
-import styles from "@/styles/statisticPage/MatchDetails.module.scss"
+import styles from "@/styles/statisticPage/ItemDescription.module.scss"
 import { PlayerRowDetailsUtility } from "@/utils/statisticPage/PlayerRowDetailsUtility"
 
 export default function ItemDescription({

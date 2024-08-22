@@ -1,0 +1,249 @@
+.playerRow {
+  position: relative;
+  width: 100%;
+  height: max-content;
+  text-align: left;
+  cursor: default;
+
+  td {
+    position: relative;
+    text-align: right;
+  }
+
+  &:hover {
+    .playerHeroAndVariant,
+    .playerNickname {
+      z-index: 6;
+    }
+
+    .playerNickname {
+      position: relative;
+    }
+
+    .playerRow__playerDataCell__kills,
+    .playerRow__playerDataCell__assists,
+    .playerRow__playerDataCell__deaths,
+    .playerRow__playerDataCell__lasthits,
+    .playerRow__playerDataCell__denies,
+    .playerRow__playerDataCell__lasthits,
+    .playerRow__playerDataCell__gpm,
+    .playerRow__playerDataCell__networth,
+    .playerRow__playerDataCell__gpm,
+    .playerRow__playerDataCell__xpm,
+    .playerRow__playerDataCell__heroDamage,
+    .playerRow__playerDataCell__towerDamage,
+    .playerRow__playerDataCell__heroesHealing {
+      position: relative;
+      z-index: 6;
+    }
+  }
+}
+
+.playerRow__playerDataCell {
+  width: 170px;
+}
+
+.playerRow__playerDataCell__inCell {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.playerRow__playerDataCell__inCell__heroAndNickname {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.playerRow__playerDataCell__inCell__heroAndNickname__hero {
+  position: relative;
+
+  span {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3px;
+    bottom: -7px;
+    right: -7px;
+    z-index: 2;
+
+    width: 20px;
+    height: 20px;
+
+    img {
+      object-fit: contain;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.playerRow__playerDataCell__inCell__heroAndNickname__hero__icon {
+  width: 54px;
+  height: 30px;
+
+  img {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.playerRow__playerDataCell__inCell__heroAndNickname__hero__level {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 15px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: #fff;
+  background-color: #000000be;
+
+  cursor: default;
+}
+
+.playerRow__playerDataCell__inCell__heroAndNickname__nickname {
+  display: flex;
+  flex-direction: column;
+}
+
+.playerRow__playerDataCell__inCell__heroAndNickname__nickname_radiant {
+  color: #2eb872;
+}
+.playerRow__playerDataCell__inCell__heroAndNickname__nickname_dire {
+  color: #fa4659;
+}
+
+.playerRow__playerDataCell__inCell__rankAndAvatar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  gap: 4px;
+  z-index: 6;
+}
+
+.playerRow__playerDataCell__inCell__rankAndAvatar__rank {
+  position: relative;
+  width: 40px;
+  height: 40px;
+}
+
+.playerRow__playerDataCell__inCell__rankAndAvatar__rank__tier {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #0000004f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.playerRow__playerDataCell__inCell__rankAndAvatar__avatar {
+  width: 24px;
+  height: 24px;
+}
+
+.playerRow__playerDataCell__kills {
+  padding-left: 20px;
+}
+
+.playerRow__playerDataCell__kills,
+.playerRow__playerDataCell__assists {
+  color: #fff;
+}
+
+.playerRow__playerDataCell__kills,
+.playerRow__playerDataCell__deaths,
+.playerRow__playerDataCell__assists {
+  width: 21px;
+}
+
+.playerRow__playerDataCell__lasthits,
+.playerRow__playerDataCell__denies {
+  width: 21px;
+}
+
+.playerRow__playerDataCell__lasthits,
+.playerRow__playerDataCell__gpm {
+  position: relative;
+  z-index: 0;
+  &::before {
+    content: "/";
+    position: absolute;
+    top: 31.5px;
+    right: -9px;
+    font-weight: 100;
+  }
+}
+
+.playerRow__playerDataCell__denies,
+.playerRow__playerDataCell__xpm {
+  text-align: left !important;
+  padding-left: 10px;
+}
+
+.playerRow__playerDataCell__networth {
+  width: 32px;
+}
+
+.playerRow__playerDataCell__gpm,
+.playerRow__playerDataCell__xpm {
+  width: 25px;
+}
+
+.playerRow__playerDataCell__heroDamage,
+.playerRow__playerDataCell__towerDamage,
+.playerRow__playerDataCell__heroesHealing {
+  width: 32px;
+}
+
+.playerRow__playerDataCell__towerDamage,
+.playerRow__playerDataCell__heroesHealing {
+  padding-left: 10px;
+}
+
+.playerRow__playerDataCell__deaths,
+.playerRow__playerDataCell__lasthits,
+.playerRow__playerDataCell__denies,
+.playerRow__playerDataCell__lasthits,
+.playerRow__playerDataCell__gpm,
+.playerRow__playerDataCell__networth,
+.playerRow__playerDataCell__gpm,
+.playerRow__playerDataCell__xpm,
+.playerRow__playerDataCell__heroDamage,
+.playerRow__playerDataCell__towerDamage,
+.playerRow__playerDataCell__heroesHealing {
+  color: #b8b8b8;
+}
+
+.playerRow__playerDataCell__items {
+  width: 20%;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.playerRow__playerDataCell__items__slots {
+  padding: 10px 0px 10px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 250px;
+}
+
+.playerRow__playerDataCell__items__slots__mainSlot,
+.playerRow__playerDataCell__items__slots__backpack {
+  display: flex;
+  gap: 3px;
+  cursor: help;
+}

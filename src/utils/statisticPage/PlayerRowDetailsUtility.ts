@@ -242,6 +242,7 @@ export class PlayerRowDetailsUtility implements RDUtility {
     return this.m_ItemDetails
   }
 
+  //[FUNCTION] FIND ITEM COST BY IT'S NAME
   public findItemCostByName(item: string): string {
     const playerItems: Item = items
     let cost = 0

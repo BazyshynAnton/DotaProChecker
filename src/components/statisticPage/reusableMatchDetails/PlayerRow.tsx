@@ -1,20 +1,21 @@
-import { PlayerRowDetailsUtility } from "@/utils/statisticPage/PlayerRowDetailsUtility"
-import { Image } from "@/components/shared/nextjsImports"
-
-import { useSelector } from "@/components/shared/reduxImports"
-import type { Player } from "@/types/staticPage/staticPageTypes"
-import type { RootState } from "@/store/store"
-
-import styles from "@/styles/statisticPage/MatchDetails.module.scss"
-import {
-  DetailsAboutHero,
-  DetailsAboutPlayer,
-  ItemDetails,
-} from "@/types/staticPage/playerRowDetailsTypes"
 import {
   ItemIcons,
   BackpackItemIcons,
 } from "./playerRowReusable/PlayerRowReusable"
+import { PlayerRowDetailsUtility } from "@/utils/statisticPage/PlayerRowDetailsUtility"
+import { Image } from "@/components/shared/nextjsImports"
+
+import { useSelector } from "@/components/shared/reduxImports"
+
+import styles from "@/styles/statisticPage/PlayerRow.module.scss"
+
+import type { Player } from "@/types/staticPage/staticPageTypes"
+import type { RootState } from "@/store/store"
+import type {
+  DetailsAboutHero,
+  DetailsAboutPlayer,
+  ItemDetails,
+} from "@/types/staticPage/playerRowDetailsTypes"
 
 export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
   const { heroList, playersProfiles } = useSelector(
@@ -42,15 +43,23 @@ export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
           rdUtility.findAppropriateItems(player)
 
         return (
-          <tr key={player.hero_id} className={styles.playerTableRow}>
-            <td className={styles.playerTableDataCell}>
-              <div className={styles.playerInTableCellContainer}>
+          <tr key={player.hero_id} className={styles.playerRow}>
+            <td className={styles.playerRow__playerDataCell}>
+              <div className={styles.playerRow__playerDataCell__inCell}>
                 <div
-                  style={{ display: "flex", alignItems: "center", gap: "1rem" }}
+                  className={
+                    styles.playerRow__playerDataCell__inCell__heroAndNickname
+                  }
                 >
-                  <div className={styles.playerHeroAndVariant}>
+                  <div
+                    className={
+                      styles.playerRow__playerDataCell__inCell__heroAndNickname__hero
+                    }
+                  >
                     <div
-                      className={styles.heroIconContainer}
+                      className={
+                        styles.playerRow__playerDataCell__inCell__heroAndNickname__hero__icon
+                      }
                       style={{
                         borderRight: `3px solid ${detailsAboutHero.playerColor}`,
                       }}
@@ -63,7 +72,11 @@ export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
                         quality={100}
                       />
                     </div>
-                    <div className={styles.playerLevelContainer}>
+                    <div
+                      className={
+                        styles.playerRow__playerDataCell__inCell__heroAndNickname__hero__level
+                      }
+                    >
                       {player.level}
                     </div>
                     <span
@@ -81,25 +94,31 @@ export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
                       )}
                     </span>
                   </div>
-                  <div className={styles.playerNickname}>
+                  <div
+                    className={
+                      styles.playerRow__playerDataCell__inCell__heroAndNickname__nickname
+                    }
+                  >
                     <div
-                      style={{
-                        color: `${
-                          player.team_number === 0 ? "#2eb872" : "#fa4659"
-                        }`,
-                      }}
+                      className={
+                        player.team_number === 0
+                          ? styles.playerRow__playerDataCell__inCell__heroAndNickname__nickname_radiant
+                          : styles.playerRow__playerDataCell__inCell__heroAndNickname__nickname_dire
+                      }
                     >
                       {player.personaname ? player.personaname : "Anonymous"}
                     </div>
                   </div>
                 </div>
-                <div className={styles.rankAndAvatarContainer}>
+                <div
+                  className={
+                    styles.playerRow__playerDataCell__inCell__rankAndAvatar
+                  }
+                >
                   <div
-                    style={{
-                      position: "relative",
-                      width: "40px",
-                      height: "40px",
-                    }}
+                    className={
+                      styles.playerRow__playerDataCell__inCell__rankAndAvatar__rank
+                    }
                   >
                     <Image
                       src={rdUtility.findPictureOfPlayerRank()}
@@ -109,12 +128,20 @@ export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
                       quality={100}
                     />
                     {detailsAboutPlayer.leaderboard_rank_info !== null && (
-                      <div className={styles.rankTierContainer}>
+                      <div
+                        className={
+                          styles.playerRow__playerDataCell__inCell__rankAndAvatar__rank__tier
+                        }
+                      >
                         {detailsAboutPlayer.leaderboard_rank_info}
                       </div>
                     )}
                   </div>
-                  <div style={{ width: "24px", height: "24px" }}>
+                  <div
+                    className={
+                      styles.playerRow__playerDataCell__inCell__rankAndAvatar__avatar
+                    }
+                  >
                     <Image
                       src={rdUtility.findPlayerAvatar()}
                       alt={"Player's Avatar"}
@@ -127,30 +154,53 @@ export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
                 </div>
               </div>
             </td>
-            <td className={styles.killsTableDataCell}>{player.kills}</td>
-            <td className={styles.deathsTableDataCell}>{player.deaths}</td>
-            <td className={styles.assistsTableDataCell}>{player.assists}</td>
-            <td className={styles.lasthitsTableDataCell}>{player.last_hits}</td>
-            <td className={styles.deniesTableDataCell}>{player.denies}</td>
-            <td className={styles.networthTableDataCell}>{player.net_worth}</td>
-            <td className={styles.gpmTableDataCell}>{player.gold_per_min}</td>
-            <td className={styles.xpmTableDataCell}>{player.xp_per_min}</td>
-            <td className={styles.heroDamageTableDataCell}>
+            <td className={styles.playerRow__playerDataCell__kills}>
+              {player.kills}
+            </td>
+            <td className={styles.playerRow__playerDataCell__deaths}>
+              {player.deaths}
+            </td>
+            <td className={styles.playerRow__playerDataCell__assists}>
+              {player.assists}
+            </td>
+            <td className={styles.playerRow__playerDataCell__lasthits}>
+              {player.last_hits}
+            </td>
+            <td className={styles.playerRow__playerDataCell__denies}>
+              {player.denies}
+            </td>
+            <td className={styles.playerRow__playerDataCell__networth}>
+              {player.net_worth}
+            </td>
+            <td className={styles.playerRow__playerDataCell__gpm}>
+              {player.gold_per_min}
+            </td>
+            <td className={styles.playerRow__playerDataCell__xpm}>
+              {player.xp_per_min}
+            </td>
+            <td className={styles.playerRow__playerDataCell__heroDamage}>
               {player.hero_damage}
             </td>
-            <td className={styles.buildingsDamageTableDataCell}>
+            <td className={styles.playerRow__playerDataCell__towerDamage}>
               {player.tower_damage}
             </td>
-            <td className={styles.heroesHealingTableDataCell}>
+            <td className={styles.playerRow__playerDataCell__heroesHealing}>
               {player.hero_healing}
             </td>
-            <td className={styles.itemsTableDataCell}>
-              <div className={styles.itemsInTableDataCellContainer}>
-                <div className={styles.mainSlotItems}>
-                  {/* CUSTOM WEB CURSOR */}
+            <td className={styles.playerRow__playerDataCell__items}>
+              <div className={styles.playerRow__playerDataCell__items__slots}>
+                <div
+                  className={
+                    styles.playerRow__playerDataCell__items__slots__mainSlot
+                  }
+                >
                   <ItemIcons detailsAboutItems={detailsAboutItems} />
                 </div>
-                <div className={styles.backpackItems}>
+                <div
+                  className={
+                    styles.playerRow__playerDataCell__items__slots__backpack
+                  }
+                >
                   <BackpackItemIcons
                     image_name_0={detailsAboutItems?.backpack_0.img}
                     image_name_1={detailsAboutItems?.backpack_1.img}
