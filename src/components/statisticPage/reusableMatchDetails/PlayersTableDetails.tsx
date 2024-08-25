@@ -19,10 +19,10 @@ export default function PlayersTableDetails({
         </header>
         <article className={styles.result__team__tableWrapper}>
           <table className={styles.result__team__tableWrapper__table}>
-            <thead className={styles.result__team__tableWrapper__theadWrapper}>
+            <thead className={styles.result__team__tableWrapper__table__thead}>
               <tr
                 className={
-                  styles.result__team__tableWrapper__theadWrapper__headersTableRow
+                  styles.result__team__tableWrapper__table__thead__headersTableRow
                 }
               >
                 <HeaderCells />
@@ -44,28 +44,28 @@ function TableHeaderCell({ str, title }: { str: string; title: string }) {
       {str === "K" ? (
         <div
           title={title}
-          className={`${styles.result__team__tableWrapper__theadWrapper__headersTableRow__killsTableHeaderCell} `}
+          className={`${styles.result__team__tableWrapper__table__thead__headersTableRow__killsTableHeaderCell} `}
         >
           {str}
         </div>
       ) : str === "D" ? (
         <div
           title={title}
-          className={`${styles.result__team__tableWrapper__theadWrapper__headersTableRow__deathsTableHeaderCell} `}
+          className={`${styles.result__team__tableWrapper__table__thead__headersTableRow__deathsTableHeaderCell} `}
         >
           {str}
         </div>
       ) : str === "A" ? (
         <div
           title={title}
-          className={`${styles.result__team__tableWrapper__theadWrapper__headersTableRow__assistsTableHeaderCell} `}
+          className={`${styles.result__team__tableWrapper__table__thead__headersTableRow__assistsTableHeaderCell} `}
         >
           {str}
         </div>
       ) : str === "LH" ? (
         <div
           title={title}
-          className={`${styles.result__team__tableWrapper__theadWrapper__headersTableRow__lasthitsTableHeaderCell} ${styles.result__team__tableWrapper__theadWrapper__headersTableRow_helperAfter}`}
+          className={`${styles.result__team__tableWrapper__table__thead__headersTableRow__lasthitsTableHeaderCell} ${styles.result__team__tableWrapper__table__thead__headersTableRow__headersTableRow_helperAfter}`}
         >
           {str}
         </div>
@@ -73,7 +73,7 @@ function TableHeaderCell({ str, title }: { str: string; title: string }) {
         <div
           title={title}
           className={
-            styles.result__team__tableWrapper__theadWrapper__headersTableRow__deniesTableHeaderCell
+            styles.result__team__tableWrapper__table__thead__headersTableRow__deniesTableHeaderCell
           }
         >
           {str}
@@ -81,7 +81,7 @@ function TableHeaderCell({ str, title }: { str: string; title: string }) {
       ) : str === "GPM" ? (
         <div
           title={title}
-          className={`${styles.result__team__tableWrapper__theadWrapper__headersTableRow__gpmTableHeaderCell} ${styles.result__team__tableWrapper__theadWrapper__headersTableRow_helperAfter}`}
+          className={`${styles.result__team__tableWrapper__table__thead__headersTableRow__gpmTableHeaderCell} ${styles.result__team__tableWrapper__table__thead__headersTableRow__headersTableRow_helperAfter}`}
         >
           {str}
         </div>
@@ -89,7 +89,7 @@ function TableHeaderCell({ str, title }: { str: string; title: string }) {
         <div
           title={title}
           className={
-            styles.result__team__tableWrapper__theadWrapper__headersTableRow__xpmTableHeaderCell
+            styles.result__team__tableWrapper__table__thead__headersTableRow__xpmTableHeaderCell
           }
         >
           {str}
@@ -98,7 +98,7 @@ function TableHeaderCell({ str, title }: { str: string; title: string }) {
         <div
           title={title}
           className={
-            styles.result__team__tableWrapper__theadWrapper__headersTableRow__otherTableHeaderCell
+            styles.result__team__tableWrapper__table__thead__headersTableRow__otherTableHeaderCell
           }
         >
           {str}

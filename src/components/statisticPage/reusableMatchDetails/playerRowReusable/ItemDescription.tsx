@@ -4,6 +4,8 @@ import type { ItemDetails } from "@/types/staticPage/playerRowDetailsTypes"
 
 import styles from "@/styles/statisticPage/ItemDescription.module.scss"
 import { PlayerRowDetailsUtility } from "@/utils/statisticPage/PlayerRowDetailsUtility"
+import { useEffect, useRef } from "react"
+import ReactDOM from "react-dom"
 
 export default function ItemDescription({
   details,
@@ -24,10 +26,10 @@ export default function ItemDescription({
   } else if (typeof details[item].behavior === "string")
     target = details[item].behavior
 
-  return (
-    <div className={styles.itemDescriptionContainer}>
-      <div className={styles.itemNameAndCostWrapper}>
-        <div className={styles.itemPicture}>
+  return ReactDOM.createPortal(
+    <div className={styles.tooltip}>
+      <div className={styles.tooltip__NameAndCostWrapper}>
+        <div className={styles.tooltip__NameAndCostWrapper__itemPicture}>
           <Image
             src={`/pictures/dotaItemIcon/${details[item].img}.webp`}
             alt=""
@@ -35,11 +37,15 @@ export default function ItemDescription({
             height={70}
           />
         </div>
-        <div className={styles.nameAndCost}>
-          <div className={styles.name}>
+        <div className={styles.tooltip__NameAndCostWrapper__nameAndCost}>
+          <div
+            className={styles.tooltip__NameAndCostWrapper__nameAndCost__name}
+          >
             <h4>{details[item].dname}</h4>
           </div>
-          <div className={styles.cost}>
+          <div
+            className={styles.tooltip__NameAndCostWrapper__nameAndCost__cost}
+          >
             <Image
               src={`/pictures/dotaIcons/gold_symbol.webp`}
               alt=""
@@ -50,22 +56,22 @@ export default function ItemDescription({
           </div>
         </div>
       </div>
-      <div className={styles.descriptionWrapper}>
+      <div className={styles.tooltip__description}>
         {details[item].behavior && (
-          <div className={styles.target}>
+          <div className={styles.tooltip__description__target}>
             <span>TARGET:</span>
             <span style={{ color: "#fff" }}> {target}</span>
           </div>
         )}
         {details[item].dispellable && (
-          <div className={styles.dispellable}>
-            <span>DISPELLABLE: </span>
+          <div className={styles.tooltip__description__dispellable}>
+            <span>DISPELLABLE:</span>
             <span
-              style={{
-                color: `${
-                  details[item].dispellable === "Yes" ? "#5aa460" : "#8b0000"
-                }`,
-              }}
+              className={
+                details[item].dispellable === "Yes"
+                  ? styles.tooltip__description__dispellable_typeOne
+                  : styles.tooltip__description__dispellable_typeTwo
+              }
             >
               {" "}
               {details[item].dispellable}
@@ -73,20 +79,17 @@ export default function ItemDescription({
           </div>
         )}
         {details[item].bkbpierce && (
-          <div className={styles.piercesDebuffImmunity}>
-            <span>PIERCES DEBUFF IMMUNITY: </span>
-            <span>
+          <div className={styles.tooltip__description__piercesDebuffImmunity}>
+            <span>PIERCES DEBUFF IMMUNITY:</span>
+            <span
+              className={
+                details[item].bkbpierce === "Yes"
+                  ? styles.tooltip__description__piercesDebuffImmunity_typeOne
+                  : styles.tooltip__description__piercesDebuffImmunity_typeTwo
+              }
+            >
               {" "}
-              <span
-                style={{
-                  color: `${
-                    details[item].bkbpierce === "Yes" ? "#5aa460" : "#8b0000"
-                  }`,
-                }}
-              >
-                {" "}
-                {details[item].bkbpierce}
-              </span>
+              {details[item].bkbpierce}
             </span>
           </div>
         )}
@@ -103,18 +106,17 @@ export default function ItemDescription({
               }}
             />
           )}
-        <div className={styles.attrib}>
-          {/* 
-            TODO:
-              3. do something with overflow y?          
-          */}
+        <div className={styles.tooltip__description__attrib}>
           {details[item].attrib?.map((att) => {
             if (!att.display) return
 
             const partsOfString = att.display.split("{value}")
 
             return (
-              <div key={att.key} className={styles.attribTextWrapper}>
+              <div
+                key={att.key}
+                className={styles.tooltip__description__attrib__text}
+              >
                 <span>{partsOfString[0]}</span>
                 <span style={{ color: "#fff" }}>{att.value}</span>
                 <span>{partsOfString[1]}</span>
@@ -123,7 +125,7 @@ export default function ItemDescription({
           })}
         </div>
         {details[item].abilities && (
-          <div className={styles.abilities}>
+          <div className={styles.tooltip__description__abilities}>
             {details[item].abilities.map((abil) => {
               const formattedDescription = abil.description.replace(
                 /\n/g,
@@ -135,24 +137,32 @@ export default function ItemDescription({
                   key={abil.title}
                   className={`${
                     abil.type === "active"
-                      ? styles.activeAbil
-                      : styles.passiveAbil
+                      ? styles.tooltip__description__abilities_active
+                      : styles.tooltip__description__abilities_passive
                   }`}
                 >
                   <div
                     className={`${
                       abil.type === "active"
-                        ? styles.activeAbilHeader
-                        : styles.passiveAbilHeader
+                        ? styles.tooltip__description__abilities_active__header
+                        : styles.tooltip__description__abilities_passive__header
                     }`}
                   >
-                    <div className={styles.content}>
+                    <div
+                      className={
+                        styles.tooltip__description__abilities_active_passive__header__content
+                      }
+                    >
                       <span>
                         {abil.type === "active" ? "Active" : "Passive"}:
                       </span>
                       <span> {abil.title}</span>
                     </div>
-                    <div className={styles.manaAndCooldown}>
+                    <div
+                      className={
+                        styles.tooltip__description__abilities_active_passive__header__manaAndCooldown
+                      }
+                    >
                       {abil.type === "active" && details[item].mc ? (
                         <div style={{ display: "flex", alignItems: "center" }}>
                           <Image
@@ -205,8 +215,8 @@ export default function ItemDescription({
                   <div
                     className={`${
                       abil.type === "active"
-                        ? styles.activeAbilDescription
-                        : styles.passiveAbilDescription
+                        ? styles.tooltip__description__abilities_active__description
+                        : styles.tooltip__description__abilities_passive__description
                     }`}
                   >
                     <span
@@ -219,30 +229,28 @@ export default function ItemDescription({
           </div>
         )}
         {details[item].hint && details[item].hint.length > 0 && (
-          <div className={styles.hint}>{details[item].hint}</div>
+          <div className={styles.tooltip__description__hint}>
+            {details[item].hint}
+          </div>
         )}
         {details[item].lore && (
-          <div className={styles.lore}>
+          <div className={styles.tooltip__description__lore}>
             <i>{details[item].lore}</i>
           </div>
         )}
         {details[item].components && details[item].components.length > 0 && (
-          <div className={styles.components}>
-            <span className={styles.componentsHeader}>Components:</span>
-            <div className={styles.componentsWrapper}>
+          <div className={styles.tooltip__description__components}>
+            <span>Components:</span>
+            <div className={styles.tooltip__description__components__items}>
               {details[item].components.map((component, idx) => {
                 const rdUtility = new PlayerRowDetailsUtility()
                 const itemCost = rdUtility.findItemCostByName(component)
                 return (
                   <div
                     key={idx}
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      gap: "3px",
-                    }}
+                    className={
+                      styles.tooltip__description__components__items__item
+                    }
                   >
                     <Image
                       src={`/pictures/dotaItemIcon/${component}.webp`}
@@ -258,6 +266,7 @@ export default function ItemDescription({
           </div>
         )}
       </div>
-    </div>
+    </div>,
+    document.getElementById("tooltip_portal") as Element | DocumentFragment
   )
 }

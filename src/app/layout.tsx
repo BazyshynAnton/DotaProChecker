@@ -5,6 +5,7 @@ import type { Metadata } from "next"
 import { Roboto } from "next/font/google"
 
 import "./globals.scss"
+import styles from "@/styles/statisticPage/ItemDescription.module.scss"
 
 const roboto = Roboto({
   weight: ["400", "500", "700", "900"],
@@ -32,6 +33,10 @@ export default function RootLayout({
         <body className={roboto.className}>
           <Header />
           {children}
+          <div
+            id="tooltip_portal"
+            className={styles.itemDescriptionBackground}
+          ></div>
         </body>
       </html>
     </StoreProvider>

@@ -1,7 +1,11 @@
-.itemDescriptionContainer {
+.itemDescriptionBackground {
+  position: relative;
+}
+
+.tooltip {
   position: absolute;
-  top: -150px;
-  left: -405px;
+  top: -1000px;
+  left: 100px;
   width: 400px;
   height: auto;
   display: flex;
@@ -12,33 +16,33 @@
   z-index: 10;
 }
 
-.itemNameAndCostWrapper {
+.tooltip__NameAndCostWrapper {
   width: 100%;
   display: flex;
   padding: 20px;
 }
 
-.itemPicture {
+.tooltip__NameAndCostWrapper__itemPicture {
   img {
     border: 1px solid black;
   }
 }
 
-.nameAndCost {
+.tooltip__NameAndCostWrapper__nameAndCost {
   padding-left: 15px;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
-.name {
+.tooltip__NameAndCostWrapper__nameAndCost__name {
   color: #fff;
   font-size: 1.3rem;
   letter-spacing: 0.5px;
   text-transform: uppercase;
 }
 
-.cost {
+.tooltip__NameAndCostWrapper__nameAndCost__cost {
   display: flex;
   gap: 0.3rem;
   align-items: center;
@@ -46,7 +50,7 @@
   font-size: 1rem;
 }
 
-.descriptionWrapper {
+.tooltip__description {
   width: 100%;
   height: 100%;
   background: #152128;
@@ -54,19 +58,29 @@
   text-align: left;
 }
 
-.target,
-.dispellable {
+.tooltip__description__target,
+.tooltip__description__dispellable {
   padding-bottom: 5px;
 }
 
-.target,
-.dispellable,
-.piercesDebuffImmunity {
+.tooltip__description__target,
+.tooltip__description__dispellable,
+.tooltip__description__piercesDebuffImmunity {
   color: #6c7b7e;
   font-size: 1rem;
 }
 
-.attrib {
+.tooltip__description__dispellable_typeOne,
+.tooltip__description__piercesDebuffImmunity_typeOne {
+  color: #5aa460;
+}
+
+.tooltip__description__dispellable_typeTwo,
+.tooltip__description__piercesDebuffImmunity_typeTwo {
+  color: #8b0000;
+}
+
+.tooltip__description__attrib {
   width: 100%;
   height: 100%;
   display: flex;
@@ -74,26 +88,26 @@
   gap: 0.5rem;
 }
 
-.attribTextWrapper {
+.tooltip__description__attrib__text {
   font-size: 1rem;
   color: #6c7b7e;
 }
 
-.abilities {
+.tooltip__description__abilities {
   width: 100%;
   height: auto;
 }
 
-.activeAbil {
+.tooltip__description__abilities_active {
   background: #181e30;
 }
 
-.passiveAbil {
+.tooltip__description__abilities_passive {
   background: #1c2630;
 }
 
-.activeAbilHeader,
-.passiveAbilHeader {
+.tooltip__description__abilities_active__header,
+.tooltip__description__abilities_passive__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -105,7 +119,7 @@
   margin-top: 15px;
 }
 
-.manaAndCooldown {
+.tooltip__description__abilities_active_passive__header__manaAndCooldown {
   display: flex;
   align-items: center;
   width: max-content;
@@ -113,18 +127,18 @@
   gap: 0.5rem;
 }
 
-.activeAbilHeader {
+.tooltip__description__abilities_active__header {
   background-image: linear-gradient(to right, #373b7e, #181e30);
   color: #9f9fcf;
 }
 
-.passiveAbilHeader {
+.tooltip__description__abilities_passive__header {
   background-image: linear-gradient(to right, #263540, #1c2630);
   color: #7e8c9d;
 }
 
-.activeAbilDescription,
-.passiveAbilDescription {
+.tooltip__description__abilities_active__description,
+.tooltip__description__abilities_passive__description {
   padding: 6px 10px;
 
   span {
@@ -132,33 +146,33 @@
   }
 }
 
-.activeAbilDescription {
+.tooltip__description__abilities_active__description {
   color: #71779c;
 }
 
-.passiveAbilDescription {
+.tooltip__description__abilities_passive__description {
   color: #56616e;
 }
 
-.hint,
-.lore {
+.tooltip__description__hint,
+.tooltip__description__lore {
   width: 100%;
   height: auto;
   padding: 6px 10px;
   margin-top: 15px;
 }
 
-.hint {
+.tooltip__description__hint {
   background: #51565f;
   color: #080d15;
 }
 
-.lore {
+.tooltip__description__lore {
   background: #0d1118;
   color: #51565f;
 }
 
-.components {
+.tooltip__description__components {
   width: 100%;
   height: auto;
   display: flex;
@@ -167,10 +181,18 @@
   color: #51565f;
 }
 
-.componentsWrapper {
+.tooltip__description__components__items {
   display: flex;
   gap: 0.5rem;
   padding-top: 5px;
   color: #81681d;
   font-size: 0.8rem;
+}
+
+.tooltip__description__components__items__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
 }
