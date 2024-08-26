@@ -10,18 +10,25 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+}
 
-  header {
-    @include FontFrizQuadrataRegular;
-    letter-spacing: 2px;
-    font-size: 1.5rem;
-    font-weight: 600;
-  }
+.result__team__header {
+  @include FontFrizQuadrataRegular;
+  letter-spacing: 2px;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.result__team__header_radiant {
+  color: #2eb872;
+}
+
+.result__team__header_dire {
+  color: #fa4659;
 }
 
 .result__team__tableWrapper {
   width: 100%;
-  overflow: scroll clip !important;
 }
 
 .result__team__tableWrapper__table {
@@ -79,5 +86,14 @@
     top: 0;
     color: #fff;
     font-weight: 100;
+  }
+}
+
+@media (max-width: 1152px) {
+  .result__team__tableWrapper {
+    overflow: scroll clip !important;
+    scrollbar-color: #b8b8b8 #393e46;
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
   }
 }

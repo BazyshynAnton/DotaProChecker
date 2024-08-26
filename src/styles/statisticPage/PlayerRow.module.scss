@@ -116,8 +116,14 @@
 .playerRow__playerDataCell__inCell__heroAndNickname__nickname_radiant {
   color: #2eb872;
 }
+
 .playerRow__playerDataCell__inCell__heroAndNickname__nickname_dire {
   color: #fa4659;
+}
+
+.playerRow__playerDataCell__inCell__heroAndNickname__nickname_radiant,
+.playerRow__playerDataCell__inCell__heroAndNickname__nickname_dire {
+  text-align: left;
 }
 
 .playerRow__playerDataCell__inCell__rankAndAvatar {

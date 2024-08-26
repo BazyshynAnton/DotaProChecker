@@ -17,26 +17,31 @@ export class MatchDetailsUtility implements MDUtility {
 
     // RETURNING DATA
     const matchResult: MatchResult = {
-      resultOfMatch: "NONE",
+      resultOfMatch: false,
       playerSide: "NONE",
       matchDuration: (matchDetails.duration / 60).toFixed(2).replace(".", ":"),
       radiantScore: matchDetails.radiant_score.toString(),
       direScore: matchDetails.dire_score.toString(),
+      playedHero: -1,
     }
 
     // > 1. SET RESULT OF MATCH FOR "USER"
     // > 2. SET PLAYER'S SIDE
     players.forEach((player) => {
-      if (userID === player.account_id && player.win === 1) {
-        matchResult.resultOfMatch = "WIN"
-      } else if (userID === player.account_id && player.win === 0) {
-        matchResult.resultOfMatch = "LOSE"
+      if (matchDetails.radiant_win) {
+        matchResult.resultOfMatch = true
+      } else {
+        matchResult.resultOfMatch = false
       }
 
       if (userID === player.account_id && player.isRadiant) {
         matchResult.playerSide = "RADIANT"
       } else if (userID === player.account_id && !player.isRadiant) {
         matchResult.playerSide = "DIRE"
+      }
+
+      if (userID === player.account_id) {
+        matchResult.playedHero = player.hero_id
       }
     })
     // < 1. SET RESULT OF MATCH FOR "USER"

@@ -1,11 +1,10 @@
+import ReactDOM from "react-dom" // MOVE TO REACT UTILS
 import { Image } from "@/components/shared/nextjsImports"
-
-import type { ItemDetails } from "@/types/staticPage/playerRowDetailsTypes"
+import { PlayerRowDetailsUtility } from "@/utils/statisticPage/PlayerRowDetailsUtility"
 
 import styles from "@/styles/statisticPage/ItemDescription.module.scss"
-import { PlayerRowDetailsUtility } from "@/utils/statisticPage/PlayerRowDetailsUtility"
-import { useEffect, useRef } from "react"
-import ReactDOM from "react-dom"
+
+import type { ItemDetails } from "@/types/staticPage/playerRowDetailsTypes"
 
 export default function ItemDescription({
   details,

@@ -28,21 +28,17 @@ export default function MatchDetails() {
 
   if (!playersByTeam) return <div>Loading...</div>
 
-  const condition: boolean =
-    resultOfMatch?.playerSide === "RADIANT" &&
-    resultOfMatch?.resultOfMatch === "WIN"
-
   return (
     <div className={styles.match}>
       <div className={styles.match__header}>
-        {/* <div className={styles.playedHero}></div> */}
+        <div className={styles.match__header__playedHero}></div>
         <div className={styles.match__result}>
           <h4
             style={{
-              color: condition ? "#2eb872" : "#fa4659",
+              color: resultOfMatch?.resultOfMatch ? "#2eb872" : "#fa4659",
             }}
           >
-            TEAM {condition ? "RADIANT" : "DIRE"} {"WIN"}
+            TEAM {resultOfMatch?.resultOfMatch ? "RADIANT" : "DIRE"} {"WIN"}
           </h4>
           <div className={styles.match__scoreAndTime}>
             <p className={styles.match__scoreAndTime__radiantScore}>

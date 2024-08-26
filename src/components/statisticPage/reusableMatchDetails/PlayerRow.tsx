@@ -201,11 +201,7 @@ export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
                     styles.playerRow__playerDataCell__items__slots__backpack
                   }
                 >
-                  <BackpackItemIcons
-                    image_name_0={detailsAboutItems?.backpack_0.img}
-                    image_name_1={detailsAboutItems?.backpack_1.img}
-                    image_name_2={detailsAboutItems?.backpack_2.img}
-                  />
+                  <BackpackItemIcons detailsAboutItems={detailsAboutItems} />
                 </div>
               </div>
             </td>

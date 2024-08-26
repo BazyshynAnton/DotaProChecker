@@ -42,5 +42,3 @@ export default function RootLayout({
     </StoreProvider>
   )
 }
-
-//https://wiki.teamfortress.com/wiki/WebAPI/GetMatchDetails

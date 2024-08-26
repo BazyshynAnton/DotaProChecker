@@ -1,8 +1,8 @@
-import { Player } from "@/types/staticPage/staticPageTypes"
 import PlayerRow from "./PlayerRow"
 
-// import styles from "@/styles/statisticPage/MatchDetails.module.scss"
 import styles from "@/styles/statisticPage/PlayersTableDetails.module.scss"
+
+import type { Player } from "@/types/staticPage/staticPageTypes"
 
 export default function PlayersTableDetails({
   playersTeam,
@@ -13,7 +13,12 @@ export default function PlayersTableDetails({
     <div className={styles.result}>
       <section className={styles.result__team}>
         <header
-          style={{ color: playersTeam[0].isRadiant ? "#2eb872" : "#fa4659" }}
+          className={`${styles.result__team__header} ${
+            playersTeam[0].isRadiant
+              ? styles.result__team__header_radiant
+              : styles.result__team__header_dire
+          }
+          `}
         >
           THE {playersTeam[0].isRadiant ? "RADIANT" : "DIRE"}
         </header>

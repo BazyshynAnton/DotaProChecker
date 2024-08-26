@@ -29,10 +29,15 @@ export const getMatchData = async () => {
       matchesHistoryIDsData.push(match.match_id)
     )
 
-    const responseMatchDetailsData = await fetch(
-      matchDetailsUrl + matchesHistoryIDsData[0],
-      { cache: "force-cache" }
-    )
+    // const responseMatchDetailsData = await fetch(
+    //   matchDetailsUrl + matchesHistoryIDsData[0],
+    //   { cache: "force-cache" }
+    // )
+
+    const responseMatchDetailsData = await fetch(matchDetailsUrl + 7913916911, {
+      cache: "force-cache",
+    })
+
     const matchDetailsData: MatchDetails = await responseMatchDetailsData.json()
 
     const responseHeroList = await fetch(heroListUrl, { cache: "force-cache" })

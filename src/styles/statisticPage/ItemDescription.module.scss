@@ -1,13 +1,19 @@
 .itemDescriptionBackground {
-  position: relative;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  z-index: 9999;
 }
 
 .tooltip {
-  position: absolute;
-  top: -1000px;
-  left: 100px;
   width: 400px;
-  height: auto;
+  height: max-content;
   display: flex;
   padding: 3px;
   flex-direction: column;

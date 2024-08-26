@@ -8,11 +8,12 @@ export interface MDUtility {
 
 // TYPES THAT INSIDE [INTERFACE] MDUtility
 export interface MatchResult {
-  resultOfMatch: string
+  resultOfMatch: boolean
   playerSide: string
   matchDuration: string
   radiantScore: string
   direScore: string
+  playedHero: number
 }
 
 export interface PlayersByTeam {

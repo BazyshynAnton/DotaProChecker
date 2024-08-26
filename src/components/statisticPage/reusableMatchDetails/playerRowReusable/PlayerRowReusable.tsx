@@ -34,14 +34,16 @@ export function ItemIcons({
 
   const itemIcons: string[] | null = []
 
-  itemIcons.push(detailsAboutItems?.item_0.img)
-  itemIcons.push(detailsAboutItems?.item_1.img)
-  itemIcons.push(detailsAboutItems?.item_2.img)
-  itemIcons.push(detailsAboutItems?.item_3.img)
-  itemIcons.push(detailsAboutItems?.item_4.img)
-  itemIcons.push(detailsAboutItems?.item_5.img)
+  itemIcons.push(detailsAboutItems.item_0.img)
+  itemIcons.push(detailsAboutItems.item_1.img)
+  itemIcons.push(detailsAboutItems.item_2.img)
+  itemIcons.push(detailsAboutItems.item_3.img)
+  itemIcons.push(detailsAboutItems.item_4.img)
+  itemIcons.push(detailsAboutItems.item_5.img)
 
-  const handleMouseEnter = (idx: number | string) => {
+  const handleMouseEnter = (item: string, idx: number | string) => {
+    if (item == "empty_slot") return
+
     idx.toString()
     setToolTipStatus((prevState) => {
       const newState = { ...prevState, [idx]: true }
@@ -77,7 +79,7 @@ export function ItemIcons({
     <>
       {itemIcons.map((item: string, idx: number) => {
         return (
-          <div key={idx} style={{ position: "relative" }}>
+          <div key={idx}>
             {toolTipStatus[idx] && (
               <ItemDescription details={details(item)} item={item} />
             )}
@@ -88,7 +90,7 @@ export function ItemIcons({
               height={27}
               quality={100}
               unoptimized
-              onMouseEnter={() => handleMouseEnter(idx)}
+              onMouseEnter={() => handleMouseEnter(item, idx)}
               onMouseLeave={() => handleMouseLeave(idx)}
             />
           </div>
@@ -99,29 +101,83 @@ export function ItemIcons({
 }
 
 export function BackpackItemIcons({
-  image_name_0,
-  image_name_1,
-  image_name_2,
+  detailsAboutItems,
 }: {
-  [key: string]: string | undefined
+  detailsAboutItems: ItemDetails | null
 }) {
-  if (!image_name_0 || !image_name_1 || !image_name_2)
+  const [toolTipStatus, setToolTipStatus] = useState<{
+    [idx: string]: boolean
+  }>({
+    0: false,
+    1: false,
+    2: false,
+  })
+
+  if (
+    !detailsAboutItems?.backpack_0.img ||
+    !detailsAboutItems?.backpack_1.img ||
+    !detailsAboutItems?.backpack_2.img
+  )
     return <div style={{ color: "#ec729c" }}>NULL</div>
 
-  const imageArr = [image_name_0, image_name_1, image_name_2]
+  const itemIcons: string[] | null = []
+
+  itemIcons.push(detailsAboutItems.backpack_0.img)
+  itemIcons.push(detailsAboutItems.backpack_1.img)
+  itemIcons.push(detailsAboutItems.backpack_2.img)
+
+  const handleMouseEnter = (item: string, idx: number | string) => {
+    if (item == "empty_slot") return
+
+    idx.toString()
+    setToolTipStatus((prevState) => {
+      const newState = { ...prevState, [idx]: true }
+
+      return newState
+    })
+  }
+
+  const handleMouseLeave = (idx: number | string) => {
+    idx.toString()
+    setToolTipStatus((prevState) => {
+      const newState = { ...prevState, [idx]: false }
+
+      return newState
+    })
+  }
+
+  const details = (item: string): ItemDetails | null => {
+    const res: ItemDetails = {}
+
+    for (const [_, value] of Object.entries(detailsAboutItems)) {
+      if (item === value.img) {
+        res[item] = value
+
+        return res
+      }
+    }
+
+    return null
+  }
 
   return (
     <>
-      {imageArr.map((img: string, idx: number) => (
-        <Image
-          key={idx}
-          src={`/pictures/dotaItemIcon/${img}.webp`}
-          alt=""
-          width={37}
-          height={27}
-          quality={100}
-          unoptimized
-        />
+      {itemIcons.map((item: string, idx: number) => (
+        <div key={idx}>
+          {toolTipStatus[idx] && (
+            <ItemDescription details={details(item)} item={item} />
+          )}
+          <Image
+            src={`/pictures/dotaItemIcon/${item}.webp`}
+            alt=""
+            width={37}
+            height={27}
+            quality={100}
+            unoptimized
+            onMouseEnter={() => handleMouseEnter(item, idx)}
+            onMouseLeave={() => handleMouseLeave(idx)}
+          />
+        </div>
       ))}
     </>
   )
