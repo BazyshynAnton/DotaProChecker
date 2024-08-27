@@ -1,4 +1,8 @@
-import type { MatchDetails } from "@/types/staticPage/staticPageTypes"
+import type {
+  HeroList,
+  MatchDetails,
+  Player,
+} from "@/types/staticPage/staticPageTypes"
 import type {
   MatchResult,
   MDUtility,
@@ -8,10 +12,16 @@ import type {
 // [CLASS] FOR HANDLING DATA ABOUT APPROPRIATE MATCH
 //         CLASS USES DEFAULT CONSTRUCTOR.
 export class MatchDetailsUtility implements MDUtility {
+  public m_PlayedHero = {
+    heroName: "",
+    heroLocalizedName: "",
+  }
+
   // [FUNCTION] GET DETAILS ABOUT MATCH RESULT
   public getMatchResult(
     userID: number,
-    matchDetails: MatchDetails
+    matchDetails: MatchDetails,
+    heroList: HeroList[]
   ): MatchResult {
     const players = matchDetails.players
 
@@ -22,7 +32,7 @@ export class MatchDetailsUtility implements MDUtility {
       matchDuration: (matchDetails.duration / 60).toFixed(2).replace(".", ":"),
       radiantScore: matchDetails.radiant_score.toString(),
       direScore: matchDetails.dire_score.toString(),
-      playedHero: -1,
+      playedHero: "",
     }
 
     // > 1. SET RESULT OF MATCH FOR "USER"
@@ -41,7 +51,13 @@ export class MatchDetailsUtility implements MDUtility {
       }
 
       if (userID === player.account_id) {
-        matchResult.playedHero = player.hero_id
+        for (let i = 0; i < heroList.length; ++i) {
+          const hero = heroList[i]
+
+          if (player.hero_id === hero.id) {
+            matchResult.playedHero = hero.localized_name
+          }
+        }
       }
     })
     // < 1. SET RESULT OF MATCH FOR "USER"

@@ -173,6 +173,7 @@ export class PlayerRowDetailsUtility implements RDUtility {
       cd: undefined,
       lore: undefined,
       components: undefined,
+      tier: undefined,
     }
 
     this.m_ItemDetails = {
@@ -182,9 +183,15 @@ export class PlayerRowDetailsUtility implements RDUtility {
       item_3: emptyValue,
       item_4: emptyValue,
       item_5: emptyValue,
+
       backpack_0: emptyValue,
       backpack_1: emptyValue,
       backpack_2: emptyValue,
+
+      item_neutral: emptyValue,
+
+      aghanims_scepter: emptyValue,
+      aghanims_shard: emptyValue,
     }
 
     for (const [key, value] of Object.entries(playerItems)) {
@@ -203,35 +210,54 @@ export class PlayerRowDetailsUtility implements RDUtility {
         cd: value.cd,
         lore: value.lore,
         components: value.components,
+        tier: value.tier,
       }
 
       switch (value.id) {
         case player.item_0:
           this.m_ItemDetails["item_0"] = itemValue
           break
+
         case player.item_1:
           this.m_ItemDetails["item_1"] = itemValue
           break
+
         case player.item_2:
           this.m_ItemDetails["item_2"] = itemValue
           break
+
         case player.item_3:
           this.m_ItemDetails["item_3"] = itemValue
           break
+
         case player.item_4:
           this.m_ItemDetails["item_4"] = itemValue
           break
         case player.item_5:
           this.m_ItemDetails["item_5"] = itemValue
           break
+
         case player.backpack_0:
           this.m_ItemDetails["backpack_0"] = itemValue
           break
+
         case player.backpack_1:
           this.m_ItemDetails["backpack_1"] = itemValue
           break
+
         case player.backpack_2:
           this.m_ItemDetails["backpack_2"] = itemValue
+          break
+
+        case player.item_neutral:
+          this.m_ItemDetails["item_neutral"] = itemValue
+
+        case player.aghanims_scepter:
+          this.m_ItemDetails["aghanims_scepter"] = itemValue
+          break
+
+        case player.aghanims_shard:
+          this.m_ItemDetails["aghanims_shard"] = itemValue
           break
 
         default:

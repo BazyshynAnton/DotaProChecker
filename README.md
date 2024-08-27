@@ -1,4 +1,3 @@
 TODO: <br/>
 
-1. playedHero <br/>
-2. CUSTOM WEB CURSOR <br/>
+1. CUSTOM WEB CURSOR <br/>

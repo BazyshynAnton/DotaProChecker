@@ -53,6 +53,7 @@ export interface Item {
     components?: string[] | null
     created?: boolean
     charges?: number | boolean
+    tier?: number
   }
 }
 
@@ -84,5 +85,6 @@ export interface ItemDetails {
     cd?: number | boolean
     lore?: string
     components?: string[] | null
+    tier?: number
   }
 }

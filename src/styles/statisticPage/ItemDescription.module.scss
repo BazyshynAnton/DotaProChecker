@@ -26,6 +26,7 @@
   width: 100%;
   display: flex;
   padding: 20px;
+  color: #ffffffde;
 }
 
 .tooltip__NameAndCostWrapper__itemPicture {
@@ -42,7 +43,6 @@
 }
 
 .tooltip__NameAndCostWrapper__nameAndCost__name {
-  color: #fff;
   font-size: 1.3rem;
   letter-spacing: 0.5px;
   text-transform: uppercase;

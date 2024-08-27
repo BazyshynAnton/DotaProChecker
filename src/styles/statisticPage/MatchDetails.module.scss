@@ -17,9 +17,18 @@
 
   margin-bottom: 3rem;
   width: 100%;
+}
 
-  // .match__playedHero {
-  // }
+.match__header__playedHero {
+  width: max-content;
+  height: max-content;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  span {
+    font-size: 1.4rem;
+    color: #fff;
+  }
 }
 
 .match__result {

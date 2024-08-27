@@ -1,7 +1,11 @@
-import { MatchDetails, Player } from "./staticPageTypes"
+import { HeroList, MatchDetails, Player } from "./staticPageTypes"
 
 export interface MDUtility {
-  getMatchResult(userID: number, matchDetails: MatchDetails): MatchResult
+  getMatchResult(
+    userID: number,
+    matchDetails: MatchDetails,
+    heroList: HeroList[]
+  ): MatchResult
 
   filterPlayersByTeam(matchDetails: MatchDetails): PlayersByTeam
 }
@@ -13,7 +17,7 @@ export interface MatchResult {
   matchDuration: string
   radiantScore: string
   direScore: string
-  playedHero: number
+  playedHero: string
 }
 
 export interface PlayersByTeam {

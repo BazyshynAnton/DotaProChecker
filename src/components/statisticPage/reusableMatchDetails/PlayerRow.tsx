@@ -1,6 +1,8 @@
 import {
   ItemIcons,
   BackpackItemIcons,
+  NeutralItem,
+  Aghanim,
 } from "./playerRowReusable/PlayerRowReusable"
 import { PlayerRowDetailsUtility } from "@/utils/statisticPage/PlayerRowDetailsUtility"
 import { Image } from "@/components/shared/nextjsImports"
@@ -188,20 +190,43 @@ export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
               {player.hero_healing}
             </td>
             <td className={styles.playerRow__playerDataCell__items}>
-              <div className={styles.playerRow__playerDataCell__items__slots}>
+              <div className={styles.playerRow__playerDataCell__items__wrapper}>
                 <div
                   className={
-                    styles.playerRow__playerDataCell__items__slots__mainSlot
+                    styles.playerRow__playerDataCell__items__wrapper__slots
                   }
                 >
-                  <ItemIcons detailsAboutItems={detailsAboutItems} />
+                  <div
+                    className={
+                      styles.playerRow__playerDataCell__items__slots__wrapper__mainSlot
+                    }
+                  >
+                    <ItemIcons detailsAboutItems={detailsAboutItems} />
+                  </div>
+                  <div
+                    className={
+                      styles.playerRow__playerDataCell__items__slots__wrapper__backpack
+                    }
+                  >
+                    <BackpackItemIcons detailsAboutItems={detailsAboutItems} />
+                  </div>
                 </div>
                 <div
                   className={
-                    styles.playerRow__playerDataCell__items__slots__backpack
+                    styles.playerRow__playerDataCell__items__wrapper__neutral
                   }
                 >
-                  <BackpackItemIcons detailsAboutItems={detailsAboutItems} />
+                  <NeutralItem detailsAboutItems={detailsAboutItems} />
+                </div>
+                <div
+                  className={
+                    styles.playerRow__playerDataCell__items__wrapper__aghanim
+                  }
+                >
+                  <Aghanim
+                    player={player}
+                    detailsAboutItems={detailsAboutItems}
+                  />
                 </div>
               </div>
             </td>

@@ -1,6 +1,11 @@
+import PlayersTableDetails from "./reusableMatchDetails/PlayersTableDetails"
+
 import { MatchDetailsUtility } from "@/utils/statisticPage/MatchDetailsUtility"
 import { useEffect, useState } from "@/components/shared/reactImports"
+import { Image } from "@/components/shared/nextjsImports"
 import { useSelector } from "@/components/shared/reduxImports"
+
+import styles from "@/styles/statisticPage/MatchDetails.module.scss"
 
 import type { RootState } from "@/store/store"
 import type {
@@ -8,30 +13,37 @@ import type {
   PlayersByTeam,
 } from "@/types/staticPage/matchDetailsTypes"
 
-import styles from "@/styles/statisticPage/MatchDetails.module.scss"
-import PlayersTableDetails from "./reusableMatchDetails/PlayersTableDetails"
-
 export default function MatchDetails() {
-  const { matchDetails } = useSelector(
+  const { matchDetails, heroList } = useSelector(
     (store: RootState) => store.statisticPageSlice
   )
 
   const [resultOfMatch, setResultOfMatch] = useState<MatchResult>()
   const [playersByTeam, setPlayersByTeam] = useState<PlayersByTeam>()
   useEffect(() => {
-    if (matchDetails) {
+    if (matchDetails && heroList) {
       const mdUtility = new MatchDetailsUtility()
-      setResultOfMatch(mdUtility.getMatchResult(86738694, matchDetails))
+      setResultOfMatch(
+        mdUtility.getMatchResult(86738694, matchDetails, heroList)
+      )
       setPlayersByTeam(mdUtility.filterPlayersByTeam(matchDetails))
     }
-  }, [matchDetails])
+  }, [heroList, matchDetails])
 
   if (!playersByTeam) return <div>Loading...</div>
 
   return (
     <div className={styles.match}>
       <div className={styles.match__header}>
-        <div className={styles.match__header__playedHero}></div>
+        <div className={styles.match__header__playedHero}>
+          <span>Played: </span>
+          <Image
+            src={`/pictures/dotaHeroIcon/${resultOfMatch?.playedHero}.png`}
+            alt=""
+            width={50}
+            height={30}
+          />
+        </div>
         <div className={styles.match__result}>
           <h4
             style={{

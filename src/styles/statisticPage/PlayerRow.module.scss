@@ -237,8 +237,13 @@
   text-align: left;
   padding-left: 10px;
 }
+.playerRow__playerDataCell__items__wrapper {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
 
-.playerRow__playerDataCell__items__slots {
+.playerRow__playerDataCell__items__wrapper__slots {
   padding: 10px 0px 10px 0px;
   display: flex;
   flex-direction: column;
@@ -247,9 +252,24 @@
   width: 250px;
 }
 
-.playerRow__playerDataCell__items__slots__mainSlot,
-.playerRow__playerDataCell__items__slots__backpack {
+.playerRow__playerDataCell__items__slots__wrapper__mainSlot,
+.playerRow__playerDataCell__items__slots__wrapper__backpack {
   display: flex;
   gap: 3px;
   cursor: help;
+}
+
+.playerRow__playerDataCell__items__wrapper__neutral {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.playerRow__playerDataCell__items__wrapper__aghanim,
+.playerRow__playerDataCell__items__wrapper__shard {
 }

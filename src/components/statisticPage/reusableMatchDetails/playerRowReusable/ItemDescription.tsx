@@ -42,24 +42,32 @@ export default function ItemDescription({
           >
             <h4>{details[item].dname}</h4>
           </div>
-          <div
-            className={styles.tooltip__NameAndCostWrapper__nameAndCost__cost}
-          >
-            <Image
-              src={`/pictures/dotaIcons/gold_symbol.webp`}
-              alt=""
-              width={20}
-              height={20}
-            />
-            <p>{details[item].cost}</p>
-          </div>
+          {details[item].tier ? (
+            <div
+              className={styles.tooltip__NameAndCostWrapper__nameAndCost__tier}
+            >
+              <span>Tier {details[item].tier} Neutral Item</span>
+            </div>
+          ) : (
+            <div
+              className={styles.tooltip__NameAndCostWrapper__nameAndCost__cost}
+            >
+              <Image
+                src={`/pictures/dotaIcons/gold_symbol.webp`}
+                alt=""
+                width={20}
+                height={20}
+              />
+              <p>{details[item].cost}</p>
+            </div>
+          )}
         </div>
       </div>
       <div className={styles.tooltip__description}>
         {details[item].behavior && (
           <div className={styles.tooltip__description__target}>
             <span>TARGET:</span>
-            <span style={{ color: "#fff" }}> {target}</span>
+            <span style={{ color: "#ffffffde" }}> {target}</span>
           </div>
         )}
         {details[item].dispellable && (
@@ -117,7 +125,7 @@ export default function ItemDescription({
                 className={styles.tooltip__description__attrib__text}
               >
                 <span>{partsOfString[0]}</span>
-                <span style={{ color: "#fff" }}>{att.value}</span>
+                <span style={{ color: "#ffffffde" }}>{att.value}</span>
                 <span>{partsOfString[1]}</span>
               </div>
             )
@@ -172,7 +180,7 @@ export default function ItemDescription({
                           />
                           <span
                             style={{
-                              color: "#fff",
+                              color: "#ffffffde",
                               fontWeight: "400",
                               letterSpacing: "0px",
                               paddingLeft: "3px",
@@ -196,7 +204,7 @@ export default function ItemDescription({
                           />
                           <span
                             style={{
-                              color: "#fff",
+                              color: "#ffffffde",
                               fontWeight: "400",
                               letterSpacing: "0px",
                               paddingLeft: "3px",
