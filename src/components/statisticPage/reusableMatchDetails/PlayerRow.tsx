@@ -1,8 +1,8 @@
 import {
-  ItemIcons,
-  BackpackItemIcons,
   NeutralItem,
   Aghanim,
+  BackpackItems,
+  MainSlotItems,
 } from "./playerRowReusable/PlayerRowReusable"
 import { PlayerRowDetailsUtility } from "@/utils/statisticPage/PlayerRowDetailsUtility"
 import { Image } from "@/components/shared/nextjsImports"
@@ -43,6 +43,8 @@ export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
 
         const detailsAboutItems: ItemDetails | null =
           rdUtility.findAppropriateItems(player)
+
+        console.log(detailsAboutItems)
 
         return (
           <tr key={player.hero_id} className={styles.playerRow}>
@@ -201,14 +203,14 @@ export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
                       styles.playerRow__playerDataCell__items__slots__wrapper__mainSlot
                     }
                   >
-                    <ItemIcons detailsAboutItems={detailsAboutItems} />
+                    <MainSlotItems detailsAboutItems={detailsAboutItems} />
                   </div>
                   <div
                     className={
                       styles.playerRow__playerDataCell__items__slots__wrapper__backpack
                     }
                   >
-                    <BackpackItemIcons detailsAboutItems={detailsAboutItems} />
+                    <BackpackItems detailsAboutItems={detailsAboutItems} />
                   </div>
                 </div>
                 <div

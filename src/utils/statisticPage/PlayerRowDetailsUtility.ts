@@ -252,14 +252,6 @@ export class PlayerRowDetailsUtility implements RDUtility {
         case player.item_neutral:
           this.m_ItemDetails["item_neutral"] = itemValue
 
-        case player.aghanims_scepter:
-          this.m_ItemDetails["aghanims_scepter"] = itemValue
-          break
-
-        case player.aghanims_shard:
-          this.m_ItemDetails["aghanims_shard"] = itemValue
-          break
-
         default:
           break
       }

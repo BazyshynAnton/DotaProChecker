@@ -5,84 +5,74 @@ import { useState } from "@/components/shared/reactImports"
 
 import type { ItemDetails } from "@/types/staticPage/playerRowDetailsTypes"
 import { Player } from "@/types/staticPage/staticPageTypes"
+import { PlayerRowReusableUtility } from "@/utils/statisticPage/PlayerRowReusableUtility"
 
-export function ItemIcons({
+// Initial State for useState in MainSlotItems component.
+const initialStateMainSlot = {
+  0: false,
+  1: false,
+  2: false,
+  3: false,
+  4: false,
+  5: false,
+}
+
+// Initial State for useState in BackpackItems component.
+const initialStateBackpack = {
+  0: false,
+  1: false,
+  2: false,
+}
+
+const initialStateAghanim = {
+  0: false,
+  1: false,
+}
+
+export function MainSlotItems({
   detailsAboutItems,
 }: {
   detailsAboutItems: ItemDetails | null
 }) {
+  //
+  //
+  // State for manage tooltip about each item.
   const [toolTipStatus, setToolTipStatus] = useState<{
     [idx: string]: boolean
-  }>({
-    0: false,
-    1: false,
-    2: false,
-    3: false,
-    4: false,
-    5: false,
-  })
+  }>(initialStateMainSlot)
 
-  if (
-    !detailsAboutItems?.item_0.img ||
-    !detailsAboutItems?.item_1.img ||
-    !detailsAboutItems?.item_2.img ||
-    !detailsAboutItems?.item_3.img ||
-    !detailsAboutItems?.item_4.img ||
-    !detailsAboutItems?.item_5.img
-  ) {
-    return <div style={{ color: "#ec729c" }}>NULL</div>
-  }
+  // Check data
+  if (!detailsAboutItems) return <CannotFind />
 
-  const itemIcons: string[] | null = []
+  // Initialize utility for manage data in component
+  const prrUtility = new PlayerRowReusableUtility()
 
-  itemIcons.push(detailsAboutItems.item_0.img)
-  itemIcons.push(detailsAboutItems.item_1.img)
-  itemIcons.push(detailsAboutItems.item_2.img)
-  itemIcons.push(detailsAboutItems.item_3.img)
-  itemIcons.push(detailsAboutItems.item_4.img)
-  itemIcons.push(detailsAboutItems.item_5.img)
-
-  const handleMouseEnter = (item: string, idx: number | string) => {
-    if (item == "empty_slot") return
-
-    idx.toString()
-    setToolTipStatus((prevState) => {
-      const newState = { ...prevState, [idx]: true }
-
-      return newState
-    })
-  }
-
-  const handleMouseLeave = (idx: number | string) => {
-    idx.toString()
-    setToolTipStatus((prevState) => {
-      const newState = { ...prevState, [idx]: false }
-
-      return newState
-    })
-  }
-
-  const details = (item: string): ItemDetails | null => {
-    const res: ItemDetails = {}
-
-    for (const [_, value] of Object.entries(detailsAboutItems)) {
-      if (item === value.img) {
-        res[item] = value
-
-        return res
-      }
-    }
-
-    return null
-  }
+  // Create an Array<string> of items in main slot
+  prrUtility.setItems(detailsAboutItems, "main_slot")
+  const items = prrUtility.m_Items
 
   return (
     <>
-      {itemIcons.map((item: string, idx: number) => {
+      {items.map((item: string, idx: number) => {
+        //
+        // Get details about Current Item
+        const details = prrUtility.findDetailsAboutCurrentItem(
+          item,
+          detailsAboutItems
+        )
+
+        // Function to update the toolTipStatus when mouse enter
+        const handleMouseEnter = () =>
+          prrUtility.handleMouseEnter(item, "main_slot", idx, setToolTipStatus)
+
+        // Function to update the toolTipStatus when mouse leave
+        const handleMouseLeave = () =>
+          prrUtility.handleMouseLeave("main_slot", idx, setToolTipStatus)
+
         return (
           <div key={idx}>
             {toolTipStatus[idx] && (
-              <ItemDescription details={details(item)} item={item} />
+              <ItemDescription details={details} item={item} />
             )}
             <Image
               src={`/pictures/dotaItemIcon/${item}.webp`}
@@ -91,8 +81,8 @@ export function ItemIcons({
               height={27}
               quality={100}
               unoptimized
-              onMouseEnter={() => handleMouseEnter(item, idx)}
-              onMouseLeave={() => handleMouseLeave(idx)}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
             />
           </div>
         )
@@ -101,85 +91,64 @@ export function ItemIcons({
   )
 }
 
-export function BackpackItemIcons({
+export function BackpackItems({
   detailsAboutItems,
 }: {
   detailsAboutItems: ItemDetails | null
 }) {
+  //
+  //
+  // State for manage tooltip about each item.
   const [toolTipStatus, setToolTipStatus] = useState<{
     [idx: string]: boolean
-  }>({
-    0: false,
-    1: false,
-    2: false,
-  })
+  }>(initialStateBackpack)
 
-  if (
-    !detailsAboutItems?.backpack_0.img ||
-    !detailsAboutItems?.backpack_1.img ||
-    !detailsAboutItems?.backpack_2.img
-  )
-    return <div style={{ color: "#ec729c" }}>NULL</div>
+  // Check data
+  if (!detailsAboutItems) return <CannotFind />
 
-  const itemIcons: string[] | null = []
+  // Initialize utility for manage data in component
+  const prrUtility = new PlayerRowReusableUtility()
 
-  itemIcons.push(detailsAboutItems.backpack_0.img)
-  itemIcons.push(detailsAboutItems.backpack_1.img)
-  itemIcons.push(detailsAboutItems.backpack_2.img)
-
-  const handleMouseEnter = (item: string, idx: number | string) => {
-    if (item == "empty_slot") return
-
-    idx.toString()
-    setToolTipStatus((prevState) => {
-      const newState = { ...prevState, [idx]: true }
-
-      return newState
-    })
-  }
-
-  const handleMouseLeave = (idx: number | string) => {
-    idx.toString()
-    setToolTipStatus((prevState) => {
-      const newState = { ...prevState, [idx]: false }
-
-      return newState
-    })
-  }
-
-  const details = (item: string): ItemDetails | null => {
-    const res: ItemDetails = {}
-
-    for (const [_, value] of Object.entries(detailsAboutItems)) {
-      if (item === value.img) {
-        res[item] = value
-
-        return res
-      }
-    }
-
-    return null
-  }
+  // Create an Array<string> of items in main slot
+  prrUtility.setItems(detailsAboutItems, "backpack")
+  const items = prrUtility.m_Items
 
   return (
     <>
-      {itemIcons.map((item: string, idx: number) => (
-        <div key={idx}>
-          {toolTipStatus[idx] && (
-            <ItemDescription details={details(item)} item={item} />
-          )}
-          <Image
-            src={`/pictures/dotaItemIcon/${item}.webp`}
-            alt=""
-            width={37}
-            height={27}
-            quality={100}
-            unoptimized
-            onMouseEnter={() => handleMouseEnter(item, idx)}
-            onMouseLeave={() => handleMouseLeave(idx)}
-          />
-        </div>
-      ))}
+      {items.map((item: string, idx: number) => {
+        //
+        // Get details about Current Item
+        const details = prrUtility.findDetailsAboutCurrentItem(
+          item,
+          detailsAboutItems
+        )
+
+        // Function to update the toolTipStatus when mouse enter
+        const handleMouseEnter = () =>
+          prrUtility.handleMouseEnter("backpack", item, idx, setToolTipStatus)
+
+        // Function to update the toolTipStatus when mouse leave
+        const handleMouseLeave = () =>
+          prrUtility.handleMouseLeave("backpack", idx, setToolTipStatus)
+
+        return (
+          <div key={idx}>
+            {toolTipStatus[idx] && (
+              <ItemDescription details={details} item={item} />
+            )}
+            <Image
+              src={`/pictures/dotaItemIcon/${item}.webp`}
+              alt=""
+              width={37}
+              height={27}
+              quality={100}
+              unoptimized
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            />
+          </div>
+        )
+      })}
     </>
   )
 }
@@ -189,46 +158,47 @@ export function NeutralItem({
 }: {
   detailsAboutItems: ItemDetails | null
 }) {
+  //
+  //
+  // State for manage tooltip about neutral item.
   const [toolTipStatus, setToolTipStatus] = useState(false)
-  if (!detailsAboutItems?.item_neutral.img) return <div>NULL</div>
+  if (!detailsAboutItems?.item_neutral.img) return <CannotFind />
 
-  const item: string = detailsAboutItems.item_neutral.img
+  // Initialize neutral item
+  const neutralItem: string = detailsAboutItems.item_neutral.img
 
-  const details = (item: string): ItemDetails | null => {
-    const res: ItemDetails = {}
+  // Initialize utility for manage data in component
+  const prrUtility = new PlayerRowReusableUtility()
 
-    for (const [_, value] of Object.entries(detailsAboutItems)) {
-      if (item === value.img) {
-        res[item] = value
+  // Get details about Current Item
+  const details = prrUtility.findDetailsAboutCurrentItem(
+    neutralItem,
+    detailsAboutItems
+  )
 
-        return res
-      }
-    }
-
-    return null
+  // Function to update the toolTipStatus when mouse enter
+  const handleMouseEnter = () => {
+    prrUtility.handleMouseEnter("neutral_slot", neutralItem)
   }
 
-  const handleMouseEnter = (item: string) => {
-    if (item == "empty_slot") return
-
-    setToolTipStatus(true)
-  }
-
+  // Function to update the toolTipStatus when mouse leave
   const handleMouseLeave = () => {
-    setToolTipStatus(false)
+    prrUtility.handleMouseLeave("neutral_slot")
   }
 
   return (
     <div>
-      {toolTipStatus && <ItemDescription details={details(item)} item={item} />}
+      {toolTipStatus && (
+        <ItemDescription details={details} item={neutralItem} />
+      )}
       <Image
-        src={`/pictures/dotaItemIcon/${item}.webp`}
+        src={`/pictures/dotaItemIcon/${neutralItem}.webp`}
         alt=""
         width={39}
         height={32}
         quality={100}
         unoptimized
-        onMouseEnter={() => handleMouseEnter(item)}
+        onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       />
     </div>
@@ -242,12 +212,12 @@ export function Aghanim({
   player: Player
   detailsAboutItems: ItemDetails | null
 }) {
-  const [toolTipStatus, setToolTipStatus] = useState({
-    0: false,
-    1: false,
-  })
+  //
+  //
+  // State for manage tooltip about aghanim.
+  const [toolTipStatus, setToolTipStatus] = useState(initialStateAghanim)
 
-  if (!detailsAboutItems) return <div>NULL</div>
+  if (!detailsAboutItems) return <CannotFind />
 
   const handleMouseEnter = (idx: number) => {
     setToolTipStatus((prevState) => {
@@ -264,13 +234,74 @@ export function Aghanim({
   }
 
   const details = (item: string): ItemDetails | null => {
-    const res: ItemDetails = {}
+    if (item === "ultimate_scepter") {
+      return {
+        ultimate_scepter: {
+          abilities: [
+            {
+              type: "passive",
+              title: "Ability Upgrade",
+              description:
+                "Upgrades the ultimate, and some abilities, of all heroes.",
+            },
+          ],
+          hint: [],
+          id: 108,
+          img: "ultimate_scepter",
+          dname: "Aghanim's Scepter",
+          cost: 4200,
+          attrib: [
+            {
+              key: "bonus_all_stats",
+              display: "+ {value} All Attributes",
+              value: "10",
+            },
+            {
+              key: "bonus_health",
+              display: "+ {value} Health",
+              value: "175",
+            },
+            {
+              key: "bonus_mana",
+              display: "+ {value} Mana",
+              value: "175",
+            },
+          ],
+          mc: false,
+          cd: false,
+          lore: "The scepter of a wizard with demigod-like powers.",
+          components: [
+            "point_booster",
+            "staff_of_wizardry",
+            "ogre_axe",
+            "blade_of_alacrity",
+          ],
+        },
+      }
+    }
 
-    for (const [_, value] of Object.entries(detailsAboutItems)) {
-      if (item === value.img) {
-        res[item] = value
-
-        return res
+    if (item === "aghanims_shard") {
+      return {
+        aghanims_shard: {
+          abilities: [
+            {
+              type: "passive",
+              title: "Ability Upgrade",
+              description:
+                "Upgrades an existing ability or adds a new ability to your hero.",
+            },
+          ],
+          hint: [],
+          id: 609,
+          img: "aghanims_shard",
+          dname: "Aghanim's Shard",
+          cost: 1400,
+          attrib: [],
+          mc: false,
+          cd: false,
+          lore: "With origins known only to a single wizard, fragments of this impossible crystal are nearly as coveted as the renowned scepter itself.",
+          components: null,
+        },
       }
     }
 
@@ -279,7 +310,7 @@ export function Aghanim({
 
   return (
     <>
-      {toolTipStatus && (
+      {(toolTipStatus[0] || toolTipStatus[1]) && (
         <ItemDescription
           details={details(
             toolTipStatus[0] ? "ultimate_scepter" : "aghanims_shard"
@@ -319,4 +350,8 @@ export function Aghanim({
       </div>
     </>
   )
+}
+
+function CannotFind() {
+  return <div style={{ color: "#ec729c" }}>NULL</div>
 }
