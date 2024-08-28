@@ -2,7 +2,6 @@ import { ItemDetails } from "@/types/staticPage/playerRowDetailsTypes"
 
 export class PlayerRowReusableUtility {
   public m_Items: string[] = []
-  public m_NeutralItem: string = ""
 
   public setItems(detailsAboutItems: ItemDetails, flag: string) {
     if (flag === "main_slot") {
