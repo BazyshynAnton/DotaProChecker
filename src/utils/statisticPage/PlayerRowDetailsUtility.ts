@@ -1,15 +1,15 @@
 import hero_abilities from "../../../public/data/heroAbilities/hero_abilities.json"
 import items from "../../../public/data/items/items.json"
 
-import { PlayerColors } from "@/types/staticPage/matchDetailsTypes"
-import {
+import type { PlayerColors } from "@/types/staticPage/matchDetailsTypes"
+import type {
   DetailsAboutHero,
   DetailsAboutPlayer,
   Item,
   ItemDetails,
   RDUtility,
 } from "@/types/staticPage/playerRowDetailsTypes"
-import {
+import type {
   HeroAbilities,
   HeroAbilitiesValue,
   HeroList,

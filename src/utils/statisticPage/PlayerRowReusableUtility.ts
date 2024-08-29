@@ -1,5 +1,5 @@
-import { PRRUtility } from "@/types/staticPage/playerRowReusableUtility"
-import { ItemDetails } from "@/types/staticPage/playerRowDetailsTypes"
+import type { PRRUtility } from "@/types/staticPage/playerRowReusableUtility"
+import type { ItemDetails } from "@/types/staticPage/playerRowDetailsTypes"
 
 //
 //
