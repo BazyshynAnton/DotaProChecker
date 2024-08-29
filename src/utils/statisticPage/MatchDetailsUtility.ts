@@ -1,14 +1,13 @@
-import type {
-  HeroList,
-  MatchDetails,
-  Player,
-} from "@/types/staticPage/staticPageTypes"
+import type { HeroList, MatchDetails } from "@/types/staticPage/staticPageTypes"
 import type {
   MatchResult,
   MDUtility,
   PlayersByTeam,
 } from "@/types/staticPage/matchDetailsTypes"
 
+//
+//
+//
 // [CLASS] FOR HANDLING DATA ABOUT APPROPRIATE MATCH
 //         CLASS USES DEFAULT CONSTRUCTOR.
 export class MatchDetailsUtility implements MDUtility {

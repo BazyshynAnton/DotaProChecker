@@ -225,10 +225,7 @@ export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
                     styles.playerRow__playerDataCell__items__wrapper__aghanim
                   }
                 >
-                  <Aghanim
-                    player={player}
-                    detailsAboutItems={detailsAboutItems}
-                  />
+                  <Aghanim player={player} />
                 </div>
               </div>
             </td>

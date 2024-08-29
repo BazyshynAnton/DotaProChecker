@@ -17,6 +17,9 @@ import {
   PlayerProfile,
 } from "@/types/staticPage/staticPageTypes"
 
+//
+//
+//
 // [CLASS] FOR HANDLING DATA ABOUT APPROPRIATE PLAYER
 //         CLASS USES DEFAULT CONSTRUCTOR.
 export class PlayerRowDetailsUtility implements RDUtility {

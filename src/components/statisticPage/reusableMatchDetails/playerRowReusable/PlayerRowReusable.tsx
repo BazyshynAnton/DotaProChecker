@@ -57,6 +57,7 @@ export function MainSlotItems({
         //
         // Get details about Current Item
         const details = prrUtility.findDetailsAboutCurrentItem(
+          "item",
           item,
           detailsAboutItems
         )
@@ -119,13 +120,14 @@ export function BackpackItems({
         //
         // Get details about Current Item
         const details = prrUtility.findDetailsAboutCurrentItem(
+          "item",
           item,
           detailsAboutItems
         )
 
         // Function to update the toolTipStatus when mouse enter
         const handleMouseEnter = () =>
-          prrUtility.handleMouseEnter("backpack", item, idx, setToolTipStatus)
+          prrUtility.handleMouseEnter(item, "backpack", idx, setToolTipStatus)
 
         // Function to update the toolTipStatus when mouse leave
         const handleMouseLeave = () =>
@@ -170,20 +172,26 @@ export function NeutralItem({
   // Initialize utility for manage data in component
   const prrUtility = new PlayerRowReusableUtility()
 
-  // Get details about Current Item
+  // Get details about Current Neutral Item
   const details = prrUtility.findDetailsAboutCurrentItem(
+    "item",
     neutralItem,
     detailsAboutItems
   )
 
   // Function to update the toolTipStatus when mouse enter
   const handleMouseEnter = () => {
-    prrUtility.handleMouseEnter("neutral_slot", neutralItem)
+    prrUtility.handleMouseEnter(
+      neutralItem,
+      "neutral_slot",
+      -1,
+      setToolTipStatus
+    )
   }
 
   // Function to update the toolTipStatus when mouse leave
   const handleMouseLeave = () => {
-    prrUtility.handleMouseLeave("neutral_slot")
+    prrUtility.handleMouseLeave("neutral_slot", -1, setToolTipStatus)
   }
 
   return (
@@ -205,117 +213,45 @@ export function NeutralItem({
   )
 }
 
-export function Aghanim({
-  player,
-  detailsAboutItems,
-}: {
-  player: Player
-  detailsAboutItems: ItemDetails | null
-}) {
+export function Aghanim({ player }: { player: Player }) {
   //
   //
   // State for manage tooltip about aghanim.
   const [toolTipStatus, setToolTipStatus] = useState(initialStateAghanim)
 
-  if (!detailsAboutItems) return <CannotFind />
+  // Initialize utility for manage data in component
+  const prrUtility = new PlayerRowReusableUtility()
 
-  const handleMouseEnter = (idx: number) => {
-    setToolTipStatus((prevState) => {
-      const newState = { ...prevState, [idx]: true }
-      return newState
-    })
+  // Function to update the toolTipStatus when mouse enter
+  const handleMouseEnterAghanim = (idx: number) => {
+    prrUtility.handleMouseEnter(
+      "ultimate_scepter",
+      "aghanim_slot",
+      idx,
+      setToolTipStatus
+    )
   }
 
-  const handleMouseLeave = (idx: number) => {
-    setToolTipStatus((prevState) => {
-      const newState = { ...prevState, [idx]: false }
-      return newState
-    })
+  // Function to update the toolTipStatus when mouse leave
+  const handleMouseLeaveAghanim = (idx: number) => {
+    prrUtility.handleMouseLeave("aghanim_slot", idx, setToolTipStatus)
   }
 
-  const details = (item: string): ItemDetails | null => {
-    if (item === "ultimate_scepter") {
-      return {
-        ultimate_scepter: {
-          abilities: [
-            {
-              type: "passive",
-              title: "Ability Upgrade",
-              description:
-                "Upgrades the ultimate, and some abilities, of all heroes.",
-            },
-          ],
-          hint: [],
-          id: 108,
-          img: "ultimate_scepter",
-          dname: "Aghanim's Scepter",
-          cost: 4200,
-          attrib: [
-            {
-              key: "bonus_all_stats",
-              display: "+ {value} All Attributes",
-              value: "10",
-            },
-            {
-              key: "bonus_health",
-              display: "+ {value} Health",
-              value: "175",
-            },
-            {
-              key: "bonus_mana",
-              display: "+ {value} Mana",
-              value: "175",
-            },
-          ],
-          mc: false,
-          cd: false,
-          lore: "The scepter of a wizard with demigod-like powers.",
-          components: [
-            "point_booster",
-            "staff_of_wizardry",
-            "ogre_axe",
-            "blade_of_alacrity",
-          ],
-        },
-      }
-    }
+  // Get details about Current Aghanim Item
+  const details = (item: string) =>
+    prrUtility.findDetailsAboutCurrentItem("aghanim", item)
 
-    if (item === "aghanims_shard") {
-      return {
-        aghanims_shard: {
-          abilities: [
-            {
-              type: "passive",
-              title: "Ability Upgrade",
-              description:
-                "Upgrades an existing ability or adds a new ability to your hero.",
-            },
-          ],
-          hint: [],
-          id: 609,
-          img: "aghanims_shard",
-          dname: "Aghanim's Shard",
-          cost: 1400,
-          attrib: [],
-          mc: false,
-          cd: false,
-          lore: "With origins known only to a single wizard, fragments of this impossible crystal are nearly as coveted as the renowned scepter itself.",
-          components: null,
-        },
-      }
-    }
-
-    return null
-  }
+  // Condition
+  const toolTipCondition = toolTipStatus[0]
+    ? "ultimate_scepter"
+    : "aghanims_shard"
 
   return (
     <>
       {(toolTipStatus[0] || toolTipStatus[1]) && (
         <ItemDescription
-          details={details(
-            toolTipStatus[0] ? "ultimate_scepter" : "aghanims_shard"
-          )}
-          item={toolTipStatus[0] ? "ultimate_scepter" : "aghanims_shard"}
+          details={details(toolTipCondition)}
+          item={toolTipCondition}
         />
       )}
       <div
@@ -334,8 +270,8 @@ export function Aghanim({
           alt=""
           width={37}
           height={38}
-          onMouseEnter={() => handleMouseEnter(0)}
-          onMouseLeave={() => handleMouseLeave(0)}
+          onMouseEnter={() => handleMouseEnterAghanim(0)}
+          onMouseLeave={() => handleMouseLeaveAghanim(0)}
         />
         <Image
           src={`/pictures/dotaItemIcon/${
@@ -344,8 +280,8 @@ export function Aghanim({
           alt=""
           width={41}
           height={24}
-          onMouseEnter={() => handleMouseEnter(1)}
-          onMouseLeave={() => handleMouseLeave(1)}
+          onMouseEnter={() => handleMouseEnterAghanim(1)}
+          onMouseLeave={() => handleMouseLeaveAghanim(1)}
         />
       </div>
     </>
