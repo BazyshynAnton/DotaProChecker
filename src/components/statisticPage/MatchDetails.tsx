@@ -1,4 +1,4 @@
-import PlayersTableDetails from "./reusableMatchDetails/PlayersTableDetails"
+import PlayersTableDetails from "./reusableMatchDetails/playersTableDetails/PlayersTableDetails"
 
 import { MatchDetailsUtility } from "@/utils/statisticPage/MatchDetailsUtility"
 import { useEffect, useState } from "@/components/shared/reactImports"

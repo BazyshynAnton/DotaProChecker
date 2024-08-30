@@ -1,3 +1,5 @@
+import { ItemDetails } from "./playerRowDetailsTypes"
+
 export interface Match {
   result: {
     status: number
@@ -204,4 +206,10 @@ export interface DotaMatchesStatisticData {
   matchesHistoryIDsData: number[]
   heroListData: HeroList[]
   playersProfilesData: PlayerProfile[]
+}
+
+// Types for ItemDescription component
+export interface ItemDescriptionInterface {
+  details: ItemDetails | null
+  item: string
 }

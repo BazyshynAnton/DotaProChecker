@@ -108,11 +108,16 @@
   background: #181e30;
 }
 
+.tooltip__description__abilities_use {
+  background: #17231f;
+}
+
 .tooltip__description__abilities_passive {
   background: #1c2630;
 }
 
 .tooltip__description__abilities_active__header,
+.tooltip__description__abilities_use__header,
 .tooltip__description__abilities_passive__header {
   display: flex;
   align-items: center;
@@ -138,12 +143,18 @@
   color: #9f9fcf;
 }
 
+.tooltip__description__abilities_use__header {
+  background: linear-gradient(to right, #273f27, #17231f);
+  color: #95c07a;
+}
+
 .tooltip__description__abilities_passive__header {
   background-image: linear-gradient(to right, #263540, #1c2630);
   color: #7e8c9d;
 }
 
 .tooltip__description__abilities_active__description,
+.tooltip__description__abilities_use__description,
 .tooltip__description__abilities_passive__description {
   padding: 6px 10px;
 
@@ -154,6 +165,10 @@
 
 .tooltip__description__abilities_active__description {
   color: #71779c;
+}
+
+.tooltip__description__abilities_use__description {
+  color: #7b8a72;
 }
 
 .tooltip__description__abilities_passive__description {

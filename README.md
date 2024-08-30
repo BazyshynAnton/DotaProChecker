@@ -1,4 +1,4 @@
 TODO: <br/>
 
-1. roshans_banner, use, green.
+1. Bundle components
 2. CUSTOM WEB CURSOR <br/>
