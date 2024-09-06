@@ -1,8 +1,8 @@
-'use client'
+"use client"
 
-import { Link, usePathname } from '@/components/shared/nextjsImports'
+import { Link, usePathname } from "@/shared/nextjsImports"
 
-import styles from '@/styles/header/Header.module.scss'
+import styles from "@/styles/header/Header.module.scss"
 
 export default function Header() {
   const pathname = usePathname()
@@ -12,7 +12,7 @@ export default function Header() {
       <Link
         href="/"
         className={
-          pathname === '/' ? styles.activeHeaderLink : styles.headerLink
+          pathname === "/" ? styles.activeHeaderLink : styles.headerLink
         }
       >
         Statistic
@@ -20,7 +20,7 @@ export default function Header() {
       <Link
         href="/meta"
         className={
-          pathname === '/meta' ? styles.activeHeaderLink : styles.headerLink
+          pathname === "/meta" ? styles.activeHeaderLink : styles.headerLink
         }
       >
         Meta
@@ -28,7 +28,7 @@ export default function Header() {
       <Link
         href="/players"
         className={
-          pathname === '/players' ? styles.activeHeaderLink : styles.headerLink
+          pathname === "/players" ? styles.activeHeaderLink : styles.headerLink
         }
       >
         Players

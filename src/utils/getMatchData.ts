@@ -1,8 +1,16 @@
+import {
+  HERO_LIST_URL,
+  MATCH_DETAILS_URL,
+  MATCH_HISTORY_URL,
+  PLAYER_PROFILE_URL,
+} from "./urls"
+
 import type {
-  HeroList,
   Match,
+  HeroList,
   MatchDetails,
   PlayerProfile,
+  MatchData,
 } from "@/types/staticPage/staticPageTypes"
 
 //
@@ -10,27 +18,10 @@ import type {
 //
 // [FUNCTION] GET DATA FROM STEAM.API / OPENDOTA.API
 export const getMatchData = async () => {
-  //
-  // CONSTANT FOR LINK FOR THE MATCH HISTORY DATA FROM STEAM.API
-  const matchHistoryUrl =
-    "https://api.steampowered.com/IDOTA2Match_570/GetMatchHistory/V001/?key=3F8B2C146EB3A63816DE36C34A2F95E0&account_id=86738694"
-
-  // CONSTANT FOR LINK FOR THE MATCH DETAILS DATA FROM OPENDOTA.API
-  const matchDetailsUrl = "https://api.opendota.com/api/matches/"
-
-  // CONSTANT FOR LINK FOR THE HERO LIST DATA FROM OPENDOTA.API
-  const heroListUrl = "https://api.opendota.com/api/heroes"
-
-  // CONSTANT FOR LINK FOR THE PLAYERS PROFILE DATA FROM OPENDOTA.API
-  const playerProfileUrl = "https://api.opendota.com/api/players/"
-
-  // [TRY-CATCH BLOCK] DATA FETCHING
   try {
     //
     // [FETCH] GET MATCH HISTORY DATA FROM STEAM.API
-    const responseMatchHistory = await fetch(matchHistoryUrl, {
-      cache: "force-cache",
-    })
+    const responseMatchHistory = await fetchMatchHistory()
 
     // [ERROR CHECK]
     if (!responseMatchHistory.ok) {
@@ -50,12 +41,12 @@ export const getMatchData = async () => {
 
     // [FETCH] GET THE LAST PLAYED MATCH DATA FROM OPENDOTA.API
     const responseMatchDetailsData = await fetch(
-      matchDetailsUrl + matchesHistoryIDsData[0],
+      MATCH_DETAILS_URL + matchesHistoryIDsData[0],
       { cache: "force-cache" }
     )
 
     // [TEST FETCH] GET THE LAST PLAYED MATCH DATA
-    // const responseMatchDetailsData = await fetch(matchDetailsUrl + 7913916911, {
+    // const responseMatchDetailsData = await fetch(MATCH_DETAILS_URL + 7913916911, {
     //   cache: "force-cache",
     // })
 
@@ -63,7 +54,9 @@ export const getMatchData = async () => {
     const matchDetailsData: MatchDetails = await responseMatchDetailsData.json()
 
     // [FETCH] GET THE HERO LIST DATA FROM OPENDOTA.API
-    const responseHeroList = await fetch(heroListUrl, { cache: "force-cache" })
+    const responseHeroList = await fetch(HERO_LIST_URL, {
+      cache: "force-cache",
+    })
 
     // [PARSE] PARSE THE HERO LIST DATA DATA FROM RESPONSE
     const heroListData: HeroList[] = await responseHeroList.json()
@@ -82,7 +75,7 @@ export const getMatchData = async () => {
        iteration through THE ID OF THE PLAYERS PROFILE
     */
     const playerProfilesPromises = playersAccountIDs.map((accountID) =>
-      fetch(`${playerProfileUrl}${accountID}`, { cache: "force-cache" })
+      fetch(`${PLAYER_PROFILE_URL}${accountID}`, { cache: "force-cache" })
     )
 
     // [FETCH] GET THE PLAYERS PROFILE
@@ -97,30 +90,43 @@ export const getMatchData = async () => {
 
     // [RESULT] ALL DATA ABOUT MATCH
     const matchesStatisticData = {
-      // MATCH HISTORY DATA
-      matchesHistoryData,
-
-      // MATCH DATA
-      matchDetailsData,
-
-      // ID OF THE MATCHES
-      matchesHistoryIDsData,
-
-      // HERO LIST DATA
       heroListData,
-
-      // PLAYERS PROFILE
+      matchDetailsData,
+      matchesHistoryData,
       playersProfilesData,
+      matchesHistoryIDsData,
     }
 
     // [RESULT] RETURN ALL DATA ABOUT MATCH
     return matchesStatisticData
   } catch (error) {
-    //
-    //[ERROR] DISPLAY AN ERROR
-    console.error(error)
-    //
-    //[ERROR] NEW ERROR
-    throw new Error("[Fetch Error] Failed to fetch match data.")
+    let message
+    if (error instanceof Error) message = error.message
+    else message = String(error)
+
+    return message
+  }
+}
+
+class MatchDataUtility {
+  public fetchMatchData = async () => {
+    try {
+      // [PARSE] PARSE MATCH HISTORY DATA FROM RESPONSE
+      const matchesHistoryData: Match = await this.fetchHelper(
+        MATCH_HISTORY_URL
+      )
+    } catch (error) {}
+  }
+
+  private fetchHelper = async function (URL: string): Promise<MatchData> {
+    const response = await fetch(URL, {
+      cache: "force-cache",
+    })
+
+    if (!response.ok) {
+      return new Error(`Failed to fetch using URL -> ${URL}`)
+    }
+
+    return await response.json()
   }
 }

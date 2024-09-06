@@ -5,7 +5,7 @@ import PlayerStatistic from "./playerRowComponents/PlayerStatistic"
 import PlayerItems from "./playerRowComponents/PlayerItems"
 
 // Redux
-import { useSelector } from "@/components/shared/reduxImports"
+import { useSelector } from "@/shared/reduxImports"
 
 // Classes
 import { PlayerRowDetailsUtility } from "@/utils/statisticPage/PlayerRowDetailsUtility"

@@ -1,9 +1,9 @@
 import PlayersTableDetails from "./reusableMatchDetails/playersTableDetails/PlayersTableDetails"
 
 import { MatchDetailsUtility } from "@/utils/statisticPage/MatchDetailsUtility"
-import { useEffect, useState } from "@/components/shared/reactImports"
-import { Image } from "@/components/shared/nextjsImports"
-import { useSelector } from "@/components/shared/reduxImports"
+import { useEffect, useState } from "@/shared/reactImports"
+import { Image } from "@/shared/nextjsImports"
+import { useSelector } from "@/shared/reduxImports"
 
 import styles from "@/styles/statisticPage/MatchDetails.module.scss"
 

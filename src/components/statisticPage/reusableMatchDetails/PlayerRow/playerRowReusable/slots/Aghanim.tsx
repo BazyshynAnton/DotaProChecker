@@ -2,10 +2,10 @@
 import ItemDescription from "../itemDescription/ItemDescription"
 
 // Next.js
-import { Image } from "@/components/shared/nextjsImports"
+import { Image } from "@/shared/nextjsImports"
 
 // React
-import { useState } from "@/components/shared/reactImports"
+import { useState } from "@/shared/reactImports"
 
 // Classes
 import { PlayerRowReusableUtility } from "@/utils/statisticPage/PlayerRowReusableUtility"

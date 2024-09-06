@@ -4,10 +4,6 @@ import statisticPageSlice from "./statisticPageSlice"
 export const makeStore = () => {
   return configureStore({
     reducer: { statisticPageSlice },
-    middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware({
-        serializableCheck: false,
-      }),
   })
 }
 

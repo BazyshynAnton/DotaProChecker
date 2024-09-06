@@ -1,8 +1,9 @@
 "use client"
 import MatchDetails from "./MatchDetails"
 
-import { useEffect } from "@/components/shared/reactImports"
-import { useDispatch, useSelector } from "@/components/shared/reduxImports"
+import { useEffect } from "@/shared/reactImports"
+import { useSelector } from "@/shared/reduxImports"
+import { useAppDispatch } from "@/shared/reduxImports"
 import {
   setHeroList,
   setMatchDetails,
@@ -10,19 +11,20 @@ import {
   setMatchHistoryID,
   setPlayersProfiles,
 } from "@/store/statisticPageSlice"
-import { AppDispatch, RootState } from "@/store/store"
+import { RootState } from "@/store/store"
 
 import type { DotaMatchesStatisticData } from "@/types/staticPage/staticPageTypes"
 
 export default function StatisticPage({
   matchesStatisticData,
 }: {
-  matchesStatisticData: DotaMatchesStatisticData
+  matchesStatisticData: DotaMatchesStatisticData | string
 }) {
   const { matchDetails } = useSelector(
     (store: RootState) => store.statisticPageSlice
   )
-  const dispatch = useDispatch<AppDispatch>()
+  const dispatch = useAppDispatch()
+  if (typeof matchesStatisticData === "string") return
 
   useEffect(() => {
     dispatch(setMatchDetails(matchesStatisticData.matchDetailsData))

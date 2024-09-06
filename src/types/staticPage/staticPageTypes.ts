@@ -1,5 +1,7 @@
 import { ItemDetails } from "./playerRowDetailsTypes"
 
+export type MatchData = Match | HeroList | MatchDetails | PlayerProfile | Error
+
 export interface Match {
   result: {
     status: number

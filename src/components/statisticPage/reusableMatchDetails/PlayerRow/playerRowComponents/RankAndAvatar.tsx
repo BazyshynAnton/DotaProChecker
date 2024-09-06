@@ -1,5 +1,5 @@
 // Next.js
-import { Image } from "@/components/shared/nextjsImports"
+import { Image } from "@/shared/nextjsImports"
 
 // Classes
 import { PlayerRowDetailsUtility } from "@/utils/statisticPage/PlayerRowDetailsUtility"
