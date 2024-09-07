@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux"
 import { useAppDispatch } from "@/hooks/redux/useAppDispatch"
+import { useAppSelector } from "@/hooks/redux/useAppSelector"
 
-export { useAppDispatch, useSelector }
+export { useAppDispatch, useAppSelector }

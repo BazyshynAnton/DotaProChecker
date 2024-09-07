@@ -1,15 +1,137 @@
-import type { PRRUtility } from "@/types/staticPage/playerRowReusableUtility"
-import type { ItemDetails } from "@/types/staticPage/playerRowDetailsTypes"
+import { ItemDetails, UPlayerRow } from "@/types/staticPage/playerRow"
 
-//
-//
-//
-// [CLASS] HELPER FOR PlayerRowReusable.tsx COMPONENT
-//         CLASS USES DEFAULT CONSTRUCTOR.
-export class PlayerRowReusableUtility implements PRRUtility {
-  /* [PRIVATE MEMBERS] */
+// [CLASS] Helper for PlayerRowReusable.tsx component
+export class PlayerRowUtility implements UPlayerRow {
+  // Array<string> for items
+  public m_Items: string[] = []
+
+  // Creates an Array<string> of items
+  public setItems(detailsAboutItems: ItemDetails, flag: string) {
+    if (flag === "main_slot") {
+      for (let i = 0; i < 6; ++i) {
+        const icon = detailsAboutItems[`item_${i}`]?.img
+        if (typeof icon === "string") {
+          this.m_Items.push(icon)
+        }
+      }
+    } else if (flag === "backpack") {
+      for (let i = 0; i < 3; ++i) {
+        const icon = detailsAboutItems[`backpack_${i}`]?.img
+        if (typeof icon === "string") {
+          this.m_Items.push(icon)
+        }
+      }
+    }
+  }
+
+  //  Update the state when mouse enter
+  public handleMouseEnter(
+    item: string,
+    flag: string,
+    idx?: number | string,
+    setter?: any
+  ) {
+    switch (flag) {
+      case "main_slot":
+      case "backpack": {
+        if (item === "empty_slot" || idx === undefined) return
+
+        idx.toString()
+        setter((prevState: any) => {
+          const newState = { ...prevState, [idx]: true }
+
+          return newState
+        })
+
+        break
+      }
+      case "neutral_slot": {
+        if (item == "empty_slot") return
+
+        setter(true)
+
+        break
+      }
+      case "aghanim_slot": {
+        if (idx === undefined) return
+        setter((prevState: any) => {
+          const newState = { ...prevState, [idx]: true }
+          return newState
+        })
+
+        break
+      }
+      default:
+        break
+    }
+  }
+
+  // Update the state when mouse leave
+  public handleMouseLeave(flag: string, idx?: number | string, setter?: any) {
+    switch (flag) {
+      case "main_slot":
+      case "backpack": {
+        if (idx === undefined) return
+
+        idx.toString()
+        setter((prevState: any) => {
+          const newState = { ...prevState, [idx]: false }
+
+          return newState
+        })
+
+        break
+      }
+      case "neutral_slot": {
+        setter(false)
+        break
+      }
+      case "aghanim_slot": {
+        if (idx === undefined) return
+
+        setter((prevState: any) => {
+          const newState = { ...prevState, [idx]: false }
+          return newState
+        })
+
+        break
+      }
+      default:
+        break
+    }
+  }
+
+  public findDetailsAboutCurrentItem(
+    flag: string,
+    item: string,
+    detailsAboutItems?: ItemDetails
+  ): ItemDetails | null {
+    if (flag === "item" && detailsAboutItems) {
+      const res: ItemDetails = {}
+
+      for (const [_, value] of Object.entries(detailsAboutItems)) {
+        if (item === value.img) {
+          res[item] = value
+
+          return res
+        }
+      }
+    } else if (flag === "aghanim") {
+      if (item === "ultimate_scepter") {
+        return this.m_UltimateScepter
+      }
+
+      if (item === "aghanims_shard") {
+        return this.m_AghanimsShard
+      }
+    }
+
+    return null
+  }
+
+  // Private section below:
   //
-  // CONSTANT FOR "ultimate_scepter" ITEM
+  // Constant for "ultimate_scepter" item
   private m_UltimateScepter: ItemDetails = {
     ultimate_scepter: {
       abilities: [
@@ -54,7 +176,7 @@ export class PlayerRowReusableUtility implements PRRUtility {
     },
   }
 
-  // CONSTANT FOR "aghanims_shard" ITEM
+  // Constant for "aghanims_shard" item
   private m_AghanimsShard: ItemDetails = {
     aghanims_shard: {
       abilities: [
@@ -76,135 +198,5 @@ export class PlayerRowReusableUtility implements PRRUtility {
       lore: "With origins known only to a single wizard, fragments of this impossible crystal are nearly as coveted as the renowned scepter itself.",
       components: null,
     },
-  }
-
-  /* [PUBLIC MEMBERS] */
-  //
-  // Array<string> FOR ITEMS
-  public m_Items: string[] = []
-
-  // [FUNCTION] CREATES AN Array<string> OF ITEMS
-  public setItems(detailsAboutItems: ItemDetails, flag: string) {
-    if (flag === "main_slot") {
-      for (let i = 0; i < 6; ++i) {
-        const icon = detailsAboutItems[`item_${i}`]?.img
-        if (typeof icon === "string") {
-          this.m_Items.push(icon)
-        }
-      }
-    } else if (flag === "backpack") {
-      for (let i = 0; i < 3; ++i) {
-        const icon = detailsAboutItems[`backpack_${i}`]?.img
-        if (typeof icon === "string") {
-          this.m_Items.push(icon)
-        }
-      }
-    }
-  }
-
-  // [FUNCTION] UPDATE THE STATE WHEN MOUSE ENTER
-  public handleMouseEnter(
-    item: string,
-    flag: string,
-    idx?: number | string,
-    setter?: any
-  ) {
-    switch (flag) {
-      case "main_slot":
-      case "backpack": {
-        if (item === "empty_slot" || idx === undefined) return
-
-        idx.toString()
-        setter((prevState: any) => {
-          const newState = { ...prevState, [idx]: true }
-
-          return newState
-        })
-
-        break
-      }
-      case "neutral_slot": {
-        if (item == "empty_slot") return
-
-        setter(true)
-
-        break
-      }
-      case "aghanim_slot": {
-        if (idx === undefined) return
-        setter((prevState: any) => {
-          const newState = { ...prevState, [idx]: true }
-          return newState
-        })
-
-        break
-      }
-      default:
-        break
-    }
-  }
-
-  // [FUNCTION] UPDATE THE STATE WHEN MOUSE LEAVE
-  public handleMouseLeave(flag: string, idx?: number | string, setter?: any) {
-    switch (flag) {
-      case "main_slot":
-      case "backpack": {
-        if (idx === undefined) return
-
-        idx.toString()
-        setter((prevState: any) => {
-          const newState = { ...prevState, [idx]: false }
-
-          return newState
-        })
-
-        break
-      }
-      case "neutral_slot": {
-        setter(false)
-        break
-      }
-      case "aghanim_slot": {
-        if (idx === undefined) return
-
-        setter((prevState: any) => {
-          const newState = { ...prevState, [idx]: false }
-          return newState
-        })
-
-        break
-      }
-      default:
-        break
-    }
-  }
-
-  // [FUNCTION] FIND DETAILS ABOUT ITEM
-  public findDetailsAboutCurrentItem(
-    flag: string,
-    item: string,
-    detailsAboutItems?: ItemDetails
-  ): ItemDetails | null {
-    if (flag === "item" && detailsAboutItems) {
-      const res: ItemDetails = {}
-
-      for (const [_, value] of Object.entries(detailsAboutItems)) {
-        if (item === value.img) {
-          res[item] = value
-
-          return res
-        }
-      }
-    } else if (flag === "aghanim") {
-      if (item === "ultimate_scepter") {
-        return this.m_UltimateScepter
-      }
-
-      if (item === "aghanims_shard") {
-        return this.m_AghanimsShard
-      }
-    }
-
-    return null
   }
 }

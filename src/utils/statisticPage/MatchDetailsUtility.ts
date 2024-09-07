@@ -1,30 +1,26 @@
-import type { HeroList, MatchDetails } from "@/types/staticPage/staticPageTypes"
+import { HeroList, MatchDetails } from "@/types/redux/statisticPageSlice"
 import type {
   MatchResult,
-  MDUtility,
   PlayersByTeam,
-} from "@/types/staticPage/matchDetailsTypes"
+  UMatchDetails,
+} from "@/types/staticPage/matchDetails"
 
-//
-//
-//
-// [CLASS] FOR HANDLING DATA ABOUT APPROPRIATE MATCH
-//         CLASS USES DEFAULT CONSTRUCTOR.
-export class MatchDetailsUtility implements MDUtility {
+// [CLASS] For handling appropriate match data
+export class MatchDetailsUtility implements UMatchDetails {
   public m_PlayedHero = {
     heroName: "",
     heroLocalizedName: "",
   }
 
-  // [FUNCTION] GET DETAILS ABOUT MATCH RESULT
-  public getMatchResult(
+  // Find match result details
+  public findMatchResult(
     userID: number,
     matchDetails: MatchDetails,
     heroList: HeroList[]
   ): MatchResult {
     const players = matchDetails.players
 
-    // RETURNING DATA
+    // Returning data
     const matchResult: MatchResult = {
       resultOfMatch: false,
       playerSide: "NONE",
@@ -34,21 +30,22 @@ export class MatchDetailsUtility implements MDUtility {
       playedHero: "",
     }
 
-    // > 1. SET RESULT OF MATCH FOR "USER"
-    // > 2. SET PLAYER'S SIDE
     players.forEach((player) => {
+      // Result of match for player
       if (matchDetails.radiant_win) {
         matchResult.resultOfMatch = true
       } else {
         matchResult.resultOfMatch = false
       }
 
+      // Player side
       if (userID === player.account_id && player.isRadiant) {
         matchResult.playerSide = "RADIANT"
       } else if (userID === player.account_id && !player.isRadiant) {
         matchResult.playerSide = "DIRE"
       }
 
+      // Player nickname
       if (userID === player.account_id) {
         for (let i = 0; i < heroList.length; ++i) {
           const hero = heroList[i]
@@ -59,13 +56,10 @@ export class MatchDetailsUtility implements MDUtility {
         }
       }
     })
-    // < 1. SET RESULT OF MATCH FOR "USER"
-    // < 2. SET PLAYER'S SIDE
 
     return matchResult
   }
 
-  // [FUNCTION] GET(SPLIT) PLAYERS BY TEAM
   public filterPlayersByTeam(matchDetails: MatchDetails): PlayersByTeam {
     const playersRadiant = matchDetails.players.filter(
       (player) => player.isRadiant

@@ -7,22 +7,22 @@ import { Image } from "@/shared/nextjsImports"
 
 // React
 import { useState } from "@/shared/reactImports"
+import { SlotInterface } from "@/types/staticPage/playerRow"
 
 // Classes
 import { PlayerRowReusableUtility } from "@/utils/statisticPage/PlayerRowReusableUtility"
 
 // Type
-import type { SlotInterface } from "@/types/staticPage/staticPageTypes"
 
-export default function NeutralItem({ detailsAboutItems }: SlotInterface) {
+export default function NeutralItem({ itemDetails }: SlotInterface) {
   //
   //
   // State for manage tooltip about neutral item.
   const [toolTipStatus, setToolTipStatus] = useState(false)
-  if (!detailsAboutItems?.item_neutral.img) return <CannotFind />
+  if (!itemDetails?.item_neutral.img) return <CannotFind />
 
   // Initialize neutral item
-  const neutralItem: string = detailsAboutItems.item_neutral.img
+  const neutralItem: string = itemDetails.item_neutral.img
 
   // Initialize utility for manage data in component
   const prrUtility = new PlayerRowReusableUtility()
@@ -31,7 +31,7 @@ export default function NeutralItem({ detailsAboutItems }: SlotInterface) {
   const details = prrUtility.findDetailsAboutCurrentItem(
     "item",
     neutralItem,
-    detailsAboutItems
+    itemDetails
   )
 
   // Function to update the toolTipStatus when mouse enter

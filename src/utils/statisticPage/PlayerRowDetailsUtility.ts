@@ -1,119 +1,64 @@
-import hero_abilities from "../../../public/data/heroAbilities/hero_abilities.json"
 import items from "../../../public/data/items/items.json"
+import hero_abilities from "../../../public/data/heroAbilities/hero_abilities.json"
 
-import type { PlayerColors } from "@/types/staticPage/matchDetailsTypes"
+import type { Player } from "@/types/staticPage/tablePlayerDetails"
+import type { PlayerColors } from "@/types/staticPage/matchDetails"
+import type { HeroList, PlayerProfile } from "@/types/redux/statisticPageSlice"
+import type {
+  HeroAbilities,
+  HeroAbilitiesValue,
+} from "@/types/staticPage/staticPage"
 import type {
   DetailsAboutHero,
   DetailsAboutPlayer,
   Item,
   ItemDetails,
-  RDUtility,
-} from "@/types/staticPage/playerRowDetailsTypes"
-import type {
-  HeroAbilities,
-  HeroAbilitiesValue,
-  HeroList,
-  Player,
-  PlayerProfile,
-} from "@/types/staticPage/staticPageTypes"
+  UPlayerRowDetails,
+} from "@/types/staticPage/playerRow"
 
-//
-//
-//
-// [CLASS] FOR HANDLING DATA ABOUT APPROPRIATE PLAYER
-//         CLASS USES DEFAULT CONSTRUCTOR.
-export class PlayerRowDetailsUtility implements RDUtility {
-  /* [PRIVATE MEMBERS] */
-  //
-  // DETAILS ABOUT HERO FOR [FUNCTION](findAppropriateHero)
-  private m_HeroDetails: DetailsAboutHero = {
-    heroLocalizedName: "",
-    heroVariant: {
-      icon: "",
-      color: "",
-      title: "",
-      description: "",
-    },
-    playerColor: "",
-  }
-
-  // DETAILS ABOUT HERO FOR [FUNCTION](findAppropriatePlayer)
-  private m_PlayerDetails: DetailsAboutPlayer = {
-    profileInfo: {
-      avatar: "",
-      profileurl: "",
-    },
-    rank_tier_info: null,
-    leaderboard_rank_info: null,
-  }
-
-  // DETAILS ABOUT PLAYER'S ITEMS FOR [FUNCTION](findAppropriateItems)
-  private m_ItemDetails: ItemDetails | any = {}
-
-  // CACHE FOR CURRENT HERO
-  private m_CurrentHero: string = ""
-
-  // COLORS FOR PLAYER'S SLOT
-  private m_PlayerColors: PlayerColors = {
-    radiant: {
-      team_number: 0,
-      colors: {
-        "0": "#3375ff",
-        "1": "#66ffbf",
-        "2": "#bf00bf",
-        "3": "#f3f00b",
-        "4": "#ff6b00",
-      },
-    },
-
-    dire: {
-      team_number: 1,
-      colors: {
-        "0": "#fe86c2",
-        "1": "#a1b447",
-        "2": "#65d9f7",
-        "3": "#008321",
-        "4": "#a46900",
-      },
-    },
-  }
-
-  /* [PUBLIC MEMBERS] */
-  //
-  // [FUNCTION] FIND HERO OF A PLAYER
+// [CLASS] For handling data about appropriate player
+export class PlayerRowDetailsUtility implements UPlayerRowDetails {
+  // Find player hero
   public findAppropriateHero(
     player: Player,
     heroList: HeroList[]
   ): DetailsAboutHero {
-    // GET COLOR OF PLAYER SLOT
+    // Find player slot color
     this.findColor(player)
 
-    // GET LOCALIZED NAME AND NAME OF HERO
+    // Find localized name and hero name
     this.findHeroName(player, heroList)
 
-    // GET INFORMATION ABOUT HERO FACET
+    // Find hero facet
     this.findHeroFacet(player)
 
     return this.m_HeroDetails
   }
 
-  // [FUNCTION] FIND DETAILS ABOUT PLAYER
+  // Find player details
   public findAppropriatePlayer(
     player: Player,
     playersProfiles: PlayerProfile[]
   ): DetailsAboutPlayer {
     //
-    // GET DATA ABOUT PLAYER IF PLAYER IS NOT ANONYMOUS
+    // If player is not Anonymous -> find player data
     if ("account_id" in player) {
       playersProfiles.forEach((playerProfile) => {
         if ("profile" in playerProfile) {
           if (player.account_id === playerProfile.profile.account_id) {
+            // avatar
             this.m_PlayerDetails.profileInfo.avatar =
               playerProfile.profile.avatar
+
+            // profile url
             this.m_PlayerDetails.profileInfo.profileurl =
               playerProfile.profile.profileurl
+
+            // rank
             this.m_PlayerDetails.leaderboard_rank_info =
               playerProfile.leaderboard_rank
+
+            // rank tier
             this.m_PlayerDetails.rank_tier_info = playerProfile.rank_tier
           }
         }
@@ -123,8 +68,7 @@ export class PlayerRowDetailsUtility implements RDUtility {
     return this.m_PlayerDetails
   }
 
-  // [FUNCTION] FIND PICTURE OF PLAYER RANK
-  public findPictureOfPlayerRank(): string {
+  public findPlayerRankIcon(): string {
     const leaderboardRank = this.m_PlayerDetails.leaderboard_rank_info
 
     const rankTier = this.m_PlayerDetails.rank_tier_info
@@ -148,7 +92,6 @@ export class PlayerRowDetailsUtility implements RDUtility {
     return "/pictures/dotaPlayerRanksIcon/00.png"
   }
 
-  // [FUNCTION] FIND PLAYER AVATAR
   public findPlayerAvatar(): string {
     const avatar = this.m_PlayerDetails.profileInfo.avatar
 
@@ -157,7 +100,7 @@ export class PlayerRowDetailsUtility implements RDUtility {
     return "/pictures/dotaPlayerIcon/anonymous.jpg"
   }
 
-  // [FUNCTION] FIND DETAILS ABOUT ITEM
+  // Find item details
   public findAppropriateItems(player: Player): ItemDetails | null {
     const playerItems: Item = items
 
@@ -263,7 +206,6 @@ export class PlayerRowDetailsUtility implements RDUtility {
     return this.m_ItemDetails
   }
 
-  //[FUNCTION] FIND ITEM COST BY IT'S NAME
   public findItemCostByName(item: string): string {
     const playerItems: Item = items
     let cost = 0
@@ -277,8 +219,60 @@ export class PlayerRowDetailsUtility implements RDUtility {
     return cost.toString()
   }
 
-  /* [PRIVATE MEMBERS] */
   //
+  // Hero details for [FUNCTION](findAppropriateHero)
+  private m_HeroDetails: DetailsAboutHero = {
+    heroLocalizedName: "",
+    heroVariant: {
+      icon: "",
+      color: "",
+      title: "",
+      description: "",
+    },
+    playerColor: "",
+  }
+
+  // Player details for [FUNCTION](findAppropriatePlayer)
+  private m_PlayerDetails: DetailsAboutPlayer = {
+    profileInfo: {
+      avatar: "",
+      profileurl: "",
+    },
+    rank_tier_info: null,
+    leaderboard_rank_info: null,
+  }
+
+  // Player's item details for [FUNCTION](findAppropriateItems)
+  private m_ItemDetails: ItemDetails | any = {}
+
+  // Cache for current hero
+  private m_CurrentHero: string = ""
+
+  // Player's slot colors
+  private m_PlayerColors: PlayerColors = {
+    radiant: {
+      team_number: 0,
+      colors: {
+        "0": "#3375ff",
+        "1": "#66ffbf",
+        "2": "#bf00bf",
+        "3": "#f3f00b",
+        "4": "#ff6b00",
+      },
+    },
+
+    dire: {
+      team_number: 1,
+      colors: {
+        "0": "#fe86c2",
+        "1": "#a1b447",
+        "2": "#65d9f7",
+        "3": "#008321",
+        "4": "#a46900",
+      },
+    },
+  }
+
   private findColor(player: Player): void {
     if (player.team_number === this.m_PlayerColors.radiant.team_number) {
       for (const [colorKey, colorValue] of Object.entries(

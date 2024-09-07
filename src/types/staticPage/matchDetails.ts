@@ -1,7 +1,8 @@
-import { HeroList, MatchDetails, Player } from "./staticPageTypes"
+import type { HeroList, MatchDetails } from "../redux/statisticPageSlice"
+import type { Player } from "./tablePlayerDetails"
 
-export interface MDUtility {
-  getMatchResult(
+export interface UMatchDetails {
+  findMatchResult(
     userID: number,
     matchDetails: MatchDetails,
     heroList: HeroList[]
@@ -10,7 +11,6 @@ export interface MDUtility {
   filterPlayersByTeam(matchDetails: MatchDetails): PlayersByTeam
 }
 
-// TYPES THAT INSIDE [INTERFACE] MDUtility
 export interface MatchResult {
   resultOfMatch: boolean
   playerSide: string

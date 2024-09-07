@@ -1,21 +1,20 @@
-import PlayersTableDetails from "./reusableMatchDetails/playersTableDetails/PlayersTableDetails"
+import PlayersTableDetails from "./reusableMatchDetails/tablePlayerDetails/TablePlayerDetails"
 
 import { MatchDetailsUtility } from "@/utils/statisticPage/MatchDetailsUtility"
 import { useEffect, useState } from "@/shared/reactImports"
 import { Image } from "@/shared/nextjsImports"
-import { useSelector } from "@/shared/reduxImports"
+import { useAppSelector } from "@/shared/reduxImports"
 
 import styles from "@/styles/statisticPage/MatchDetails.module.scss"
 
-import type { RootState } from "@/store/store"
 import type {
   MatchResult,
   PlayersByTeam,
-} from "@/types/staticPage/matchDetailsTypes"
+} from "@/types/staticPage/matchDetails"
 
 export default function MatchDetails() {
-  const { matchDetails, heroList } = useSelector(
-    (store: RootState) => store.statisticPageSlice
+  const { matchDetails, heroList } = useAppSelector(
+    (store) => store.statisticPageSlice
   )
 
   const [resultOfMatch, setResultOfMatch] = useState<MatchResult>()

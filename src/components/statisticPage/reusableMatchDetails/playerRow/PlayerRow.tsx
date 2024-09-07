@@ -5,7 +5,7 @@ import PlayerStatistic from "./playerRowComponents/PlayerStatistic"
 import PlayerItems from "./playerRowComponents/PlayerItems"
 
 // Redux
-import { useSelector } from "@/shared/reduxImports"
+import { useAppSelector } from "@/shared/reduxImports"
 
 // Classes
 import { PlayerRowDetailsUtility } from "@/utils/statisticPage/PlayerRowDetailsUtility"
@@ -14,17 +14,17 @@ import { PlayerRowDetailsUtility } from "@/utils/statisticPage/PlayerRowDetailsU
 import styles from "@/styles/statisticPage/PlayerRow.module.scss"
 
 // Types
-import type { Player } from "@/types/staticPage/staticPageTypes"
-import type { RootState } from "@/store/store"
+
+import type { Player } from "@/types/staticPage/tablePlayerDetails"
 import type {
   DetailsAboutHero,
   DetailsAboutPlayer,
   ItemDetails,
-} from "@/types/staticPage/playerRowDetailsTypes"
+} from "@/types/staticPage/playerRow"
 
 export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
-  const { heroList, playersProfiles } = useSelector(
-    (store: RootState) => store.statisticPageSlice
+  const { heroList, playersProfiles } = useAppSelector(
+    (store) => store.statisticPageSlice
   )
   //
   // Check existence

@@ -1,6 +1,7 @@
-import { HeroList, Player, PlayerProfile } from "./staticPageTypes"
+import type { HeroList, PlayerProfile } from "../redux/statisticPageSlice"
+import type { Player } from "./tablePlayerDetails"
 
-export interface RDUtility {
+export interface UPlayerRowDetails {
   findAppropriateHero(player: Player, heroList: HeroList[]): DetailsAboutHero
 
   findAppropriatePlayer(
@@ -9,7 +10,25 @@ export interface RDUtility {
   ): DetailsAboutPlayer
 }
 
-// TYPES THAT INSIDE [INTERFACE] RDUtility
+export interface UPlayerRow {
+  setItems(detailsAboutItems: ItemDetails, flag: string): void
+
+  handleMouseEnter(
+    item: string,
+    flag: string,
+    idx?: number | string,
+    setter?: any
+  ): void
+
+  handleMouseLeave(flag: string, idx?: number | string, setter?: any): void
+
+  findDetailsAboutCurrentItem(
+    flag: string,
+    item: string,
+    detailsAboutItems?: ItemDetails
+  ): ItemDetails | null
+}
+
 export interface DetailsAboutHero {
   heroLocalizedName: string
   heroVariant: {
@@ -87,4 +106,14 @@ export interface ItemDetails {
     components?: string[] | null
     tier?: number
   }
+}
+
+export interface SlotInterface {
+  itemDetails: ItemDetails | null
+}
+
+// Types for ItemDescription component
+export interface ItemDescriptionInterface {
+  details: ItemDetails | null
+  item: string
 }

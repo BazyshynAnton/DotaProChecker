@@ -7,36 +7,39 @@ import { Image } from "@/shared/nextjsImports"
 
 // React
 import { useState } from "@/shared/reactImports"
+import { SlotInterface } from "@/types/staticPage/playerRow"
 
 // Classes
 import { PlayerRowReusableUtility } from "@/utils/statisticPage/PlayerRowReusableUtility"
 
 // Type
-import type { SlotInterface } from "@/types/staticPage/staticPageTypes"
 
-// Initial State for useState in BackpackItems component.
-const initialStateBackpack = {
+// Initial State for useState in MainSlotItems component.
+const initialStateMainSlot = {
   0: false,
   1: false,
   2: false,
+  3: false,
+  4: false,
+  5: false,
 }
 
-export default function BackpackItems({ detailsAboutItems }: SlotInterface) {
+export default function MainSlotItems({ itemDetails }: SlotInterface) {
   //
   //
   // State for manage tooltip about each item.
   const [toolTipStatus, setToolTipStatus] = useState<{
     [idx: string]: boolean
-  }>(initialStateBackpack)
+  }>(initialStateMainSlot)
 
   // Check data
-  if (!detailsAboutItems) return <CannotFind />
+  if (!itemDetails) return <CannotFind />
 
   // Initialize utility for manage data in component
   const prrUtility = new PlayerRowReusableUtility()
 
   // Create an Array<string> of items in main slot
-  prrUtility.setItems(detailsAboutItems, "backpack")
+  prrUtility.setItems(itemDetails, "main_slot")
   const items = prrUtility.m_Items
 
   return (
@@ -47,16 +50,16 @@ export default function BackpackItems({ detailsAboutItems }: SlotInterface) {
         const details = prrUtility.findDetailsAboutCurrentItem(
           "item",
           item,
-          detailsAboutItems
+          itemDetails
         )
 
         // Function to update the toolTipStatus when mouse enter
         const handleMouseEnter = () =>
-          prrUtility.handleMouseEnter(item, "backpack", idx, setToolTipStatus)
+          prrUtility.handleMouseEnter(item, "main_slot", idx, setToolTipStatus)
 
         // Function to update the toolTipStatus when mouse leave
         const handleMouseLeave = () =>
-          prrUtility.handleMouseLeave("backpack", idx, setToolTipStatus)
+          prrUtility.handleMouseLeave("main_slot", idx, setToolTipStatus)
 
         return (
           <div key={idx}>

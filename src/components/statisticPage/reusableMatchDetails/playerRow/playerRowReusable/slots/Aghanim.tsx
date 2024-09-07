@@ -6,12 +6,12 @@ import { Image } from "@/shared/nextjsImports"
 
 // React
 import { useState } from "@/shared/reactImports"
+import { Player } from "@/types/staticPage/tablePlayerDetails"
 
 // Classes
 import { PlayerRowReusableUtility } from "@/utils/statisticPage/PlayerRowReusableUtility"
 
 // Types
-import type { Player } from "@/types/staticPage/staticPageTypes"
 
 // Initial State for useState in Aghanim component.
 const initialStateAghanim = {

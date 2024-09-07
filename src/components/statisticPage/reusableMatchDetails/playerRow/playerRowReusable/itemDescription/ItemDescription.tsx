@@ -11,9 +11,9 @@ import ReactDOM from "react-dom"
 
 // Styles
 import styles from "@/styles/statisticPage/ItemDescription.module.scss"
+import { ItemDescriptionInterface } from "@/types/staticPage/playerRow"
 
 // Types
-import type { ItemDescriptionInterface } from "@/types/staticPage/staticPageTypes"
 
 export default function ItemDescription({
   details,

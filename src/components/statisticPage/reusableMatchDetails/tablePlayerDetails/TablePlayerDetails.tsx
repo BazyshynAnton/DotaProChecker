@@ -1,14 +1,14 @@
 // Components
-import PlayerRow from "../PlayerRow/PlayerRow"
-import HeaderCells from "./playersTableDetailsComponents/HeaderCells"
+import { Player } from "@/types/staticPage/tablePlayerDetails"
+import PlayerRow from "../playerRow/PlayerRow"
+import HeaderCells from "./components/HeaderCells"
 
 // Styles
 import styles from "@/styles/statisticPage/PlayersTableDetails.module.scss"
 
 // Types
-import type { Player } from "@/types/staticPage/staticPageTypes"
 
-export default function PlayersTableDetails({
+export default function TablePlayerDetails({
   playersTeam,
 }: {
   playersTeam: Player[]
