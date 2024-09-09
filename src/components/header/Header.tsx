@@ -10,7 +10,7 @@ export default function Header() {
   return (
     <div className={styles.headerContainer}>
       <Link
-        href="/"
+        href="/statistic"
         className={
           pathname === "/" ? styles.activeHeaderLink : styles.headerLink
         }

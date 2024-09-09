@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit"
-import statisticPageSlice from "./statisticPageSlice"
+import statisticSlice from "./statisticSlice"
 
 export const makeStore = () => {
   return configureStore({
-    reducer: { statisticPageSlice },
+    reducer: { statisticSlice },
   })
 }
 

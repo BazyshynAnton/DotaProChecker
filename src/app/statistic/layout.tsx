@@ -4,7 +4,6 @@ import StoreProvider from "@/store/StoreProvider"
 import type { Metadata } from "next"
 import { Roboto } from "next/font/google"
 
-import "./globals.scss"
 import styles from "@/styles/statistic/ItemDescription.module.scss"
 
 const roboto = Roboto({
@@ -14,12 +13,7 @@ const roboto = Roboto({
 })
 
 export const metadata: Metadata = {
-  title: "DotaChecker",
-  icons: {
-    icon: ["/favicon/favicon.ico?v=4"],
-    apple: ["/favicon/apple-touch-icon.png?v=4"],
-    shortcut: ["/favicon/apple-touch-icon.png"],
-  },
+  title: "Statistic | DotaChecker",
 }
 
 export default function RootLayout({
@@ -29,16 +23,14 @@ export default function RootLayout({
 }>) {
   return (
     <StoreProvider>
-      <html lang="en">
-        <body className={roboto.className}>
-          <Header />
-          {children}
-          <div
-            id="tooltip_portal"
-            className={styles.itemDescriptionBackground}
-          ></div>
-        </body>
-      </html>
+      <section className={roboto.className}>
+        <Header />
+        {children}
+        <div
+          id="tooltip_portal"
+          className={styles.itemDescriptionBackground}
+        ></div>
+      </section>
     </StoreProvider>
   )
 }
