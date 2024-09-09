@@ -1,21 +1,14 @@
-// Components
 import ItemDescription from "../itemDescription/ItemDescription"
 import CannotFind from "./CannotFind"
 
-// Next.js
 import { Image } from "@/shared/nextjsImports"
-
-// React
 import { useState } from "@/shared/reactImports"
-import { SlotInterface } from "@/types/staticPage/playerRow"
 
-// Classes
-import { PlayerRowReusableUtility } from "@/utils/statisticPage/PlayerRowReusableUtility"
+import { PlayerRowUtility } from "@/utils/statisticPage/PlayerRowUtility"
 
-// Type
+import type { SlotInterface } from "@/types/staticPage/playerRow"
 
 export default function NeutralItem({ itemDetails }: SlotInterface) {
-  //
   //
   // State for manage tooltip about neutral item.
   const [toolTipStatus, setToolTipStatus] = useState(false)
@@ -25,7 +18,7 @@ export default function NeutralItem({ itemDetails }: SlotInterface) {
   const neutralItem: string = itemDetails.item_neutral.img
 
   // Initialize utility for manage data in component
-  const prrUtility = new PlayerRowReusableUtility()
+  const prrUtility = new PlayerRowUtility()
 
   // Get details about Current Neutral Item
   const details = prrUtility.findDetailsAboutCurrentItem(

@@ -14,10 +14,6 @@ import type {
   PlayerProfile,
 } from "@/types/redux/statisticPageSlice"
 
-// ================
-// TODO: Review it.
-// ================
-
 export class MatchDataUtility implements UMatchData {
   public fetchMatchData = async () => {
     try {
@@ -66,13 +62,7 @@ export class MatchDataUtility implements UMatchData {
 
       // Parse data about player profiles
       const playerProfilesData: PlayerProfile[] = await Promise.all(
-        playerProfileResponses.map((response) => {
-          if (!response.ok) {
-            throw new Error(`Failed to fetch Profile Data -> ${response}`)
-          }
-
-          return response.json()
-        })
+        playerProfileResponses.map((response) => response.json())
       )
 
       return {

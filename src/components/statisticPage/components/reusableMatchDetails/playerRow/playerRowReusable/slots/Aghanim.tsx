@@ -1,17 +1,11 @@
-// Components
 import ItemDescription from "../itemDescription/ItemDescription"
 
-// Next.js
 import { Image } from "@/shared/nextjsImports"
-
-// React
 import { useState } from "@/shared/reactImports"
-import { Player } from "@/types/staticPage/tablePlayerDetails"
 
-// Classes
-import { PlayerRowReusableUtility } from "@/utils/statisticPage/PlayerRowReusableUtility"
+import { PlayerRowUtility } from "@/utils/statisticPage/PlayerRowUtility"
 
-// Types
+import type { Player } from "@/types/staticPage/tablePlayerDetails"
 
 // Initial State for useState in Aghanim component.
 const initialStateAghanim = {
@@ -21,12 +15,11 @@ const initialStateAghanim = {
 
 export default function Aghanim({ player }: { player: Player }) {
   //
-  //
   // State for manage tooltip about aghanim.
   const [toolTipStatus, setToolTipStatus] = useState(initialStateAghanim)
 
   // Initialize utility for manage data in component
-  const prrUtility = new PlayerRowReusableUtility()
+  const prrUtility = new PlayerRowUtility()
 
   // Function to update the toolTipStatus when mouse enter
   const handleMouseEnterAghanim = (idx: number) => {

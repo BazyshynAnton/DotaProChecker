@@ -1,21 +1,17 @@
-// Next.js
 import { Image } from "@/shared/nextjsImports"
 
-// Classes
 import { PlayerRowDetailsUtility } from "@/utils/statisticPage/PlayerRowDetailsUtility"
 
-// Styles
-import styles from "@/styles/statisticPage/PlayerRow.module.scss"
+import type { DetailsAboutPlayer } from "@/types/staticPage/playerRow"
 
-// Types
-import { DetailsAboutPlayer } from "@/types/staticPage/playerRowDetailsTypes"
+import styles from "@/styles/statisticPage/PlayerRow.module.scss"
 
 export default function RankAndAvatar({
   detailsAboutPlayer,
-  rdUtility,
+  uRowDetails,
 }: {
   detailsAboutPlayer: DetailsAboutPlayer
-  rdUtility: PlayerRowDetailsUtility
+  uRowDetails: PlayerRowDetailsUtility
 }) {
   return (
     <div className={styles.playerRow__playerDataCell__inCell__rankAndAvatar}>
@@ -25,7 +21,7 @@ export default function RankAndAvatar({
         }
       >
         <Image
-          src={rdUtility.findPictureOfPlayerRank()}
+          src={uRowDetails.findPlayerRankIcon()}
           alt={"Player's Rank"}
           width={40}
           height={40}
@@ -47,7 +43,7 @@ export default function RankAndAvatar({
         }
       >
         <Image
-          src={rdUtility.findPlayerAvatar()}
+          src={uRowDetails.findPlayerAvatar()}
           alt={"Player's Avatar"}
           width={24}
           height={24}

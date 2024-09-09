@@ -1,11 +1,8 @@
-// Next.js
 import { Image } from "@/shared/nextjsImports"
 
-// Styles
-import styles from "@/styles/statisticPage/ItemDescription.module.scss"
+import type { ItemDescriptionInterface } from "@/types/staticPage/playerRow"
 
-// Types
-import type { ItemDescriptionInterface } from "@/types/staticPage/staticPageTypes"
+import styles from "@/styles/statisticPage/ItemDescription.module.scss"
 
 export default function Tier({ details, item }: ItemDescriptionInterface) {
   //

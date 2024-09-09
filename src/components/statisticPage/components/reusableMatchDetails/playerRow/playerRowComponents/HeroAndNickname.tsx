@@ -1,12 +1,9 @@
-// Next.js
 import { Image } from "@/shared/nextjsImports"
 
-// Styles
-import styles from "@/styles/statisticPage/PlayerRow.module.scss"
+import type { DetailsAboutHero } from "@/types/staticPage/playerRow"
+import type { Player } from "@/types/staticPage/tablePlayerDetails"
 
-// Types
-import type { DetailsAboutHero } from "@/types/staticPage/playerRowDetailsTypes"
-import type { Player } from "@/types/staticPage/staticPageTypes"
+import styles from "@/styles/statisticPage/PlayerRow.module.scss"
 
 export default function HeroAndNickname({
   detailsAboutHero,

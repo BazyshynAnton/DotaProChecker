@@ -5,8 +5,8 @@ export interface UMatchData {
 }
 
 export interface InitialStatisticState {
-  matches: Match | null
-  matchHistoryID: number | null
+  match: Match | null
+  matchID: number | null
   matchDetails: MatchDetails | null
   heroList: HeroList[] | null
   playersProfiles: PlayerProfile[] | null

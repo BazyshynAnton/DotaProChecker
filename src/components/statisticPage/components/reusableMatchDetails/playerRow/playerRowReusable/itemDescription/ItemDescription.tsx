@@ -1,4 +1,3 @@
-// Components
 import NameAndCost from "./itemDescriptionComponents/NameAndCost"
 import Behavior from "./itemDescriptionComponents/Behavior"
 import Attribute from "./itemDescriptionComponents/Attribute"
@@ -6,14 +5,11 @@ import Abilities from "./itemDescriptionComponents/Abilities"
 import HintAndLore from "./itemDescriptionComponents/HintAndLore"
 import Components from "./itemDescriptionComponents/Components"
 
-// React
 import ReactDOM from "react-dom"
 
-// Styles
-import styles from "@/styles/statisticPage/ItemDescription.module.scss"
-import { ItemDescriptionInterface } from "@/types/staticPage/playerRow"
+import type { ItemDescriptionInterface } from "@/types/staticPage/playerRow"
 
-// Types
+import styles from "@/styles/statisticPage/ItemDescription.module.scss"
 
 export default function ItemDescription({
   details,

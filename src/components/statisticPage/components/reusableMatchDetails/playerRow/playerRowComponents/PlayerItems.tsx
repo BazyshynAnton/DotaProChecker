@@ -8,14 +8,14 @@ import NeutralItem from "../playerRowReusable/slots/NeutralItem"
 import styles from "@/styles/statisticPage/PlayerRow.module.scss"
 
 // Types
-import type { Player } from "@/types/staticPage/staticPageTypes"
-import type { ItemDetails } from "@/types/staticPage/playerRowDetailsTypes"
+import type { Player } from "@/types/staticPage/tablePlayerDetails"
+import type { ItemDetails } from "@/types/staticPage/playerRow"
 
 export default function PlayerItems({
-  detailsAboutItems,
+  itemDetails,
   player,
 }: {
-  detailsAboutItems: ItemDetails | null
+  itemDetails: ItemDetails | null
   player: Player
 }) {
   return (
@@ -29,20 +29,20 @@ export default function PlayerItems({
               styles.playerRow__playerDataCell__items__slots__wrapper__mainSlot
             }
           >
-            <MainSlotItems detailsAboutItems={detailsAboutItems} />
+            <MainSlotItems itemDetails={itemDetails} />
           </div>
           <div
             className={
               styles.playerRow__playerDataCell__items__slots__wrapper__backpack
             }
           >
-            <BackpackItems detailsAboutItems={detailsAboutItems} />
+            <BackpackItems itemDetails={itemDetails} />
           </div>
         </div>
         <div
           className={styles.playerRow__playerDataCell__items__wrapper__neutral}
         >
-          <NeutralItem detailsAboutItems={detailsAboutItems} />
+          <NeutralItem itemDetails={itemDetails} />
         </div>
         <div
           className={styles.playerRow__playerDataCell__items__wrapper__aghanim}

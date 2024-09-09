@@ -2,8 +2,8 @@ import StatisticPage from "@/components/statisticPage/StatisticPage"
 import { MatchDataUtility } from "@/utils/statisticPage/MatchDataUtility"
 
 export default async function Home() {
-  const mdUtility = new MatchDataUtility()
-  const matchesStatisticData = await mdUtility.fetchMatchData()
+  const uMatchData = new MatchDataUtility()
+  const matchData = await uMatchData.fetchMatchData()
 
-  return <StatisticPage matchesStatisticData={matchesStatisticData} />
+  return <StatisticPage matchData={matchData} />
 }

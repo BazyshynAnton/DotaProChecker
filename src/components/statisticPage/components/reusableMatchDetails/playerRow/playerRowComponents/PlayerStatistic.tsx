@@ -1,8 +1,6 @@
-// Styles
-import styles from "@/styles/statisticPage/PlayerRow.module.scss"
+import type { Player } from "@/types/staticPage/tablePlayerDetails"
 
-// Types
-import type { Player } from "@/types/staticPage/staticPageTypes"
+import styles from "@/styles/statisticPage/PlayerRow.module.scss"
 
 export default function PlayerStatistic({ player }: { player: Player }) {
   return (

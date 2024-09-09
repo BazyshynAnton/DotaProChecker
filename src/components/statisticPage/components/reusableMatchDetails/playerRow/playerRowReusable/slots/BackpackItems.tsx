@@ -1,18 +1,12 @@
-// Components
 import ItemDescription from "../itemDescription/ItemDescription"
 import CannotFind from "./CannotFind"
 
-// Next.js
 import { Image } from "@/shared/nextjsImports"
-
-// React
 import { useState } from "@/shared/reactImports"
-import { SlotInterface } from "@/types/staticPage/playerRow"
 
-// Classes
-import { PlayerRowReusableUtility } from "@/utils/statisticPage/PlayerRowReusableUtility"
+import { PlayerRowUtility } from "@/utils/statisticPage/PlayerRowUtility"
 
-// Type
+import type { SlotInterface } from "@/types/staticPage/playerRow"
 
 // Initial State for useState in BackpackItems component.
 const initialStateBackpack = {
@@ -23,7 +17,6 @@ const initialStateBackpack = {
 
 export default function BackpackItems({ itemDetails }: SlotInterface) {
   //
-  //
   // State for manage tooltip about each item.
   const [toolTipStatus, setToolTipStatus] = useState<{
     [idx: string]: boolean
@@ -33,7 +26,7 @@ export default function BackpackItems({ itemDetails }: SlotInterface) {
   if (!itemDetails) return <CannotFind />
 
   // Initialize utility for manage data in component
-  const prrUtility = new PlayerRowReusableUtility()
+  const prrUtility = new PlayerRowUtility()
 
   // Create an Array<string> of items in main slot
   prrUtility.setItems(itemDetails, "backpack")

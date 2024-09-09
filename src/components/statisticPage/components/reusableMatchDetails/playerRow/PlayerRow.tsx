@@ -4,16 +4,9 @@ import RankAndAvatar from "./playerRowComponents/RankAndAvatar"
 import PlayerStatistic from "./playerRowComponents/PlayerStatistic"
 import PlayerItems from "./playerRowComponents/PlayerItems"
 
-// Redux
 import { useAppSelector } from "@/shared/reduxImports"
 
-// Classes
 import { PlayerRowDetailsUtility } from "@/utils/statisticPage/PlayerRowDetailsUtility"
-
-// Styles
-import styles from "@/styles/statisticPage/PlayerRow.module.scss"
-
-// Types
 
 import type { Player } from "@/types/staticPage/tablePlayerDetails"
 import type {
@@ -21,6 +14,8 @@ import type {
   DetailsAboutPlayer,
   ItemDetails,
 } from "@/types/staticPage/playerRow"
+
+import styles from "@/styles/statisticPage/PlayerRow.module.scss"
 
 export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
   const { heroList, playersProfiles } = useAppSelector(
@@ -40,19 +35,19 @@ export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
       {playersTeam.map((player) => {
         //
         // Initialize helper class
-        const rdUtility = new PlayerRowDetailsUtility()
+        const uRowDetails = new PlayerRowDetailsUtility()
 
         // Find details about hero
         const detailsAboutHero: DetailsAboutHero =
-          rdUtility.findAppropriateHero(player, heroList)
+          uRowDetails.findAppropriateHero(player, heroList)
 
         // Find details about player
         const detailsAboutPlayer: DetailsAboutPlayer =
-          rdUtility.findAppropriatePlayer(player, playersProfiles)
+          uRowDetails.findAppropriatePlayer(player, playersProfiles)
 
         // Find details about items
-        const detailsAboutItems: ItemDetails | null =
-          rdUtility.findAppropriateItems(player)
+        const itemDetails: ItemDetails | null =
+          uRowDetails.findAppropriateItems(player)
 
         return (
           <tr key={player.hero_id} className={styles.playerRow}>
@@ -64,15 +59,12 @@ export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
                 />
                 <RankAndAvatar
                   detailsAboutPlayer={detailsAboutPlayer}
-                  rdUtility={rdUtility}
+                  uRowDetails={uRowDetails}
                 />
               </div>
             </td>
             <PlayerStatistic player={player} />
-            <PlayerItems
-              detailsAboutItems={detailsAboutItems}
-              player={player}
-            />
+            <PlayerItems itemDetails={itemDetails} player={player} />
           </tr>
         )
       })}
