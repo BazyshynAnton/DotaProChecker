@@ -25,39 +25,46 @@ export default function Abilities({ details, item }: ItemDescriptionInterface) {
               "<br/>"
             )
 
+            const abilityCondition =
+              abil.type === "active"
+                ? styles.tooltip__description__abilities_active
+                : abil.type === "use"
+                ? styles.tooltip__description__abilities_use
+                : styles.tooltip__description__abilities_passive
+
+            const abilityHeaderCondition =
+              abil.type === "active"
+                ? styles.tooltip__description__abilities_active__header
+                : abil.type === "use"
+                ? styles.tooltip__description__abilities_use__header
+                : styles.tooltip__description__abilities_passive__header
+
+            const displayAbilityTypeCondition =
+              abil.type === "active"
+                ? "Active"
+                : abil.type === "use"
+                ? "Use"
+                : "Passive"
+
+            const renderAbilityCondition =
+              abil.type === "active" || abil.type === "use"
+
+            const abilityDescriptionCondition =
+              abil.type === "active"
+                ? styles.tooltip__description__abilities_active__description
+                : abil.type === "use"
+                ? styles.tooltip__description__abilities_use__description
+                : styles.tooltip__description__abilities_passive__description
+
             return (
-              <div
-                key={abil.title}
-                className={`${
-                  abil.type === "active"
-                    ? styles.tooltip__description__abilities_active
-                    : abil.type === "use"
-                    ? styles.tooltip__description__abilities_use
-                    : styles.tooltip__description__abilities_passive
-                }`}
-              >
-                <div
-                  className={`${
-                    abil.type === "active"
-                      ? styles.tooltip__description__abilities_active__header
-                      : abil.type === "use"
-                      ? styles.tooltip__description__abilities_use__header
-                      : styles.tooltip__description__abilities_passive__header
-                  }`}
-                >
+              <div key={abil.title} className={abilityCondition}>
+                <div className={abilityHeaderCondition}>
                   <div
                     className={
                       styles.tooltip__description__abilities_active_passive__header__content
                     }
                   >
-                    <span>
-                      {abil.type === "active"
-                        ? "Active"
-                        : abil.type === "use"
-                        ? "Use"
-                        : "Passive"}
-                      :
-                    </span>
+                    <span>{displayAbilityTypeCondition}:</span>
                     <span> {abil.title}</span>
                   </div>
                   <div
@@ -65,8 +72,7 @@ export default function Abilities({ details, item }: ItemDescriptionInterface) {
                       styles.tooltip__description__abilities_active_passive__header__manaAndCooldown
                     }
                   >
-                    {(abil.type === "active" || abil.type === "use") &&
-                    details[item].mc ? (
+                    {renderAbilityCondition && details[item].mc ? (
                       <div style={{ display: "flex", alignItems: "center" }}>
                         <Image
                           src="/pictures/dotaIcons/ability_manacost.png"
@@ -90,8 +96,7 @@ export default function Abilities({ details, item }: ItemDescriptionInterface) {
                       <></>
                     )}
 
-                    {(abil.type === "active" || abil.type === "use") &&
-                    details[item].cd ? (
+                    {renderAbilityCondition && details[item].cd ? (
                       <div style={{ display: "flex", alignItems: "center" }}>
                         <Image
                           src="/pictures/dotaIcons/ability_cooldown.png"
@@ -116,15 +121,7 @@ export default function Abilities({ details, item }: ItemDescriptionInterface) {
                     )}
                   </div>
                 </div>
-                <div
-                  className={`${
-                    abil.type === "active"
-                      ? styles.tooltip__description__abilities_active__description
-                      : abil.type === "use"
-                      ? styles.tooltip__description__abilities_use__description
-                      : styles.tooltip__description__abilities_passive__description
-                  }`}
-                >
+                <div className={abilityDescriptionCondition}>
                   <span
                     dangerouslySetInnerHTML={{ __html: formattedDescription }}
                   />

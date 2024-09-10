@@ -186,8 +186,10 @@
   &::before {
     content: "/";
     position: absolute;
-    top: 31.5px;
-    right: -9px;
+    top: 50%;
+    right: -13px;
+    transform: translate(-50%, -50%);
+    margin: auto 0;
     font-weight: 100;
   }
 }
@@ -270,6 +272,6 @@
   overflow: hidden;
 }
 
-.playerRow__playerDataCell__items__wrapper__aghanim,
-.playerRow__playerDataCell__items__wrapper__shard {
-}
+// .playerRow__playerDataCell__items__wrapper__aghanim,
+// .playerRow__playerDataCell__items__wrapper__shard {
+// }

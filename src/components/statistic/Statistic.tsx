@@ -4,17 +4,18 @@ import FetchError from "./components/FetchError"
 
 import { useEffect } from "@/shared/reactImports"
 import { useAppSelector, useAppDispatch } from "@/shared/reduxImports"
+
 import { setMatchData } from "@/store/statisticSlice"
-import { MatchData } from "@/types/redux/statisticSlice"
+
+import type { MatchData } from "@/types/redux/statisticSlice"
+import Search from "./components/Search"
 
 export default function Statistic({
   matchData,
 }: {
   matchData: MatchData | string
 }) {
-  const { matchDetails, error } = useAppSelector(
-    (store) => store.statisticSlice
-  )
+  const { error } = useAppSelector((store) => store.statisticSlice)
   const dispatch = useAppDispatch()
 
   useEffect(() => {
@@ -23,5 +24,10 @@ export default function Statistic({
 
   if (error) return <FetchError error={error} />
 
-  return <MatchDetails />
+  return (
+    <>
+      <Search />
+      <MatchDetails />
+    </>
+  )
 }

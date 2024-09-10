@@ -12,7 +12,9 @@ export default function Header() {
       <Link
         href="/statistic"
         className={
-          pathname === "/" ? styles.activeHeaderLink : styles.headerLink
+          pathname === "/statistic"
+            ? styles.activeHeaderLink
+            : styles.headerLink
         }
       >
         Statistic

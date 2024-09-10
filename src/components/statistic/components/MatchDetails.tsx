@@ -1,5 +1,6 @@
 import TableDetails from "./reusableMatchDetails/tableDetails/TableDetails"
 import ResultOfMatch from "./MatchResult"
+import FetchError from "./FetchError"
 
 import { MatchDetailsUtility } from "@/utils/statistic/MatchDetailsUtility"
 
@@ -22,7 +23,8 @@ export default function MatchDetails() {
     }
   }, [matchDetails])
 
-  if (!playersByTeam) return <div>Loading...</div>
+  if (!playersByTeam)
+    return <FetchError error="[Players] Something went wrong." />
 
   return (
     <div className={styles.match}>

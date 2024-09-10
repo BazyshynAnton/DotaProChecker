@@ -22,15 +22,13 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <StoreProvider>
-      <section className={roboto.className}>
-        <Header />
-        {children}
-        <div
-          id="tooltip_portal"
-          className={styles.itemDescriptionBackground}
-        ></div>
-      </section>
-    </StoreProvider>
+    <section className={roboto.className}>
+      <Header />
+      {children}
+      <div
+        id="tooltip_portal"
+        className={styles.itemDescriptionBackground}
+      ></div>
+    </section>
   )
 }

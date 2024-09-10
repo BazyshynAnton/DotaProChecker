@@ -26,6 +26,7 @@ export default function ResultOfMatch() {
 
   const side = resultOfMatch?.resultOfMatch ? "RADIANT" : "DIRE"
   const sideColor = resultOfMatch?.resultOfMatch ? "#2eb872" : "#fa4659"
+
   return (
     <>
       <div className={styles.match__header__playedHero}>

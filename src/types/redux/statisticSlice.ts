@@ -10,6 +10,11 @@ export interface InitialStatisticState {
   matchDetails: MatchDetails | null
   heroList: HeroList[] | null
   playersProfiles: PlayerProfile[] | null
+
+  search: {
+    [key: string]: string
+  }
+
   error: string | null
 }
 

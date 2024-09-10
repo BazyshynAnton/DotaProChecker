@@ -32,11 +32,13 @@ export default function RootLayout({
       <html lang="en">
         <body className={roboto.className}>
           <Header />
-          {children}
-          <div
-            id="tooltip_portal"
-            className={styles.itemDescriptionBackground}
-          ></div>
+          <div className="wrapper">
+            {children}
+            <div
+              id="tooltip_portal"
+              className={styles.itemDescriptionBackground}
+            ></div>
+          </div>
         </body>
       </html>
     </StoreProvider>

@@ -21,6 +21,16 @@ export default function Behavior({ details, item }: ItemDescriptionInterface) {
   } else if (typeof details[item].behavior === "string")
     target = details[item].behavior
 
+  const dispellableCondition =
+    details[item].dispellable === "Yes"
+      ? styles.tooltip__description__dispellable_typeOne
+      : styles.tooltip__description__dispellable_typeTwo
+
+  const bkbpierceCondition =
+    details[item].bkbpierce === "Yes"
+      ? styles.tooltip__description__piercesDebuffImmunity_typeOne
+      : styles.tooltip__description__piercesDebuffImmunity_typeTwo
+
   return (
     <>
       {details[item].behavior && (
@@ -32,13 +42,7 @@ export default function Behavior({ details, item }: ItemDescriptionInterface) {
       {details[item].dispellable && (
         <div className={styles.tooltip__description__dispellable}>
           <span>DISPELLABLE:</span>
-          <span
-            className={
-              details[item].dispellable === "Yes"
-                ? styles.tooltip__description__dispellable_typeOne
-                : styles.tooltip__description__dispellable_typeTwo
-            }
-          >
+          <span className={dispellableCondition}>
             {" "}
             {details[item].dispellable}
           </span>
@@ -47,16 +51,7 @@ export default function Behavior({ details, item }: ItemDescriptionInterface) {
       {details[item].bkbpierce && (
         <div className={styles.tooltip__description__piercesDebuffImmunity}>
           <span>PIERCES DEBUFF IMMUNITY:</span>
-          <span
-            className={
-              details[item].bkbpierce === "Yes"
-                ? styles.tooltip__description__piercesDebuffImmunity_typeOne
-                : styles.tooltip__description__piercesDebuffImmunity_typeTwo
-            }
-          >
-            {" "}
-            {details[item].bkbpierce}
-          </span>
+          <span className={bkbpierceCondition}> {details[item].bkbpierce}</span>
         </div>
       )}
       {details[item].behavior &&

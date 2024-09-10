@@ -25,6 +25,7 @@ export default function Components({
             {details[item].components.map((component, idx) => {
               const rdUtility = new PlayerRowDetailsUtility()
               const itemCost = rdUtility.findItemCostByName(component)
+
               return (
                 <div
                   key={idx}

@@ -4,6 +4,8 @@ import statisticSlice from "./statisticSlice"
 export const makeStore = () => {
   return configureStore({
     reducer: { statisticSlice },
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({ serializableCheck: false }),
   })
 }
 

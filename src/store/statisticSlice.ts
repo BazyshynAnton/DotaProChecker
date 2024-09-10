@@ -8,6 +8,11 @@ const initialState: InitialStatisticState = {
   heroList: null,
   playersProfiles: null,
 
+  search: {
+    accountID: "",
+    matchID: "",
+  },
+
   error: null,
 }
 
@@ -26,9 +31,13 @@ export const statisticSlice = createSlice({
         state.error = action.payload
       }
     },
+
+    setSearch: (state, action) => {
+      state.search.matchID = action.payload.value
+    },
   },
 })
 
-export const { setMatchData } = statisticSlice.actions
+export const { setMatchData, setSearch } = statisticSlice.actions
 
 export default statisticSlice.reducer
