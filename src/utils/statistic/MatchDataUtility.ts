@@ -15,29 +15,19 @@ import type {
 } from "@/types/redux/statisticSlice"
 
 export class MatchDataUtility implements UMatchData {
-  public fetchMatchData = async () => {
+  public fetchMatchData = async (matchID: number = 0) => {
     try {
-      // Get Matches History data using fetchHelper async func using Steam API
-      const matchesHistoryData = await this.fetchHelper<Match>(
-        MATCH_HISTORY_URL
-      )
-
-      if (matchesHistoryData instanceof Error) throw matchesHistoryData
-
-      // Array<number> for store match IDs
-      const matchesHistoryDataIDs: number[] = []
-      // Set IDs to matchesHistoryDataIDs
-      matchesHistoryData.result.matches.forEach((match) =>
-        matchesHistoryDataIDs.push(match.match_id)
-      )
+      if (matchID === 0) {
+        const response = await this.genDefaultMatchID()
+        if (typeof response === "number") {
+          matchID = response
+        }
+      }
 
       // Get data about the Last Played Match using Opendota API
       const matchDetailsData = await this.fetchHelper<MatchDetails>(
-        MATCH_DETAILS_URL + matchesHistoryDataIDs[0]
+        MATCH_DETAILS_URL + matchID
       )
-
-      // Get data about the last played match in account
-      // const matchDetailsData = await this.fetchHelper(MATCH_DETAILS_URL + 7913916911)
 
       if (matchDetailsData instanceof Error) throw matchDetailsData
 
@@ -68,9 +58,7 @@ export class MatchDataUtility implements UMatchData {
       return {
         heroListData,
         matchDetailsData,
-        matchesHistoryData,
         playerProfilesData,
-        matchesHistoryDataIDs,
       } as MatchData
       //
     } catch (error) {
@@ -78,6 +66,32 @@ export class MatchDataUtility implements UMatchData {
       if (error instanceof Error) message = error.message
       else message = String(error)
 
+      return message
+    }
+  }
+
+  private genDefaultMatchID = async (): Promise<number | Error | string> => {
+    try {
+      // Get Matches History data using fetchHelper async func using Opendota API
+      // Default player - Cheng Jin Xiang "NothingToSay"
+      const matchesHistoryData = await this.fetchHelper<Match[]>(
+        MATCH_HISTORY_URL
+      )
+
+      if (matchesHistoryData instanceof Error) throw matchesHistoryData
+
+      // Array<number> for store match IDs
+      const matchesHistoryDataIDs: number[] = []
+      // Set IDs to matchesHistoryDataIDs
+      matchesHistoryData.forEach((match) =>
+        matchesHistoryDataIDs.push(match.match_id)
+      )
+
+      return matchesHistoryDataIDs[0]
+    } catch (error) {
+      let message
+      if (error instanceof Error) message = error
+      else message = String(error)
       return message
     }
   }

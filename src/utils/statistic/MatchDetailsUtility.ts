@@ -1,4 +1,4 @@
-import { HeroList, MatchDetails } from "@/types/redux/statisticPageSlice"
+import { HeroList, MatchDetails } from "@/types/redux/statisticSlice"
 import type {
   MatchResult,
   PlayersByTeam,

@@ -2,7 +2,6 @@ import { MatchDetailsUtility } from "@/utils/statistic/MatchDetailsUtility"
 
 import { useAppSelector } from "@/shared/reduxImports"
 import { useEffect, useState } from "@/shared/reactImports"
-import { Image } from "@/shared/nextjsImports"
 
 import type { MatchResult } from "@/types/statistic/matchDetails"
 
@@ -29,15 +28,6 @@ export default function ResultOfMatch() {
 
   return (
     <>
-      <div className={styles.match__header__playedHero}>
-        <span>Played: </span>
-        <Image
-          src={`/pictures/dotaHeroIcon/${resultOfMatch?.playedHero}.png`}
-          alt=""
-          width={50}
-          height={30}
-        />
-      </div>
       <div className={styles.match__result}>
         <h4
           style={{

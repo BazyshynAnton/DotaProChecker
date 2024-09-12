@@ -1,6 +1,9 @@
+import { ChangeEvent, FormEvent } from "react"
+
 import { useAppDispatch, useAppSelector } from "@/shared/reduxImports"
-import { setSearch } from "@/store/statisticSlice"
-import { ChangeEvent } from "react"
+import { setMatchData, setSearch } from "@/store/statisticSlice"
+
+import { MatchDataUtility } from "@/utils/statistic/MatchDataUtility"
 
 import styles from "@/styles/statistic/Search.module.scss"
 
@@ -15,10 +18,18 @@ export default function Search() {
       dispatch(setSearch({ type, value }))
     }
 
-  const handleButtonSubmit = () => {}
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    const mID = Number(search.matchID)
+    const uMatchData = new MatchDataUtility()
+    const matchData = await uMatchData.fetchMatchData(mID)
+    dispatch(setMatchData(matchData))
+  }
+
+  const isDisabled = search.matchID.length < 10
 
   return (
-    <form className={styles.search}>
+    <form className={styles.search} onSubmit={handleSubmit}>
       <div className={styles.search__inputs}>
         <input
           type="number"
@@ -27,7 +38,17 @@ export default function Search() {
           onChange={handleInputChange("matchID")}
         />
       </div>
-      <button type="submit">search</button>
+      <button
+        type="submit"
+        disabled={isDisabled}
+        className={
+          isDisabled
+            ? styles.search__button_disabled
+            : styles.search__button_enabled
+        }
+      >
+        search
+      </button>
     </form>
   )
 }

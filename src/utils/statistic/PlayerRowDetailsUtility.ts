@@ -3,11 +3,11 @@ import hero_abilities from "../../../public/data/heroAbilities/hero_abilities.js
 
 import type { Player } from "@/types/statistic/tableDetails"
 import type { PlayerColors } from "@/types/statistic/matchDetails"
-import type { HeroList, PlayerProfile } from "@/types/redux/statisticPageSlice"
+import type { HeroList, PlayerProfile } from "@/types/redux/statisticSlice"
 import type {
   HeroAbilities,
   HeroAbilitiesValue,
-} from "@/types/staticPage/staticPage"
+} from "@/types/statistic/static"
 import type {
   DetailsAboutHero,
   DetailsAboutPlayer,

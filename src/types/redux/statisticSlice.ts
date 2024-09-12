@@ -5,8 +5,6 @@ export interface UMatchData {
 }
 
 export interface InitialStatisticState {
-  match: Match | null
-  matchID: number | null
   matchDetails: MatchDetails | null
   heroList: HeroList[] | null
   playersProfiles: PlayerProfile[] | null
@@ -21,9 +19,7 @@ export interface InitialStatisticState {
 export interface MatchData {
   heroListData: HeroList[]
   matchDetailsData: MatchDetails
-  matchesHistoryData: Match
   playerProfilesData: PlayerProfile[]
-  matchesHistoryDataIDs: number[]
 }
 
 export interface HeroList {
@@ -33,33 +29,32 @@ export interface HeroList {
 }
 
 export interface Match {
-  result: {
-    status: number
-    num_results: number
-    total_results: number
-    results_remaining: number
-    matches: [
-      {
-        match_id: number
-        match_seq_num: number
-        start_time: number
-        lobby_type: number
-        radiant_team_id: number
-        dire_team_id: number
-
-        players: [
-          {
-            account_id: number
-            player_slot: number
-            team_number: number
-            team_slot: number
-            hero_id: number
-            hero_variant: number
-          }
-        ]
-      }
-    ]
-  }
+  match_id: number
+  player_slot: number
+  radiant_win: boolean
+  hero_id: number
+  start_time: number
+  duration: number
+  game_mode: number
+  lobby_type: number
+  version: number | null
+  kills: number
+  deaths: number
+  assists: number
+  average_rank: number
+  xp_per_min: number
+  gold_per_min: number
+  hero_damage: number
+  tower_damage: number
+  hero_healing: number
+  last_hits: number
+  lane: number | string | null
+  lane_role: number | string | null
+  is_roaming: number | string | boolean | null
+  cluster: number
+  leaver_status: number
+  party_size: number | null
+  hero_variant: number
 }
 
 export interface MatchDetails {

@@ -6,22 +6,6 @@
   align-items: center;
   justify-content: center;
   gap: 1.5rem;
-
-  button {
-    padding: 10px;
-    border-radius: 8px;
-    text-transform: uppercase;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #fff;
-    background-color: #393e46;
-    transition: all 110ms ease-in-out;
-    cursor: pointer;
-
-    &:hover {
-      background-color: #454b55;
-    }
-  }
 }
 
 .search__inputs {
@@ -59,4 +43,29 @@
     }
     -moz-appearance: textfield;
   }
+}
+
+.search__button_enabled,
+.search__button_disabled {
+  padding: 10px;
+  border-radius: 8px;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background-color: #393e46;
+  transition: all 110ms ease-in-out;
+}
+
+.search__button_enabled {
+  color: #fff;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #454b55;
+  }
+}
+
+.search__button_disabled {
+  color: #cfcfcf;
+  cursor: no-drop;
 }
