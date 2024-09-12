@@ -1,4 +1,3 @@
 TODO: <br/>
 
-1. Bundle components
-2. CUSTOM WEB CURSOR <br/>
+1. Custom cursor <br/>

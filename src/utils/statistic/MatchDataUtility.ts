@@ -21,7 +21,7 @@ export class MatchDataUtility implements UMatchData {
         const response = await this.genDefaultMatchID()
         if (typeof response === "number") {
           matchID = response
-        }
+        } else if (response instanceof Error) throw response
       }
 
       // Get data about the Last Played Match using Opendota API
@@ -81,13 +81,13 @@ export class MatchDataUtility implements UMatchData {
       if (matchesHistoryData instanceof Error) throw matchesHistoryData
 
       // Array<number> for store match IDs
-      const matchesHistoryDataIDs: number[] = []
+      const matchHistoryDataIDs: number[] = []
       // Set IDs to matchesHistoryDataIDs
       matchesHistoryData.forEach((match) =>
-        matchesHistoryDataIDs.push(match.match_id)
+        matchHistoryDataIDs.push(match.match_id)
       )
 
-      return matchesHistoryDataIDs[0]
+      return matchHistoryDataIDs[0]
     } catch (error) {
       let message
       if (error instanceof Error) message = error
