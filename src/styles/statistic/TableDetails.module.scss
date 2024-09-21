@@ -1,4 +1,5 @@
-@import "../scss/fontMixin.scss";
+@import "../scss/mixins/fonts.scss";
+@import "../scss/variables/colors.scss";
 
 .result {
   width: 100%;
@@ -20,11 +21,11 @@
 }
 
 .result__team__header_radiant {
-  color: #2eb872;
+  color: $radiant_green;
 }
 
 .result__team__header_dire {
-  color: #fa4659;
+  color: $dire_red;
 }
 
 .result__team__tableWrapper {
@@ -34,17 +35,17 @@
 .result__team__tableWrapper__table {
   width: 100%;
   padding: 10px;
-  background-color: #393e46;
+  background-color: $gray_blue_light;
 }
 .result__team__tableWrapper__table__thead {
   width: 100%;
-  border: 2px solid #fff;
+  border: 2px solid $white;
   border-collapse: collapse;
 }
 
 .result__team__tableWrapper__table__thead__headersTableRow {
   height: 40px;
-  color: #fff;
+  color: $white;
 
   th {
     text-align: right;
@@ -84,7 +85,7 @@
     position: absolute;
     right: -10px;
     top: 0;
-    color: #fff;
+    color: $white;
     font-weight: 100;
   }
 }
@@ -92,7 +93,7 @@
 @media (max-width: 1152px) {
   .result__team__tableWrapper {
     overflow: scroll clip !important;
-    scrollbar-color: #b8b8b8 #393e46;
+    scrollbar-color: #b8b8b8 $gray_blue_light;
     scrollbar-width: thin;
     scroll-behavior: smooth;
   }

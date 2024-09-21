@@ -36,7 +36,9 @@ export default function Header() {
         Players
       </Link>
 
-      <span className={styles.websiteNameInHeader}>DOTACHECKER</span>
+      <Link href="/" className={styles.websiteNameInHeader}>
+        DOTACHECKER
+      </Link>
     </div>
   )
 }

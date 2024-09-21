@@ -7,5 +7,3 @@ export default async function StatisticPage() {
 
   return <Statistic matchData={matchData} />
 }
-
-// TODO: refetch data.

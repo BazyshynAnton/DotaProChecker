@@ -1,4 +1,5 @@
-@import "../scss/fontMixin.scss";
+@import "../scss/mixins/fonts.scss";
+@import "../scss/variables/colors.scss";
 
 .match {
   width: 100%;
@@ -10,7 +11,7 @@
 }
 
 .match__header {
-  margin-top: 10rem;
+  margin-top: 2rem;
 
   margin-bottom: 3rem;
   width: 100%;
@@ -40,12 +41,22 @@
 
 .match__scoreAndTime__radiantScore {
   font-size: 2rem;
-  color: #2eb872;
+  color: $radiant_green;
 }
 .match__scoreAndTime__duration {
-  color: #fff;
+  color: $white;
 }
 .match__scoreAndTime__direScore {
   font-size: 2rem;
-  color: #fa4659;
+  color: $dire_red;
+}
+
+// SearchResultHeader.tsx
+.searchResultHeader {
+  width: 100%;
+  background: $black;
+  h3 {
+    color: $white;
+    text-align: left;
+  }
 }
