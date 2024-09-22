@@ -1,7 +1,6 @@
 import TableDetails from "./reusableMatchDetails/tableDetails/TableDetails"
 import ResultOfMatch from "./ResultOfMatch"
 import Loader from "@/components/loader/Loader"
-import SearchResultHeader from "./SearchResultHeader"
 
 import { MatchDetailsUtility } from "@/utils/statistic/MatchDetailsUtility"
 
@@ -28,7 +27,6 @@ export default function MatchDetails() {
 
   return (
     <div className={styles.match}>
-      <SearchResultHeader />
       <div className={styles.match__header}>
         <ResultOfMatch />
       </div>

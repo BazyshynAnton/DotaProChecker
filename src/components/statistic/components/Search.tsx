@@ -18,7 +18,7 @@ export default function Search() {
       dispatch(setSearch({ type, value }))
     }
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const handleFormSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const mID = Number(search.matchID)
     const uMatchData = new MatchDataUtility()
@@ -29,7 +29,7 @@ export default function Search() {
   const isDisabled = search.matchID.length < 10
 
   return (
-    <form className={styles.search} onSubmit={handleSubmit}>
+    <form className={styles.search} onSubmit={handleFormSubmit}>
       <div className={styles.search__inputs}>
         <input
           type="number"

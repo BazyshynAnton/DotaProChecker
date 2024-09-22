@@ -22,12 +22,10 @@ export default function Statistic({
     dispatch(setMatchData(matchData))
   }, [dispatch, matchData])
 
-  if (error) return <FetchError error={error} />
-
   return (
     <>
       <Search />
-      <MatchDetails />
+      {!error ? <MatchDetails /> : <FetchError error={error} />}
     </>
   )
 }
