@@ -1,4 +1,4 @@
-TODO: rerendering while type in search input.
+TODO: reduce size of tooltip.
 <br/><br/>
 TODO: custom cursor "maybe".
 <br/><br/>

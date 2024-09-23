@@ -73,48 +73,36 @@ export default function Abilities({ details, item }: ItemDescriptionInterface) {
                     }
                   >
                     {renderAbilityCondition && details[item].mc ? (
-                      <div style={{ display: "flex", alignItems: "center" }}>
+                      <div
+                        className={
+                          styles.tooltip__description__abilities_active_passive__header__manaAndCooldown_image
+                        }
+                      >
                         <Image
                           src="/pictures/dotaIcons/ability_manacost.png"
                           alt=""
                           width={20}
                           height={20}
                         />
-                        <span
-                          style={{
-                            color: "#ffffffde",
-                            fontWeight: "400",
-                            letterSpacing: "0px",
-                            paddingLeft: "3px",
-                            fontSize: "1rem",
-                          }}
-                        >
-                          {details[item].mc}
-                        </span>
+                        <span>{details[item].mc}</span>
                       </div>
                     ) : (
                       <></>
                     )}
 
                     {renderAbilityCondition && details[item].cd ? (
-                      <div style={{ display: "flex", alignItems: "center" }}>
+                      <div
+                        className={
+                          styles.tooltip__description__abilities_active_passive__header__manaAndCooldown_image
+                        }
+                      >
                         <Image
                           src="/pictures/dotaIcons/ability_cooldown.png"
                           alt=""
                           width={20}
                           height={20}
                         />
-                        <span
-                          style={{
-                            color: "#ffffffde",
-                            fontWeight: "400",
-                            letterSpacing: "0px",
-                            paddingLeft: "3px",
-                            fontSize: "1rem",
-                          }}
-                        >
-                          {details[item].cd}
-                        </span>
+                        <span>{details[item].cd}</span>
                       </div>
                     ) : (
                       <></>
