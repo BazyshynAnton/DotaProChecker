@@ -1,4 +1,4 @@
-TODO: reduce size of tooltip.
+TODO: score.
 <br/><br/>
 TODO: custom cursor "maybe".
 <br/><br/>
