@@ -36,9 +36,11 @@ export default function Header() {
         Players
       </Link>
 
-      <Link href="/" className={styles.websiteNameInHeader}>
-        DOTACHECKER
-      </Link>
+      {pathname !== "/" && (
+        <Link href="/" className={styles.websiteNameInHeader}>
+          DOTACHECKER
+        </Link>
+      )}
     </div>
   )
 }
