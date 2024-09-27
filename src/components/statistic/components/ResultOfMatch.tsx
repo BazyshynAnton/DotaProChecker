@@ -17,9 +17,7 @@ export default function ResultOfMatch() {
   useEffect(() => {
     if (matchDetails && heroList) {
       const uMatchDetails = new MatchDetailsUtility()
-      setResultOfMatch(
-        uMatchDetails.findMatchResult(173978074, matchDetails, heroList)
-      )
+      setResultOfMatch(uMatchDetails.findMatchResult(matchDetails))
     }
   }, [heroList, matchDetails])
 
