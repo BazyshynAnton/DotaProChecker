@@ -5,6 +5,7 @@ export default function WhatAndWhy() {
     <div className={styles.homeWrapper__description__whatAndWhy}>
       <h2>What and Why.</h2>
       <p>
+        <br />
         This project was motivated by Advertising and annoying Steam
         Authorization on same Dota2 data platforms such as DotaBuff, Opendota,
         etc.

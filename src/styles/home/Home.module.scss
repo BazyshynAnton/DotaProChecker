@@ -20,6 +20,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  cursor: default;
 }
 
 .homeWrapper__description {
@@ -35,4 +36,17 @@
 }
 
 .homeWrapper__description__whatAndWhy {
+  margin-top: 5rem;
+}
+
+.homeWrapper__description__futureUpdates {
+  margin-top: 3rem;
+}
+
+.homeWrapper__description__whatAndWhy,
+.homeWrapper__description__futureUpdates {
+  width: 100%;
+  background-color: $gray_blue_light;
+  padding: 20px;
+  border-radius: 15px;
 }
