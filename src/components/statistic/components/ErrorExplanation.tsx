@@ -13,6 +13,8 @@ export default function ErrorExplanation() {
         ].
         <br />
         &bull; You reached your API calls limit [2000 calls per day].
+        <br />
+        &bull; Match ID does not exist.
       </p>
     </div>
   )

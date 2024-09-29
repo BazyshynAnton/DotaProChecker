@@ -6,6 +6,7 @@ import { Roboto } from "next/font/google"
 
 import "./globals.scss"
 import styles from "@/styles/statistic/ItemDescription.module.scss"
+import Footer from "@/components/footer/Footer"
 
 const roboto = Roboto({
   weight: ["400", "500", "700", "900"],
@@ -39,6 +40,7 @@ export default function RootLayout({
               className={styles.itemDescriptionBackground}
             ></div>
           </div>
+          <Footer />
         </body>
       </html>
     </StoreProvider>
