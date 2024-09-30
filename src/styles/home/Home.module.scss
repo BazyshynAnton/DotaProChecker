@@ -1,8 +1,10 @@
 @import "../scss/mixins/fonts.scss";
 @import "../scss/variables/colors.scss";
+@import "../scss/mixins/animation.scss";
+@import "../scss/mixins/fontsize.scss";
 
 .homeWrapper {
-  margin-top: 10rem;
+  margin-top: 5.5rem;
   padding: 10px 0px;
   width: 100%;
   height: 100%;
@@ -10,8 +12,14 @@
   h1 {
     @include FontFolkard;
     color: $white;
-    font-size: 3rem;
+    @include adaptive-font(1, 3, 120);
     text-transform: uppercase;
+
+    animation-name: left-to-right;
+    animation-duration: 1s;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+    opacity: 0;
   }
 }
 .homeWrapper,
@@ -25,7 +33,7 @@
 
 .homeWrapper__description {
   h3 {
-    font-size: 1.1rem;
+    @include adaptive-font(0.7, 1.1, 120);
   }
 }
 
@@ -33,6 +41,12 @@
 .homeWrapper__description__whatAndWhy,
 .homeWrapper__description__futureUpdates {
   color: $white_gray;
+
+  animation-name: bottom-to-top;
+  animation-duration: 1s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
 }
 
 .homeWrapper__description__whatAndWhy {
@@ -49,4 +63,36 @@
   background-color: $gray_blue_light;
   padding: 20px;
   border-radius: 15px;
+  @include adaptive-font(0.7, 1.1, 120);
+}
+
+@media (max-width: 535px) {
+  .homeWrapper__description__whatAndWhy {
+    margin-top: 3rem;
+  }
+}
+
+@keyframes left-to-right {
+  0% {
+    opacity: 1;
+    transform: translateX(-20px);
+
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+    clip-path: polygon(0 0, 125% 0, 125% 125%, 0 125%);
+  }
+}
+
+@keyframes bottom-to-top {
+  0% {
+    opacity: 0.2;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

@@ -1,6 +1,7 @@
-import styles from "@/styles/home/Home.module.scss"
-import WhatAndWhy from "./WhatAndWhy"
 import FutureUpdates from "./FuturePlans"
+import WhatAndWhy from "./WhatAndWhy"
+
+import styles from "@/styles/home/Home.module.scss"
 
 export default function HomeDescription() {
   return (
