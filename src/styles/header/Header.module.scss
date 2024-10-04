@@ -15,38 +15,125 @@
   background-color: $gray_blue_light;
   box-shadow: 0px 1px 10px $gray_blue_dark;
   z-index: 100;
+}
+
+.headerLink,
+.activeHeaderLink {
+  padding: 3px;
+  font-size: 1rem;
+  font-weight: 400;
+  color: $white;
+  cursor: pointer;
+  border-bottom: 2px solid #ffffff00;
+  transition: all 0.1s ease-in-out;
+}
+
+.headerLink {
+  &:hover {
+    border-bottom: 2px solid $white;
+  }
+}
+
+.activeHeaderLink {
+  border-bottom: 2px solid $white;
+}
+
+.websiteNameInHeader {
+  position: relative;
+  top: 0.2rem;
+  padding: 3px 3px 3px 10px;
+  @include FontFolkard;
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 500;
+  color: $white;
+  cursor: pointer;
+}
+
+// small header
+.headerContainer__burgerMenu_closed,
+.headerContainer__burgerMenu_open {
+  margin-left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+  width: 33px;
+  height: 45px;
+  cursor: pointer;
+
+  span {
+    position: relative;
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: #fff;
+  }
+}
+
+.headerContainer__burgerMenu_open {
+  &::before,
+  &::after {
+    position: absolute;
+    content: " ";
+    height: 33px;
+    width: 2px;
+    background-color: #fff;
+  }
+
+  &::before {
+    transform: rotate(45deg);
+  }
+  &::after {
+    transform: rotate(-45deg);
+  }
+
+  span {
+    display: none;
+  }
+}
+
+.headerContainer__menu {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 55px;
+  background: $gray_blue_dark;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 20px;
+}
+
+@media (max-width: 550px) {
+  .websiteNameInHeader {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    position: static;
+    top: 0;
+    padding: 0px 0px 0px 0px;
+    text-align: center;
+  }
 
   .headerLink,
   .activeHeaderLink {
-    padding: 3px;
-    font-size: 1rem;
-    font-weight: 400;
-    color: $white;
-    cursor: pointer;
-    border-bottom: 2px solid #ffffff00;
-    transition: all 0.1s ease-in-out;
+    border-left: 2px solid #ffffff00;
+    border-bottom: none;
   }
 
   .headerLink {
     &:hover {
-      border-bottom: 2px solid $white;
+      border-left: 2px solid $white;
+      border-bottom: none;
     }
   }
 
   .activeHeaderLink {
-    border-bottom: 2px solid $white;
-  }
-
-  .websiteNameInHeader {
-    position: relative;
-    top: 0.2rem;
-    padding: 3px 3px 3px 10px;
-    @include FontFolkard;
-    text-transform: uppercase;
-    font-size: 1rem;
-    font-weight: 500;
-    color: $white;
-    border-radius: 8px;
-    cursor: pointer;
+    border-left: 2px solid $white;
+    border-bottom: none;
   }
 }
