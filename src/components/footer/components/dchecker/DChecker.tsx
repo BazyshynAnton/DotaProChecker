@@ -9,7 +9,7 @@ export default function DChecker() {
       <h3>dotachecker</h3>
       <p>
         © {year} DotaChecker. All rights reserved.
-        <br /> Dota 2 is registered trademark of Valve Corporation.
+        <br /> Dota2 is registered trademark of Valve Corporation.
       </p>
     </div>
   )
