@@ -1,4 +1,3 @@
-TODO: SCORE, header responsiveness, footer responsiveness.
+TODO: SCORE, footer color.
 <br/><br/>
-TODO: custom cursor "maybe".
 <br/><br/>

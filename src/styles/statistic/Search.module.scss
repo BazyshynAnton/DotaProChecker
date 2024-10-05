@@ -1,51 +1,49 @@
 @import "../scss/variables/colors.scss";
 
-.search {
+.form {
   margin-top: 10rem;
   padding-bottom: 6rem;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1.5rem;
+
+  h3 {
+    font-size: 1.1rem;
+    color: $white_gray;
+    padding-bottom: 5px;
+  }
 }
 
-.search__inputs {
+.search {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 1rem;
+  justify-content: flex-start;
+}
 
-  input {
-    padding: 5px 10px;
-    width: 300px;
-    height: 40px;
-    border-radius: 8px;
-    background-color: $gray_blue_light;
-    border: 2px solid $gray_blue_light;
-    color: $white;
-    outline: none;
-    transition: all 110ms ease-in-out;
+.search__input {
+  padding: 5px 10px;
+  width: 300px;
+  height: 60px;
+  background-color: $gray_blue_light;
+  border: 2px solid $gray_blue_light;
+  color: $white_gray;
+  outline: none;
+  transition: all 110ms ease-in-out;
+  font-size: 1rem;
+
+  &::placeholder {
     font-size: 1rem;
-
-    &::placeholder {
-      font-size: 1rem;
-      color: #c5c5c5;
-    }
-
-    &:focus {
-      border: 2px solid #7c7c7c;
-    }
-
-    &::-webkit-outer-spin-button,
-    &::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
-    }
-    -moz-appearance: textfield;
+    color: #c5c5c5;
   }
+
+  &:focus {
+    border: 2px solid #7c7c7c;
+  }
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  -moz-appearance: textfield;
 }
 
 .search__button_enabled,
@@ -54,18 +52,18 @@
   justify-content: center;
   align-items: center;
   width: 100px;
-  height: 40px;
+  height: 60px;
   padding: 10px;
-  border-radius: 8px;
-  text-transform: uppercase;
-  font-size: 1.1rem;
-  font-weight: 600;
-  background-color: $gray_blue_light;
+
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  background-color: #4c5057;
   transition: all 110ms ease-in-out;
 }
 
 .search__button_enabled {
-  color: #fff;
+  color: $white_gray;
   cursor: pointer;
 
   &:hover {
@@ -79,9 +77,9 @@
 }
 
 .search__loader {
-  width: 60px;
+  width: 50px;
   aspect-ratio: 2;
-  --_g: no-repeat radial-gradient(circle closest-side, #fff 90%, #0000);
+  --_g: no-repeat radial-gradient(circle closest-side, #cfcfcf 90%, #0000);
   background: var(--_g) 0% 50%, var(--_g) 50% 50%, var(--_g) 100% 50%;
   background-size: calc(100% / 3) 50%;
   animation: l3 1s infinite linear;

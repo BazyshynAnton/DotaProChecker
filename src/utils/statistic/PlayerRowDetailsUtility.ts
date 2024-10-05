@@ -23,13 +23,10 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
     player: Player,
     heroList: HeroList[]
   ): DetailsAboutHero {
-    // Find player slot color
     this.findColor(player)
 
-    // Find localized name and hero name
     this.findHeroName(player, heroList)
 
-    // Find hero facet
     this.findHeroFacet(player)
 
     return this.m_HeroDetails

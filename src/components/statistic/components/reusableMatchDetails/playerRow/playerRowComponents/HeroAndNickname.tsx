@@ -69,7 +69,8 @@ export default function HeroAndNickname({
               : styles.playerRow__playerDataCell__inCell__heroAndNickname__nickname_dire
           }
         >
-          {player.personaname ? player.personaname : "Anonymous"}
+          {/* {player.personaname ? player.personaname : "Anonymous"} */}
+          {player.personaname ? "Player" : "Anonymous"}
         </div>
       </div>
     </div>

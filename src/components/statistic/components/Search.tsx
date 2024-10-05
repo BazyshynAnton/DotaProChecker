@@ -35,30 +35,34 @@ export default function Search() {
   const isDisabled = search.matchID.length < 10
 
   return (
-    <form className={styles.search} onSubmit={handleFormSubmit}>
-      <div className={styles.search__inputs}>
+    <form className={styles.form} onSubmit={handleFormSubmit}>
+      <h3>Search for match:</h3>
+      <div className={styles.search}>
         <input
+          className={styles.search__input}
           type="number"
           value={search.matchID}
           placeholder="Match ID"
           onChange={handleInputChange("matchID")}
         />
+        {!isLoading ? (
+          <button
+            type="submit"
+            disabled={isDisabled}
+            className={
+              isDisabled
+                ? styles.search__button_disabled
+                : styles.search__button_enabled
+            }
+          >
+            search
+          </button>
+        ) : (
+          <div className={styles.search__button_disabled}>
+            <div className={styles.search__loader} />
+          </div>
+        )}
       </div>
-      {!isLoading ? (
-        <button
-          type="submit"
-          disabled={isDisabled}
-          className={
-            isDisabled
-              ? styles.search__button_disabled
-              : styles.search__button_enabled
-          }
-        >
-          search
-        </button>
-      ) : (
-        <div className={styles.search__loader} />
-      )}
     </form>
   )
 }

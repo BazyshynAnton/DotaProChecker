@@ -9,14 +9,14 @@
 }
 
 .footer__dchecker {
-  color: $white;
+  color: $white_gray;
   text-align: center;
   h3 {
     @include FontFolkard;
     text-transform: uppercase;
   }
   p {
-    font-size: 13px;
+    font-size: 13.5px;
   }
 }
 
@@ -26,9 +26,13 @@
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
-  font-size: 13px;
+  font-size: 13.5px;
+
+  a {
+    color: $white_gray;
+  }
 
   a:hover {
-    color: $white_gray;
+    color: $white;
   }
 }
