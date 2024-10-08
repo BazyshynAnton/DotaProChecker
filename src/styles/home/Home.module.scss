@@ -10,6 +10,10 @@
   height: 100%;
 
   h1 {
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
     @include FontFolkard;
     color: $white;
     @include adaptive-font(1, 2.5, 120);
