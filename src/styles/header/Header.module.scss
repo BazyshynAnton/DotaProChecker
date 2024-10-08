@@ -1,5 +1,6 @@
 @import "../scss/mixins/fonts.scss";
 @import "../scss/variables/colors.scss";
+@import "../scss/mixins/fontsize.scss";
 
 .headerContainer {
   position: fixed;
@@ -20,7 +21,7 @@
 .headerLink,
 .activeHeaderLink {
   padding: 3px;
-  font-size: 1rem;
+  @include adaptive-font(0.7, 1, 120);
   font-weight: 400;
   color: $white;
   cursor: pointer;
