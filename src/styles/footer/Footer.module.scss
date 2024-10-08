@@ -1,5 +1,6 @@
 @import "../scss/mixins/fonts.scss";
 @import "../scss/variables/colors";
+@import "../scss/mixins/fontsize.scss";
 
 .footer {
   margin-top: 5rem;
@@ -14,9 +15,10 @@
   h3 {
     @include FontFolkard;
     text-transform: uppercase;
+    @include adaptive-font(1, 1.4, 120);
   }
   p {
-    font-size: 13.5px;
+    @include adaptive-font(0.7, 0.95, 120);
   }
 }
 
@@ -26,7 +28,7 @@
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
-  font-size: 13.5px;
+  @include adaptive-font(0.7, 0.95, 120);
 
   a {
     color: $white_gray;

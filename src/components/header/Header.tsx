@@ -10,9 +10,10 @@ export default function Header() {
   const [smallHeader, setSmallHeader] = useState(false)
   useEffect(() => {
     if (typeof window !== "undefined") {
+      setSmallHeader(window.innerWidth <= 550)
+
       const handleResizeEvent = () => {
-        if (window.innerWidth <= 550) setSmallHeader(true)
-        else setSmallHeader(false)
+        setSmallHeader(window.innerWidth <= 550)
       }
 
       window.addEventListener("resize", handleResizeEvent)
