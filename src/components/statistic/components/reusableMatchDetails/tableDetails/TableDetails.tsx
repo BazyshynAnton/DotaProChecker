@@ -25,13 +25,9 @@ export default function TableDetails({
           THE {side}
         </header>
         <article className={styles.result__team__tableWrapper}>
-          <table className={styles.result__team__tableWrapper__table}>
-            <thead className={styles.result__team__tableWrapper__table__thead}>
-              <tr
-                className={
-                  styles.result__team__tableWrapper__table__thead__headersTableRow
-                }
-              >
+          <table className={styles.table}>
+            <thead className={styles.table__thead}>
+              <tr className={styles.table__thead__headersTableRow}>
                 <HeaderCells />
               </tr>
             </thead>

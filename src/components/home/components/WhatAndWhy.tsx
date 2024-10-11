@@ -2,7 +2,7 @@ import styles from "@/styles/home/Home.module.scss"
 
 export default function WhatAndWhy() {
   return (
-    <div className={styles.homeWrapper__description__whatAndWhy}>
+    <div className={styles.description__whatAndWhy}>
       <h2>What and Why.</h2>
       <p>
         <br />

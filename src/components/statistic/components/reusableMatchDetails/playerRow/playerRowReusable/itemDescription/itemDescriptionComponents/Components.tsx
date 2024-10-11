@@ -19,20 +19,15 @@ export default function Components({
   return (
     <>
       {details[item].components && details[item].components.length > 0 && (
-        <div className={styles.tooltip__description__components}>
+        <div className={styles.components}>
           <span>Components:</span>
-          <div className={styles.tooltip__description__components__items}>
+          <div className={styles.components__items}>
             {details[item].components.map((component, idx) => {
               const rdUtility = new PlayerRowDetailsUtility()
               const itemCost = rdUtility.findItemCostByName(component)
 
               return (
-                <div
-                  key={idx}
-                  className={
-                    styles.tooltip__description__components__items__item
-                  }
-                >
+                <div key={idx} className={styles.components__items__item}>
                   <Image
                     src={`/pictures/dotaItemIcon/${component}.webp`}
                     alt=""

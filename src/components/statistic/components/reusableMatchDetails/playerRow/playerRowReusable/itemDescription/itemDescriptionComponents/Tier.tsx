@@ -14,11 +14,11 @@ export default function Tier({ details, item }: ItemDescriptionInterface) {
   return (
     <>
       {details[item].tier ? (
-        <div className={styles.tooltip__NameAndCostWrapper__nameAndCost__tier}>
+        <div className={styles.nameAndCostWrapper__nameAndCost__tier}>
           <span>Tier {details[item].tier} Neutral Item</span>
         </div>
       ) : (
-        <div className={styles.tooltip__NameAndCostWrapper__nameAndCost__cost}>
+        <div className={styles.nameAndCostWrapper__nameAndCost__cost}>
           <Image
             src={`/pictures/dotaIcons/gold_symbol.webp`}
             alt=""

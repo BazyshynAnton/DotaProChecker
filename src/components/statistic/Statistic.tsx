@@ -1,6 +1,7 @@
 "use client"
 import MatchDetails from "./components/MatchDetails"
 import FetchError from "./components/FetchError"
+import Search from "./components/Search"
 
 import { useEffect } from "@/shared/reactImports"
 import { useAppSelector, useAppDispatch } from "@/shared/reduxImports"
@@ -8,7 +9,6 @@ import { useAppSelector, useAppDispatch } from "@/shared/reduxImports"
 import { setMatchData } from "@/store/statisticSlice"
 
 import type { MatchData } from "@/types/redux/statisticSlice"
-import Search from "./components/Search"
 
 export default function Statistic({
   matchData,

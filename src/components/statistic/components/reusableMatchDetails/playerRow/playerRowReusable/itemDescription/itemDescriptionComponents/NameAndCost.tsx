@@ -17,8 +17,8 @@ export default function NameAndCost({
   }
 
   return (
-    <div className={styles.tooltip__NameAndCostWrapper}>
-      <div className={styles.tooltip__NameAndCostWrapper__itemPicture}>
+    <div className={styles.nameAndCostWrapper}>
+      <div className={styles.nameAndCostWrapper__itemPicture}>
         <Image
           src={`/pictures/dotaItemIcon/${details[item].img}.webp`}
           alt=""
@@ -26,8 +26,8 @@ export default function NameAndCost({
           height={70}
         />
       </div>
-      <div className={styles.tooltip__NameAndCostWrapper__nameAndCost}>
-        <div className={styles.tooltip__NameAndCostWrapper__nameAndCost__name}>
+      <div className={styles.nameAndCostWrapper__nameAndCost}>
+        <div className={styles.nameAndCostWrapper__nameAndCost__name}>
           <h4>{details[item].dname}</h4>
         </div>
         <Tier details={details} item={item} />

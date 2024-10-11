@@ -15,12 +15,10 @@ export default function HintAndLore({
   return (
     <>
       {details[item].hint && details[item].hint.length > 0 && (
-        <div className={styles.tooltip__description__hint}>
-          {details[item].hint}
-        </div>
+        <div className={styles.hint}>{details[item].hint}</div>
       )}
       {details[item].lore && (
-        <div className={styles.tooltip__description__lore}>
+        <div className={styles.lore}>
           <i>{details[item].lore}</i>
         </div>
       )}

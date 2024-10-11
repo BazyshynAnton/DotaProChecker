@@ -26,7 +26,7 @@ export default function ResultOfMatch() {
 
   return (
     <>
-      <div className={styles.match__result}>
+      <div className={styles.result}>
         <h4
           style={{
             color: sideColor,
@@ -34,14 +34,14 @@ export default function ResultOfMatch() {
         >
           TEAM {side} {"WIN"}
         </h4>
-        <div className={styles.match__scoreAndTime}>
-          <p className={styles.match__scoreAndTime__radiantScore}>
+        <div className={styles.scoreAndTime}>
+          <p className={styles.scoreAndTime__radiantScore}>
             {resultOfMatch?.radiantScore}
           </p>
-          <p className={styles.match__scoreAndTime__duration}>
+          <p className={styles.scoreAndTime__duration}>
             {resultOfMatch?.matchDuration}
           </p>
-          <p className={styles.match__scoreAndTime__direScore}>
+          <p className={styles.scoreAndTime__direScore}>
             {resultOfMatch?.direScore}
           </p>
         </div>

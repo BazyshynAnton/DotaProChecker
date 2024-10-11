@@ -2,7 +2,7 @@ import styles from "@/styles/home/Home.module.scss"
 
 export default function FutureUpdates() {
   return (
-    <div className={styles.homeWrapper__description__futureUpdates}>
+    <div className={styles.description__futureUpdates}>
       <h2>Future updates and direction.</h2>
       <p>
         <br />

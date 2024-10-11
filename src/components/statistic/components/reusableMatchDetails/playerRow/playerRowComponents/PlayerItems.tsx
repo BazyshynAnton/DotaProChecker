@@ -16,34 +16,20 @@ export default function PlayerItems({
   player: Player
 }) {
   return (
-    <td className={styles.playerRow__playerDataCell__items}>
-      <div className={styles.playerRow__playerDataCell__items__wrapper}>
-        <div
-          className={styles.playerRow__playerDataCell__items__wrapper__slots}
-        >
-          <div
-            className={
-              styles.playerRow__playerDataCell__items__slots__wrapper__mainSlot
-            }
-          >
+    <td className={styles.playerDataCell__items}>
+      <div className={styles.playerDataCell__items__wrapper}>
+        <div className={styles.slots}>
+          <div className={styles.slots__mainSlot}>
             <MainSlotItems itemDetails={itemDetails} />
           </div>
-          <div
-            className={
-              styles.playerRow__playerDataCell__items__slots__wrapper__backpack
-            }
-          >
+          <div className={styles.slots__backpack}>
             <BackpackItems itemDetails={itemDetails} />
           </div>
         </div>
-        <div
-          className={styles.playerRow__playerDataCell__items__wrapper__neutral}
-        >
+        <div className={styles.neutral}>
           <NeutralItem itemDetails={itemDetails} />
         </div>
-        <div
-          className={styles.playerRow__playerDataCell__items__wrapper__aghanim}
-        >
+        <div className={styles.aghanim}>
           <Aghanim player={player} />
         </div>
       </div>

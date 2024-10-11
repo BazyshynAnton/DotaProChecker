@@ -14,7 +14,7 @@ export default function Abilities({ details, item }: ItemDescriptionInterface) {
   return (
     <>
       {details[item].abilities && (
-        <div className={styles.tooltip__description__abilities}>
+        <div className={styles.abilities}>
           {details[item].abilities.map((abil) => {
             //
             // Format description from JSON file:
@@ -27,17 +27,17 @@ export default function Abilities({ details, item }: ItemDescriptionInterface) {
 
             const abilityCondition =
               abil.type === "active"
-                ? styles.tooltip__description__abilities_active
+                ? styles.abilities_active
                 : abil.type === "use"
-                ? styles.tooltip__description__abilities_use
-                : styles.tooltip__description__abilities_passive
+                ? styles.abilities_use
+                : styles.abilities_passive
 
             const abilityHeaderCondition =
               abil.type === "active"
-                ? styles.tooltip__description__abilities_active__header
+                ? styles.abilities_active__header
                 : abil.type === "use"
-                ? styles.tooltip__description__abilities_use__header
-                : styles.tooltip__description__abilities_passive__header
+                ? styles.abilities_use__header
+                : styles.abilities_passive__header
 
             const displayAbilityTypeCondition =
               abil.type === "active"
@@ -51,31 +51,29 @@ export default function Abilities({ details, item }: ItemDescriptionInterface) {
 
             const abilityDescriptionCondition =
               abil.type === "active"
-                ? styles.tooltip__description__abilities_active__description
+                ? styles.abilities_active__description
                 : abil.type === "use"
-                ? styles.tooltip__description__abilities_use__description
-                : styles.tooltip__description__abilities_passive__description
+                ? styles.abilities_use__description
+                : styles.abilities_passive__description
 
             return (
               <div key={abil.title} className={abilityCondition}>
                 <div className={abilityHeaderCondition}>
                   <div
-                    className={
-                      styles.tooltip__description__abilities_active_passive__header__content
-                    }
+                    className={styles.abilities_active_passive__header__content}
                   >
                     <span>{displayAbilityTypeCondition}:</span>
                     <span> {abil.title}</span>
                   </div>
                   <div
                     className={
-                      styles.tooltip__description__abilities_active_passive__header__manaAndCooldown
+                      styles.abilities_active_passive__header__manaAndCooldown
                     }
                   >
                     {renderAbilityCondition && details[item].mc ? (
                       <div
                         className={
-                          styles.tooltip__description__abilities_active_passive__header__manaAndCooldown_image
+                          styles.abilities_active_passive__header__manaAndCooldown_image
                         }
                       >
                         <Image
@@ -93,7 +91,7 @@ export default function Abilities({ details, item }: ItemDescriptionInterface) {
                     {renderAbilityCondition && details[item].cd ? (
                       <div
                         className={
-                          styles.tooltip__description__abilities_active_passive__header__manaAndCooldown_image
+                          styles.abilities_active_passive__header__manaAndCooldown_image
                         }
                       >
                         <Image

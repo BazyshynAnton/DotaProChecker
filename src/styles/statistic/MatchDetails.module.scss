@@ -17,7 +17,7 @@
   width: 100%;
 }
 
-.match__result {
+.result {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -29,7 +29,7 @@
   }
 }
 
-.match__scoreAndTime {
+.scoreAndTime {
   padding-top: 13px;
   display: flex;
   justify-content: center;
@@ -39,14 +39,14 @@
   font-weight: 500;
 }
 
-.match__scoreAndTime__radiantScore {
+.scoreAndTime__radiantScore {
   font-size: 2rem;
   color: $radiant_green;
 }
-.match__scoreAndTime__duration {
+.scoreAndTime__duration {
   color: $white;
 }
-.match__scoreAndTime__direScore {
+.scoreAndTime__direScore {
   font-size: 2rem;
   color: $dire_red;
 }

@@ -11,65 +11,41 @@ export default function TableHeaderCell({
   return (
     <th>
       {str === "K" ? (
-        <div
-          title={title}
-          className={`${styles.result__team__tableWrapper__table__thead__headersTableRow__killsTableHeaderCell} `}
-        >
+        <div title={title} className={`${styles.killsTableHeaderCell} `}>
           {str}
         </div>
       ) : str === "D" ? (
-        <div
-          title={title}
-          className={`${styles.result__team__tableWrapper__table__thead__headersTableRow__deathsTableHeaderCell} `}
-        >
+        <div title={title} className={`${styles.deathsTableHeaderCell} `}>
           {str}
         </div>
       ) : str === "A" ? (
-        <div
-          title={title}
-          className={`${styles.result__team__tableWrapper__table__thead__headersTableRow__assistsTableHeaderCell} `}
-        >
+        <div title={title} className={`${styles.assistsTableHeaderCell} `}>
           {str}
         </div>
       ) : str === "LH" ? (
         <div
           title={title}
-          className={`${styles.result__team__tableWrapper__table__thead__headersTableRow__lasthitsTableHeaderCell} ${styles.result__team__tableWrapper__table__thead__headersTableRow__headersTableRow_helperAfter}`}
+          className={`${styles.lasthitsTableHeaderCell} ${styles.headersTableRow_helperAfter}`}
         >
           {str}
         </div>
       ) : str === "DN" ? (
-        <div
-          title={title}
-          className={
-            styles.result__team__tableWrapper__table__thead__headersTableRow__deniesTableHeaderCell
-          }
-        >
+        <div title={title} className={styles.deniesTableHeaderCell}>
           {str}
         </div>
       ) : str === "GPM" ? (
         <div
           title={title}
-          className={`${styles.result__team__tableWrapper__table__thead__headersTableRow__gpmTableHeaderCell} ${styles.result__team__tableWrapper__table__thead__headersTableRow__headersTableRow_helperAfter}`}
+          className={`${styles.gpmTableHeaderCell} ${styles.headersTableRow_helperAfter}`}
         >
           {str}
         </div>
       ) : str === "XPM" ? (
-        <div
-          title={title}
-          className={
-            styles.result__team__tableWrapper__table__thead__headersTableRow__xpmTableHeaderCell
-          }
-        >
+        <div title={title} className={styles.xpmTableHeaderCell}>
           {str}
         </div>
       ) : (
-        <div
-          title={title}
-          className={
-            styles.result__team__tableWrapper__table__thead__headersTableRow__otherTableHeaderCell
-          }
-        >
+        <div title={title} className={styles.otherTableHeaderCell}>
           {str}
         </div>
       )}

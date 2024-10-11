@@ -10,7 +10,7 @@ export default function Attribute({ details, item }: ItemDescriptionInterface) {
   }
 
   return (
-    <div className={styles.tooltip__description__attrib}>
+    <div className={styles.attrib}>
       {details[item].attrib?.map((att) => {
         //
         // Check for existence
@@ -20,10 +20,7 @@ export default function Attribute({ details, item }: ItemDescriptionInterface) {
         const partsOfString = att.display.split("{value}")
 
         return (
-          <div
-            key={att.key}
-            className={styles.tooltip__description__attrib__text}
-          >
+          <div key={att.key} className={styles.attrib__text}>
             <span>{partsOfString[0]}</span>
             <span style={{ color: "#ffffffde" }}>{att.value}</span>
             <span>{partsOfString[1]}</span>

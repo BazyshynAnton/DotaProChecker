@@ -22,19 +22,19 @@
       position: relative;
     }
 
-    .playerRow__playerDataCell__kills,
-    .playerRow__playerDataCell__assists,
-    .playerRow__playerDataCell__deaths,
-    .playerRow__playerDataCell__lasthits,
-    .playerRow__playerDataCell__denies,
-    .playerRow__playerDataCell__lasthits,
-    .playerRow__playerDataCell__gpm,
-    .playerRow__playerDataCell__networth,
-    .playerRow__playerDataCell__gpm,
-    .playerRow__playerDataCell__xpm,
-    .playerRow__playerDataCell__heroDamage,
-    .playerRow__playerDataCell__towerDamage,
-    .playerRow__playerDataCell__heroesHealing {
+    .playerDataCell__kills,
+    .playerDataCell__assists,
+    .playerDataCell__deaths,
+    .playerDataCell__lasthits,
+    .playerDataCell__denies,
+    .playerDataCell__lasthits,
+    .playerDataCell__gpm,
+    .playerDataCell__networth,
+    .playerDataCell__gpm,
+    .playerDataCell__xpm,
+    .playerDataCell__heroDamage,
+    .playerDataCell__towerDamage,
+    .playerDataCell__heroesHealing {
       position: relative;
       z-index: 6;
     }
@@ -52,13 +52,13 @@
   align-items: center;
 }
 
-.playerRow__playerDataCell__inCell__heroAndNickname {
+.heroAndNickname {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
-.playerRow__playerDataCell__inCell__heroAndNickname__hero {
+.heroAndNickname__hero {
   position: relative;
 
   span {
@@ -82,7 +82,7 @@
   }
 }
 
-.playerRow__playerDataCell__inCell__heroAndNickname__hero__icon {
+.heroAndNickname__hero__icon {
   width: 54px;
   height: 30px;
 
@@ -93,7 +93,7 @@
   }
 }
 
-.playerRow__playerDataCell__inCell__heroAndNickname__hero__level {
+.heroAndNickname__hero__level {
   position: absolute;
   top: 0;
   left: 0;
@@ -110,25 +110,25 @@
   cursor: default;
 }
 
-.playerRow__playerDataCell__inCell__heroAndNickname__nickname {
+.heroAndNickname__nickname {
   display: flex;
   flex-direction: column;
 }
 
-.playerRow__playerDataCell__inCell__heroAndNickname__nickname_radiant {
+.heroAndNickname__nickname_radiant {
   color: $radiant_green;
 }
 
-.playerRow__playerDataCell__inCell__heroAndNickname__nickname_dire {
+.heroAndNickname__nickname_dire {
   color: $dire_red;
 }
 
-.playerRow__playerDataCell__inCell__heroAndNickname__nickname_radiant,
-.playerRow__playerDataCell__inCell__heroAndNickname__nickname_dire {
+.heroAndNickname__nickname_radiant,
+.heroAndNickname__nickname_dire {
   text-align: left;
 }
 
-.playerRow__playerDataCell__inCell__rankAndAvatar {
+.rankAndAvatar {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -137,13 +137,13 @@
   z-index: 6;
 }
 
-.playerRow__playerDataCell__inCell__rankAndAvatar__rank {
+.rankAndAvatar__rank {
   position: relative;
   width: 40px;
   height: 40px;
 }
 
-.playerRow__playerDataCell__inCell__rankAndAvatar__rank__tier {
+.rankAndAvatar__rank__tier {
   position: absolute;
   top: 0;
   left: 0;
@@ -156,33 +156,33 @@
   color: #fff;
 }
 
-.playerRow__playerDataCell__inCell__rankAndAvatar__avatar {
+.rankAndAvatar__avatar {
   width: 24px;
   height: 24px;
 }
 
-.playerRow__playerDataCell__kills {
+.playerDataCell__kills {
   padding-left: 20px;
 }
 
-.playerRow__playerDataCell__kills,
-.playerRow__playerDataCell__assists {
+.playerDataCell__kills,
+.playerDataCell__assists {
   color: #fff;
 }
 
-.playerRow__playerDataCell__kills,
-.playerRow__playerDataCell__deaths,
-.playerRow__playerDataCell__assists {
+.playerDataCell__kills,
+.playerDataCell__deaths,
+.playerDataCell__assists {
   width: 21px;
 }
 
-.playerRow__playerDataCell__lasthits,
-.playerRow__playerDataCell__denies {
+.playerDataCell__lasthits,
+.playerDataCell__denies {
   width: 21px;
 }
 
-.playerRow__playerDataCell__lasthits,
-.playerRow__playerDataCell__gpm {
+.playerDataCell__lasthits,
+.playerDataCell__gpm {
   position: relative;
   z-index: 0;
   &::before {
@@ -196,58 +196,58 @@
   }
 }
 
-.playerRow__playerDataCell__denies,
-.playerRow__playerDataCell__xpm {
+.playerDataCell__denies,
+.playerDataCell__xpm {
   text-align: left !important;
   padding-left: 10px;
 }
 
-.playerRow__playerDataCell__networth {
+.playerDataCell__networth {
   width: 32px;
 }
 
-.playerRow__playerDataCell__gpm,
-.playerRow__playerDataCell__xpm {
+.playerDataCell__gpm,
+.playerDataCell__xpm {
   width: 25px;
 }
 
-.playerRow__playerDataCell__heroDamage,
-.playerRow__playerDataCell__towerDamage,
-.playerRow__playerDataCell__heroesHealing {
+.playerDataCell__heroDamage,
+.playerDataCell__towerDamage,
+.playerDataCell__heroesHealing {
   width: 32px;
 }
 
-.playerRow__playerDataCell__towerDamage,
-.playerRow__playerDataCell__heroesHealing {
+.playerDataCell__towerDamage,
+.playerDataCell__heroesHealing {
   padding-left: 10px;
 }
 
-.playerRow__playerDataCell__deaths,
-.playerRow__playerDataCell__lasthits,
-.playerRow__playerDataCell__denies,
-.playerRow__playerDataCell__lasthits,
-.playerRow__playerDataCell__gpm,
-.playerRow__playerDataCell__networth,
-.playerRow__playerDataCell__gpm,
-.playerRow__playerDataCell__xpm,
-.playerRow__playerDataCell__heroDamage,
-.playerRow__playerDataCell__towerDamage,
-.playerRow__playerDataCell__heroesHealing {
+.playerDataCell__deaths,
+.playerDataCell__lasthits,
+.playerDataCell__denies,
+.playerDataCell__lasthits,
+.playerDataCell__gpm,
+.playerDataCell__networth,
+.playerDataCell__gpm,
+.playerDataCell__xpm,
+.playerDataCell__heroDamage,
+.playerDataCell__towerDamage,
+.playerDataCell__heroesHealing {
   color: #b8b8b8;
 }
 
-.playerRow__playerDataCell__items {
+.playerDataCell__items {
   width: 20%;
   text-align: left;
   padding-left: 10px;
 }
-.playerRow__playerDataCell__items__wrapper {
+.playerDataCell__items__wrapper {
   display: flex;
   gap: 1rem;
   align-items: center;
 }
 
-.playerRow__playerDataCell__items__wrapper__slots {
+.slots {
   padding: 10px 0px 10px 0px;
   display: flex;
   flex-direction: column;
@@ -256,14 +256,14 @@
   width: 250px;
 }
 
-.playerRow__playerDataCell__items__slots__wrapper__mainSlot,
-.playerRow__playerDataCell__items__slots__wrapper__backpack {
+.slots__mainSlot,
+.slots__backpack {
   display: flex;
   gap: 3px;
   cursor: help;
 }
 
-.playerRow__playerDataCell__items__wrapper__neutral {
+.neutral {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -274,6 +274,6 @@
   overflow: hidden;
 }
 
-// .playerRow__playerDataCell__items__wrapper__aghanim,
-// .playerRow__playerDataCell__items__wrapper__shard {
+// .ghanim,
+// .shard {
 // }

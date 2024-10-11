@@ -22,14 +22,14 @@
   z-index: 10;
 }
 
-.tooltip__NameAndCostWrapper {
+.nameAndCostWrapper {
   width: 100%;
   display: flex;
   padding: 6px 9px 10px 9px;
   color: #ffffffde;
 }
 
-.tooltip__NameAndCostWrapper__itemPicture {
+.nameAndCostWrapper__itemPicture {
   height: 50px;
   img {
     width: 100%;
@@ -38,21 +38,21 @@
   }
 }
 
-.tooltip__NameAndCostWrapper__nameAndCost {
+.nameAndCostWrapper__nameAndCost {
   padding-left: 15px;
   display: flex;
   flex-direction: column;
   gap: 0.1rem;
 }
 
-.tooltip__NameAndCostWrapper__nameAndCost__name {
+.nameAndCostWrapper__nameAndCost__name {
   font-weight: bold;
   font-size: 13px;
   letter-spacing: 0.5px;
   text-transform: uppercase;
 }
 
-.tooltip__NameAndCostWrapper__nameAndCost__cost {
+.nameAndCostWrapper__nameAndCost__cost {
   display: flex;
   gap: 0.3rem;
   align-items: center;
@@ -65,7 +65,7 @@
   }
 }
 
-.tooltip__NameAndCostWrapper__nameAndCost__tier {
+.nameAndCostWrapper__nameAndCost__tier {
   font-size: 13px;
 }
 
@@ -77,29 +77,29 @@
   text-align: left;
 }
 
-.tooltip__description__target,
-.tooltip__description__dispellable {
+.target,
+.dispellable {
   padding-bottom: 5px;
 }
 
-.tooltip__description__target,
-.tooltip__description__dispellable,
-.tooltip__description__piercesDebuffImmunity {
+.target,
+.dispellable,
+.piercesDebuffImmunity {
   color: #6c7b7e;
   font-size: 13px;
 }
 
-.tooltip__description__dispellable_typeOne,
-.tooltip__description__piercesDebuffImmunity_typeOne {
+.dispellable_typeOne,
+.piercesDebuffImmunity_typeOne {
   color: #5aa460;
 }
 
-.tooltip__description__dispellable_typeTwo,
-.tooltip__description__piercesDebuffImmunity_typeTwo {
+.dispellable_typeTwo,
+.piercesDebuffImmunity_typeTwo {
   color: #8b0000;
 }
 
-.tooltip__description__attrib {
+.attrib {
   width: 100%;
   height: 100%;
   display: flex;
@@ -107,31 +107,31 @@
   gap: 0.2rem;
 }
 
-.tooltip__description__attrib__text {
+.attrib__text {
   font-size: 13px;
   color: #6c7b7e;
 }
 
-.tooltip__description__abilities {
+.abilities {
   width: 100%;
   height: auto;
 }
 
-.tooltip__description__abilities_active {
+.abilities_active {
   background: #181e30;
 }
 
-.tooltip__description__abilities_use {
+.abilities_use {
   background: #17231f;
 }
 
-.tooltip__description__abilities_passive {
+.abilities_passive {
   background: #1c2630;
 }
 
-.tooltip__description__abilities_active__header,
-.tooltip__description__abilities_use__header,
-.tooltip__description__abilities_passive__header {
+.abilities_active__header,
+.abilities_use__header,
+.abilities_passive__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -143,7 +143,7 @@
   margin-top: 15px;
 }
 
-.tooltip__description__abilities_active_passive__header__manaAndCooldown {
+.abilities_active_passive__header__manaAndCooldown {
   display: flex;
   align-items: center;
   width: max-content;
@@ -151,7 +151,7 @@
   gap: 0.5rem;
 }
 
-.tooltip__description__abilities_active_passive__header__manaAndCooldown_image {
+.abilities_active_passive__header__manaAndCooldown_image {
   display: flex;
   align-items: center;
   img {
@@ -168,24 +168,24 @@
   }
 }
 
-.tooltip__description__abilities_active__header {
+.abilities_active__header {
   background-image: linear-gradient(to right, #373b7e, #181e30);
   color: #9f9fcf;
 }
 
-.tooltip__description__abilities_use__header {
+.abilities_use__header {
   background: linear-gradient(to right, #273f27, #17231f);
   color: #95c07a;
 }
 
-.tooltip__description__abilities_passive__header {
+.abilities_passive__header {
   background-image: linear-gradient(to right, #263540, #1c2630);
   color: #7e8c9d;
 }
 
-.tooltip__description__abilities_active__description,
-.tooltip__description__abilities_use__description,
-.tooltip__description__abilities_passive__description {
+.abilities_active__description,
+.abilities_use__description,
+.abilities_passive__description {
   font-size: 13px;
   line-height: 18px;
   padding: 6px 6px;
@@ -195,20 +195,20 @@
   }
 }
 
-.tooltip__description__abilities_active__description {
+.abilities_active__description {
   color: #71779c;
 }
 
-.tooltip__description__abilities_use__description {
+.abilities_use__description {
   color: #7b8a72;
 }
 
-.tooltip__description__abilities_passive__description {
+.abilities_passive__description {
   color: #56616e;
 }
 
-.tooltip__description__hint,
-.tooltip__description__lore {
+.hint,
+.lore {
   width: 100%;
   height: auto;
   padding: 6px 6px;
@@ -216,18 +216,18 @@
   margin-top: 10px;
 }
 
-.tooltip__description__hint {
+.hint {
   background: #51565f;
   color: #080d15;
 }
 
-.tooltip__description__lore {
+.lore {
   background: #0d1118;
   color: #51565f;
 }
 
 // here
-.tooltip__description__components {
+.components {
   width: 100%;
   height: auto;
   display: flex;
@@ -237,7 +237,7 @@
   color: #51565f;
 }
 
-.tooltip__description__components__items {
+.components__items {
   display: flex;
   gap: 0.5rem;
   padding-top: 5px;
@@ -245,7 +245,7 @@
   font-size: 10px;
 }
 
-.tooltip__description__components__items__item {
+.components__items__item {
   display: flex;
   flex-direction: column;
   align-items: center;

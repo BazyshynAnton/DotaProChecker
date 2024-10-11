@@ -2,7 +2,7 @@ import styles from "@/styles/home/Home.module.scss"
 
 export default function Warning() {
   return (
-    <div className={styles.homeWrapper__description__futureUpdates}>
+    <div className={styles.description__futureUpdates}>
       <h2>Warning.</h2>
       <p>
         <br />I am not responsible for profanity. <br />

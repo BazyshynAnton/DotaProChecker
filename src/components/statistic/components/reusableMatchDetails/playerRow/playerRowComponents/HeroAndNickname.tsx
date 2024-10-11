@@ -13,16 +13,10 @@ export default function HeroAndNickname({
   player: Player
 }) {
   return (
-    <div className={styles.playerRow__playerDataCell__inCell__heroAndNickname}>
-      <div
-        className={
-          styles.playerRow__playerDataCell__inCell__heroAndNickname__hero
-        }
-      >
+    <div className={styles.heroAndNickname}>
+      <div className={styles.heroAndNickname__hero}>
         <div
-          className={
-            styles.playerRow__playerDataCell__inCell__heroAndNickname__hero__icon
-          }
+          className={styles.heroAndNickname__hero__icon}
           style={{
             borderRight: `3px solid ${detailsAboutHero.playerColor}`,
           }}
@@ -35,11 +29,7 @@ export default function HeroAndNickname({
             quality={100}
           />
         </div>
-        <div
-          className={
-            styles.playerRow__playerDataCell__inCell__heroAndNickname__hero__level
-          }
-        >
+        <div className={styles.heroAndNickname__hero__level}>
           {player.level}
         </div>
         <span
@@ -57,16 +47,12 @@ export default function HeroAndNickname({
           )}
         </span>
       </div>
-      <div
-        className={
-          styles.playerRow__playerDataCell__inCell__heroAndNickname__nickname
-        }
-      >
+      <div className={styles.heroAndNickname__nickname}>
         <div
           className={
             player.team_number === 0
-              ? styles.playerRow__playerDataCell__inCell__heroAndNickname__nickname_radiant
-              : styles.playerRow__playerDataCell__inCell__heroAndNickname__nickname_dire
+              ? styles.heroAndNickname__nickname_radiant
+              : styles.heroAndNickname__nickname_dire
           }
         >
           {/* {player.personaname ? player.personaname : "Anonymous"} */}

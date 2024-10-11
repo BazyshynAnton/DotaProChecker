@@ -7,7 +7,7 @@ import styles from "@/styles/home/Home.module.scss"
 export default function HomeDescription() {
   return (
     <>
-      <div className={styles.homeWrapper__description}>
+      <div className={styles.description}>
         <h3>Dota 2 data platform</h3>
       </div>
       <WhatAndWhy />
