@@ -22,7 +22,7 @@ export default function HeroAndNickname({
           }}
         >
           <Image
-            src={`/pictures/dotaHeroIcon/${detailsAboutHero.heroLocalizedName}.png`}
+            src={`/pictures/dotaHeroIcons/${detailsAboutHero.heroLocalizedName}.png`}
             alt={detailsAboutHero.heroLocalizedName}
             width={256}
             height={144}
@@ -39,7 +39,7 @@ export default function HeroAndNickname({
         >
           {detailsAboutHero.heroVariant.icon && (
             <Image
-              src={`/pictures/dotaHeroFacetIcon/${detailsAboutHero.heroVariant.icon}.png`}
+              src={`/pictures/dotaHeroFacetIcons/${detailsAboutHero.heroVariant.icon}.png`}
               alt={detailsAboutHero.heroVariant.icon}
               width={72}
               height={72}

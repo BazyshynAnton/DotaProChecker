@@ -1,0 +1,56 @@
+@import "../scss/variables/colors.scss";
+
+.picksBans {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 5rem;
+  gap: 1rem;
+}
+
+.picksBans_pick,
+.picksBans_ban {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  height: fit-content;
+
+  span {
+    padding: 3px 4px;
+    background: $gray_blue_light;
+    color: $white_gray;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+}
+
+.picksBans_ban {
+  .heroImg {
+    width: fit-content;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 4px;
+      left: 0;
+      right: 0;
+      z-index: 1;
+      background: #393e468a;
+    }
+    // TODO : show it.
+    &::after {
+      content: "";
+      position: absolute;
+      z-index: 2;
+      left: -3px;
+      right: -3px;
+      top: 14px;
+      transform: rotate(-28deg);
+      background: $dire_red;
+    }
+  }
+}

@@ -63,7 +63,7 @@ export default function Aghanim({ player }: { player: Player }) {
         }}
       >
         <Image
-          src={`/pictures/dotaItemIcon/${
+          src={`/pictures/dotaItemIcons/${
             player.aghanims_scepter === 1 ? "scepter_1" : "scepter_0"
           }.png`}
           alt=""
@@ -73,7 +73,7 @@ export default function Aghanim({ player }: { player: Player }) {
           onMouseLeave={() => handleMouseLeaveAghanim(0)}
         />
         <Image
-          src={`/pictures/dotaItemIcon/${
+          src={`/pictures/dotaItemIcons/${
             player.aghanims_shard === 1 ? "shard_1" : "shard_0"
           }.png`}
           alt=""

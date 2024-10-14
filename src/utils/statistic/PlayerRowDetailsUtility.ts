@@ -72,21 +72,21 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
 
     if (leaderboardRank && rankTier) {
       if (leaderboardRank <= 10 && leaderboardRank >= 1) {
-        return `/pictures/dotaPlayerRanksIcon/${rankTier + 2}.png`
+        return `/pictures/dotaPlayerRankIcons/${rankTier + 2}.png`
       }
 
       if (leaderboardRank > 10 && leaderboardRank <= 100) {
-        return `/pictures/dotaPlayerRanksIcon/${rankTier + 1}.png`
+        return `/pictures/dotaPlayerRankIcons/${rankTier + 1}.png`
       }
 
       if (leaderboardRank > 100) {
-        return `/pictures/dotaPlayerRanksIcon/${rankTier}.png`
+        return `/pictures/dotaPlayerRankIcons/${rankTier}.png`
       }
 
-      return `/pictures/dotaPlayerRanksIcon/${rankTier}.png`
+      return `/pictures/dotaPlayerRankIcons/${rankTier}.png`
     }
 
-    return "/pictures/dotaPlayerRanksIcon/00.png"
+    return "/pictures/dotaPlayerRankIcons/00.png"
   }
 
   public findPlayerAvatar(): string {
@@ -94,7 +94,7 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
 
     if (avatar !== "") return avatar
 
-    return "/pictures/dotaPlayerIcon/anonymous.jpg"
+    return "/pictures/dotaPlayerIcons/anonymous.jpg"
   }
 
   // Find item details

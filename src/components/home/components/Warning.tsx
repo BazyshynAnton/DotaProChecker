@@ -8,7 +8,7 @@ export default function Warning() {
         <br />I am not responsible for profanity. <br />
         We all need to understand that no one can stop players from using
         profanity. Therefore, all nicknames have now been replaced with the word
-        {' "'}Player{'"'}, and if a player has hidden match data, their nickname
+        {' "'}Player{'"'}, and if a player has hidden match data, his nickname
         will be displayed as {'"'}Anonymous{'"'}.
         <br />
         <br />

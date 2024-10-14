@@ -80,14 +80,9 @@ export interface MatchDetails {
   engine: number
   radiant_score: number
   dire_score: number
-  picks_bans: [
-    {
-      is_pick: boolean
-      hero_id: number
-      team: number
-      order: number
-    }
-  ]
+
+  picks_bans: PicksAndBans[]
+
   od_data: {
     has_api: boolean
     has_gcdata: boolean
@@ -96,6 +91,13 @@ export interface MatchDetails {
   metadata: null | any
   patch: number
   region: number
+}
+
+export type PicksAndBans = {
+  is_pick: boolean
+  hero_id: number
+  team: number
+  order: number
 }
 
 export interface PlayerProfile {

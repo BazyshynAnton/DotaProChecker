@@ -1,4 +1,8 @@
-import { HeroList, MatchDetails } from "@/types/redux/statisticSlice"
+import {
+  HeroList,
+  MatchDetails,
+  PicksAndBans,
+} from "@/types/redux/statisticSlice"
 import type {
   MatchResult,
   PlayersByTeam,
@@ -34,5 +38,37 @@ export class MatchDetailsUtility implements UMatchDetails {
     )
 
     return { playersRadiant, playersDire }
+  }
+
+  public picksBans(
+    side: string,
+    matchDetails: MatchDetails
+  ): PicksAndBans[] | string {
+    switch (side) {
+      case "radiant": {
+        const radiantPicksBans = matchDetails.picks_bans.filter(
+          (el) => el.team == 0
+        )
+        return radiantPicksBans
+      }
+      case "dire": {
+        const direPicksBans = matchDetails.picks_bans.filter(
+          (el) => el.team == 1
+        )
+        return direPicksBans
+      }
+    }
+
+    return "error"
+  }
+
+  public findHeroName(hero_id: number, heroList: HeroList[]): void | string {
+    for (let i = 0; i < heroList.length; ++i) {
+      const hero = heroList[i]
+
+      if (hero_id === hero.id) {
+        return hero.localized_name
+      }
+    }
   }
 }

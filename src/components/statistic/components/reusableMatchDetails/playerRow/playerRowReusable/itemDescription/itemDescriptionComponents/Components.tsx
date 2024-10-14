@@ -29,7 +29,7 @@ export default function Components({
               return (
                 <div key={idx} className={styles.components__items__item}>
                   <Image
-                    src={`/pictures/dotaItemIcon/${component}.webp`}
+                    src={`/pictures/dotaItemIcons/${component}.webp`}
                     alt=""
                     width={34}
                     height={25}

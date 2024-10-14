@@ -10,6 +10,7 @@ import { useAppSelector } from "@/shared/reduxImports"
 import type { PlayersByTeam } from "@/types/statistic/matchDetails"
 
 import styles from "@/styles/statistic/MatchDetails.module.scss"
+import PicksBans from "./PicksBans"
 
 //
 //
@@ -33,7 +34,9 @@ export default function MatchDetails() {
         <ResultOfMatch />
       </div>
       <TableDetails playersTeam={playersByTeam?.playersRadiant} />
+      <PicksBans side={"radiant"} />
       <TableDetails playersTeam={playersByTeam?.playersDire} />
+      <PicksBans side={"dire"} />
     </div>
   )
 }

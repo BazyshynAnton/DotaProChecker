@@ -48,7 +48,7 @@ export default function NeutralItem({ itemDetails }: SlotInterface) {
         <ItemDescription details={details} item={neutralItem} />
       )}
       <Image
-        src={`/pictures/dotaItemIcon/${neutralItem}.webp`}
+        src={`/pictures/dotaItemIcons/${neutralItem}.webp`}
         alt=""
         width={39}
         height={32}

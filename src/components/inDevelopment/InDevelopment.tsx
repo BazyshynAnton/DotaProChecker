@@ -7,12 +7,13 @@ export default function InDevelopment() {
       <div className={styles.dev__head}>
         <Image
           className={styles.dev__head__pic}
-          src="/pictures/dotaHomePageIcons/indev.webp"
+          src="/pictures/dotaCheckerIcons/indev.webp"
           alt="development"
           width={88}
           height={64}
           priority
         />
+
         <div className={styles.dev__head__kind}>
           <h3>page in development</h3>
           <span>

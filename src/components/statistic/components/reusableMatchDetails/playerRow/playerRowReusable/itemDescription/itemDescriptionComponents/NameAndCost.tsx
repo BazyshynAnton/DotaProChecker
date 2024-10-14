@@ -20,7 +20,7 @@ export default function NameAndCost({
     <div className={styles.nameAndCostWrapper}>
       <div className={styles.nameAndCostWrapper__itemPicture}>
         <Image
-          src={`/pictures/dotaItemIcon/${details[item].img}.webp`}
+          src={`/pictures/dotaItemIcons/${details[item].img}.webp`}
           alt=""
           width={90}
           height={70}

@@ -61,7 +61,7 @@ export default function MainSlotItems({ itemDetails }: SlotInterface) {
               <ItemDescription details={details} item={item} />
             )}
             <Image
-              src={`/pictures/dotaItemIcon/${item}.webp`}
+              src={`/pictures/dotaItemIcons/${item}.webp`}
               alt=""
               width={37}
               height={27}

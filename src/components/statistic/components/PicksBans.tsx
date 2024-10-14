@@ -1,0 +1,49 @@
+import { useAppSelector } from "@/shared/reduxImports"
+import { PicksAndBans } from "@/types/redux/statisticSlice"
+import { MatchDetailsUtility } from "@/utils/statistic/MatchDetailsUtility"
+import { Image } from "@/shared/nextjsImports"
+
+import styles from "@/styles/statistic/PicksBans.module.scss"
+
+export default function PickBans({ side }: { side: string }) {
+  const { matchDetails, heroList } = useAppSelector(
+    (store) => store.statisticSlice
+  )
+  const uMatchData = new MatchDetailsUtility()
+
+  let statistic: PicksAndBans[] | string = ""
+  if (matchDetails) {
+    statistic = uMatchData.picksBans(side, matchDetails)
+  }
+
+  if (typeof statistic === "string" || !heroList) return
+
+  return (
+    <div className={styles.picksBans}>
+      {statistic.map((el: PicksAndBans, idx: number) => {
+        const hero = uMatchData.findHeroName(el.hero_id, heroList)
+        return (
+          <div
+            key={idx}
+            className={
+              el.is_pick ? styles.picksBans_pick : styles.picksBans_ban
+            }
+          >
+            <div className={styles.heroImg}>
+              <Image
+                src={`/pictures/dotaHeroIcons/${hero}.png`}
+                alt=""
+                width={71}
+                height={40}
+              />
+            </div>
+            <span>
+              {el.is_pick ? "pick " : "ban "}
+              {el.order + 1}
+            </span>
+          </div>
+        )
+      })}
+    </div>
+  )
+}
