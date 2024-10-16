@@ -22,12 +22,7 @@ export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
   )
   //
   // Check existence
-  if (!heroList || !playersProfiles)
-    return (
-      <div>
-        Cannot find the {'"'}list of heroes{'"'} or {'"'}players profiles{'"'}
-      </div>
-    )
+  if (!heroList || !playersProfiles) return
 
   return (
     <>
@@ -49,7 +44,7 @@ export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
           uRowDetails.findAppropriateItems(player)
 
         return (
-          <tr key={player.hero_id} className={styles.playerRow}>
+          <tr key={player.account_id} className={styles.playerRow}>
             <td className={styles.playerRow__playerDataCell}>
               <div className={styles.playerRow__playerDataCell__inCell}>
                 <HeroAndNickname

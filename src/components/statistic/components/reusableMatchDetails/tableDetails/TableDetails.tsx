@@ -1,4 +1,4 @@
-import PlayerRow from "../playerRow/PlayerRow"
+import PlayerRow from "./components/playerRow/PlayerRow"
 import HeaderCells from "./components/HeaderCells"
 
 import type { Player } from "@/types/statistic/tableDetails"
@@ -14,7 +14,7 @@ export default function TableDetails({
     ? styles.result__team__header_radiant
     : styles.result__team__header_dire
 
-  const side = playersTeam[0].isRadiant ? "RADIANT" : "DIRE"
+  const side = playersTeam[0].isRadiant ? "radiant" : "dire"
 
   return (
     <div className={styles.result}>
@@ -22,7 +22,7 @@ export default function TableDetails({
         <header
           className={`${styles.result__team__header} ${teamHeaderCondition}`}
         >
-          THE {side}
+          the {side}
         </header>
         <article className={styles.result__team__tableWrapper}>
           <table className={styles.table}>

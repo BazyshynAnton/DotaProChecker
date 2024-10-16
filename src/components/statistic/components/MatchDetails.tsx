@@ -1,6 +1,8 @@
 import TableDetails from "./reusableMatchDetails/tableDetails/TableDetails"
 import ResultOfMatch from "./ResultOfMatch"
 import Loader from "@/components/loader/Loader"
+import PicksBans from "./PicksBans"
+import TableAbilities from "./reusableMatchDetails/tableAbilities/TableAbilities"
 
 import { MatchDetailsUtility } from "@/utils/statistic/MatchDetailsUtility"
 
@@ -10,7 +12,6 @@ import { useAppSelector } from "@/shared/reduxImports"
 import type { PlayersByTeam } from "@/types/statistic/matchDetails"
 
 import styles from "@/styles/statistic/MatchDetails.module.scss"
-import PicksBans from "./PicksBans"
 
 //
 //
@@ -37,6 +38,8 @@ export default function MatchDetails() {
       <PicksBans side={"radiant"} />
       <TableDetails playersTeam={playersByTeam?.playersDire} />
       <PicksBans side={"dire"} />
+      <TableAbilities playersTeam={playersByTeam?.playersRadiant} />
+      <TableAbilities playersTeam={playersByTeam?.playersDire} />
     </div>
   )
 }

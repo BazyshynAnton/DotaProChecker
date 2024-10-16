@@ -6,6 +6,7 @@
   align-items: center;
   margin-bottom: 5rem;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .picksBans_pick,
@@ -15,6 +16,12 @@
   flex-direction: column;
   width: fit-content;
   height: fit-content;
+
+  .heroImg {
+    width: fit-content;
+    height: 40px;
+    position: relative;
+  }
 
   span {
     padding: 3px 4px;
@@ -28,14 +35,12 @@
 
 .picksBans_ban {
   .heroImg {
-    width: fit-content;
-    position: relative;
-
+    overflow: hidden;
     &::before {
       content: "";
       position: absolute;
       top: 0;
-      bottom: 4px;
+      bottom: 0px;
       left: 0;
       right: 0;
       z-index: 1;
@@ -45,10 +50,12 @@
     &::after {
       content: "";
       position: absolute;
+      width: 90px;
+      height: 3px;
       z-index: 2;
-      left: -3px;
+      left: -7px;
       right: -3px;
-      top: 14px;
+      top: 17px;
       transform: rotate(-28deg);
       background: $dire_red;
     }

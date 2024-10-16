@@ -216,6 +216,10 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
     return cost.toString()
   }
 
+  public findAbilityByID(id: number): string {
+    return ""
+  }
+
   //
   // Hero details for [FUNCTION](findAppropriateHero)
   private m_HeroDetails: DetailsAboutHero = {
