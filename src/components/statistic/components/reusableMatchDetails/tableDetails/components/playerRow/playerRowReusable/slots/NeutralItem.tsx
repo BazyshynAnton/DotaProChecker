@@ -18,7 +18,7 @@ export default function NeutralItem({ itemDetails }: SlotInterface) {
   const neutralItem: string = itemDetails.item_neutral.img
 
   // Initialize utility for manage data in component
-  const prrUtility = new PlayerRowUtility()
+  const prrUtility = PlayerRowUtility.getInstance()
 
   // Get details about Current Neutral Item
   const details = prrUtility.findDetailsAboutCurrentItem(

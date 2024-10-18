@@ -15,6 +15,13 @@ import type {
 } from "@/types/redux/statisticSlice"
 
 export class MatchDataUtility implements UMatchData {
+  public static getInstance() {
+    if (!MatchDataUtility.instance) {
+      MatchDataUtility.instance = new MatchDataUtility()
+    }
+    return MatchDataUtility.instance
+  }
+
   public fetchMatchData = async (matchID: number = 0) => {
     try {
       if (matchID === 0) {
@@ -69,6 +76,9 @@ export class MatchDataUtility implements UMatchData {
       return message
     }
   }
+
+  private static instance: MatchDataUtility
+  private constructor() {}
 
   private genDefaultMatchID = async (): Promise<number | Error | string> => {
     try {

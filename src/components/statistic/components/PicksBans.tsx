@@ -9,7 +9,7 @@ export default function PickBans({ side }: { side: string }) {
   const { matchDetails, heroList } = useAppSelector(
     (store) => store.statisticSlice
   )
-  const uMatchData = new MatchDetailsUtility()
+  const uMatchData = MatchDetailsUtility.getInstance()
 
   let statistic: PicksAndBans[] | string = ""
   if (matchDetails) {

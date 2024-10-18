@@ -29,7 +29,7 @@ export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
       {playersTeam.map((player) => {
         //
         // Initialize helper class
-        const uRowDetails = new PlayerRowDetailsUtility()
+        const uRowDetails = PlayerRowDetailsUtility.getInstance()
 
         // Find details about hero
         const detailsAboutHero: DetailsAboutHero =

@@ -2,6 +2,13 @@ import { ItemDetails, UPlayerRow } from "@/types/statistic/playerRow"
 
 // [CLASS] Helper for PlayerRowReusable.tsx component
 export class PlayerRowUtility implements UPlayerRow {
+  public static getInstance() {
+    if (!PlayerRowUtility.instance) {
+      PlayerRowUtility.instance = new PlayerRowUtility()
+    }
+    return PlayerRowUtility.instance
+  }
+
   // Array<string> for items
   public m_Items: string[] = []
 
@@ -131,6 +138,9 @@ export class PlayerRowUtility implements UPlayerRow {
 
   // Private section below:
   //
+  private static instance: PlayerRowUtility
+  private constructor() {}
+
   // Constant for "ultimate_scepter" item
   private m_UltimateScepter: ItemDetails = {
     ultimate_scepter: {

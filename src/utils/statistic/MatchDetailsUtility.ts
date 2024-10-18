@@ -11,6 +11,13 @@ import type {
 
 // [CLASS] For handling appropriate match data
 export class MatchDetailsUtility implements UMatchDetails {
+  public static getInstance() {
+    if (!MatchDetailsUtility.instance) {
+      MatchDetailsUtility.instance = new MatchDetailsUtility()
+    }
+    return MatchDetailsUtility.instance
+  }
+
   public m_PlayedHero = {
     heroName: "",
     heroLocalizedName: "",
@@ -71,4 +78,7 @@ export class MatchDetailsUtility implements UMatchDetails {
       }
     }
   }
+
+  private static instance: MatchDetailsUtility
+  private constructor() {}
 }

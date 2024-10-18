@@ -1,8 +1,9 @@
+import HeaderCells from "./components/HeaderCells"
+import Hero from "./components/Hero"
+
 import { Player } from "@/types/statistic/tableDetails"
 
 import styles from "@/styles/statistic/TableAbilities.module.scss"
-import HeaderCells from "./components/HeaderCells"
-import HeroRow from "./components/HeroRow"
 
 export default function TableAbilities({
   playersTeam,
@@ -25,7 +26,7 @@ export default function TableAbilities({
           <HeaderCells />
         </thead>
         <tbody>
-          <HeroRow playersTeam={playersTeam} />
+          <Hero playersTeam={playersTeam} />
         </tbody>
       </table>
     </section>

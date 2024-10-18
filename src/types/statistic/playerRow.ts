@@ -8,6 +8,20 @@ export interface UPlayerRowDetails {
     player: Player,
     playersProfiles: PlayerProfile[]
   ): DetailsAboutPlayer
+
+  findPlayerRankIcon(): string
+
+  findPlayerAvatar(): string
+
+  findAppropriateItems(player: Player): ItemDetails | null
+
+  findItemCostByName(item: string): string
+
+  findAbilityByID(id: number): string
+}
+
+export type AbilityIDs = {
+  [key: string]: string
 }
 
 export interface UPlayerRow {

@@ -19,7 +19,7 @@ export default function Aghanim({ player }: { player: Player }) {
   const [toolTipStatus, setToolTipStatus] = useState(initialStateAghanim)
 
   // Initialize utility for manage data in component
-  const prrUtility = new PlayerRowUtility()
+  const prrUtility = PlayerRowUtility.getInstance()
 
   // Function to update the toolTipStatus when mouse enter
   const handleMouseEnterAghanim = (idx: number) => {

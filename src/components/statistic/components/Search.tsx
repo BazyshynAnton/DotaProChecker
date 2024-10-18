@@ -25,7 +25,7 @@ export default function Search() {
     setIsLoading(true)
 
     const mID = Number(search.matchID)
-    const uMatchData = new MatchDataUtility()
+    const uMatchData = MatchDataUtility.getInstance()
     const matchData = await uMatchData.fetchMatchData(mID)
     dispatch(setMatchData(matchData))
 

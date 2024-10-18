@@ -30,7 +30,7 @@ export default function MainSlotItems({ itemDetails }: SlotInterface) {
   if (!itemDetails) return <CannotFind />
 
   // Initialize utility for manage data in component
-  const prrUtility = new PlayerRowUtility()
+  const prrUtility = PlayerRowUtility.getInstance()
 
   // Create an Array<string> of items in main slot
   prrUtility.setItems(itemDetails, "main_slot")

@@ -22,7 +22,7 @@ export default function MatchDetails() {
 
   useEffect(() => {
     if (matchDetails) {
-      const uMatchData = new MatchDetailsUtility()
+      const uMatchData = MatchDetailsUtility.getInstance()
       setPlayersByTeam(uMatchData.filterPlayersByTeam(matchDetails))
     }
   }, [matchDetails])

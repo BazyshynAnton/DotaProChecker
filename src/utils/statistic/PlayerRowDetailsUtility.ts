@@ -1,5 +1,6 @@
 import items from "../../../public/data/items/items.json"
 import hero_abilities from "../../../public/data/heroAbilities/hero_abilities.json"
+import ability_ids from "../../../public/data/heroAbilities/ability_ids.json"
 
 import type { Player } from "@/types/statistic/tableDetails"
 import type { PlayerColors } from "@/types/statistic/matchDetails"
@@ -9,6 +10,7 @@ import type {
   HeroAbilitiesValue,
 } from "@/types/statistic/static"
 import type {
+  AbilityIDs,
   DetailsAboutHero,
   DetailsAboutPlayer,
   Item,
@@ -18,6 +20,14 @@ import type {
 
 // [CLASS] For handling data about appropriate player
 export class PlayerRowDetailsUtility implements UPlayerRowDetails {
+  public static getInstance(): PlayerRowDetailsUtility {
+    if (!PlayerRowDetailsUtility.instance) {
+      PlayerRowDetailsUtility.instance = new PlayerRowDetailsUtility()
+    }
+
+    return PlayerRowDetailsUtility.instance
+  }
+
   // Find player hero
   public findAppropriateHero(
     player: Player,
@@ -217,10 +227,15 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
   }
 
   public findAbilityByID(id: number): string {
-    return ""
+    const abilityIDs: AbilityIDs = ability_ids
+    return abilityIDs.id
   }
 
   //
+  //
+  private static instance: PlayerRowDetailsUtility
+  private constructor() {}
+
   // Hero details for [FUNCTION](findAppropriateHero)
   private m_HeroDetails: DetailsAboutHero = {
     heroLocalizedName: "",
