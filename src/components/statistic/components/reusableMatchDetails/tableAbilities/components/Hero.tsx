@@ -15,7 +15,7 @@ export default function Hero({ playersTeam }: { playersTeam: Player[] }) {
   // Check existence
   if (!heroList || !playersProfiles) return
 
-  const uRowDetails = PlayerRowDetailsUtility.getInstance()
+  const uRowDetails = new PlayerRowDetailsUtility()
 
   return (
     <>

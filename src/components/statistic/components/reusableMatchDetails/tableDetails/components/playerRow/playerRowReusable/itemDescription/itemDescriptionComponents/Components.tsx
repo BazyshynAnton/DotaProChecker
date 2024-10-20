@@ -23,7 +23,7 @@ export default function Components({
           <span>Components:</span>
           <div className={styles.components__items}>
             {details[item].components.map((component, idx) => {
-              const rdUtility = PlayerRowDetailsUtility.getInstance()
+              const rdUtility = new PlayerRowDetailsUtility()
               const itemCost = rdUtility.findItemCostByName(component)
 
               return (

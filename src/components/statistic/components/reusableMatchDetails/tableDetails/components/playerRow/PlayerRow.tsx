@@ -29,7 +29,7 @@ export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
       {playersTeam.map((player) => {
         //
         // Initialize helper class
-        const uRowDetails = PlayerRowDetailsUtility.getInstance()
+        const uRowDetails = new PlayerRowDetailsUtility()
 
         // Find details about hero
         const detailsAboutHero: DetailsAboutHero =
@@ -44,7 +44,7 @@ export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
           uRowDetails.findAppropriateItems(player)
 
         return (
-          <tr key={player.account_id} className={styles.playerRow}>
+          <tr key={player.hero_id} className={styles.playerRow}>
             <td className={styles.playerRow__playerDataCell}>
               <div className={styles.playerRow__playerDataCell__inCell}>
                 <HeroAndNickname

@@ -1,0 +1,6 @@
+@mixin scrollX {
+  overflow: scroll clip !important;
+  scrollbar-color: #b8b8b8 $gray_blue_light;
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
+}

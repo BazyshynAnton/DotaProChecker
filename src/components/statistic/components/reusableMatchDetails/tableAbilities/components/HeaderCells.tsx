@@ -9,11 +9,7 @@ export default function HeaderCells() {
     <tr className={styles.tableHeadRow}>
       <TableHeaderCell str="Hero" title="Hero" />
       {levels.map((_, idx) => (
-        <TableHeaderCell
-          key={idx + 1}
-          str={String(idx + 1)}
-          title={"Hero level"}
-        />
+        <TableHeaderCell key={idx} str={String(idx + 1)} title={"Hero level"} />
       ))}
     </tr>
   )

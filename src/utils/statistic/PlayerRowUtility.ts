@@ -14,6 +14,7 @@ export class PlayerRowUtility implements UPlayerRow {
 
   // Creates an Array<string> of items
   public setItems(detailsAboutItems: ItemDetails, flag: string) {
+    this.m_Items = []
     if (flag === "main_slot") {
       for (let i = 0; i < 6; ++i) {
         const icon = detailsAboutItems[`item_${i}`]?.img

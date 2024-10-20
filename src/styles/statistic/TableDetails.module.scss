@@ -1,5 +1,6 @@
 @import "../scss/mixins/fonts.scss";
 @import "../scss/variables/colors.scss";
+@import "../scss/mixins/scrollX.scss";
 
 .result {
   width: 100%;
@@ -93,9 +94,6 @@
 
 @media (max-width: 1152px) {
   .result__team__tableWrapper {
-    overflow: scroll clip !important;
-    scrollbar-color: #b8b8b8 $gray_blue_light;
-    scrollbar-width: thin;
-    scroll-behavior: smooth;
+    @include scrollX;
   }
 }

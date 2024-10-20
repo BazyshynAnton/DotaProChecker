@@ -21,14 +21,16 @@ export default function TableAbilities({
       <header className={`${styles.builds__header} ${teamHeaderCondition}`}>
         {side} builds
       </header>
-      <table className={styles.table}>
-        <thead>
-          <HeaderCells />
-        </thead>
-        <tbody>
-          <Hero playersTeam={playersTeam} />
-        </tbody>
-      </table>
+      <article className={styles.builds__tableWrapper}>
+        <table className={styles.table}>
+          <thead>
+            <HeaderCells />
+          </thead>
+          <tbody>
+            <Hero playersTeam={playersTeam} />
+          </tbody>
+        </table>
+      </article>
     </section>
   )
 }

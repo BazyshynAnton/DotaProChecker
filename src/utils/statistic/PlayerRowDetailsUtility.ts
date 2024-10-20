@@ -20,19 +20,22 @@ import type {
 
 // [CLASS] For handling data about appropriate player
 export class PlayerRowDetailsUtility implements UPlayerRowDetails {
-  public static getInstance(): PlayerRowDetailsUtility {
-    if (!PlayerRowDetailsUtility.instance) {
-      PlayerRowDetailsUtility.instance = new PlayerRowDetailsUtility()
-    }
-
-    return PlayerRowDetailsUtility.instance
-  }
-
   // Find player hero
   public findAppropriateHero(
     player: Player,
     heroList: HeroList[]
   ): DetailsAboutHero {
+    this.m_HeroDetails = {
+      heroLocalizedName: "",
+      heroVariant: {
+        icon: "",
+        color: "",
+        title: "",
+        description: "",
+      },
+      playerColor: "",
+    }
+
     this.findColor(player)
 
     this.findHeroName(player, heroList)
@@ -49,6 +52,7 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
   ): DetailsAboutPlayer {
     //
     // If player is not Anonymous -> find player data
+
     if ("account_id" in player) {
       playersProfiles.forEach((playerProfile) => {
         if ("profile" in playerProfile) {
@@ -228,14 +232,11 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
 
   public findAbilityByID(id: number): string {
     const abilityIDs: AbilityIDs = ability_ids
-    return abilityIDs.id
+    return abilityIDs[id]
   }
 
   //
   //
-  private static instance: PlayerRowDetailsUtility
-  private constructor() {}
-
   // Hero details for [FUNCTION](findAppropriateHero)
   private m_HeroDetails: DetailsAboutHero = {
     heroLocalizedName: "",
