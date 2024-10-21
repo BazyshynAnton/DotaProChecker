@@ -84,7 +84,7 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
 
     const rankTier = this.m_PlayerDetails.rank_tier_info
 
-    if (leaderboardRank && rankTier) {
+    if (rankTier && leaderboardRank) {
       if (leaderboardRank <= 10 && leaderboardRank >= 1) {
         return `/pictures/dotaPlayerRankIcons/${rankTier + 2}.png`
       }
@@ -96,7 +96,9 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
       if (leaderboardRank > 100) {
         return `/pictures/dotaPlayerRankIcons/${rankTier}.png`
       }
+    }
 
+    if (rankTier && !leaderboardRank) {
       return `/pictures/dotaPlayerRankIcons/${rankTier}.png`
     }
 
