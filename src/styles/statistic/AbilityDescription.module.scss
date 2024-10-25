@@ -1,0 +1,10 @@
+.abilityTooltip {
+  width: 300px;
+  height: max-content;
+  display: flex;
+  padding: 3px;
+  flex-direction: column;
+  background: #222c35;
+  border: 3px solid #1d2429;
+  z-index: 10;
+}
