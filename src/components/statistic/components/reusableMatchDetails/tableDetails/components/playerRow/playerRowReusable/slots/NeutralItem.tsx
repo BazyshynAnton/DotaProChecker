@@ -2,7 +2,7 @@ import ItemDescription from "../itemDescription/ItemDescription"
 import CannotFind from "./CannotFind"
 
 import { Image } from "@/shared/nextjsImports"
-import { useState } from "@/shared/reactImports"
+import { React, useState } from "@/shared/reactImports"
 
 import { PlayerRowUtility } from "@/utils/statistic/PlayerRowUtility"
 
@@ -43,7 +43,7 @@ export default function NeutralItem({ itemDetails }: SlotInterface) {
   }
 
   return (
-    <div>
+    <React.Fragment>
       {toolTipStatus && (
         <ItemDescription details={details} item={neutralItem} />
       )}
@@ -57,6 +57,6 @@ export default function NeutralItem({ itemDetails }: SlotInterface) {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       />
-    </div>
+    </React.Fragment>
   )
 }

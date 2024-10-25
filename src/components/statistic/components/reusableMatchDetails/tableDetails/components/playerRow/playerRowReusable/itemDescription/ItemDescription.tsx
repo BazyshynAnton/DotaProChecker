@@ -5,7 +5,7 @@ import Abilities from "./itemDescriptionComponents/Abilities"
 import HintAndLore from "./itemDescriptionComponents/HintAndLore"
 import Components from "./itemDescriptionComponents/Components"
 
-import ReactDOM from "react-dom"
+import { ReactDOM } from "@/shared/reactImports"
 
 import type { ItemDescriptionInterface } from "@/types/statistic/playerRow"
 

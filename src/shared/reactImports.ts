@@ -1,3 +1,4 @@
-import { useEffect, useState } from 'react'
+import ReactDOM from "react-dom"
+import React, { useEffect, useState } from "react"
 
-export { useEffect, useState }
+export { React, useEffect, useState, ReactDOM }

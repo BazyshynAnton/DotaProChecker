@@ -2,7 +2,7 @@ import ItemDescription from "../itemDescription/ItemDescription"
 import CannotFind from "./CannotFind"
 
 import { Image } from "@/shared/nextjsImports"
-import { useState } from "@/shared/reactImports"
+import { React, useState } from "@/shared/reactImports"
 
 import { PlayerRowUtility } from "@/utils/statistic/PlayerRowUtility"
 
@@ -56,7 +56,7 @@ export default function MainSlotItems({ itemDetails }: SlotInterface) {
           prrUtility.handleMouseLeave("main_slot", idx, setToolTipStatus)
 
         return (
-          <div key={idx}>
+          <React.Fragment key={idx}>
             {toolTipStatus[idx] && (
               <ItemDescription details={details} item={item} />
             )}
@@ -70,7 +70,7 @@ export default function MainSlotItems({ itemDetails }: SlotInterface) {
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             />
-          </div>
+          </React.Fragment>
         )
       })}
     </>
