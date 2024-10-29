@@ -8,6 +8,8 @@ import { PlayerRowUtility } from "@/utils/statistic/PlayerRowUtility"
 
 import type { SlotInterface } from "@/types/statistic/playerRow"
 
+import { ITEM_ICONS_URL } from "@/utils/urls"
+
 export default function NeutralItem({ itemDetails }: SlotInterface) {
   //
   // State for manage tooltip about neutral item.
@@ -48,7 +50,11 @@ export default function NeutralItem({ itemDetails }: SlotInterface) {
         <ItemDescription details={details} item={neutralItem} />
       )}
       <Image
-        src={`/pictures/dotaItemIcons/${neutralItem}.webp`}
+        src={
+          neutralItem !== "empty_slot"
+            ? `${ITEM_ICONS_URL}${neutralItem}.png`
+            : "pictures/dotaItemIcons/empty_slot.webp"
+        }
         alt=""
         width={39}
         height={32}

@@ -8,6 +8,8 @@ import { PlayerRowUtility } from "@/utils/statistic/PlayerRowUtility"
 
 import type { SlotInterface } from "@/types/statistic/playerRow"
 
+import { ITEM_ICONS_URL } from "@/utils/urls"
+
 // Initial State for useState in BackpackItems component.
 const initialStateBackpack = {
   0: false,
@@ -57,7 +59,11 @@ export default function BackpackItems({ itemDetails }: SlotInterface) {
               <ItemDescription details={details} item={item} />
             )}
             <Image
-              src={`/pictures/dotaItemIcons/${item}.webp`}
+              src={
+                item !== "empty_slot"
+                  ? `${ITEM_ICONS_URL}${item}.png`
+                  : "pictures/dotaItemIcons/empty_slot.webp"
+              }
               alt=""
               width={37}
               height={27}

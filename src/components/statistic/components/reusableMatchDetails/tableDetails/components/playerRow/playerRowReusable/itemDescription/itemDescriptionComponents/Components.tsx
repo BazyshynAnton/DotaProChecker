@@ -4,6 +4,8 @@ import { PlayerRowDetailsUtility } from "@/utils/statistic/PlayerRowDetailsUtili
 
 import type { ItemDescriptionInterface } from "@/types/statistic/playerRow"
 
+import { ITEM_ICONS_URL } from "@/utils/urls"
+
 import styles from "@/styles/statistic/ItemDescription.module.scss"
 
 export default function Components({
@@ -29,7 +31,7 @@ export default function Components({
               return (
                 <div key={idx} className={styles.components__items__item}>
                   <Image
-                    src={`/pictures/dotaItemIcons/${component}.webp`}
+                    src={`${ITEM_ICONS_URL}${component}.png`}
                     alt=""
                     width={34}
                     height={25}

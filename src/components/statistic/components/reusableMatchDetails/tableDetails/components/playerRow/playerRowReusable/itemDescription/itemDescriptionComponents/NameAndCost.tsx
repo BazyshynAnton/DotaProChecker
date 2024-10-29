@@ -4,6 +4,8 @@ import { Image } from "@/shared/nextjsImports"
 
 import type { ItemDescriptionInterface } from "@/types/statistic/playerRow"
 
+import { ITEM_ICONS_URL } from "@/utils/urls"
+
 import styles from "@/styles/statistic/ItemDescription.module.scss"
 
 export default function NameAndCost({
@@ -20,7 +22,7 @@ export default function NameAndCost({
     <div className={styles.nameAndCostWrapper}>
       <div className={styles.nameAndCostWrapper__itemPicture}>
         <Image
-          src={`/pictures/dotaItemIcons/${details[item].img}.webp`}
+          src={`${ITEM_ICONS_URL}${details[item].img}.png`}
           alt=""
           width={90}
           height={70}

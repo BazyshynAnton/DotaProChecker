@@ -1,18 +1,18 @@
-import { HERO_ABILITY_URL } from "@/utils/urls"
+import AbilityDescription from "./abilityDescription/AbilityDescription"
 
 import { PlayerRowDetailsUtility } from "@/utils/statistic/PlayerRowDetailsUtility"
 
 import { Image } from "@/shared/nextjsImports"
+import { useEffect, useState } from "@/shared/reactImports"
 
-import { Player } from "@/types/statistic/tableDetails"
+import { HERO_ABILITY_URL } from "@/utils/urls"
+
+import type { Player } from "@/types/statistic/tableDetails"
 
 import styles from "@/styles/statistic/TableAbilities.module.scss"
-import AbilityDescription from "./abilityDescription/AbilityDescription"
-import { useEffect, useState } from "react"
 
-type IsToolTip = {
-  [key: string]: boolean
-}
+const TALENT_TREE_PATH = "/pictures/dotaAbilityIcons/talent_tree.svg"
+const isTooltipDefault = new Array<boolean>(25).fill(false)
 
 export default function Abilities({
   player,
@@ -21,39 +21,28 @@ export default function Abilities({
   player: Player
   uRowDetails: PlayerRowDetailsUtility
 }) {
-  const [isTooltip, setIsTooltip] = useState<IsToolTip[]>()
+  const [isTooltip, setIsTooltip] = useState<Array<boolean>>(isTooltipDefault)
 
   const abilityBuild = uRowDetails.setAbilityBuild(player.ability_upgrades_arr)
+
+  const handleMouseEnter = (idx: number) => () => {
+    const updatedTooltip = [...isTooltip]
+    updatedTooltip[idx] = true
+    setIsTooltip(updatedTooltip)
+  }
+
+  const handleMouseLeave = (idx: number) => () => {
+    const updatedTooltip = [...isTooltip]
+    updatedTooltip[idx] = false
+    setIsTooltip(updatedTooltip)
+  }
 
   return (
     <>
       {abilityBuild.map((ability, idx) => {
         const abilityName = uRowDetails.findAbilityByID(ability)
 
-        setIsTooltip((prevState: any) => {
-          const newState = { ...prevState, [abilityName]: false }
-
-          return newState
-        })
-
         const talentTree: boolean = abilityName.includes("special_bonus")
-
-        const handleMouseEnter = () => {
-          setIsTooltip((prevState: any) => {
-            const newState = { ...prevState, [idx]: true }
-
-            return newState
-          })
-        }
-        const handleMouseLeave = () => {
-          setIsTooltip((prevState: any) => {
-            const newState = { ...prevState, [idx]: false }
-
-            return newState
-          })
-        }
-
-        if (!isTooltip) return
 
         return (
           <td key={idx} className={styles.tableBodyRow__abilityDataCell}>
@@ -63,23 +52,18 @@ export default function Abilities({
                   {isTooltip[idx] && (
                     <AbilityDescription abilityName={abilityName} />
                   )}
-                  {!talentTree ? (
-                    <Image
-                      src={`${HERO_ABILITY_URL}${abilityName}.png`}
-                      alt=""
-                      width={100}
-                      height={100}
-                      onMouseEnter={handleMouseEnter}
-                      onMouseLeave={handleMouseLeave}
-                    />
-                  ) : (
-                    <Image
-                      src={"/pictures/dotaAbilityIcons/talent_tree.svg"}
-                      alt=""
-                      width={100}
-                      height={100}
-                    />
-                  )}
+                  <Image
+                    src={
+                      !talentTree
+                        ? `${HERO_ABILITY_URL}${abilityName}.png`
+                        : TALENT_TREE_PATH
+                    }
+                    alt=""
+                    width={100}
+                    height={100}
+                    onMouseEnter={handleMouseEnter(idx)}
+                    onMouseLeave={handleMouseLeave(idx)}
+                  />
                 </>
               )}
             </div>
