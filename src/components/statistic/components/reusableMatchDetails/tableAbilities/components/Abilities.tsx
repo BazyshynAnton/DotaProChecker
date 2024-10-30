@@ -26,15 +26,21 @@ export default function Abilities({
   const abilityBuild = uRowDetails.setAbilityBuild(player.ability_upgrades_arr)
 
   const handleMouseEnter = (idx: number) => () => {
-    const updatedTooltip = [...isTooltip]
-    updatedTooltip[idx] = true
+    const updatedTooltip: Array<boolean> = JSON.parse(JSON.stringify(isTooltip))
+
+    for (let i = 0; i < updatedTooltip.length; ++i) {
+      if (i === idx) {
+        updatedTooltip[i] = true
+      } else {
+        updatedTooltip[i] = false
+      }
+    }
+
     setIsTooltip(updatedTooltip)
   }
 
-  const handleMouseLeave = (idx: number) => () => {
-    const updatedTooltip = [...isTooltip]
-    updatedTooltip[idx] = false
-    setIsTooltip(updatedTooltip)
+  const handleMouseLeave = () => {
+    setIsTooltip(isTooltipDefault)
   }
 
   return (
@@ -62,7 +68,7 @@ export default function Abilities({
                     width={100}
                     height={100}
                     onMouseEnter={handleMouseEnter(idx)}
-                    onMouseLeave={handleMouseLeave(idx)}
+                    onMouseLeave={handleMouseLeave}
                   />
                 </>
               )}
