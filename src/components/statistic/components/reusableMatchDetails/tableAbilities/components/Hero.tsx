@@ -37,7 +37,7 @@ export default function Hero({ playersTeam }: { playersTeam: Player[] }) {
                 />
               </div>
             </td>
-            <Abilities player={player} uRowDetails={uRowDetails} />
+            <Abilities player={player} />
           </tr>
         )
       })}

@@ -16,8 +16,6 @@ export interface UPlayerRowDetails {
   findAppropriateItems(player: Player): ItemDetails | null
 
   findItemCostByName(item: string): string
-
-  findAbilityByID(id: number): string
 }
 
 export type AbilityIDs = {

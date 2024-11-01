@@ -1,6 +1,5 @@
 import items from "../../../public/data/items/items.json"
 import hero_abilities from "../../../public/data/heroAbilities/hero_abilities.json"
-import ability_ids from "../../../public/data/heroAbilities/ability_ids.json"
 
 import type { Player } from "@/types/statistic/tableDetails"
 import type { PlayerColors } from "@/types/statistic/matchDetails"
@@ -10,7 +9,6 @@ import type {
   HeroAbilitiesValue,
 } from "@/types/statistic/static"
 import type {
-  AbilityIDs,
   DetailsAboutHero,
   DetailsAboutPlayer,
   Item,
@@ -230,56 +228,6 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
     }
 
     return cost.toString()
-  }
-
-  public findAbilityByID(id: number): string {
-    const abilityIDs: AbilityIDs = ability_ids
-
-    if (abilityIDs[id]) {
-      // console.log(abilityIDs[id])
-
-      return abilityIDs[id]
-    }
-
-    return "none"
-  }
-
-  public setAbilityBuild(ability_upgrades_arr: number[]): number[] {
-    const build = new Array(25).fill(-1)
-
-    const enum patterns {
-      FirstLevels = 16,
-      CriticalLevel = 17,
-      TreeLevel = 19,
-      LastLevel = 24,
-    }
-
-    for (let i = 0; i < build.length; ++i) {
-      if (i == patterns.FirstLevels) continue
-
-      if (i == patterns.CriticalLevel) {
-        build[i] = ability_upgrades_arr[i - 1]
-        continue
-      }
-
-      if (i == patterns.TreeLevel) {
-        build[i] = ability_upgrades_arr[i - 2]
-
-        continue
-      }
-
-      if (i == patterns.LastLevel) {
-        build[i] = ability_upgrades_arr[i - 6]
-        continue
-      }
-
-      if (i < patterns.FirstLevels) {
-        build[i] = ability_upgrades_arr[i]
-        continue
-      }
-    }
-    // console.log(build)
-    return build
   }
 
   //

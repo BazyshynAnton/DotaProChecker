@@ -16,7 +16,7 @@ export default function AbilityDescription({
   */
   return ReactDOM.createPortal(
     <div className={styles.abilityTooltip}>
-      <Title />
+      <Title abilityName={abilityName} />
     </div>,
     document.getElementById("tooltip_portal") as Element | DocumentFragment
   )

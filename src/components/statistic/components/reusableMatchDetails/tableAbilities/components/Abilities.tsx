@@ -1,29 +1,26 @@
 import AbilityDescription from "./abilityDescription/AbilityDescription"
 
-import { PlayerRowDetailsUtility } from "@/utils/statistic/PlayerRowDetailsUtility"
-
 import { Image } from "@/shared/nextjsImports"
-import { useEffect, useState } from "@/shared/reactImports"
+import { useState } from "@/shared/reactImports"
 
 import { HERO_ABILITY_URL } from "@/utils/urls"
 
 import type { Player } from "@/types/statistic/tableDetails"
 
+import { AbilityDetailsUtility } from "@/utils/statistic/AbilityDetailsUtility"
+
 import styles from "@/styles/statistic/TableAbilities.module.scss"
 
-const TALENT_TREE_PATH = "/pictures/dotaAbilityIcons/talent_tree.svg"
 const isTooltipDefault = new Array<boolean>(25).fill(false)
 
-export default function Abilities({
-  player,
-  uRowDetails,
-}: {
-  player: Player
-  uRowDetails: PlayerRowDetailsUtility
-}) {
+export default function Abilities({ player }: { player: Player }) {
+  const uAbilityDetails = new AbilityDetailsUtility()
+
   const [isTooltip, setIsTooltip] = useState<Array<boolean>>(isTooltipDefault)
 
-  const abilityBuild = uRowDetails.setAbilityBuild(player.ability_upgrades_arr)
+  const abilityBuild = uAbilityDetails.setAbilityBuild(
+    player.ability_upgrades_arr
+  )
 
   const handleMouseEnter = (idx: number) => () => {
     const updatedTooltip: Array<boolean> = JSON.parse(JSON.stringify(isTooltip))
@@ -46,7 +43,7 @@ export default function Abilities({
   return (
     <>
       {abilityBuild.map((ability, idx) => {
-        const abilityName = uRowDetails.findAbilityByID(ability)
+        const abilityName = uAbilityDetails.findAbilityByID(ability)
 
         const talentTree: boolean = abilityName.includes("special_bonus")
 
@@ -62,7 +59,7 @@ export default function Abilities({
                     src={
                       !talentTree
                         ? `${HERO_ABILITY_URL}${abilityName}.png`
-                        : TALENT_TREE_PATH
+                        : "/pictures/dotaAbilityIcons/talent_tree.svg"
                     }
                     alt=""
                     width={100}

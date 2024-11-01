@@ -31,7 +31,11 @@ export default function Components({
               return (
                 <div key={idx} className={styles.components__items__item}>
                   <Image
-                    src={`${ITEM_ICONS_URL}${component}.png`}
+                    src={
+                      !component.includes("recipe")
+                        ? `${ITEM_ICONS_URL}${component}.png`
+                        : `${ITEM_ICONS_URL}recipe.png`
+                    }
                     alt=""
                     width={34}
                     height={25}
