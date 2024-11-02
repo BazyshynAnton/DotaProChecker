@@ -14,7 +14,7 @@ import styles from "@/styles/statistic/TableAbilities.module.scss"
 const isTooltipDefault = new Array<boolean>(25).fill(false)
 
 export default function Abilities({ player }: { player: Player }) {
-  const uAbilityDetails = new AbilityDetailsUtility()
+  const uAbilityDetails = AbilityDetailsUtility.getInstance()
 
   const [isTooltip, setIsTooltip] = useState<Array<boolean>>(isTooltipDefault)
 
