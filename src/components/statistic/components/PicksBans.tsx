@@ -4,6 +4,7 @@ import { MatchDetailsUtility } from "@/utils/statistic/MatchDetailsUtility"
 import { Image } from "@/shared/nextjsImports"
 
 import styles from "@/styles/statistic/PicksBans.module.scss"
+import { HERO_ICON_URL } from "@/utils/urls"
 
 export default function PickBans({ side }: { side: string }) {
   const { matchDetails, heroList } = useAppSelector(
@@ -31,7 +32,7 @@ export default function PickBans({ side }: { side: string }) {
           >
             <div className={styles.heroImg}>
               <Image
-                src={`/pictures/dotaHeroIcons/${hero}.png`}
+                src={`${HERO_ICON_URL}${hero}.png`}
                 alt=""
                 width={71}
                 height={40}

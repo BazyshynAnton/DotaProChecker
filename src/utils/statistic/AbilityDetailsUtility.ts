@@ -1,8 +1,8 @@
-import { UAbilityDetails } from "@/types/statistic/abilityDetails"
-import { AbilityIDs } from "@/types/statistic/playerRow"
 import ability_ids from "../../../public/data/heroAbilities/ability_ids.json"
 import abilities from "../../../public/data/heroAbilities/abilities.json"
-import { join } from "path/posix"
+
+import type { UAbilityDetails } from "@/types/statistic/abilityDetails"
+import type { AbilityIDs } from "@/types/statistic/playerRow"
 
 export class AbilityDetailsUtility implements UAbilityDetails {
   public static getInstance() {
@@ -132,6 +132,41 @@ export class AbilityDetailsUtility implements UAbilityDetails {
     }
 
     return res
+  }
+
+  public findAbilityCost(abilityName: string): any {
+    const data: any = abilities
+
+    const cost = {
+      mc: "",
+      cd: "",
+    }
+
+    if (Array.isArray(data[abilityName].mc)) {
+      const length = data[abilityName].mc.length
+      for (let i = 0; i < length; ++i) {
+        cost.mc += data[abilityName].mc[i]
+        if (i < length - 1) {
+          cost.mc += " / "
+        }
+      }
+    } else if (typeof data[abilityName].mc === "string") {
+      cost.mc = data[abilityName].mc
+    }
+
+    if (Array.isArray(data[abilityName].cd)) {
+      const length = data[abilityName].cd.length
+      for (let i = 0; i < length; ++i) {
+        cost.cd += data[abilityName].cd[i]
+        if (i < length - 1) {
+          cost.cd += " / "
+        }
+      }
+    } else if (typeof data[abilityName].cd === "string") {
+      cost.cd = data[abilityName].cd
+    }
+
+    return cost
   }
 
   private static instance: AbilityDetailsUtility

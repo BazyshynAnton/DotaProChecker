@@ -74,7 +74,7 @@ export class MatchDetailsUtility implements UMatchDetails {
       const hero = heroList[i]
 
       if (hero_id === hero.id) {
-        return hero.localized_name
+        return hero.name.replace("npc_dota_hero_", "")
       }
     }
   }

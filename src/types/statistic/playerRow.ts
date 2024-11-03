@@ -42,6 +42,7 @@ export interface UPlayerRow {
 }
 
 export interface DetailsAboutHero {
+  heroName: string
   heroLocalizedName: string
   heroVariant: {
     icon: string

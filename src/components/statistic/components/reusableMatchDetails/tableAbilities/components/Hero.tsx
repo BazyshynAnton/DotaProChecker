@@ -5,6 +5,8 @@ import { PlayerRowDetailsUtility } from "@/utils/statistic/PlayerRowDetailsUtili
 import { useAppSelector } from "@/shared/reduxImports"
 import { Image } from "@/shared/nextjsImports"
 
+import { HERO_ICON_URL } from "@/utils/urls"
+
 import styles from "@/styles/statistic/TableAbilities.module.scss"
 
 export default function Hero({ playersTeam }: { playersTeam: Player[] }) {
@@ -29,7 +31,7 @@ export default function Hero({ playersTeam }: { playersTeam: Player[] }) {
             <td className={styles.tableBodyRow__heroDataCell}>
               <div className={styles.heroDataCell__inCell}>
                 <Image
-                  src={`/pictures/dotaHeroIcons/${detailsAboutHero.heroLocalizedName}.png`}
+                  src={`${HERO_ICON_URL}${detailsAboutHero.heroName}.png`}
                   alt={detailsAboutHero.heroLocalizedName}
                   width={256}
                   height={144}

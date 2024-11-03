@@ -4,7 +4,7 @@ import { Image } from "@/shared/nextjsImports"
 
 import type { ItemDescriptionInterface } from "@/types/statistic/playerRow"
 
-import { ITEM_ICONS_URL } from "@/utils/urls"
+import { ITEM_ICON_URL } from "@/utils/urls"
 
 import styles from "@/styles/statistic/ItemDescription.module.scss"
 
@@ -22,7 +22,7 @@ export default function NameAndCost({
     <div className={styles.nameAndCostWrapper}>
       <div className={styles.nameAndCostWrapper__itemPicture}>
         <Image
-          src={`${ITEM_ICONS_URL}${details[item].img}.png`}
+          src={`${ITEM_ICON_URL}${details[item].img}.png`}
           alt=""
           width={90}
           height={70}

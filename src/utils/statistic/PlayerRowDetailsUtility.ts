@@ -24,6 +24,7 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
     heroList: HeroList[]
   ): DetailsAboutHero {
     this.m_HeroDetails = {
+      heroName: "",
       heroLocalizedName: "",
       heroVariant: {
         icon: "",
@@ -39,6 +40,8 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
     this.findHeroName(player, heroList)
 
     this.findHeroFacet(player)
+
+    console.log(this.m_HeroDetails.heroVariant.icon)
 
     return this.m_HeroDetails
   }
@@ -234,6 +237,7 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
   //
   // Hero details for [FUNCTION](findAppropriateHero)
   private m_HeroDetails: DetailsAboutHero = {
+    heroName: "",
     heroLocalizedName: "",
     heroVariant: {
       icon: "",
@@ -312,6 +316,11 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
       const hero = heroList[i]
 
       if (player.hero_id === hero.id) {
+        this.m_HeroDetails.heroName = hero.name
+        this.m_HeroDetails.heroName = this.m_HeroDetails.heroName.replace(
+          "npc_dota_hero_",
+          ""
+        )
         this.m_HeroDetails.heroLocalizedName = hero.localized_name
         this.m_CurrentHero = hero.name
       }

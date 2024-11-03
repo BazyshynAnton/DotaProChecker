@@ -15,17 +15,45 @@ export default function Behavior({ abilityName }: { abilityName: string }) {
       )}
       {behavior.dmg_type && (
         <div className={styles.dmgType}>
-          <span>DAMAGE TYPE:</span> {behavior.dmg_type}
+          <span>DAMAGE TYPE:</span>{" "}
+          <span
+            className={
+              behavior.dmg_type === "Magical"
+                ? styles.dmgType_magical
+                : behavior.dmg_type === "Pure"
+                ? styles.dmgType_pure
+                : styles.dmgType_physical
+            }
+          >
+            {behavior.dmg_type}
+          </span>
         </div>
       )}
       {behavior.bkbpierce && (
         <div className={styles.pierces}>
-          <span>PIERCES DEBUFF IMMUNITY:</span> {behavior.bkbpierce}
+          <span>PIERCES DEBUFF IMMUNITY:</span>{" "}
+          <span
+            className={
+              behavior.bkbpierce === "Yes"
+                ? styles.pierces_yes
+                : styles.pierces_no
+            }
+          >
+            {behavior.bkbpierce}
+          </span>
         </div>
       )}
       {behavior.dispellable && (
         <div className={styles.dispellable}>
-          <span>DISPELLABLE:</span> {behavior.dispellable}
+          <span>DISPELLABLE:</span>{" "}
+          <span
+            className={
+              behavior.dispellable === "Yes"
+                ? styles.dispellable_yes
+                : styles.dispellable_no
+            }
+          ></span>
+          {behavior.dispellable}
         </div>
       )}
     </div>

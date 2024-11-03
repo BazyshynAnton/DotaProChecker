@@ -4,7 +4,7 @@ import { PlayerRowDetailsUtility } from "@/utils/statistic/PlayerRowDetailsUtili
 
 import type { ItemDescriptionInterface } from "@/types/statistic/playerRow"
 
-import { ITEM_ICONS_URL } from "@/utils/urls"
+import { ITEM_ICON_URL } from "@/utils/urls"
 
 import styles from "@/styles/statistic/ItemDescription.module.scss"
 
@@ -33,8 +33,8 @@ export default function Components({
                   <Image
                     src={
                       !component.includes("recipe")
-                        ? `${ITEM_ICONS_URL}${component}.png`
-                        : `${ITEM_ICONS_URL}recipe.png`
+                        ? `${ITEM_ICON_URL}${component}.png`
+                        : `${ITEM_ICON_URL}recipe.png`
                     }
                     alt=""
                     width={34}

@@ -23,11 +23,10 @@
   display: flex;
   gap: 1rem;
   color: #ffffffde;
-  font-size: 13px;
+  background: linear-gradient(to right, rgb(81, 86, 95), rgb(48, 51, 56));
 }
 
 .title {
-  border-bottom: 1px solid #080d15;
   img {
     border: 1px solid #000000;
   }
@@ -40,17 +39,92 @@
 // Behavior.tsx
 .behavior {
   padding-bottom: 10px;
-  font-size: 13px;
   color: #ffffffde;
-  span {
-    color: #6c7b7e;
+  div {
+    &:not(:last-child) {
+      padding-bottom: 5px;
+    }
+
+    span {
+      color: #6c7b7e;
+    }
+
+    .dmgType_magical {
+      color: #5b93d1;
+    }
+
+    .dmgType_pure {
+      color: #d8ae53;
+    }
+
+    .dmgType_physical {
+      color: #ae2f28;
+    }
+
+    .pierces_yes {
+      color: #66bb6a;
+    }
+
+    .pierces_no {
+      color: #ff4c4c;
+    }
+
+    .dispellable_yes {
+      color: #66bb6a;
+    }
+    .dispellable_no {
+      color: darkred;
+    }
   }
 }
 
 // About.tsx
 .aboutAbility {
-  padding-top: 10px;
-  font-size: 13px;
+  padding: 10px 0px;
   color: #6c7b7e;
-  border-top: 1px solid #080d15;
+}
+
+// Attributes.tsx
+.attributes {
+  padding-top: 10px;
+  color: #6c7b7e;
+}
+
+.attributes__header {
+  &:not(:last-child) {
+    padding-bottom: 5px;
+  }
+  span {
+    color: #ffffffde;
+  }
+}
+
+// Cost.tsx
+.cost {
+  padding-top: 10px;
+  display: flex;
+  gap: 0.7rem;
+}
+
+.mana,
+.cooldown {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: #ffffffde;
+}
+
+// All
+.title,
+.title_bonus,
+.behavior,
+.aboutAbility,
+.attributes,
+.cost {
+  font-size: 13px;
+}
+
+.behavior,
+.aboutAbility {
+  border-bottom: 1px solid #080d15;
 }

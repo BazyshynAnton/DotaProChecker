@@ -3,6 +3,8 @@ import { Image } from "@/shared/nextjsImports"
 import type { DetailsAboutHero } from "@/types/statistic/playerRow"
 import type { Player } from "@/types/statistic/tableDetails"
 
+import { HERO_FACET_URL, HERO_ICON_URL } from "@/utils/urls"
+
 import styles from "@/styles/statistic/PlayerRow.module.scss"
 
 export default function HeroAndNickname({
@@ -22,7 +24,7 @@ export default function HeroAndNickname({
           }}
         >
           <Image
-            src={`/pictures/dotaHeroIcons/${detailsAboutHero.heroLocalizedName}.png`}
+            src={`${HERO_ICON_URL}${detailsAboutHero.heroName}.png`}
             alt={detailsAboutHero.heroLocalizedName}
             width={256}
             height={144}
@@ -39,7 +41,7 @@ export default function HeroAndNickname({
         >
           {detailsAboutHero.heroVariant.icon && (
             <Image
-              src={`/pictures/dotaHeroFacetIcons/${detailsAboutHero.heroVariant.icon}.png`}
+              src={`${HERO_FACET_URL}${detailsAboutHero.heroVariant.icon}.png`}
               alt={detailsAboutHero.heroVariant.icon}
               width={72}
               height={72}

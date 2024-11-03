@@ -8,7 +8,7 @@ import { PlayerRowUtility } from "@/utils/statistic/PlayerRowUtility"
 
 import type { SlotInterface } from "@/types/statistic/playerRow"
 
-import { ITEM_ICONS_URL } from "@/utils/urls"
+import { ITEM_ICON_URL } from "@/utils/urls"
 
 export default function NeutralItem({ itemDetails }: SlotInterface) {
   //
@@ -52,7 +52,7 @@ export default function NeutralItem({ itemDetails }: SlotInterface) {
       <Image
         src={
           neutralItem !== "empty_slot"
-            ? `${ITEM_ICONS_URL}${neutralItem}.png`
+            ? `${ITEM_ICON_URL}${neutralItem}.png`
             : "pictures/dotaItemIcons/empty_slot.webp"
         }
         alt=""

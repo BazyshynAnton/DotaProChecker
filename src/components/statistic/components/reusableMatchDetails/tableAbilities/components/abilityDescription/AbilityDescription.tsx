@@ -6,6 +6,7 @@ import { ReactDOM } from "@/shared/reactImports"
 
 import styles from "@/styles/statistic/AbilityDescription.module.scss"
 import Attributes from "./components/Attributes"
+import Cost from "./components/Cost"
 
 export default function AbilityDescription({
   abilityName,
@@ -26,6 +27,7 @@ export default function AbilityDescription({
           <Behavior abilityName={abilityName} />
           <Description abilityName={abilityName} />
           <Attributes abilityName={abilityName} />
+          <Cost abilityName={abilityName} />
         </div>
       )}
     </div>,
