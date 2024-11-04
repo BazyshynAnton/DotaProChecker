@@ -8,6 +8,7 @@ export default function Title({ abilityName }: { abilityName: string }) {
   const name = uAbilityDetails.findAbilityRealName(abilityName)
 
   const talentTree: boolean = abilityName.includes("special_bonus")
+
   return (
     <>
       <div className={!talentTree ? styles.title : styles.title_bonus}>
@@ -21,7 +22,9 @@ export default function Title({ abilityName }: { abilityName: string }) {
           width={52}
           height={52}
         />
-        <h3 className={styles.title__name}>{name}</h3>
+        <h3 className={styles.title__name}>
+          {name === "" ? "+2 Attributes" : name}
+        </h3>
       </div>
     </>
   )

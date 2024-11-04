@@ -1,13 +1,12 @@
 import AbilityDescription from "./abilityDescription/AbilityDescription"
 
+import { AbilityDetailsUtility } from "@/utils/statistic/AbilityDetailsUtility"
 import { Image } from "@/shared/nextjsImports"
-import { useState } from "@/shared/reactImports"
+import { useEffect, useState, useRef } from "@/shared/reactImports"
 
 import { HERO_ABILITY_URL } from "@/utils/urls"
 
 import type { Player } from "@/types/statistic/tableDetails"
-
-import { AbilityDetailsUtility } from "@/utils/statistic/AbilityDetailsUtility"
 
 import styles from "@/styles/statistic/TableAbilities.module.scss"
 
@@ -18,11 +17,13 @@ export default function Abilities({ player }: { player: Player }) {
 
   const [isTooltip, setIsTooltip] = useState<Array<boolean>>(isTooltipDefault)
 
+  const tooltipRef = useRef<HTMLDivElement>(null)
+
   const abilityBuild = uAbilityDetails.setAbilityBuild(
     player.ability_upgrades_arr
   )
 
-  const handleMouseEnter = (idx: number) => () => {
+  const handleTrueClick = (idx: number) => () => {
     const updatedTooltip: Array<boolean> = JSON.parse(JSON.stringify(isTooltip))
 
     for (let i = 0; i < updatedTooltip.length; ++i) {
@@ -36,9 +37,25 @@ export default function Abilities({ player }: { player: Player }) {
     setIsTooltip(updatedTooltip)
   }
 
-  const handleMouseLeave = () => {
+  const handleFalseClick = () => {
     setIsTooltip(isTooltipDefault)
   }
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        tooltipRef.current &&
+        !tooltipRef.current.contains(event.target as Node)
+      ) {
+        handleFalseClick()
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+  }, [])
 
   return (
     <>
@@ -49,27 +66,24 @@ export default function Abilities({ player }: { player: Player }) {
 
         return (
           <td key={idx} className={styles.tableBodyRow__abilityDataCell}>
-            <div className={styles.abilityDataCell__inCell}>
-              {abilityName !== "none" && (
-                <>
-                  {isTooltip[idx] && (
-                    <AbilityDescription abilityName={abilityName} />
-                  )}
-                  <Image
-                    src={
-                      !talentTree
-                        ? `${HERO_ABILITY_URL}${abilityName}.png`
-                        : "/pictures/dotaAbilityIcons/talent_tree.svg"
-                    }
-                    alt=""
-                    width={100}
-                    height={100}
-                    onMouseEnter={handleMouseEnter(idx)}
-                    onMouseLeave={handleMouseLeave}
-                  />
-                </>
-              )}
-            </div>
+            {abilityName !== "none" && (
+              <div className={styles.abilityDataCell__inCell} ref={tooltipRef}>
+                {isTooltip[idx] && (
+                  <AbilityDescription abilityName={abilityName} />
+                )}
+                <Image
+                  src={
+                    !talentTree
+                      ? `${HERO_ABILITY_URL}${abilityName}.png`
+                      : "/pictures/dotaAbilityIcons/talent_tree.svg"
+                  }
+                  alt=""
+                  width={100}
+                  height={100}
+                  onClick={handleTrueClick(idx)}
+                />
+              </div>
+            )}
           </td>
         )
       })}

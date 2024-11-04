@@ -17,8 +17,7 @@ export default function FutureUpdates() {
         <br />
         Future updates:
         <br />
-        &bull; Picks and bans, Ability build history, Buildings map, Net worth
-        graph for Match statistic.
+        &bull; Buildings map, Net worth graph for Match statistic.
         <br />
         &bull; Current Meta Heroes.
         <br />
