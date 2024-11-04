@@ -41,8 +41,6 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
 
     this.findHeroFacet(player)
 
-    console.log(this.m_HeroDetails.heroVariant.icon)
-
     return this.m_HeroDetails
   }
 

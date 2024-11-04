@@ -6,12 +6,12 @@ export default function Home() {
   return (
     <div className={styles.homeWrapper}>
       {/* <h1>dotachecker</h1> */}
-      <Image
+      {/* <Image
         src={"/pictures/dotaCheckerIcons/dc.png"}
         alt={"dotachecker"}
         width={500}
         height={500}
-      />
+      /> */}
       <HomeDescription />
     </div>
   )
