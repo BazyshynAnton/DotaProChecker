@@ -50,10 +50,13 @@ export default function Behavior({ abilityName }: { abilityName: string }) {
             className={
               behavior.dispellable === "Yes"
                 ? styles.dispellable_yes
-                : styles.dispellable_no
+                : behavior.dispellable === "No"
+                ? styles.dispellable_no
+                : styles.dispellable_strong
             }
-          ></span>
-          {behavior.dispellable}
+          >
+            {behavior.dispellable}
+          </span>
         </div>
       )}
     </div>
