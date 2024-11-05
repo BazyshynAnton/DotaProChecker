@@ -6,6 +6,11 @@ export default function Behavior({ abilityName }: { abilityName: string }) {
   const uAbilityDetails = AbilityDetailsUtility.getInstance()
   const behavior = uAbilityDetails.findAbilityBehavior(abilityName)
 
+  let conditionBkbpierce = true
+  if (Array.isArray(behavior.bkbpierce)) {
+    conditionBkbpierce = behavior.bkbpierce.length === 0
+  }
+
   return (
     <div className={styles.behavior}>
       {behavior.target && (
@@ -29,7 +34,7 @@ export default function Behavior({ abilityName }: { abilityName: string }) {
           </span>
         </div>
       )}
-      {behavior.bkbpierce && (
+      {behavior.bkbpierce && conditionBkbpierce && (
         <div className={styles.pierces}>
           <span>PIERCES DEBUFF IMMUNITY:</span>{" "}
           <span

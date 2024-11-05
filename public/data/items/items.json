@@ -11745,7 +11745,7 @@
     "dname": "Glimmer Cape",
     "qual": "rare",
     "cost": 2150,
-    "behavior": ["Instant Cast", "Unit Target", "recipe_glimmer_cape"],
+    "behavior": ["Instant Cast", "Unit Target"],
     "dispellable": "Yes",
     "target_team": "Friendly",
     "target_type": ["Hero", "Basic"],
