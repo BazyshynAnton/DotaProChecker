@@ -14,11 +14,7 @@ export default function HeaderSmallScreen() {
   return (
     <>
       <div
-        className={
-          !isOpen
-            ? styles.headerContainer__burgerMenu_closed
-            : styles.headerContainer__burgerMenu_open
-        }
+        className={!isOpen ? styles.burgerMenu_closed : styles.burgerMenu_open}
         onClick={handleOpenMenuClick}
       >
         <span></span>
@@ -26,7 +22,7 @@ export default function HeaderSmallScreen() {
         <span></span>
       </div>
       {isOpen && (
-        <div className={styles.headerContainer__menu}>
+        <div className={styles.menu}>
           <Links setIsOpen={setIsOpen} />
         </div>
       )}

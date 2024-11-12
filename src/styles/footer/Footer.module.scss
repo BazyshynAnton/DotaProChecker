@@ -2,18 +2,20 @@
 @import "../scss/variables/colors";
 @import "../scss/mixins/fontsize.scss";
 
+$fontColor: #494949;
+
 .footer {
-  margin-top: 5rem;
+  margin-top: 2rem;
   padding: 20px;
   width: 100%;
-  background-color: $gray_blue_light;
+  background-color: #fff;
+  border-top: 1px solid #000;
 }
 
-.footer__dchecker {
-  color: $white_gray;
+.footer__dscope {
+  color: $fontColor;
   text-align: center;
   h3 {
-    @include FontFolkard;
     text-transform: uppercase;
     @include adaptive-font(1, 1.4, 120);
   }
@@ -31,10 +33,25 @@
   @include adaptive-font(0.7, 0.95, 120);
 
   a {
-    color: $white_gray;
+    color: $fontColor;
   }
 
   a:hover {
-    color: $white;
+    color: #3b82f6;
+  }
+}
+
+@media (min-width: 1920px) {
+  .footer__dscope {
+    h3 {
+      font-size: 1.4rem;
+    }
+
+    p {
+      font-size: 0.95rem;
+    }
+  }
+  .footer__bazyshyndev {
+    font-size: 0.95rem;
   }
 }

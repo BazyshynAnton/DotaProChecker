@@ -1,51 +1,52 @@
 *,
 *::before,
 *::after {
-  padding: 0;
-  margin: 0;
-  border: 0;
-  box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
 }
 
 html,
 body {
-  position: relative;
-  height: 100%;
-  background-color: #d6d6d6;
+    position: relative;
+    height: 100%;
+    background-color: #fff;
+    //  background-color: #d6d6d6;
 }
 
 ul,
 li {
-  list-style: none;
+    list-style: none;
 }
 
 a {
-  text-decoration: none;
-  color: #fff;
+    text-decoration: none;
+    color: #3b82f6;
 }
 
 .wrapper {
-  max-width: 1400px;
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0px 30px;
+    max-width: 1400px;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0px 30px;
 }
 
 // Fonts
 @font-face {
-  font-family: "friz-quadrata-bold";
-  src: url(/fonts/friz-quadrata/friz-quadrata-bold-italic-os.ttf);
+    font-family: "friz-quadrata-bold";
+    src: url(/fonts/friz-quadrata/friz-quadrata-bold-italic-os.ttf);
 }
 
 @font-face {
-  font-family: "friz-quadrata-regular";
-  src: url(/fonts/friz-quadrata/friz-quadrata-regular-os.ttf);
+    font-family: "friz-quadrata-regular";
+    src: url(/fonts/friz-quadrata/friz-quadrata-regular-os.ttf);
 }
 
 @font-face {
-  font-family: "folkard";
-  src: url(/fonts/folkard/folkard.ttf);
+    font-family: "folkard";
+    src: url(/fonts/folkard/folkard.ttf);
 }

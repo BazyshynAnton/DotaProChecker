@@ -1,12 +1,12 @@
-import DChecker from "./components/dchecker/DChecker"
-import BazyshynDev from "./components/bazyshyndev/BazyshynDev"
+import DScope from "./DScope"
+import BazyshynDev from "./BazyshynDev"
 
 import styles from "@/styles/footer/Footer.module.scss"
 
 export default function Footer() {
   return (
     <div className={styles.footer}>
-      <DChecker />
+      <DScope />
       <BazyshynDev />
     </div>
   )
