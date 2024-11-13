@@ -1,7 +1,7 @@
 "use client"
-import MatchDetails from "./components/MatchDetails"
-import FetchError from "./components/FetchError"
-import Search from "./components/Search"
+import MatchDetails from "./MatchDetails"
+import FetchError from "./FetchError"
+import Search from "./Search"
 
 import { useEffect } from "@/shared/reactImports"
 import { useAppSelector, useAppDispatch } from "@/shared/reduxImports"

@@ -1,8 +1,8 @@
-import TableDetails from "./reusableMatchDetails/tableDetails/TableDetails"
+import TableDetails from "./tableDetails/TableDetails"
 import ResultOfMatch from "./ResultOfMatch"
 import Loader from "@/components/loader/Loader"
 import PicksBans from "./PicksBans"
-import TableAbilities from "./reusableMatchDetails/tableAbilities/TableAbilities"
+import TableAbilities from "./tableAbilities/TableAbilities"
 
 import { MatchDetailsUtility } from "@/utils/statistic/MatchDetailsUtility"
 

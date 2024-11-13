@@ -55,3 +55,9 @@ $fontColor: #494949;
     font-size: 0.95rem;
   }
 }
+
+@media (max-width: 300px) {
+  .footer {
+    width: 300px;
+  }
+}

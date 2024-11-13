@@ -1,4 +1,4 @@
-import ItemDescription from "../itemDescription/ItemDescription"
+import ItemDescription from "./ItemDescription"
 import CannotFind from "./CannotFind"
 
 import { Image } from "@/shared/nextjsImports"

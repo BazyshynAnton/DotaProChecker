@@ -22,7 +22,7 @@ export default function ResultOfMatch() {
   }, [heroList, matchDetails])
 
   const side = resultOfMatch?.resultOfMatch ? "RADIANT" : "DIRE"
-  const sideColor = resultOfMatch?.resultOfMatch ? "#2eb872" : "#fa4659"
+  const sideColor = resultOfMatch?.resultOfMatch ? "#92A525" : "#C23C2A"
 
   return (
     <>

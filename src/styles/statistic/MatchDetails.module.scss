@@ -1,5 +1,6 @@
-@import "../scss/mixins/fonts.scss";
-@import "../scss/variables/colors.scss";
+$fontColor: #494949;
+$radiantColor: #92a525;
+$direColor: #c23c2a;
 
 .match {
   width: 100%;
@@ -24,7 +25,6 @@
   align-items: center;
 
   h4 {
-    @include FontFrizQuadrataRegular;
     font-size: 2rem;
   }
 }
@@ -41,12 +41,13 @@
 
 .scoreAndTime__radiantScore {
   font-size: 2rem;
-  color: $radiant_green;
+  color: $radiantColor;
 }
 .scoreAndTime__duration {
-  color: $white;
+  color: $fontColor;
+  font-weight: 400;
 }
 .scoreAndTime__direScore {
   font-size: 2rem;
-  color: $dire_red;
+  color: $direColor;
 }

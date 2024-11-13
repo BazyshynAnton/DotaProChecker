@@ -1,7 +1,7 @@
-import Aghanim from "../playerRowReusable/slots/Aghanim"
-import BackpackItems from "../playerRowReusable/slots/BackpackItems"
-import MainSlotItems from "../playerRowReusable/slots/MainSlotItems"
-import NeutralItem from "../playerRowReusable/slots/NeutralItem"
+import Aghanim from "./Aghanim"
+import BackpackItems from "./BackpackItems"
+import MainSlotItems from "./MainSlotItems"
+import NeutralItem from "./NeutralItem"
 
 import type { Player } from "@/types/statistic/tableDetails"
 import type { ItemDetails } from "@/types/statistic/playerRow"

@@ -1,13 +1,17 @@
 @import "../scss/variables/colors.scss";
 
+$fontColor: #494949;
+$border: 1px solid #000;
+
 .form {
   margin-top: 10rem;
   padding-bottom: 6rem;
   width: 100%;
 
-  h3 {
-    font-size: 1.1rem;
-    color: $white_gray;
+  span {
+    display: inline-block;
+    font-size: 1.2rem;
+    color: $fontColor;
     padding-bottom: 5px;
   }
 }
@@ -22,20 +26,19 @@
   padding: 5px 10px;
   width: 300px;
   height: 60px;
-  background-color: $gray_blue_light;
-  border: 2px solid $gray_blue_light;
-  color: $white_gray;
+  background-color: #fff;
+  border: $border;
+  color: inherit;
   outline: none;
   transition: all 110ms ease-in-out;
   font-size: 1rem;
 
   &::placeholder {
     font-size: 1rem;
-    color: #c5c5c5;
   }
 
   &:focus {
-    border: 2px solid #7c7c7c;
+    border: 2px solid #000;
   }
 
   &::-webkit-outer-spin-button,
@@ -58,32 +61,38 @@
   font-size: 1.05rem;
   font-weight: 500;
   letter-spacing: 0.3px;
-  background-color: #4c5057;
+  background-color: #fff;
+  border-top: $border;
+  border-right: $border;
+  border-bottom: $border;
   transition: all 110ms ease-in-out;
 }
 
 .search__button_enabled {
-  color: $white_gray;
+  color: $fontColor;
+
   cursor: pointer;
 
   &:hover {
-    background-color: #454b55;
+    color: #fff;
+    background-color: #000;
   }
 }
 
 .search__button_disabled {
-  color: #cfcfcf;
+  color: inherit;
   cursor: no-drop;
 }
 
 .search__loader {
   width: 50px;
   aspect-ratio: 2;
-  --_g: no-repeat radial-gradient(circle closest-side, #cfcfcf 90%, #0000);
+  --_g: no-repeat radial-gradient(circle closest-side, #000 90%, #0000);
   background: var(--_g) 0% 50%, var(--_g) 50% 50%, var(--_g) 100% 50%;
   background-size: calc(100% / 3) 50%;
   animation: l3 1s infinite linear;
 }
+
 @keyframes l3 {
   20% {
     background-position: 0% 0%, 50% 50%, 100% 50%;

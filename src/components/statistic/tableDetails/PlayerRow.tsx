@@ -1,7 +1,7 @@
-import HeroAndNickname from "./playerRowComponents/HeroAndNickname"
-import RankAndAvatar from "./playerRowComponents/RankAndAvatar"
-import PlayerStatistic from "./playerRowComponents/PlayerStatistic"
-import PlayerItems from "./playerRowComponents/PlayerItems"
+import HeroAndNickname from "./HeroAndNickname"
+import RankAndAvatar from "./RankAndAvatar"
+import PlayerStatistic from "./PlayerStatistic"
+import PlayerItems from "./PlayerItems"
 
 import { useAppSelector } from "@/shared/reduxImports"
 

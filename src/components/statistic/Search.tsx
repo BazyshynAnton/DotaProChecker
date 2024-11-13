@@ -36,7 +36,7 @@ export default function Search() {
 
   return (
     <form className={styles.form} onSubmit={handleFormSubmit}>
-      <h3>Search for match:</h3>
+      <span>Search for match:</span>
       <div className={styles.search}>
         <input
           className={styles.search__input}

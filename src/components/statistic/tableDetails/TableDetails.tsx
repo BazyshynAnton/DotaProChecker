@@ -1,5 +1,5 @@
-import PlayerRow from "./components/playerRow/PlayerRow"
-import HeaderCells from "./components/HeaderCells"
+import PlayerRow from "./PlayerRow"
+import HeaderCells from "./HeaderCells"
 
 import type { Player } from "@/types/statistic/tableDetails"
 

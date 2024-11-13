@@ -1,4 +1,4 @@
-import ItemDescription from "../itemDescription/ItemDescription"
+import ItemDescription from "./ItemDescription"
 
 import { Image } from "@/shared/nextjsImports"
 import { useState } from "@/shared/reactImports"

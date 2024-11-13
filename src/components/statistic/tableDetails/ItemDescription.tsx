@@ -1,9 +1,9 @@
-import NameAndCost from "./itemDescriptionComponents/NameAndCost"
-import Behavior from "./itemDescriptionComponents/Behavior"
-import Attribute from "./itemDescriptionComponents/Attribute"
-import Abilities from "./itemDescriptionComponents/Abilities"
-import HintAndLore from "./itemDescriptionComponents/HintAndLore"
-import Components from "./itemDescriptionComponents/Components"
+import NameAndCost from "./NameAndCost"
+import Behavior from "./Behavior"
+import Attribute from "./Attribute"
+import Abilities from "./Abilities"
+import HintAndLore from "./HintAndLore"
+import Components from "./Components"
 
 import { ReactDOM } from "@/shared/reactImports"
 

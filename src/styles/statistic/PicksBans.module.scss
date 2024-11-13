@@ -1,4 +1,7 @@
-@import "../scss/variables/colors.scss";
+$fontColor: #494949;
+$radiantColor: #92a525;
+$direColor: #c23c2a;
+$border: 1px solid black;
 
 .picksBans {
   width: 100%;
@@ -16,6 +19,7 @@
   flex-direction: column;
   width: fit-content;
   height: fit-content;
+  border: $border;
 
   .heroImg {
     width: fit-content;
@@ -24,12 +28,14 @@
   }
 
   span {
+    display: inline-block;
     padding: 3px 4px;
-    background: $gray_blue_light;
-    color: $white_gray;
+    background: #fff;
+    color: $fontColor;
     text-transform: uppercase;
     text-align: center;
     font-size: 0.9rem;
+    border-top: $border;
   }
 }
 
@@ -57,7 +63,7 @@
       right: -3px;
       top: 17px;
       transform: rotate(-28deg);
-      background: $dire_red;
+      background: $direColor;
     }
   }
 }

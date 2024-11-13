@@ -32,12 +32,12 @@ $fontColor: #494949;
 
 .headerLink {
   &:hover {
-    border-bottom: 2px solid #fff;
+    border-bottom: 4px solid #fff;
   }
 }
 
 .activeHeaderLink {
-  border-bottom: 2px solid $white;
+  border-bottom: 4px solid $white;
 }
 
 // small header

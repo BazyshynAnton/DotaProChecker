@@ -1,5 +1,6 @@
 @import "../scss/variables/colors.scss";
 
+// PlayerRow.tsx
 .playerRow {
   position: relative;
   width: 100%;
@@ -46,12 +47,14 @@
 }
 
 .playerRow__playerDataCell__inCell {
+  padding: 10px;
   display: flex;
   gap: 1rem;
   justify-content: space-between;
   align-items: center;
 }
 
+// HeroAndNickName.tsx
 .heroAndNickname {
   display: flex;
   align-items: center;
