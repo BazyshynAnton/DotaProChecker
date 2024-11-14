@@ -15,7 +15,7 @@ const roboto = Roboto({
 })
 
 export const metadata: Metadata = {
-  title: "DotaChecker",
+  title: "DotaScope",
   icons: {
     icon: ["/favicon/favicon.ico?v=4"],
     apple: ["/favicon/apple-touch-icon.png?v=4"],

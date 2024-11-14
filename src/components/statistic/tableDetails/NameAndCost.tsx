@@ -22,7 +22,9 @@ export default function NameAndCost({
     <div className={styles.nameAndCostWrapper}>
       <div className={styles.nameAndCostWrapper__itemPicture}>
         <Image
-          src={`${ITEM_ICON_URL}${details[item].img}.png`}
+          src={`${ITEM_ICON_URL}${
+            item.includes("recipe") ? "recipe" : item
+          }.png`}
           alt=""
           width={90}
           height={70}

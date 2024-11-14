@@ -28,14 +28,13 @@ export default function Hero({ playersTeam }: { playersTeam: Player[] }) {
         )
         return (
           <tr key={player.hero_id} className={styles.tableBodyRow}>
-            <td className={styles.tableBodyRow__heroDataCell}>
-              <div className={styles.heroDataCell__inCell}>
+            <td>
+              <div className={styles.heroDataCell}>
                 <Image
                   src={`${HERO_ICON_URL}${detailsAboutHero.heroName}.png`}
                   alt={detailsAboutHero.heroLocalizedName}
-                  width={256}
-                  height={144}
-                  quality={100}
+                  width={51}
+                  height={30}
                 />
               </div>
             </td>

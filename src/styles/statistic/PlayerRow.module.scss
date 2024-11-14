@@ -1,5 +1,10 @@
 @import "../scss/variables/colors.scss";
 
+$border: 1px solid #000;
+$fontColor: #494949;
+$radiantColor: #92a525;
+$direColor: #c23c2a;
+
 // PlayerRow.tsx
 .playerRow {
   position: relative;
@@ -12,38 +17,10 @@
     position: relative;
     text-align: right;
   }
-
-  &:hover {
-    .playerHeroAndVariant,
-    .playerNickname {
-      z-index: 6;
-    }
-
-    .playerNickname {
-      position: relative;
-    }
-
-    .playerDataCell__kills,
-    .playerDataCell__assists,
-    .playerDataCell__deaths,
-    .playerDataCell__lasthits,
-    .playerDataCell__denies,
-    .playerDataCell__lasthits,
-    .playerDataCell__gpm,
-    .playerDataCell__networth,
-    .playerDataCell__gpm,
-    .playerDataCell__xpm,
-    .playerDataCell__heroDamage,
-    .playerDataCell__towerDamage,
-    .playerDataCell__heroesHealing {
-      position: relative;
-      z-index: 6;
-    }
-  }
 }
 
 .playerRow__playerDataCell {
-  width: 170px;
+  width: max-content;
 }
 
 .playerRow__playerDataCell__inCell {
@@ -86,9 +63,7 @@
 }
 
 .heroAndNickname__hero__icon {
-  width: 54px;
   height: 30px;
-
   img {
     object-fit: contain;
     width: 100%;
@@ -107,7 +82,7 @@
   align-items: center;
   justify-content: center;
   font-size: 10px;
-  color: $white;
+  color: #fff;
   background-color: #000000be;
 
   cursor: default;
@@ -119,11 +94,11 @@
 }
 
 .heroAndNickname__nickname_radiant {
-  color: $radiant_green;
+  color: $radiantColor;
 }
 
 .heroAndNickname__nickname_dire {
-  color: $dire_red;
+  color: $direColor;
 }
 
 .heroAndNickname__nickname_radiant,
@@ -131,12 +106,13 @@
   text-align: left;
 }
 
+// RankAndAvatar.tsx
 .rankAndAvatar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: relative;
-  gap: 4px;
+  gap: 8px;
   z-index: 6;
 }
 
@@ -162,101 +138,42 @@
 .rankAndAvatar__avatar {
   width: 24px;
   height: 24px;
-}
-
-.playerDataCell__kills {
-  padding-left: 20px;
-}
-
-.playerDataCell__kills,
-.playerDataCell__assists {
-  color: #fff;
-}
-
-.playerDataCell__kills,
-.playerDataCell__deaths,
-.playerDataCell__assists {
-  width: 21px;
-}
-
-.playerDataCell__lasthits,
-.playerDataCell__denies {
-  width: 21px;
-}
-
-.playerDataCell__lasthits,
-.playerDataCell__gpm {
-  position: relative;
-  z-index: 0;
-  &::before {
-    content: "/";
-    position: absolute;
-    top: 50%;
-    right: -13px;
-    transform: translate(-50%, -50%);
-    margin: auto 0;
-    font-weight: 100;
+  img {
+    border: $border;
   }
 }
 
-.playerDataCell__denies,
-.playerDataCell__xpm {
-  text-align: left !important;
-  padding-left: 10px;
+// PlayerStatistic.tsx
+.playerDataCell__statistic {
+  position: relative;
+  width: 100%;
+  padding: 0px 10px;
+  text-align: center;
 }
 
-.playerDataCell__networth {
-  width: 32px;
-}
-
-.playerDataCell__gpm,
-.playerDataCell__xpm {
-  width: 25px;
-}
-
-.playerDataCell__heroDamage,
-.playerDataCell__towerDamage,
-.playerDataCell__heroesHealing {
-  width: 32px;
-}
-
-.playerDataCell__towerDamage,
-.playerDataCell__heroesHealing {
-  padding-left: 10px;
-}
-
-.playerDataCell__deaths,
-.playerDataCell__lasthits,
-.playerDataCell__denies,
-.playerDataCell__lasthits,
-.playerDataCell__gpm,
-.playerDataCell__networth,
-.playerDataCell__gpm,
-.playerDataCell__xpm,
-.playerDataCell__heroDamage,
-.playerDataCell__towerDamage,
-.playerDataCell__heroesHealing {
-  color: #b8b8b8;
-}
-
-.playerDataCell__items {
-  width: 20%;
-  text-align: left;
-  padding-left: 10px;
-}
+// PlayerItems.tsx
 .playerDataCell__items__wrapper {
+  padding: 10px 0px;
+  width: 100%;
   display: flex;
-  gap: 1rem;
+  justify-content: center;
   align-items: center;
+  gap: 1rem;
 }
 
 .slots {
-  padding: 10px 0px 10px 0px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 4px;
   width: 250px;
+}
+
+.slots__mainSlot,
+.slots__backpack {
+  img {
+    border: $border;
+  }
 }
 
 .slots__mainSlot,
@@ -275,6 +192,7 @@
   position: relative;
   border-radius: 50%;
   overflow: hidden;
+  border: $border;
 }
 
 // .ghanim,

@@ -57,7 +57,7 @@ export default function Abilities({ details, item }: ItemDescriptionInterface) {
                 : styles.abilities_passive__description
 
             return (
-              <div key={abil.title} className={abilityCondition}>
+              <div key={abil.description} className={abilityCondition}>
                 <div className={abilityHeaderCondition}>
                   <div
                     className={styles.abilities_active_passive__header__content}

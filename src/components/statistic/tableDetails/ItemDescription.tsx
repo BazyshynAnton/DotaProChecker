@@ -1,3 +1,6 @@
+"use client"
+import useMousePosition from "@/hooks/useMousePosition"
+
 import NameAndCost from "./NameAndCost"
 import Behavior from "./Behavior"
 import Attribute from "./Attribute"
@@ -20,8 +23,19 @@ export default function ItemDescription({
     Using React Portal transfer this component to another
     component with id="tooltip_portal"
   */
+  const mousePosition = useMousePosition()
+
+  if (!mousePosition.x || !mousePosition.y) return
+
   return ReactDOM.createPortal(
-    <div className={styles.tooltip}>
+    <div
+      style={{
+        position: "absolute",
+        top: mousePosition.y,
+        left: mousePosition.x - 450,
+      }}
+      className={styles.tooltip}
+    >
       <NameAndCost details={details} item={item} />
       <div className={styles.tooltip__description}>
         <Behavior details={details} item={item} />

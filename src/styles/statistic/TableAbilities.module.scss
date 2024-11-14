@@ -2,6 +2,11 @@
 @import "../scss/variables/colors.scss";
 @import "../scss/mixins/scrollX.scss";
 
+$fontColor: #494949;
+$radiantColor: #92a525;
+$direColor: #c23c2a;
+$border: 1px solid #000;
+
 .builds {
   width: 100%;
   margin-bottom: 5rem;
@@ -11,44 +16,35 @@
 }
 
 .builds__header {
-  @include FontFrizQuadrataRegular;
   font-weight: 600;
   font-size: 1.3rem;
   text-transform: uppercase;
 }
 .builds__header_radiant {
-  color: $radiant_green;
+  color: $radiantColor;
 }
 .builds__header_dire {
-  color: $dire_red;
+  color: $direColor;
 }
 
 // table
 .table {
-  background: $gray_blue_light;
+  background: #fff;
   width: 100%;
-  padding: 10px;
+  font-size: 1.2rem;
 }
 .tableHeadRow {
-  color: $white;
+  color: $fontColor;
 }
 
 .tableHead__content {
-  width: 30px;
-  margin-left: 1rem;
+  width: 100%;
   height: fit-content;
-  text-align: center;
 }
 
-.tableHead_first {
-  margin-left: 0rem;
-  text-align: left;
-}
-
-.heroDataCell__inCell,
-.abilityDataCell__inCell {
-  margin-top: 1rem;
-
+.heroDataCell,
+.abilityDataCell {
+  padding: 10px 0px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -59,16 +55,17 @@
     object-fit: contain;
   }
 }
-.heroDataCell__inCell {
-  width: 40px;
-  height: 30px;
+.heroDataCell {
+  height: 50px;
 }
 
-.abilityDataCell__inCell {
-  margin-left: 1rem;
-  width: 30px;
-  height: 30px;
+.abilityDataCell {
+  height: 61px;
   cursor: pointer;
+}
+
+.withoutAbility {
+  height: 61px;
 }
 
 @media (max-width: 1152px) {

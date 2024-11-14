@@ -1,12 +1,12 @@
-import Title from "./components/Title"
-import Behavior from "./components/Behavior"
-import Description from "./components/Description"
+import Title from "./Title"
+import Behavior from "./Behavior"
+import Description from "./Description"
 
 import { ReactDOM } from "@/shared/reactImports"
 
 import styles from "@/styles/statistic/AbilityDescription.module.scss"
-import Attributes from "./components/Attributes"
-import Cost from "./components/Cost"
+import Attributes from "./Attributes"
+import Cost from "./Cost"
 
 export default function AbilityDescription({
   abilityName,

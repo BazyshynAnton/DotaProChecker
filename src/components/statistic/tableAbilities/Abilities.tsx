@@ -1,4 +1,4 @@
-import AbilityDescription from "./abilityDescription/AbilityDescription"
+import AbilityDescription from "./AbilityDescription"
 
 import { AbilityDetailsUtility } from "@/utils/statistic/AbilityDetailsUtility"
 import { Image } from "@/shared/nextjsImports"
@@ -65,9 +65,9 @@ export default function Abilities({ player }: { player: Player }) {
         const talentTree: boolean = abilityName.includes("special_bonus")
 
         return (
-          <td key={idx} className={styles.tableBodyRow__abilityDataCell}>
-            {abilityName !== "none" && (
-              <div className={styles.abilityDataCell__inCell} ref={tooltipRef}>
+          <td key={idx}>
+            {abilityName !== "none" ? (
+              <div className={styles.abilityDataCell} ref={tooltipRef}>
                 {isTooltip[idx] && (
                   <AbilityDescription abilityName={abilityName} />
                 )}
@@ -77,9 +77,23 @@ export default function Abilities({ player }: { player: Player }) {
                       ? `${HERO_ABILITY_URL}${abilityName}.png`
                       : "/pictures/dotaAbilityIcons/talent_tree.svg"
                   }
-                  alt=""
-                  width={100}
-                  height={100}
+                  alt={abilityName}
+                  width={51}
+                  height={51}
+                  onClick={handleTrueClick(idx)}
+                />
+              </div>
+            ) : (
+              <div className={styles.withoutAbility}>
+                <Image
+                  src={
+                    !talentTree
+                      ? `${HERO_ABILITY_URL}${abilityName}.png`
+                      : "/pictures/dotaAbilityIcons/talent_tree.svg"
+                  }
+                  alt={abilityName}
+                  width={51}
+                  height={51}
                   onClick={handleTrueClick(idx)}
                 />
               </div>

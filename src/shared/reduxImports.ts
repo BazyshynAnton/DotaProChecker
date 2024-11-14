@@ -1,4 +1,4 @@
-import { useAppDispatch } from "@/hooks/redux/useAppDispatch"
-import { useAppSelector } from "@/hooks/redux/useAppSelector"
+import { useAppDispatch } from "@/hooks/useAppDispatch"
+import { useAppSelector } from "@/hooks/useAppSelector"
 
 export { useAppDispatch, useAppSelector }

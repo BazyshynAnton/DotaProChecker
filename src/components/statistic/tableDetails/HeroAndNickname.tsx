@@ -26,9 +26,8 @@ export default function HeroAndNickname({
           <Image
             src={`${HERO_ICON_URL}${detailsAboutHero.heroName}.png`}
             alt={detailsAboutHero.heroLocalizedName}
-            width={256}
-            height={144}
-            quality={100}
+            width={54}
+            height={30}
           />
         </div>
         <div className={styles.heroAndNickname__hero__level}>

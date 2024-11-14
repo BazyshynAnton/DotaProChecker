@@ -1,5 +1,5 @@
-import HeaderCells from "./components/HeaderCells"
-import Hero from "./components/Hero"
+import HeaderCells from "./HeaderCells"
+import Hero from "./Hero"
 
 import { Player } from "@/types/statistic/tableDetails"
 

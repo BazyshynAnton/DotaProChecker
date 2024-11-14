@@ -1,6 +1,3 @@
-// Styles
-import styles from "@/styles/statistic/TableDetails.module.scss"
-
 export default function TableHeaderCell({
   str,
   title,

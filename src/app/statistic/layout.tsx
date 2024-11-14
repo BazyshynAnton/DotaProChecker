@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 import styles from "@/styles/statistic/ItemDescription.module.scss"
 
 export const metadata: Metadata = {
-  title: "Statistic | DotaChecker",
+  title: "Statistic | DotaScope",
 }
 
 export default function RootLayout({
