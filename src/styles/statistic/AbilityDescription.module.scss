@@ -1,6 +1,7 @@
 @import "../scss/variables/colors.scss";
 
 .abilityTooltip {
+  margin-top: 50px;
   width: 300px;
   height: max-content;
   display: flex;
@@ -24,6 +25,11 @@
   gap: 1rem;
   color: #ffffffde;
   background: linear-gradient(to right, rgb(81, 86, 95), rgb(48, 51, 56));
+
+  img {
+    width: 52px;
+    height: 52px;
+  }
 }
 
 .title {
@@ -117,6 +123,11 @@
   align-items: center;
   gap: 0.3rem;
   color: #ffffffde;
+
+  img {
+    width: 15px;
+    height: 15px;
+  }
 }
 
 // All

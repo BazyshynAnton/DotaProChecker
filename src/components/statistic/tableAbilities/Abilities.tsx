@@ -2,7 +2,7 @@ import AbilityDescription from "./AbilityDescription"
 
 import { AbilityDetailsUtility } from "@/utils/statistic/AbilityDetailsUtility"
 import { Image } from "@/shared/nextjsImports"
-import { useEffect, useState, useRef } from "@/shared/reactImports"
+import { useState, useRef } from "@/shared/reactImports"
 
 import { HERO_ABILITY_URL } from "@/utils/urls"
 
@@ -23,7 +23,7 @@ export default function Abilities({ player }: { player: Player }) {
     player.ability_upgrades_arr
   )
 
-  const handleTrueClick = (idx: number) => () => {
+  const handleMouseEnter = (idx: number) => () => {
     const updatedTooltip: Array<boolean> = JSON.parse(JSON.stringify(isTooltip))
 
     for (let i = 0; i < updatedTooltip.length; ++i) {
@@ -37,25 +37,9 @@ export default function Abilities({ player }: { player: Player }) {
     setIsTooltip(updatedTooltip)
   }
 
-  const handleFalseClick = () => {
+  const handleMouseLeave = () => {
     setIsTooltip(isTooltipDefault)
   }
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        tooltipRef.current &&
-        !tooltipRef.current.contains(event.target as Node)
-      ) {
-        handleFalseClick()
-      }
-    }
-
-    document.addEventListener("mousedown", handleClickOutside)
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside)
-    }
-  }, [])
 
   return (
     <>
@@ -80,21 +64,18 @@ export default function Abilities({ player }: { player: Player }) {
                   alt={abilityName}
                   width={51}
                   height={51}
-                  onClick={handleTrueClick(idx)}
+                  onMouseEnter={handleMouseEnter(idx)}
+                  onMouseLeave={handleMouseLeave}
                 />
               </div>
             ) : (
-              <div className={styles.withoutAbility}>
+              <div className={styles.abilityDataCell}>
                 <Image
-                  src={
-                    !talentTree
-                      ? `${HERO_ABILITY_URL}${abilityName}.png`
-                      : "/pictures/dotaAbilityIcons/talent_tree.svg"
-                  }
+                  src={"/pictures/dotaAbilityIcons/talent_tree.svg"}
                   alt={abilityName}
                   width={51}
                   height={51}
-                  onClick={handleTrueClick(idx)}
+                  style={{ visibility: "hidden" }}
                 />
               </div>
             )}
