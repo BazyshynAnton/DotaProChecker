@@ -21,7 +21,7 @@ export default function ItemDescription({
   //
   /* 
     Using React Portal transfer this component to another
-    component with id="tooltip_portal"
+    component with id="tooltip_item_portal"
   */
   const mousePosition = useMousePosition()
 
@@ -45,6 +45,6 @@ export default function ItemDescription({
         <Components details={details} item={item} />
       </div>
     </div>,
-    document.getElementById("tooltip_portal") as Element | DocumentFragment
+    document.getElementById("tooltip_item_portal") as Element | DocumentFragment
   )
 }

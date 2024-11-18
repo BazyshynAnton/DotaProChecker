@@ -1,12 +1,14 @@
 import Header from "@/components/header/Header"
+import Footer from "@/components/footer/Footer"
+import TooltipItemPortal from "@/components/portals/TooltipItemPortal"
+import TooltipAbilityPortal from "@/components/portals/TooltipAbilityPortal"
+
 import StoreProvider from "@/store/StoreProvider"
 
 import type { Metadata } from "next"
 import { Roboto } from "next/font/google"
 
 import "./globals.scss"
-import Footer from "@/components/footer/Footer"
-import TooltipPortal from "@/components/tooltipPortal/TooltipPortal"
 
 const roboto = Roboto({
   weight: ["400", "500", "700", "900"],
@@ -35,7 +37,8 @@ export default function RootLayout({
           <Header />
           <div className="wrapper">
             {children}
-            <TooltipPortal />
+            <TooltipItemPortal />
+            <TooltipAbilityPortal />
           </div>
           <Footer />
         </body>

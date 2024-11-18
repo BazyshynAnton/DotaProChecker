@@ -60,6 +60,7 @@ export default function Aghanim({ player }: { player: Player }) {
           gap: "0.1rem",
           alignItems: "center",
           justifyContent: "center",
+          cursor: "help",
         }}
       >
         <Image

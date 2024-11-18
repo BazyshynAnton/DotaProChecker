@@ -64,8 +64,12 @@ $border: 1px solid #000;
   position: relative;
 }
 
-@media (max-width: 1152px) {
+@media (max-width: 1435px) {
   .builds__tableWrapper {
     @include scrollX;
+  }
+
+  .table {
+    width: 1430px;
   }
 }
