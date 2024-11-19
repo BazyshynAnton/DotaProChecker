@@ -32,7 +32,7 @@ export default function ItemDescription({
       style={{
         position: "absolute",
         top: mousePosition.y,
-        left: mousePosition.x - 450,
+        left: mousePosition.x - 300,
       }}
       className={styles.tooltip}
     >

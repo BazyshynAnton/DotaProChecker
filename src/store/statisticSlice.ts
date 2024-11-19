@@ -5,6 +5,9 @@ const initialState: InitialStatisticState = {
   matchDetails: null,
   heroList: null,
   playersProfiles: null,
+  tooltipAbilityPortal: false,
+  tooltipItemPortal: false,
+  windowWidth: false,
 
   search: {
     accountID: "",
@@ -28,12 +31,30 @@ export const statisticSlice = createSlice({
       }
     },
 
+    setTooltipAbilityPortal: (state, action) => {
+      state.tooltipAbilityPortal = action.payload
+    },
+
+    setTooltipItemPortal: (state, action) => {
+      state.tooltipItemPortal = action.payload
+    },
+
+    setWindowWidth: (state, action) => {
+      state.windowWidth = action.payload
+    },
+
     setSearch: (state, action) => {
       state.search.matchID = action.payload.value
     },
   },
 })
 
-export const { setMatchData, setSearch } = statisticSlice.actions
+export const {
+  setMatchData,
+  setSearch,
+  setTooltipAbilityPortal,
+  setTooltipItemPortal,
+  setWindowWidth,
+} = statisticSlice.actions
 
 export default statisticSlice.reducer

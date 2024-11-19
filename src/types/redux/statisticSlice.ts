@@ -8,6 +8,9 @@ export interface InitialStatisticState {
   matchDetails: MatchDetails | null
   heroList: HeroList[] | null
   playersProfiles: PlayerProfile[] | null
+  tooltipAbilityPortal: boolean
+  tooltipItemPortal: boolean
+  windowWidth: boolean
 
   search: {
     [key: string]: string

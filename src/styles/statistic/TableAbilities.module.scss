@@ -62,6 +62,9 @@ $border: 1px solid #000;
 .abilityDataCell {
   height: 61px;
   position: relative;
+  img {
+    cursor: pointer;
+  }
 }
 
 @media (max-width: 1435px) {

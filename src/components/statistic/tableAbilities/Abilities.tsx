@@ -2,17 +2,21 @@ import AbilityDescription from "./AbilityDescription"
 
 import { AbilityDetailsUtility } from "@/utils/statistic/AbilityDetailsUtility"
 import { Image } from "@/shared/nextjsImports"
-import { useState, useRef } from "@/shared/reactImports"
+import { useEffect, useRef, useState } from "@/shared/reactImports"
 
 import { HERO_ABILITY_URL } from "@/utils/urls"
 
 import type { Player } from "@/types/statistic/tableDetails"
 
 import styles from "@/styles/statistic/TableAbilities.module.scss"
+import { useAppDispatch } from "@/hooks/useAppDispatch"
+import { setTooltipAbilityPortal } from "@/store/statisticSlice"
 
 const isTooltipDefault = new Array<boolean>(25).fill(false)
 
 export default function Abilities({ player }: { player: Player }) {
+  const dispatch = useAppDispatch()
+
   const uAbilityDetails = AbilityDetailsUtility.getInstance()
 
   const [isTooltip, setIsTooltip] = useState<Array<boolean>>(isTooltipDefault)
@@ -23,7 +27,7 @@ export default function Abilities({ player }: { player: Player }) {
     player.ability_upgrades_arr
   )
 
-  const handleMouseEnter = (idx: number) => () => {
+  const handleTrueClick = (idx: number) => () => {
     const updatedTooltip: Array<boolean> = JSON.parse(JSON.stringify(isTooltip))
 
     for (let i = 0; i < updatedTooltip.length; ++i) {
@@ -35,11 +39,29 @@ export default function Abilities({ player }: { player: Player }) {
     }
 
     setIsTooltip(updatedTooltip)
+    dispatch(setTooltipAbilityPortal(true))
   }
 
-  const handleMouseLeave = () => {
+  const handleFalseClick = () => {
     setIsTooltip(isTooltipDefault)
+    dispatch(setTooltipAbilityPortal(false))
   }
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        tooltipRef.current &&
+        !tooltipRef.current.contains(event.target as Node)
+      ) {
+        handleFalseClick()
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+  }, [])
 
   return (
     <>
@@ -64,8 +86,7 @@ export default function Abilities({ player }: { player: Player }) {
                   alt={abilityName}
                   width={51}
                   height={51}
-                  onMouseEnter={handleMouseEnter(idx)}
-                  onMouseLeave={handleMouseLeave}
+                  onClick={handleTrueClick(idx)}
                 />
               </div>
             ) : (

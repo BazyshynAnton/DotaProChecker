@@ -1,3 +1,4 @@
+"use client"
 import Cost from "./Cost"
 import Attributes from "./Attributes"
 import Title from "./Title"
@@ -6,8 +7,6 @@ import Description from "./Description"
 
 import { ReactDOM } from "@/shared/reactImports"
 
-import useMousePosition from "@/hooks/useMousePosition"
-
 import styles from "@/styles/statistic/AbilityDescription.module.scss"
 
 export default function AbilityDescription({
@@ -15,10 +14,6 @@ export default function AbilityDescription({
 }: {
   abilityName: string
 }) {
-  const mousePosition = useMousePosition()
-
-  if (!mousePosition.x || !mousePosition.y) return
-
   const talentTree: boolean = abilityName.includes("special_bonus")
 
   return ReactDOM.createPortal(
