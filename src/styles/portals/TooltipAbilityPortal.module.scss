@@ -8,6 +8,8 @@
   right: 0;
 
   transition: all 0.2s ease-in-out;
+
+  z-index: 99999;
 }
 
 .simpleBg {
@@ -20,6 +22,4 @@
   justify-content: center;
   background-color: #ffffff6b;
   backdrop-filter: blur(8px);
-
-  z-index: 99999;
 }

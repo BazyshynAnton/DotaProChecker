@@ -6,7 +6,6 @@ const initialState: InitialStatisticState = {
   heroList: null,
   playersProfiles: null,
   tooltipAbilityPortal: false,
-  tooltipItemPortal: false,
   windowWidth: false,
 
   search: {
@@ -35,10 +34,6 @@ export const statisticSlice = createSlice({
       state.tooltipAbilityPortal = action.payload
     },
 
-    setTooltipItemPortal: (state, action) => {
-      state.tooltipItemPortal = action.payload
-    },
-
     setWindowWidth: (state, action) => {
       state.windowWidth = action.payload
     },
@@ -53,7 +48,6 @@ export const {
   setMatchData,
   setSearch,
   setTooltipAbilityPortal,
-  setTooltipItemPortal,
   setWindowWidth,
 } = statisticSlice.actions
 

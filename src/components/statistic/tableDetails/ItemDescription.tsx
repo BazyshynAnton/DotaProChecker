@@ -8,11 +8,14 @@ import Abilities from "./Abilities"
 import HintAndLore from "./HintAndLore"
 import Components from "./Components"
 
-import { ReactDOM } from "@/shared/reactImports"
+import { ReactDOM, useEffect } from "@/shared/reactImports"
 
 import type { ItemDescriptionInterface } from "@/types/statistic/playerRow"
 
 import styles from "@/styles/statistic/ItemDescription.module.scss"
+import { useAppSelector } from "@/hooks/useAppSelector"
+import { setWindowWidth } from "@/store/statisticSlice"
+import { useAppDispatch } from "@/hooks/useAppDispatch"
 
 export default function ItemDescription({
   details,
@@ -21,9 +24,28 @@ export default function ItemDescription({
   //
   /* 
     Using React Portal transfer this component to another
-    component with id="tooltip_item_portal"
+    component with id="tooltip_item_portal" on desktop.
+    And with id="tooltip_mobile_item_portal" on tablet and mobile.
   */
+  const { windowWidth } = useAppSelector((store) => store.statisticSlice)
+  const dispatch = useAppDispatch()
+
   const mousePosition = useMousePosition()
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      dispatch(setWindowWidth(window.innerWidth <= 790))
+      const updateWindowWidth = () => {
+        dispatch(setWindowWidth(window.innerWidth <= 790))
+      }
+
+      updateWindowWidth()
+
+      window.addEventListener("resize", updateWindowWidth)
+
+      return () => window.removeEventListener("resize", updateWindowWidth)
+    }
+  }, [])
 
   if (!mousePosition.x || !mousePosition.y) return
 
@@ -36,6 +58,15 @@ export default function ItemDescription({
       }}
       className={styles.tooltip}
     >
+      <ItemContent details={details} item={item} />
+    </div>,
+    document.getElementById("tooltip_item_portal") as Element | DocumentFragment
+  )
+}
+
+function ItemContent({ details, item }: ItemDescriptionInterface) {
+  return (
+    <>
       <NameAndCost details={details} item={item} />
       <div className={styles.tooltip__description}>
         <Behavior details={details} item={item} />
@@ -44,7 +75,6 @@ export default function ItemDescription({
         <HintAndLore details={details} item={item} />
         <Components details={details} item={item} />
       </div>
-    </div>,
-    document.getElementById("tooltip_item_portal") as Element | DocumentFragment
+    </>
   )
 }
