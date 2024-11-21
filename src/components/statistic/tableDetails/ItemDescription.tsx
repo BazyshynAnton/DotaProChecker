@@ -47,6 +47,19 @@ export default function ItemDescription({
     }
   }, [])
 
+  if (windowWidth) {
+    return ReactDOM.createPortal(
+      <div className={styles.bgBlur}>
+        <div className={styles.itemDescription}>
+          <ItemContent details={details} item={item} />
+        </div>
+      </div>,
+      document.getElementById("tooltip_item_portal") as
+        | Element
+        | DocumentFragment
+    )
+  }
+
   if (!mousePosition.x || !mousePosition.y) return
 
   return ReactDOM.createPortal(
@@ -56,7 +69,7 @@ export default function ItemDescription({
         top: mousePosition.y,
         left: mousePosition.x - 300,
       }}
-      className={styles.tooltip}
+      className={styles.itemDescription}
     >
       <ItemContent details={details} item={item} />
     </div>,

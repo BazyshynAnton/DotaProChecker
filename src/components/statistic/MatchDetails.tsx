@@ -1,6 +1,6 @@
 import TableDetails from "./tableDetails/TableDetails"
 import ResultOfMatch from "./ResultOfMatch"
-import Loader from "@/components/loader/Loader"
+import StatisticLoader from "@/components/loaders/StatisticLoader"
 import PicksBans from "./PicksBans"
 import TableAbilities from "./tableAbilities/TableAbilities"
 
@@ -27,7 +27,7 @@ export default function MatchDetails() {
     }
   }, [matchDetails])
 
-  if (!playersByTeam) return <Loader />
+  if (!playersByTeam) return <StatisticLoader />
 
   return (
     <div className={styles.match}>
