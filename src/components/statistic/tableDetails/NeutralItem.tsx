@@ -3,12 +3,11 @@ import CannotFind from "./CannotFind"
 
 import { Image } from "@/shared/nextjsImports"
 import { React, useState } from "@/shared/reactImports"
-
 import { PlayerRowUtility } from "@/utils/statistic/PlayerRowUtility"
 
-import type { SlotInterface } from "@/types/statistic/playerRow"
-
 import { ITEM_ICON_URL } from "@/utils/urls"
+
+import type { SlotInterface } from "@/types/statistic/playerRow"
 
 export default function NeutralItem({ itemDetails }: SlotInterface) {
   //

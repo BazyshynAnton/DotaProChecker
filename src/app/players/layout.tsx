@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Players | DotaChecker",
+  title: "Players | DotaScope",
 }
 
 export default function RootLayout({

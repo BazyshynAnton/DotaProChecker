@@ -3,14 +3,13 @@ import AbilityDescription from "./AbilityDescription"
 import { AbilityDetailsUtility } from "@/utils/statistic/AbilityDetailsUtility"
 import { Image } from "@/shared/nextjsImports"
 import { useEffect, useRef, useState } from "@/shared/reactImports"
+import { useAppDispatch } from "@/hooks/useAppDispatch"
+import { setTooltipAbilityPortal } from "@/store/statisticSlice"
 
 import { HERO_ABILITY_URL } from "@/utils/urls"
-
 import type { Player } from "@/types/statistic/tableDetails"
 
 import styles from "@/styles/statistic/TableAbilities.module.scss"
-import { useAppDispatch } from "@/hooks/useAppDispatch"
-import { setTooltipAbilityPortal } from "@/store/statisticSlice"
 
 const isTooltipDefault = new Array<boolean>(25).fill(false)
 

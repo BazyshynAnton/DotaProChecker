@@ -1,6 +1,8 @@
 import { Image } from "@/shared/nextjsImports"
 import { AbilityDetailsUtility } from "@/utils/statistic/AbilityDetailsUtility"
+
 import { HERO_ABILITY_URL } from "@/utils/urls"
+
 import styles from "@/styles/statistic/AbilityDescription.module.scss"
 
 export default function Title({ abilityName }: { abilityName: string }) {

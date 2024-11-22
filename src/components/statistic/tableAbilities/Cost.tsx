@@ -6,6 +6,7 @@ import styles from "@/styles/statistic/AbilityDescription.module.scss"
 export default function Cost({ abilityName }: { abilityName: string }) {
   const uAbilityDetails = AbilityDetailsUtility.getInstance()
   const cost = uAbilityDetails.findAbilityCost(abilityName)
+
   return (
     <>
       {(cost.mc || cost.cd) && (

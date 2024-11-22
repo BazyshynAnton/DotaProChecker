@@ -1,11 +1,11 @@
 "use client"
+
 import MatchDetails from "./MatchDetails"
 import FetchError from "./FetchError"
 import Search from "./Search"
 
 import { useEffect } from "@/shared/reactImports"
 import { useAppSelector, useAppDispatch } from "@/shared/reduxImports"
-
 import { setMatchData } from "@/store/statisticSlice"
 
 import type { MatchData } from "@/types/redux/statisticSlice"

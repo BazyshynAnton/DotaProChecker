@@ -1,5 +1,3 @@
-import TableHeaderCell from "./TableHeaderCell"
-
 export default function HeaderCells() {
   return (
     <>
@@ -18,4 +16,8 @@ export default function HeaderCells() {
       <TableHeaderCell str={"ITEMS"} title={"Items built"} />
     </>
   )
+}
+
+function TableHeaderCell({ str, title }: { str: string; title: string }) {
+  return <th title={title}>{str}</th>
 }

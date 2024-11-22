@@ -4,7 +4,6 @@ import PlayerStatistic from "./PlayerStatistic"
 import PlayerItems from "./PlayerItems"
 
 import { useAppSelector } from "@/shared/reduxImports"
-
 import { PlayerRowDetailsUtility } from "@/utils/statistic/PlayerRowDetailsUtility"
 
 import type { Player } from "@/types/statistic/tableDetails"

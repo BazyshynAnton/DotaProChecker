@@ -2,9 +2,9 @@ import Tier from "./Tier"
 
 import { Image } from "@/shared/nextjsImports"
 
-import type { ItemDescriptionInterface } from "@/types/statistic/playerRow"
-
 import { ITEM_ICON_URL } from "@/utils/urls"
+
+import type { ItemDescriptionInterface } from "@/types/statistic/playerRow"
 
 import styles from "@/styles/statistic/ItemDescription.module.scss"
 

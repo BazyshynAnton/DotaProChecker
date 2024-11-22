@@ -1,5 +1,4 @@
 import { Image } from "@/shared/nextjsImports"
-
 import { PlayerRowDetailsUtility } from "@/utils/statistic/PlayerRowDetailsUtility"
 
 import type { DetailsAboutPlayer } from "@/types/statistic/playerRow"

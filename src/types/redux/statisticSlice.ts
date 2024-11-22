@@ -9,7 +9,6 @@ export interface InitialStatisticState {
   heroList: HeroList[] | null
   playersProfiles: PlayerProfile[] | null
   tooltipAbilityPortal: boolean
-  windowWidth: boolean
 
   search: {
     [key: string]: string

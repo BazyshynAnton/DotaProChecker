@@ -1,4 +1,5 @@
 "use client"
+
 import { Image } from "@/shared/nextjsImports"
 
 import styles from "./InDevelopment.module.scss"

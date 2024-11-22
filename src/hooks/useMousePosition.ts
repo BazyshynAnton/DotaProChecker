@@ -1,4 +1,5 @@
 "use client"
+
 import { useEffect, useState } from "@/shared/reactImports"
 
 interface MouseXY {

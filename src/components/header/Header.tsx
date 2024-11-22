@@ -7,25 +7,25 @@ import { useEffect, useState } from "@/shared/reactImports"
 import styles from "@/styles/header/Header.module.scss"
 
 export default function Header() {
-    const [smallHeader, setSmallHeader] = useState(false)
-    useEffect(() => {
-        if (typeof window !== "undefined") {
-            setSmallHeader(window.innerWidth <= 550)
+  const [smallHeader, setSmallHeader] = useState(false)
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setSmallHeader(window.innerWidth <= 550)
 
-            const handleResizeEvent = () => {
-                setSmallHeader(window.innerWidth <= 550)
-            }
+      const handleResizeEvent = () => {
+        setSmallHeader(window.innerWidth <= 550)
+      }
 
-            window.addEventListener("resize", handleResizeEvent)
-            return () => {
-                window.removeEventListener("resize", handleResizeEvent)
-            }
-        }
-    }, [])
+      window.addEventListener("resize", handleResizeEvent)
+      return () => {
+        window.removeEventListener("resize", handleResizeEvent)
+      }
+    }
+  }, [])
 
-    return (
-        <div className={styles.headerContainer}>
-            {!smallHeader ? <HeaderBigScreen /> : <HeaderSmallScreen />}
-        </div>
-    )
+  return (
+    <div className={styles.headerContainer}>
+      {!smallHeader ? <HeaderBigScreen /> : <HeaderSmallScreen />}
+    </div>
+  )
 }

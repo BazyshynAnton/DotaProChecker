@@ -1,4 +1,5 @@
 "use client"
+
 import Cost from "./Cost"
 import Attributes from "./Attributes"
 import Title from "./Title"

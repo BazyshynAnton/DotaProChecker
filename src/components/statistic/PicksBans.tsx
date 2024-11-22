@@ -3,8 +3,9 @@ import { PicksAndBans } from "@/types/redux/statisticSlice"
 import { MatchDetailsUtility } from "@/utils/statistic/MatchDetailsUtility"
 import { Image } from "@/shared/nextjsImports"
 
-import styles from "@/styles/statistic/PicksBans.module.scss"
 import { HERO_ICON_URL } from "@/utils/urls"
+
+import styles from "@/styles/statistic/PicksBans.module.scss"
 
 export default function PickBans({ side }: { side: string }) {
   const { matchDetails, heroList } = useAppSelector(

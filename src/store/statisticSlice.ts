@@ -6,7 +6,6 @@ const initialState: InitialStatisticState = {
   heroList: null,
   playersProfiles: null,
   tooltipAbilityPortal: false,
-  windowWidth: false,
 
   search: {
     accountID: "",
@@ -34,21 +33,13 @@ export const statisticSlice = createSlice({
       state.tooltipAbilityPortal = action.payload
     },
 
-    setWindowWidth: (state, action) => {
-      state.windowWidth = action.payload
-    },
-
     setSearch: (state, action) => {
       state.search.matchID = action.payload.value
     },
   },
 })
 
-export const {
-  setMatchData,
-  setSearch,
-  setTooltipAbilityPortal,
-  setWindowWidth,
-} = statisticSlice.actions
+export const { setMatchData, setSearch, setTooltipAbilityPortal } =
+  statisticSlice.actions
 
 export default statisticSlice.reducer

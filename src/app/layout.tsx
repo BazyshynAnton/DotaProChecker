@@ -5,10 +5,11 @@ import TooltipAbilityPortal from "@/components/portals/TooltipAbilityPortal"
 
 import StoreProvider from "@/store/StoreProvider"
 
-import type { Metadata } from "next"
 import { Roboto } from "next/font/google"
 
-import "./globals.scss"
+import type { Metadata } from "next"
+
+import "@/styles/globals.scss"
 
 const roboto = Roboto({
   weight: ["400", "500", "700", "900"],
