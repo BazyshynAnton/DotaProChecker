@@ -3,7 +3,7 @@ import { Image } from "@/shared/nextjsImports"
 import type { DetailsAboutHero } from "@/types/statistic/playerRow"
 import type { Player } from "@/types/statistic/tableDetails"
 
-import { HERO_FACET_URL, HERO_ICON_URL } from "@/utils/urls"
+import { HERO_FACET_ICON_URL, HERO_ICON_URL } from "@/utils/urls"
 
 import styles from "@/styles/statistic/PlayerRow.module.scss"
 
@@ -40,7 +40,7 @@ export default function HeroAndNickname({
         >
           {detailsAboutHero.heroVariant.icon && (
             <Image
-              src={`${HERO_FACET_URL}${detailsAboutHero.heroVariant.icon}.png`}
+              src={`${HERO_FACET_ICON_URL}${detailsAboutHero.heroVariant.icon}.png`}
               alt={detailsAboutHero.heroVariant.icon}
               width={72}
               height={72}

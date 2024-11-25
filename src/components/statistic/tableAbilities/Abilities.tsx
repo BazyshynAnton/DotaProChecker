@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "@/shared/reactImports"
 import { useAppDispatch } from "@/hooks/useAppDispatch"
 import { setTooltipAbilityPortal } from "@/store/statisticSlice"
 
-import { HERO_ABILITY_URL } from "@/utils/urls"
+import { HERO_ABILITY_ICON_URL } from "@/utils/urls"
 import type { Player } from "@/types/statistic/tableDetails"
 
 import styles from "@/styles/statistic/TableAbilities.module.scss"
@@ -79,7 +79,7 @@ export default function Abilities({ player }: { player: Player }) {
                 <Image
                   src={
                     !talentTree
-                      ? `${HERO_ABILITY_URL}${abilityName}.png`
+                      ? `${HERO_ABILITY_ICON_URL}${abilityName}.png`
                       : "/pictures/dotaAbilityIcons/talent_tree.svg"
                   }
                   alt={abilityName}

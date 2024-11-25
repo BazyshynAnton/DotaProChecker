@@ -9,23 +9,44 @@ import type {
   UMatchDetails,
 } from "@/types/statistic/matchDetails"
 
-// [CLASS] For handling appropriate match data
+/**
+ * MatchDetailsUtility is an class that uses for setting
+ * information that is not related to tables on statistic page.
+ *
+ * Implements the Singleton pattern.
+ *
+ * @class
+ * @implements {UMatchDetails}
+ */
 export class MatchDetailsUtility implements UMatchDetails {
-  public static getInstance() {
+  /**
+   * Retrieves the singleton instance of the MatchDetailsUtility class.
+   * If an instance does not exist, it creates one.
+   *
+   * @returns {MatchDetailsUtility} The singleton instance of the class.
+   */
+  public static getInstance(): MatchDetailsUtility {
     if (!MatchDetailsUtility.instance) {
       MatchDetailsUtility.instance = new MatchDetailsUtility()
     }
     return MatchDetailsUtility.instance
   }
 
-  public m_PlayedHero = {
-    heroName: "",
-    heroLocalizedName: "",
-  }
-
-  // Find match result details
+  /**
+   * Extracts and formats the match result from match details.
+   *
+   * This function takes the match details and formats
+   * relevant information into a `MatchResult` object,
+   * including the match outcome (radiant win),
+   * the duration (converted from seconds to minutes), and
+   * the scores for both the Radiant and Dire teams.
+   *
+   * @param {MatchDetails} matchDetails The details of the match,
+   * including score, duration, and outcome.
+   * @returns {MatchResult} The formatted match result,
+   * including the match outcome, duration, and scores.
+   */
   public findMatchResult(matchDetails: MatchDetails): MatchResult {
-    // Returning data
     const matchResult: MatchResult = {
       resultOfMatch: matchDetails.radiant_win,
       matchDuration: (matchDetails.duration / 60).toFixed(2).replace(".", ":"),
@@ -36,6 +57,18 @@ export class MatchDetailsUtility implements UMatchDetails {
     return matchResult
   }
 
+  /**
+   * Filters players into two teams (Radiant and Dire) based on the match details.
+   *
+   * This function takes the match details and separates
+   * the players into two groups: one for the Radiant team
+   * and one for the Dire team, based on the `isRadiant` flag.
+   *
+   * @param {MatchDetails} matchDetails The details of the match,
+   * including a list of players.
+   * @returns {PlayersByTeam} An object containing two arrays:
+   * one for the Radiant team players and one for the Dire team players.
+   */
   public filterPlayersByTeam(matchDetails: MatchDetails): PlayersByTeam {
     const playersRadiant = matchDetails.players.filter(
       (player) => player.isRadiant
@@ -47,6 +80,22 @@ export class MatchDetailsUtility implements UMatchDetails {
     return { playersRadiant, playersDire }
   }
 
+  /**
+   * Filters the picks and bans based on the team side (Radiant or Dire).
+   *
+   * This function takes the match details and filters the picks
+   * and bans for either the Radiant or Dire team, depending on
+   * the `side` parameter. It returns an array of picks and bans
+   * for the specified team, or an error message if an invalid
+   * side is provided.
+   *
+   * @param {string} side The team side, either "radiant" or "dire".
+   * @param {MatchDetails} matchDetails The details of the match,
+   * including picks and bans data.
+   * @returns {PicksAndBans[] | string} An array of picks and
+   * bans for the specified team side, or an error message
+   * if the side is invalid.
+   */
   public picksBans(
     side: string,
     matchDetails: MatchDetails
@@ -69,7 +118,23 @@ export class MatchDetailsUtility implements UMatchDetails {
     return "error"
   }
 
-  public findHeroName(hero_id: number, heroList: HeroList[]): void | string {
+  /**
+   * Finds the hero's name in the pick/bans list based on their hero ID.
+   *
+   * This function iterates through the provided hero list
+   * and checks for a matching hero ID. If a hero is found,
+   * it returns the hero's name after removing the "npc_dota_hero_" prefix.
+   * If hero is not found, the function returns `undefined`.
+   *
+   * @param {number} hero_id The unique ID of the hero to search for.
+   * @param {HeroList[]} heroList The list of heroes to search within.
+   * @returns {string | void} The formatted hero name if found,
+   * or `undefined` if not found.
+   */
+  public findHeroInPickBans(
+    hero_id: number,
+    heroList: HeroList[]
+  ): void | string {
     for (let i = 0; i < heroList.length; ++i) {
       const hero = heroList[i]
 

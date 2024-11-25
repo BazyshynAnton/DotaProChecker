@@ -23,7 +23,7 @@ export default function PickBans({ side }: { side: string }) {
   return (
     <div className={styles.picksBans}>
       {statistic.map((el: PicksAndBans, idx: number) => {
-        const hero = uMatchData.findHeroName(el.hero_id, heroList)
+        const hero = uMatchData.findHeroInPickBans(el.hero_id, heroList)
         return (
           <div
             key={idx}

@@ -1,7 +1,7 @@
 import { Image } from "@/shared/nextjsImports"
 import { AbilityDetailsUtility } from "@/utils/statistic/AbilityDetailsUtility"
 
-import { HERO_ABILITY_URL } from "@/utils/urls"
+import { HERO_ABILITY_ICON_URL } from "@/utils/urls"
 
 import styles from "@/styles/statistic/AbilityDescription.module.scss"
 
@@ -17,7 +17,7 @@ export default function Title({ abilityName }: { abilityName: string }) {
         <Image
           src={
             !talentTree
-              ? `${HERO_ABILITY_URL}${abilityName}.png`
+              ? `${HERO_ABILITY_ICON_URL}${abilityName}.png`
               : "/pictures/dotaAbilityIcons/talent_tree.svg"
           }
           alt=""

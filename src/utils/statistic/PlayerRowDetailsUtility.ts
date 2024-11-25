@@ -16,9 +16,31 @@ import type {
   UPlayerRowDetails,
 } from "@/types/statistic/playerRow"
 
-// [CLASS] For handling data about appropriate player
+/**
+ * PlayerRowDetailsUtility is an class that uses for setting
+ * information in row within `TableDetails.tsx`.
+ *
+ *
+ * @class
+ * @constructor Default.
+ * @implements {UPlayerRowDetails}
+ */
 export class PlayerRowDetailsUtility implements UPlayerRowDetails {
-  // Find player hero
+  /**
+   * Finds and sets detailed information about a hero based on the player's data.
+   *
+   * This function fills the `m_HeroDetails` object with detailed information
+   * about the hero associated with the given player. It determines
+   * the hero's name, localized name, appearance (icon, color, title,
+   * and description), and the player's associated color.
+   * It utilizes helper methods to set these details.
+   *
+   * @param {Player} player The player's data, including
+   * information to identify the hero.
+   * @param {HeroList[]} heroList The list of available heroes
+   * with their details.
+   * @returns {DetailsAboutHero} The detailed information about the hero.
+   */
   public findAppropriateHero(
     player: Player,
     heroList: HeroList[]
@@ -44,7 +66,21 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
     return this.m_HeroDetails
   }
 
-  // Find player details
+  /**
+   * Finds and fills detailed information about
+   * a player based on their account ID.
+   *
+   * This function searches for a player's profile
+   * in the provided list of player profiles and sets
+   * the player's details such as avatar, profile URL,
+   * leaderboard rank, and rank tier into the `m_PlayerDetails`
+   * object. If the player is anonymous (without account ID),
+   * no updates are made to `m_PlayerDetails`.
+   *
+   * @param {Player} player The player object containing the account ID and other details.
+   * @param {PlayerProfile[]} playersProfiles A list of player profiles retrieved from external sources.
+   * @returns {DetailsAboutPlayer} The detailed information about the player.
+   */
   public findAppropriatePlayer(
     player: Player,
     playersProfiles: PlayerProfile[]
@@ -78,30 +114,42 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
     return this.m_PlayerDetails
   }
 
+  /**
+   * Finds the appropriate rank icon for a player
+   * based on their leaderboard rank and/or rank tier information.
+   *
+   * The function constructs the file path to the player's rank icon, dynamically
+   * adjusting based on leaderboard position and rank tier. If no valid rank data
+   * is available, a default icon is returned.
+   *
+   * @returns {string} The file path to the player's rank icon.
+   */
   public findPlayerRankIcon(): string {
+    const imagePath = "/pictures/dotaPlayerRankIcons/"
+
     const leaderboardRank = this.m_PlayerDetails.leaderboard_rank_info
 
     const rankTier = this.m_PlayerDetails.rank_tier_info
 
     if (rankTier && leaderboardRank) {
       if (leaderboardRank <= 10 && leaderboardRank >= 1) {
-        return `/pictures/dotaPlayerRankIcons/${rankTier + 2}.png`
+        return `${imagePath}${rankTier + 2}.png`
       }
 
       if (leaderboardRank > 10 && leaderboardRank <= 100) {
-        return `/pictures/dotaPlayerRankIcons/${rankTier + 1}.png`
+        return `${imagePath}${rankTier + 1}.png`
       }
 
       if (leaderboardRank > 100) {
-        return `/pictures/dotaPlayerRankIcons/${rankTier}.png`
+        return `${imagePath}${rankTier}.png`
       }
     }
 
     if (rankTier && !leaderboardRank) {
-      return `/pictures/dotaPlayerRankIcons/${rankTier}.png`
+      return `${imagePath}${rankTier}.png`
     }
 
-    return "/pictures/dotaPlayerRankIcons/00.png"
+    return `${imagePath}00.png`
   }
 
   public findPlayerAvatar(): string {

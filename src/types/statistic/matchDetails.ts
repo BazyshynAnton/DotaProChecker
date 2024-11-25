@@ -12,7 +12,7 @@ export interface UMatchDetails {
 
   picksBans(side: string, matchDetails: MatchDetails): PicksAndBans[] | string
 
-  findHeroName(hero_id: number, heroList: HeroList[]): void | string
+  findHeroInPickBans(hero_id: number, heroList: HeroList[]): void | string
 }
 
 export interface MatchResult {
