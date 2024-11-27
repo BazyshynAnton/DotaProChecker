@@ -14,12 +14,11 @@ $border: 1px solid #000;
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 0.5rem;
 }
 
 .result__team__header {
-  letter-spacing: 2px;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 600;
   text-transform: uppercase;
 }
@@ -39,6 +38,15 @@ $border: 1px solid #000;
 .table {
   width: 100%;
   background-color: #fff;
+
+  font-size: 12px;
+
+  th,
+  td {
+    &:hover {
+      background-color: #c0c0c0;
+    }
+  }
 }
 
 .table__thead {
@@ -51,6 +59,16 @@ $border: 1px solid #000;
   th {
     text-align: center;
   }
+}
+
+.kda {
+  min-width: 49.56px;
+}
+.lhDnGpmXpm {
+  min-width: 58px;
+}
+.netHdTdHh {
+  min-width: 62.5px;
 }
 
 .headersTableRow_helperAfter {

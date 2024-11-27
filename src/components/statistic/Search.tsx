@@ -5,6 +5,8 @@ import { setMatchData, setSearch } from "@/store/statisticSlice"
 
 import { MatchDataUtility } from "@/utils/statistic/MatchDataUtility"
 
+import { BsSearch } from "react-icons/bs"
+
 import styles from "@/styles/statistic/Search.module.scss"
 
 export default function Search() {
@@ -54,12 +56,16 @@ export default function Search() {
                 : styles.search__button_enabled
             }
           >
-            search
+            <BsSearch />
           </button>
         ) : (
-          <div className={styles.search__button_disabled}>
-            <div className={styles.search__loader} />
-          </div>
+          <button
+            type="submit"
+            disabled={true}
+            className={styles.search__button_disabled}
+          >
+            <BsSearch />
+          </button>
         )}
       </div>
     </form>

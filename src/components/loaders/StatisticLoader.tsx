@@ -16,11 +16,12 @@ export default function Loader() {
 }
 
 const loaderContainer: React.CSSProperties = {
+  paddingTop: "3rem",
   display: "flex",
   justifyContent: "center",
   alignItems: "flex-end",
   width: "100%",
   height: "max-content",
-  fontSize: "1.2rem",
+  fontSize: "1rem",
   color: "#494949",
 }

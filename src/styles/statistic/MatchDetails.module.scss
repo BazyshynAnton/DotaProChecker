@@ -25,7 +25,7 @@ $direColor: #c23c2a;
   align-items: center;
 
   h4 {
-    font-size: 2rem;
+    font-size: 1.3rem;
   }
 }
 
@@ -35,19 +35,22 @@ $direColor: #c23c2a;
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
-  font-size: 1.5rem;
   font-weight: 500;
 }
 
 .scoreAndTime__radiantScore {
-  font-size: 2rem;
   color: $radiantColor;
 }
 .scoreAndTime__duration {
   color: $fontColor;
   font-weight: 400;
+  font-size: 1rem;
 }
 .scoreAndTime__direScore {
-  font-size: 2rem;
   color: $direColor;
+}
+
+.scoreAndTime__radiantScore,
+.scoreAndTime__direScore {
+  font-size: 1.3rem;
 }

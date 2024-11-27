@@ -3,12 +3,12 @@ $border: 1px solid #000;
 
 .form {
   margin-top: 10rem;
-  padding-bottom: 6rem;
+  padding-bottom: 3rem;
   width: 100%;
 
   span {
     display: inline-block;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: $fontColor;
     padding-bottom: 5px;
   }
@@ -22,8 +22,8 @@ $border: 1px solid #000;
 
 .search__input {
   padding: 5px 10px;
-  width: 300px;
-  height: 60px;
+  width: 250px;
+  height: 40px;
   background-color: #fff;
   border: $border;
   color: inherit;
@@ -52,8 +52,8 @@ $border: 1px solid #000;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100px;
-  height: 60px;
+  width: auto;
+  height: 40px;
   padding: 10px;
 
   font-size: 1.05rem;
@@ -67,7 +67,7 @@ $border: 1px solid #000;
 }
 
 .search__button_enabled {
-  color: $fontColor;
+  color: #000;
 
   cursor: pointer;
 
@@ -78,7 +78,7 @@ $border: 1px solid #000;
 }
 
 .search__button_disabled {
-  color: inherit;
+  color: $fontColor;
   cursor: no-drop;
 }
 

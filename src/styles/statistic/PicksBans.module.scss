@@ -7,7 +7,7 @@ $border: 1px solid black;
   width: 100%;
   display: flex;
   align-items: center;
-  margin-bottom: 5rem;
+  margin-bottom: 3.5rem;
   gap: 1rem;
   flex-wrap: wrap;
 }
@@ -23,7 +23,7 @@ $border: 1px solid black;
 
   .heroImg {
     width: fit-content;
-    height: 40px;
+    height: 30px;
     position: relative;
   }
 
@@ -34,7 +34,7 @@ $border: 1px solid black;
     color: $fontColor;
     text-transform: uppercase;
     text-align: center;
-    font-size: 0.9rem;
+    font-size: 12px;
     border-top: $border;
   }
 }
@@ -52,7 +52,6 @@ $border: 1px solid black;
       z-index: 1;
       background: #393e468a;
     }
-    // TODO : show it.
     &::after {
       content: "";
       position: absolute;
@@ -61,7 +60,7 @@ $border: 1px solid black;
       z-index: 2;
       left: -7px;
       right: -3px;
-      top: 17px;
+      top: 8px;
       transform: rotate(-28deg);
       background: $direColor;
     }

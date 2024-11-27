@@ -35,8 +35,8 @@ export default function PickBans({ side }: { side: string }) {
               <Image
                 src={`${HERO_ICON_URL}${hero}.png`}
                 alt=""
-                width={71}
-                height={40}
+                width={54}
+                height={30}
               />
             </div>
             <span>

@@ -19,7 +19,7 @@ $fontColor: #494949;
     @include adaptive-font(1, 1.4, 120);
   }
   p {
-    @include adaptive-font(0.7, 0.95, 120);
+    @include adaptive-font(0.7, 1.1, 120);
   }
 }
 
@@ -29,7 +29,7 @@ $fontColor: #494949;
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
-  @include adaptive-font(0.7, 0.95, 120);
+  @include adaptive-font(0.7, 1.1, 120);
 
   a {
     color: $fontColor;
@@ -47,11 +47,11 @@ $fontColor: #494949;
     }
 
     p {
-      font-size: 0.95rem;
+      font-size: 1.1rem;
     }
   }
   .footer__bazyshyndev {
-    font-size: 0.95rem;
+    font-size: 1.1rem;
   }
 }
 

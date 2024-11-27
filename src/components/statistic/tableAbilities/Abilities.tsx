@@ -83,21 +83,13 @@ export default function Abilities({ player }: { player: Player }) {
                       : "/pictures/dotaAbilityIcons/talent_tree.svg"
                   }
                   alt={abilityName}
-                  width={51}
-                  height={51}
+                  width={24}
+                  height={24}
                   onClick={handleTrueClick(idx)}
                 />
               </div>
             ) : (
-              <div className={styles.abilityDataCell}>
-                <Image
-                  src={"/pictures/dotaAbilityIcons/talent_tree.svg"}
-                  alt={abilityName}
-                  width={51}
-                  height={51}
-                  style={{ visibility: "hidden" }}
-                />
-              </div>
+              <div className={styles.abilityDataCell}></div>
             )}
           </td>
         )

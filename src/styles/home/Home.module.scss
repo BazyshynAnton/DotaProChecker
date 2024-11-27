@@ -3,7 +3,7 @@
 @import "../mixins/fontsize.scss";
 
 .homeWrapper {
-  margin-top: 5rem;
+  margin-top: 4rem;
   padding: 10px 0px;
   width: 100%;
   height: 100%;
@@ -11,7 +11,7 @@
 
 .contentHeader {
   padding: 5px 10px;
-  @include adaptive-font(0.7, 2, 120);
+  @include adaptive-font(0.7, 1.4, 120);
   color: #494949;
   border-bottom: 1px solid black;
 }
@@ -40,7 +40,7 @@
   padding: 10px 20px;
   width: 100%;
   color: #494949;
-  @include adaptive-font(0.7, 1.2, 120);
+  @include adaptive-font(0.7, 1.1, 120);
 }
 
 .news__content,
@@ -96,13 +96,13 @@
 
 @media (min-width: 1920px) {
   .contentHeader {
-    font-size: 2rem;
+    font-size: 1.4rem;
   }
 
   .about__content,
   .news__content,
   .blog__content {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 
   .post__date {

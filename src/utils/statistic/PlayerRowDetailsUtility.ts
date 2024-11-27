@@ -182,6 +182,7 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
       tier: undefined,
     }
 
+    // use loop to init it
     this.m_ItemDetails = {
       item_0: emptyValue,
       item_1: emptyValue,
