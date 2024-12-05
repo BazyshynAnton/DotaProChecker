@@ -11,8 +11,9 @@ html,
 body {
   position: relative;
   height: 100%;
-  background-color: #fff;
+  background-color: #000000;
   scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.1) #000;
 }
 
 ul,
@@ -38,22 +39,6 @@ a {
 table,
 th,
 td {
-  border: 1px solid #000;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-collapse: collapse;
-}
-
-// Fonts
-@font-face {
-  font-family: "friz-quadrata-bold";
-  src: url(/fonts/friz-quadrata/friz-quadrata-bold-italic-os.ttf);
-}
-
-@font-face {
-  font-family: "friz-quadrata-regular";
-  src: url(/fonts/friz-quadrata/friz-quadrata-regular-os.ttf);
-}
-
-@font-face {
-  font-family: "folkard";
-  src: url(/fonts/folkard/folkard.ttf);
 }

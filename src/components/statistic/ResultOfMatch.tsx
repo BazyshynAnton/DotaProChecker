@@ -21,7 +21,7 @@ export default function ResultOfMatch() {
   }, [heroList, matchDetails])
 
   const side = resultOfMatch?.resultOfMatch ? "RADIANT" : "DIRE"
-  const sideColor = resultOfMatch?.resultOfMatch ? "#92A525" : "#C23C2A"
+  const sideColor = resultOfMatch?.resultOfMatch ? "#59ce8f" : "#df2e38"
 
   return (
     <>

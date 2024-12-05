@@ -1,6 +1,8 @@
-@import "../mixins/fonts.scss";
 @import "../mixins/animation.scss";
 @import "../mixins/fontsize.scss";
+
+$fontColor: #ffffffb0;
+$border: 1px solid rgba(255, 255, 255, 0.1);
 
 .homeWrapper {
   margin-top: 4rem;
@@ -12,8 +14,8 @@
 .contentHeader {
   padding: 5px 10px;
   @include adaptive-font(0.7, 1.4, 120);
-  color: #494949;
-  border-bottom: 1px solid black;
+  color: $fontColor;
+  border-bottom: $border;
 }
 
 .content {
@@ -31,7 +33,7 @@
 .news,
 .blog {
   height: max-content;
-  border: 1px solid black;
+  border: $border;
 }
 
 .about__content,
@@ -39,13 +41,15 @@
 .blog__content {
   padding: 10px 20px;
   width: 100%;
-  color: #494949;
+  color: $fontColor;
   @include adaptive-font(0.7, 1.1, 120);
 }
 
 .news__content,
 .blog__content {
+  max-height: 300px;
   min-height: 300px;
+  height: 100%;
 }
 
 .about {
@@ -67,13 +71,13 @@
 .blog__content {
   overflow-y: scroll;
   scrollbar-width: thin;
-  scrollbar-color: #494949 #fff;
+  scrollbar-color: rgba(255, 255, 255, 0.1) #000;
 }
 
 .post {
   padding: 10px;
-  border-left: 1px solid #494949;
-  border-bottom: 1px solid #494949;
+  border-left: $border;
+  border-bottom: $border;
 }
 
 .post__date {

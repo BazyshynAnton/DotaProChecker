@@ -23,7 +23,7 @@ export default function News() {
             <Link href="/statistic">see</Link>)
             <br />
           </p>
-          <span className={styles.post__date}>05.12.2024</span>
+          <span className={styles.post__date}>05.11.2024</span>
         </div>
       </div>
     </div>

@@ -1,9 +1,9 @@
 @import "../mixins/scrollX.scss";
 
-$fontColor: #494949;
-$radiantColor: #92a525;
-$direColor: #c23c2a;
-$border: 1px solid #000;
+$fontColor: #ffffffb0;
+$radiantColor: #59ce8f;
+$direColor: #df2e38;
+$border: 1px solid rgba(255, 255, 255, 0.1);
 
 .result {
   width: 100%;
@@ -37,14 +37,14 @@ $border: 1px solid #000;
 
 .table {
   width: 100%;
-  background-color: #fff;
+  background-color: #000;
 
   font-size: 12px;
 
   th,
   td {
     &:hover {
-      background-color: #c0c0c0;
+      background-color: rgba(255, 255, 255, 0.1);
     }
   }
 }

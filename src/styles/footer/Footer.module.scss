@@ -1,14 +1,14 @@
-@import "../mixins/fonts.scss";
 @import "../mixins/fontsize.scss";
 
-$fontColor: #494949;
+$fontColor: #ffffffb0;
+$border: 1px solid rgba(255, 255, 255, 0.1);
 
 .footer {
   margin-top: 2rem;
   padding: 20px;
   width: 100%;
-  background-color: #fff;
-  border-top: 1px solid #000;
+  background-color: #000;
+  border-top: $border;
 }
 
 .footer__dscope {

@@ -6,13 +6,13 @@
   bottom: 0;
   display: flex;
   align-items: center;
-  background: #fff;
+  background: #000;
 }
 
 .loadingLine {
   height: 1px;
   width: 0px;
-  background-color: #000;
+  background-color: #ffffffb0;
 
   animation-name: line;
   animation-duration: 1s;

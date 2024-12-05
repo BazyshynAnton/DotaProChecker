@@ -1,7 +1,7 @@
-$fontColor: #494949;
-$radiantColor: #92a525;
-$direColor: #c23c2a;
-$border: 1px solid black;
+$fontColor: #ffffffb0;
+$radiantColor: #59ce8f;
+$direColor: #df2e38;
+$border: 1px solid rgba(255, 255, 255, 0.1);
 
 .picksBans {
   width: 100%;
@@ -30,7 +30,7 @@ $border: 1px solid black;
   span {
     display: inline-block;
     padding: 3px 4px;
-    background: #fff;
+    background: #000;
     color: $fontColor;
     text-transform: uppercase;
     text-align: center;

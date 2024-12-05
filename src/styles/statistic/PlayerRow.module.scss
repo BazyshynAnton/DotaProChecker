@@ -1,7 +1,7 @@
-$border: 1px solid #000;
-$fontColor: #494949;
-$radiantColor: #92a525;
-$direColor: #c23c2a;
+$border: 1px solid rgba(255, 255, 255, 0.1);
+$fontColor: #ffffffb0;
+$radiantColor: #59ce8f;
+$direColor: #df2e38;
 
 // PlayerRow.tsx
 .playerRow {
@@ -126,7 +126,7 @@ $direColor: #c23c2a;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #0000004f;
+  background-color: #00000069;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -147,6 +147,7 @@ $direColor: #c23c2a;
   width: 100%;
   padding: 0px 10px;
   text-align: center;
+  color: $fontColor;
 }
 
 // PlayerItems.tsx
