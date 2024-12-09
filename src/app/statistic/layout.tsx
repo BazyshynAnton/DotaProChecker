@@ -4,10 +4,10 @@ export const metadata: Metadata = {
   title: "Statistic | DotaScope",
 }
 
-export default function RootLayout({
+export default function StatisticLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  return <section>{children}</section>
+  return <>{children}</>
 }
