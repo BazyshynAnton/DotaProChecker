@@ -41,18 +41,14 @@ export default function Abilities({ player }: { player: Player }) {
     dispatch(setTooltipAbilityPortal(true))
   }
 
-  const handleFalseClick = () => {
-    setIsTooltip(isTooltipDefault)
-    dispatch(setTooltipAbilityPortal(false))
-  }
-
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
         tooltipRef.current &&
         !tooltipRef.current.contains(event.target as Node)
       ) {
-        handleFalseClick()
+        setIsTooltip(isTooltipDefault)
+        dispatch(setTooltipAbilityPortal(false))
       }
     }
 
@@ -60,7 +56,7 @@ export default function Abilities({ player }: { player: Player }) {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside)
     }
-  }, [])
+  }, [dispatch])
 
   return (
     <>

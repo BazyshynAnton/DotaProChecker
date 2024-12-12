@@ -23,9 +23,9 @@ export default function Statistic({
   }, [dispatch, matchData])
 
   return (
-    <>
+    <div style={{ width: "100%" }}>
       <Search />
       {!error ? <MatchDetails /> : <FetchError error={error} />}
-    </>
+    </div>
   )
 }

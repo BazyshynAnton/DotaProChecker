@@ -4,10 +4,10 @@ export const metadata: Metadata = {
   title: "Players | DotaScope",
 }
 
-export default function RootLayout({
+export default function PlayersLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  return <section>{children}</section>
+  return <>{children}</>
 }
