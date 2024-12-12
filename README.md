@@ -1,3 +1,5 @@
+<div align='center'><img width="10%" src='https://github.com/user-attachments/assets/c533aa05-a147-43bd-ba24-e4fdaadfa213' /></div>
+
 ## Installation
 
 1.&nbsp;Clone the repository or download the archive.  
