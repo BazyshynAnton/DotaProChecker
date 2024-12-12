@@ -21,9 +21,9 @@ $border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .search__input {
-  padding: 5px 10px;
-  width: 250px;
-  height: 40px;
+  padding: 0px 10px;
+  width: 300px;
+  height: 45px;
   background-color: #000;
   border: $border;
   color: inherit;
@@ -55,8 +55,8 @@ $border: 1px solid rgba(255, 255, 255, 0.1);
   justify-content: center;
   align-items: center;
   width: auto;
-  height: 40px;
-  padding: 10px;
+  height: 45px;
+  padding: 0px 17px;
 
   font-size: 1.05rem;
   font-weight: 500;
@@ -77,43 +77,4 @@ $border: 1px solid rgba(255, 255, 255, 0.1);
 .search__button_disabled {
   color: $fontColor;
   cursor: no-drop;
-}
-
-.search__loader {
-  width: 50px;
-  aspect-ratio: 2;
-  --_g: no-repeat radial-gradient(circle closest-side, #fff 90%, #0000);
-  background:
-    var(--_g) 0% 50%,
-    var(--_g) 50% 50%,
-    var(--_g) 100% 50%;
-  background-size: calc(100% / 3) 50%;
-  animation: l3 1s infinite linear;
-}
-
-@keyframes l3 {
-  20% {
-    background-position:
-      0% 0%,
-      50% 50%,
-      100% 50%;
-  }
-  40% {
-    background-position:
-      0% 100%,
-      50% 0%,
-      100% 50%;
-  }
-  60% {
-    background-position:
-      0% 50%,
-      50% 100%,
-      100% 0%;
-  }
-  80% {
-    background-position:
-      0% 50%,
-      50% 50%,
-      100% 100%;
-  }
 }

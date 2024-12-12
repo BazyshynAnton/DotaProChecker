@@ -1,4 +1,5 @@
 import { ChangeEvent, FormEvent } from "react"
+import { Image } from "@/shared/nextjsImports"
 import { useState } from "@/shared/reactImports"
 import { useAppDispatch, useAppSelector } from "@/shared/reduxImports"
 import { setMatchData, setSearch } from "@/store/statisticSlice"
@@ -59,13 +60,14 @@ export default function Search() {
             <BsSearch />
           </button>
         ) : (
-          <button
-            type="submit"
-            disabled={true}
-            className={styles.search__button_disabled}
-          >
-            <BsSearch />
-          </button>
+          <div className={styles.search__button_disabled}>
+            <Image
+              src={"/pictures/dotaScopeIcons/gem_search.gif"}
+              alt="gem"
+              width={32}
+              height={32}
+            />
+          </div>
         )}
       </div>
     </form>

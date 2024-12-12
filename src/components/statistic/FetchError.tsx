@@ -1,5 +1,6 @@
 import ErrorExplanation from "./ErrorExplanation"
 
+import { Image } from "@/shared/nextjsImports"
 import { useState } from "@/shared/reactImports"
 
 import styles from "@/styles/statistic/FetchError.module.scss"
@@ -11,8 +12,16 @@ export default function FetchError({ error }: { error: string }) {
 
   return (
     <div className={styles.error}>
-      <h2>Error: {error}</h2>
-      <span onClick={handleHintClick}>why you see this error</span>
+      <div style={{ display: "flex", alignItems: "flex-end", gap: "0.3rem" }}>
+        <h2>Error {error}</h2>
+        <Image
+          src={"/pictures/dotaScopeIcons/enigma_error.gif"}
+          alt={"enigma_error"}
+          width={32}
+          height={32}
+        />
+      </div>
+      <span onClick={handleHintClick}>why you see this error </span>
       {isHintOpen && <ErrorExplanation />}
     </div>
   )
