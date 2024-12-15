@@ -1,4 +1,4 @@
-<div align='center'><img width="10%" src='https://github.com/user-attachments/assets/c533aa05-a147-43bd-ba24-e4fdaadfa213' /></div>
+<div align='center'><img width="10%" src='https://github.com/user-attachments/assets/5879e590-c3b8-4344-98b8-75b638cb0348' /></div>
 
 ## Installation
 
