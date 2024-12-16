@@ -1,3 +1,5 @@
+@import "mixins/fontsize.scss";
+
 *,
 *::before,
 *::after {
@@ -24,6 +26,7 @@ li {
 a {
   text-decoration: none;
   color: #3b82f6;
+  @include adaptive-font(0.7, 1.1, 120);
 }
 
 .wrapper {
@@ -41,4 +44,24 @@ th,
 td {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-collapse: collapse;
+}
+
+h3 {
+  @include adaptive-font(1, 1.4, 120);
+}
+
+p,
+span {
+  @include adaptive-font(0.7, 1.1, 120);
+}
+
+@media (min-width: 1920px) {
+  h3 {
+    font-size: 1.4rem;
+  }
+
+  p,
+  span {
+    font-size: 1.1rem;
+  }
 }

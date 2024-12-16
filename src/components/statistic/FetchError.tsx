@@ -13,12 +13,12 @@ export default function FetchError({ error }: { error: string }) {
   return (
     <div className={styles.error}>
       <div style={{ display: "flex", alignItems: "flex-end", gap: "0.3rem" }}>
-        <h2>Error {error}</h2>
+        <h3>Error {error}</h3>
         <Image
           src={"/pictures/dotaScopeIcons/enigma_error.gif"}
           alt={"enigma_error"}
-          width={32}
-          height={32}
+          width={22}
+          height={22}
         />
       </div>
       <span onClick={handleHintClick}>why you see this error </span>

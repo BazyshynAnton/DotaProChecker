@@ -11,7 +11,7 @@ export default function Attributes({ abilityName }: { abilityName: string }) {
       {attribs.map((attrib: any, idx: number) => {
         return (
           <div key={idx} className={styles.attributes__header}>
-            {attrib.header} <span>{attrib.value}</span>
+            {attrib.header} <div>{attrib.value}</div>
           </div>
         )
       })}

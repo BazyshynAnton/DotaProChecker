@@ -21,9 +21,9 @@ export default function Attribute({ details, item }: ItemDescriptionInterface) {
 
         return (
           <div key={att.key} className={styles.attrib__text}>
-            <span>{partsOfString[0]}</span>
-            <span style={{ color: "#ffffffde" }}>{att.value}</span>
-            <span>{partsOfString[1]}</span>
+            <div>{partsOfString[0]}</div>
+            <div style={{ color: "#ffffffde" }}>{att.value}</div>
+            <div>{partsOfString[1]}</div>
           </div>
         )
       })}

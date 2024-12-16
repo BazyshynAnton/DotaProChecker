@@ -16,10 +16,6 @@ $border: 1px solid rgba(255, 255, 255, 0.1);
   text-align: center;
   h3 {
     text-transform: uppercase;
-    @include adaptive-font(1, 1.4, 120);
-  }
-  p {
-    @include adaptive-font(0.7, 1.1, 120);
   }
 }
 
@@ -29,7 +25,6 @@ $border: 1px solid rgba(255, 255, 255, 0.1);
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
-  @include adaptive-font(0.7, 1.1, 120);
 
   a {
     color: $fontColor;
@@ -37,21 +32,6 @@ $border: 1px solid rgba(255, 255, 255, 0.1);
 
   a:hover {
     color: #3b82f6;
-  }
-}
-
-@media (min-width: 1920px) {
-  .footer__dscope {
-    h3 {
-      font-size: 1.4rem;
-    }
-
-    p {
-      font-size: 1.1rem;
-    }
-  }
-  .footer__bazyshyndev {
-    font-size: 1.1rem;
   }
 }
 

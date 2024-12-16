@@ -22,7 +22,7 @@ export default function Components({
     <>
       {details[item].components && details[item].components.length > 0 && (
         <div className={styles.components}>
-          <span>Components:</span>
+          <div style={{ display: "inline" }}>Components:</div>
           <div className={styles.components__items}>
             {details[item].components.map((component, idx) => {
               const rdUtility = new PlayerRowDetailsUtility()
@@ -40,7 +40,7 @@ export default function Components({
                     width={34}
                     height={25}
                   />
-                  <span>{itemCost}</span>
+                  <div>{itemCost}</div>
                 </div>
               )
             })}

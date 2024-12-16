@@ -15,29 +15,29 @@ export default function Behavior({ abilityName }: { abilityName: string }) {
     <div className={styles.behavior}>
       {behavior.target && (
         <div className={styles.target}>
-          <span>TARGET:</span> {behavior.target}
+          <div>TARGET:</div> {behavior.target}
         </div>
       )}
       {behavior.dmg_type && (
         <div className={styles.dmgType}>
-          <span>DAMAGE TYPE:</span>{" "}
-          <span
+          <div>DAMAGE TYPE:</div>{" "}
+          <div
             className={
               behavior.dmg_type === "Magical"
                 ? styles.dmgType_magical
                 : behavior.dmg_type === "Pure"
-                ? styles.dmgType_pure
-                : styles.dmgType_physical
+                  ? styles.dmgType_pure
+                  : styles.dmgType_physical
             }
           >
             {behavior.dmg_type}
-          </span>
+          </div>
         </div>
       )}
       {behavior.bkbpierce && conditionBkbpierce && (
         <div className={styles.pierces}>
-          <span>PIERCES DEBUFF IMMUNITY:</span>{" "}
-          <span
+          <div>PIERCES DEBUFF IMMUNITY:</div>{" "}
+          <div
             className={
               behavior.bkbpierce === "Yes"
                 ? styles.pierces_yes
@@ -45,23 +45,23 @@ export default function Behavior({ abilityName }: { abilityName: string }) {
             }
           >
             {behavior.bkbpierce}
-          </span>
+          </div>
         </div>
       )}
       {behavior.dispellable && (
         <div className={styles.dispellable}>
-          <span>DISPELLABLE:</span>{" "}
-          <span
+          <div>DISPELLABLE:</div>{" "}
+          <div
             className={
               behavior.dispellable === "Yes"
                 ? styles.dispellable_yes
                 : behavior.dispellable === "No"
-                ? styles.dispellable_no
-                : styles.dispellable_strong
+                  ? styles.dispellable_no
+                  : styles.dispellable_strong
             }
           >
             {behavior.dispellable}
-          </span>
+          </div>
         </div>
       )}
     </div>

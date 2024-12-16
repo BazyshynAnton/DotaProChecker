@@ -32,7 +32,7 @@ export default function NameAndCost({
       </div>
       <div className={styles.nameAndCostWrapper__nameAndCost}>
         <div className={styles.nameAndCostWrapper__nameAndCost__name}>
-          <h4>{details[item].dname}</h4>
+          <div>{details[item].dname}</div>
         </div>
         <Tier details={details} item={item} />
       </div>

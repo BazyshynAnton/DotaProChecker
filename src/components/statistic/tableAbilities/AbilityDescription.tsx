@@ -12,14 +12,16 @@ import styles from "@/styles/statistic/AbilityDescription.module.scss"
 
 export default function AbilityDescription({
   abilityName,
+  heroName,
 }: {
   abilityName: string
+  heroName: string
 }) {
   const talentTree: boolean = abilityName.includes("special_bonus")
 
   return ReactDOM.createPortal(
     <div className={styles.abilityTooltip}>
-      <Title abilityName={abilityName} />
+      <Title abilityName={abilityName} heroName={heroName} />
       {!talentTree && (
         <div className={styles.abilityTooltip__components}>
           <Behavior abilityName={abilityName} />

@@ -15,7 +15,7 @@ export default function Tier({ details, item }: ItemDescriptionInterface) {
     <>
       {details[item].tier ? (
         <div className={styles.nameAndCostWrapper__nameAndCost__tier}>
-          <span>Tier {details[item].tier} Neutral Item</span>
+          <div>Tier {details[item].tier} Neutral Item</div>
         </div>
       ) : (
         <div className={styles.nameAndCostWrapper__nameAndCost__cost}>
@@ -25,7 +25,7 @@ export default function Tier({ details, item }: ItemDescriptionInterface) {
             width={20}
             height={20}
           />
-          <p>{details[item].cost}</p>
+          <div>{details[item].cost}</div>
         </div>
       )}
     </>

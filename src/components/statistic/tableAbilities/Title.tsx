@@ -5,7 +5,13 @@ import { HERO_ABILITY_ICON_URL } from "@/utils/urls"
 
 import styles from "@/styles/statistic/AbilityDescription.module.scss"
 
-export default function Title({ abilityName }: { abilityName: string }) {
+export default function Title({
+  abilityName,
+  heroName,
+}: {
+  abilityName: string
+  heroName: string
+}) {
   const uAbilityDetails = AbilityDetailsUtility.getInstance()
   const name = uAbilityDetails.findAbilityRealName(abilityName)
 
@@ -20,13 +26,13 @@ export default function Title({ abilityName }: { abilityName: string }) {
               ? `${HERO_ABILITY_ICON_URL}${abilityName}.png`
               : "/pictures/dotaAbilityIcons/talent_tree.svg"
           }
-          alt=""
+          alt={name}
           width={52}
           height={52}
         />
-        <h3 className={styles.title__name}>
+        <div className={styles.title__name}>
           {name === "" ? "+2 Attributes" : name}
-        </h3>
+        </div>
       </div>
     </>
   )

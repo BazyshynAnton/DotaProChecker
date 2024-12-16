@@ -13,7 +13,13 @@ import styles from "@/styles/statistic/TableAbilities.module.scss"
 
 const isTooltipDefault = new Array<boolean>(25).fill(false)
 
-export default function Abilities({ player }: { player: Player }) {
+export default function Abilities({
+  player,
+  heroName,
+}: {
+  player: Player
+  heroName: string
+}) {
   const dispatch = useAppDispatch()
 
   const uAbilityDetails = AbilityDetailsUtility.getInstance()
@@ -70,7 +76,10 @@ export default function Abilities({ player }: { player: Player }) {
             {abilityName !== "none" ? (
               <div className={styles.abilityDataCell} ref={tooltipRef}>
                 {isTooltip[idx] && (
-                  <AbilityDescription abilityName={abilityName} />
+                  <AbilityDescription
+                    abilityName={abilityName}
+                    heroName={heroName}
+                  />
                 )}
                 <Image
                   src={

@@ -35,23 +35,23 @@ export default function Behavior({ details, item }: ItemDescriptionInterface) {
     <>
       {details[item].behavior && (
         <div className={styles.target}>
-          <span>TARGET:</span>
-          <span style={{ color: "#ffffffde" }}> {target}</span>
+          <div>TARGET:</div>
+          <div style={{ color: "#ffffffde" }}> {target}</div>
         </div>
       )}
       {details[item].dispellable && (
         <div className={styles.dispellable}>
-          <span>DISPELLABLE:</span>
-          <span className={dispellableCondition}>
+          <div>DISPELLABLE:</div>
+          <div className={dispellableCondition}>
             {" "}
             {details[item].dispellable}
-          </span>
+          </div>
         </div>
       )}
       {details[item].bkbpierce && (
         <div className={styles.piercesDebuffImmunity}>
-          <span>PIERCES DEBUFF IMMUNITY:</span>
-          <span className={bkbpierceCondition}> {details[item].bkbpierce}</span>
+          <div>PIERCES DEBUFF IMMUNITY:</div>
+          <div className={bkbpierceCondition}> {details[item].bkbpierce}</div>
         </div>
       )}
       {details[item].behavior &&

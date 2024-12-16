@@ -7,8 +7,8 @@ export default function Loader() {
       <Image
         src="/pictures/dotaScopeIcons/tango.gif"
         alt="tango"
-        width={32}
-        height={32}
+        width={22}
+        height={22}
         priority
       />
     </div>
@@ -22,6 +22,5 @@ const loaderContainer: React.CSSProperties = {
   alignItems: "flex-end",
   width: "100%",
   height: "max-content",
-  fontSize: "1rem",
-  color: "#494949",
+  color: "#ffffffb0",
 }

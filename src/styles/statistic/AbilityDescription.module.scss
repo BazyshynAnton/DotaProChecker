@@ -29,6 +29,14 @@
     width: 52px;
     height: 52px;
   }
+
+  div {
+    display: inline;
+    font-weight: bold;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
 }
 
 .title {
@@ -45,6 +53,7 @@
 .behavior {
   padding-bottom: 10px;
   color: #ffffffde;
+
   div {
     &:not(:last-child) {
       padding-bottom: 5px;
@@ -88,10 +97,21 @@
   }
 }
 
+.target,
+.dmgType,
+.pierces,
+.dispellable {
+  font-size: 13px;
+  div {
+    display: inline;
+  }
+}
+
 // About.tsx
 .aboutAbility {
   padding: 10px 0px;
   color: #6c7b7e;
+  font-size: 13px;
 }
 
 // Attributes.tsx
@@ -101,10 +121,14 @@
 }
 
 .attributes__header {
+  font-size: 13px;
+
   &:not(:last-child) {
     padding-bottom: 5px;
   }
-  span {
+
+  div {
+    display: inline;
     color: #ffffffde;
   }
 }
@@ -122,21 +146,12 @@
   align-items: center;
   gap: 0.3rem;
   color: #ffffffde;
+  font-size: 12px;
 
   img {
     width: 15px;
     height: 15px;
   }
-}
-
-// All
-.title,
-.title_bonus,
-.behavior,
-.aboutAbility,
-.attributes,
-.cost {
-  font-size: 13px;
 }
 
 .behavior,

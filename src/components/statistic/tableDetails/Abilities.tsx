@@ -29,22 +29,22 @@ export default function Abilities({ details, item }: ItemDescriptionInterface) {
               abil.type === "active"
                 ? styles.abilities_active
                 : abil.type === "use"
-                ? styles.abilities_use
-                : styles.abilities_passive
+                  ? styles.abilities_use
+                  : styles.abilities_passive
 
             const abilityHeaderCondition =
               abil.type === "active"
                 ? styles.abilities_active__header
                 : abil.type === "use"
-                ? styles.abilities_use__header
-                : styles.abilities_passive__header
+                  ? styles.abilities_use__header
+                  : styles.abilities_passive__header
 
             const displayAbilityTypeCondition =
               abil.type === "active"
                 ? "Active"
                 : abil.type === "use"
-                ? "Use"
-                : "Passive"
+                  ? "Use"
+                  : "Passive"
 
             const renderAbilityCondition =
               abil.type === "active" || abil.type === "use"
@@ -53,8 +53,8 @@ export default function Abilities({ details, item }: ItemDescriptionInterface) {
               abil.type === "active"
                 ? styles.abilities_active__description
                 : abil.type === "use"
-                ? styles.abilities_use__description
-                : styles.abilities_passive__description
+                  ? styles.abilities_use__description
+                  : styles.abilities_passive__description
 
             return (
               <div key={abil.description} className={abilityCondition}>
@@ -62,8 +62,8 @@ export default function Abilities({ details, item }: ItemDescriptionInterface) {
                   <div
                     className={styles.abilities_active_passive__header__content}
                   >
-                    <span>{displayAbilityTypeCondition}:</span>
-                    <span> {abil.title}</span>
+                    <div>{displayAbilityTypeCondition}:</div>
+                    <div> {abil.title}</div>
                   </div>
                   <div
                     className={
@@ -82,7 +82,7 @@ export default function Abilities({ details, item }: ItemDescriptionInterface) {
                           width={20}
                           height={20}
                         />
-                        <span>{details[item].mc}</span>
+                        <div>{details[item].mc}</div>
                       </div>
                     ) : (
                       <></>
@@ -100,7 +100,7 @@ export default function Abilities({ details, item }: ItemDescriptionInterface) {
                           width={20}
                           height={20}
                         />
-                        <span>{details[item].cd}</span>
+                        <div>{details[item].cd}</div>
                       </div>
                     ) : (
                       <></>
@@ -108,7 +108,7 @@ export default function Abilities({ details, item }: ItemDescriptionInterface) {
                   </div>
                 </div>
                 <div className={abilityDescriptionCondition}>
-                  <span
+                  <div
                     dangerouslySetInnerHTML={{ __html: formattedDescription }}
                   />
                 </div>
