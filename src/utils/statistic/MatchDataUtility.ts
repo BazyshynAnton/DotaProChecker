@@ -1,4 +1,7 @@
 import {
+  ABILITIES_URL,
+  ABILITY_IDS_URL,
+  HERO_ABILITIES_URL,
   HERO_LIST_URL,
   MATCH_DETAILS_URL,
   MATCH_HISTORY_URL,
@@ -98,10 +101,28 @@ export class MatchDataUtility implements UMatchData {
         playerProfileResponses.map((response) => response.json())
       )
 
+      // Get abilities object
+      const abilitiesData = await this.fetchHelper<any>(ABILITIES_URL)
+
+      if (abilitiesData instanceof Error) throw abilitiesData
+
+      // Get hero_abilities object
+      const heroAbilitiesData = await this.fetchHelper<any>(HERO_ABILITIES_URL)
+
+      if (heroAbilitiesData instanceof Error) throw heroAbilitiesData
+
+      // Get ability_ids object
+      const abilityIDsData = await this.fetchHelper<any>(ABILITY_IDS_URL)
+
+      if (abilityIDsData instanceof Error) throw abilityIDsData
+
       return {
         heroListData,
         matchDetailsData,
         playerProfilesData,
+        abilitiesData,
+        heroAbilitiesData,
+        abilityIDsData,
       } as MatchData
       //
     } catch (error) {
@@ -135,9 +156,8 @@ export class MatchDataUtility implements UMatchData {
     try {
       // Get Matches History data using fetchHelper async func using Opendota API
       // Default player - Cheng Jin Xiang "NothingToSay"
-      const matchesHistoryData = await this.fetchHelper<Match[]>(
-        MATCH_HISTORY_URL
-      )
+      const matchesHistoryData =
+        await this.fetchHelper<Match[]>(MATCH_HISTORY_URL)
 
       if (matchesHistoryData instanceof Error) throw matchesHistoryData
 

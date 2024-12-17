@@ -5,6 +5,9 @@ const initialState: InitialStatisticState = {
   matchDetails: null,
   heroList: null,
   playersProfiles: null,
+  abilities: null,
+  heroAbilities: null,
+  abilityIDs: null,
   tooltipAbilityPortal: false,
 
   search: {
@@ -24,6 +27,9 @@ export const statisticSlice = createSlice({
         state.heroList = action.payload.heroListData
         state.matchDetails = action.payload.matchDetailsData
         state.playersProfiles = action.payload.playerProfilesData
+        state.abilities = action.payload.abilitiesData
+        state.heroAbilities = action.payload.heroAbilitiesData
+        state.abilityIDs = action.payload.abilityIDsData
       } else {
         state.error = action.payload
       }

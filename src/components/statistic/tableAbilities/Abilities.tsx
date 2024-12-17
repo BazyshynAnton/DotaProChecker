@@ -10,16 +10,12 @@ import { HERO_ABILITY_ICON_URL } from "@/utils/urls"
 import type { Player } from "@/types/statistic/tableDetails"
 
 import styles from "@/styles/statistic/TableAbilities.module.scss"
+import { useAppSelector } from "@/hooks/useAppSelector"
 
 const isTooltipDefault = new Array<boolean>(25).fill(false)
 
-export default function Abilities({
-  player,
-  heroName,
-}: {
-  player: Player
-  heroName: string
-}) {
+export default function Abilities({ player }: { player: Player }) {
+  const { abilityIDs } = useAppSelector((store) => store.statisticSlice)
   const dispatch = useAppDispatch()
 
   const uAbilityDetails = AbilityDetailsUtility.getInstance()
@@ -66,28 +62,25 @@ export default function Abilities({
 
   return (
     <>
-      {abilityBuild.map((ability, idx) => {
-        const abilityName = uAbilityDetails.findAbilityByID(ability)
+      {abilityBuild.map((abilityID, idx) => {
+        const abilityKey = uAbilityDetails.findAbilityKey(abilityID, abilityIDs)
 
-        const talentTree: boolean = abilityName.includes("special_bonus")
+        const talentTree: boolean = abilityKey.includes("special_bonus")
 
         return (
           <td key={idx}>
-            {abilityName !== "none" ? (
+            {abilityKey !== "none" ? (
               <div className={styles.abilityDataCell} ref={tooltipRef}>
                 {isTooltip[idx] && (
-                  <AbilityDescription
-                    abilityName={abilityName}
-                    heroName={heroName}
-                  />
+                  <AbilityDescription abilityKey={abilityKey} />
                 )}
                 <Image
                   src={
                     !talentTree
-                      ? `${HERO_ABILITY_ICON_URL}${abilityName}.png`
+                      ? `${HERO_ABILITY_ICON_URL}${abilityKey}.png`
                       : "/pictures/dotaAbilityIcons/talent_tree.svg"
                   }
-                  alt={abilityName}
+                  alt={abilityKey}
                   width={24}
                   height={24}
                   onClick={handleTrueClick(idx)}

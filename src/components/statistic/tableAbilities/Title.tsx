@@ -4,18 +4,15 @@ import { AbilityDetailsUtility } from "@/utils/statistic/AbilityDetailsUtility"
 import { HERO_ABILITY_ICON_URL } from "@/utils/urls"
 
 import styles from "@/styles/statistic/AbilityDescription.module.scss"
+import { useAppSelector } from "@/hooks/useAppSelector"
 
-export default function Title({
-  abilityName,
-  heroName,
-}: {
-  abilityName: string
-  heroName: string
-}) {
+export default function Title({ abilityKey }: { abilityKey: string }) {
+  const { abilities } = useAppSelector((store) => store.statisticSlice)
+
   const uAbilityDetails = AbilityDetailsUtility.getInstance()
-  const name = uAbilityDetails.findAbilityRealName(abilityName)
+  const name = uAbilityDetails.findAbilityRealName(abilityKey, abilities)
 
-  const talentTree: boolean = abilityName.includes("special_bonus")
+  const talentTree: boolean = abilityKey.includes("special_bonus")
 
   return (
     <>
@@ -23,7 +20,7 @@ export default function Title({
         <Image
           src={
             !talentTree
-              ? `${HERO_ABILITY_ICON_URL}${abilityName}.png`
+              ? `${HERO_ABILITY_ICON_URL}${abilityKey}.png`
               : "/pictures/dotaAbilityIcons/talent_tree.svg"
           }
           alt={name}
@@ -31,7 +28,11 @@ export default function Title({
           height={52}
         />
         <div className={styles.title__name}>
-          {name === "" ? "+2 Attributes" : name}
+          {name === ""
+            ? "+2 Attributes"
+            : name === "unnamed"
+              ? "Auto Attack/Other"
+              : name}
         </div>
       </div>
     </>

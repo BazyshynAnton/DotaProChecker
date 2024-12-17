@@ -8,6 +8,14 @@ export const HERO_LIST_URL = "https://api.opendota.com/api/heroes"
 
 export const PLAYER_PROFILE_URL = "https://api.opendota.com/api/players/"
 
+export const ABILITIES_URL = "https://api.opendota.com/api/constants/abilities"
+
+export const HERO_ABILITIES_URL =
+  "https://api.opendota.com/api/constants/hero_abilities"
+
+export const ABILITY_IDS_URL =
+  "https://api.opendota.com/api/constants/ability_ids"
+
 // Images
 export const HERO_ABILITY_ICON_URL =
   "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/"

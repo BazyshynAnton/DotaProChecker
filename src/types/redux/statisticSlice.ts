@@ -8,6 +8,9 @@ export interface InitialStatisticState {
   matchDetails: MatchDetails | null
   heroList: HeroList[] | null
   playersProfiles: PlayerProfile[] | null
+  abilities: any | null
+  heroAbilities: any | null
+  abilityIDs: any | null
   tooltipAbilityPortal: boolean
 
   search: {
@@ -21,6 +24,9 @@ export interface MatchData {
   heroListData: HeroList[]
   matchDetailsData: MatchDetails
   playerProfilesData: PlayerProfile[]
+  abilitiesData: any
+  heroAbilitiesData: any
+  abilityIDsData: any
 }
 
 export interface HeroList {

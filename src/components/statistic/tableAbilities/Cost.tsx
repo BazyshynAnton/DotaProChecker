@@ -1,11 +1,14 @@
 import { AbilityDetailsUtility } from "@/utils/statistic/AbilityDetailsUtility"
 import { Image } from "@/shared/nextjsImports"
+import { useAppSelector } from "@/hooks/useAppSelector"
 
 import styles from "@/styles/statistic/AbilityDescription.module.scss"
 
-export default function Cost({ abilityName }: { abilityName: string }) {
+export default function Cost({ abilityKey }: { abilityKey: string }) {
+  const { abilities } = useAppSelector((store) => store.statisticSlice)
+
   const uAbilityDetails = AbilityDetailsUtility.getInstance()
-  const cost = uAbilityDetails.findAbilityCost(abilityName)
+  const cost = uAbilityDetails.findAbilityCost(abilityKey, abilities)
 
   return (
     <>

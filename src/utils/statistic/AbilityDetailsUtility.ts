@@ -1,8 +1,4 @@
-import ability_ids from "../../../public/data/heroAbilities/ability_ids.json"
-import abilities from "../../../public/data/heroAbilities/abilities.json"
-
 import type { UAbilityDetails } from "@/types/statistic/abilityDetails"
-import type { AbilityIDs } from "@/types/statistic/playerRow"
 
 /**
  * AbilityDetailsUtility is an class that uses for setting
@@ -29,19 +25,25 @@ export class AbilityDetailsUtility implements UAbilityDetails {
   }
 
   /**
-   * Finds an ability name in JSON file by ID.
+   * Finds an ability name in object by ID.
    *
    * @param {number} id The ID of the ability.
+   * @param {any} abilityIDs The object.
    * @returns {string} The name of the ability if found, otherwise "none".
    */
-  public findAbilityByID(id: number): string {
-    const abilityIDs: AbilityIDs = ability_ids
+  public findAbilityKey(id: number, abilityIDs: any): string {
+    return abilityIDs[id] ? abilityIDs[id] : "none"
+  }
 
-    if (abilityIDs[id]) {
-      return abilityIDs[id]
-    }
-
-    return "none"
+  /**
+   * Finds real name of ability in object by key.
+   *
+   * @param {string} abilityKey The key representing the ability in the JSON file.
+   * @param {any} abilities The object.
+   * @returns {string} The real name of the ability.
+   */
+  public findAbilityRealName(abilityKey: string, abilities: any): string {
+    return abilities[abilityKey] ? abilities[abilityKey].dname : "unnamed"
   }
 
   /**
@@ -95,25 +97,14 @@ export class AbilityDetailsUtility implements UAbilityDetails {
   }
 
   /**
-   * Finds real name of ability in JSON file.
-   *
-   * @param {string} abilityName The key representing the ability in the JSON file.
-   * @returns {string} The real name of the ability.
-   */
-  public findAbilityRealName(abilityName: string): string {
-    const data: any = abilities
-
-    return data[abilityName].dname
-  }
-
-  /**
-   * Finds ability behavior in JSON file:
+   * Finds ability behavior in object by key:
    * - target
    * - dmg_type
    * - bkbpierce
    * - dispellable
    *
-   * @param {string} abilityName The key representing the ability in the JSON file.
+   * @param {string} abilityKey The key representing the ability in the JSON file.
+   * @param {any} abilities The object.
    * @returns {any} The ability behavior object:
    * `{
    *    target?: string,
@@ -123,9 +114,7 @@ export class AbilityDetailsUtility implements UAbilityDetails {
    *  }`
    *
    */
-  public findAbilityBehavior(abilityName: string): any {
-    const data: any = abilities
-
+  public findAbilityBehavior(abilityKey: string, abilities: any): any {
     const res = {
       target: "",
       dmg_type: "",
@@ -133,55 +122,53 @@ export class AbilityDetailsUtility implements UAbilityDetails {
       dispellable: "",
     }
 
-    if (Array.isArray(data[abilityName].behavior)) {
-      let length = data[abilityName].behavior.length
+    if (Array.isArray(abilities[abilityKey].behavior)) {
+      let length = abilities[abilityKey].behavior.length
       for (let i = 0; i < length; ++i) {
-        res.target += data[abilityName].behavior[i]
+        res.target += abilities[abilityKey].behavior[i]
         if (i < length - 1) {
           res.target += " / "
         }
       }
-    } else if (typeof data[abilityName].behavior === "string") {
-      res.target = data[abilityName].behavior
+    } else if (typeof abilities[abilityKey].behavior === "string") {
+      res.target = abilities[abilityKey].behavior
     }
 
-    res.bkbpierce = data[abilityName].bkbpierce
+    res.bkbpierce = abilities[abilityKey].bkbpierce
 
-    res.dmg_type = data[abilityName].dmg_type
+    res.dmg_type = abilities[abilityKey].dmg_type
 
-    res.dispellable = data[abilityName].dispellable
+    res.dispellable = abilities[abilityKey].dispellable
 
     return res
   }
 
   /**
-   * Finds a description of an ability in JSON file.
+   * Finds an ability description in object by key.
    *
-   * @param {string} abilityName The key representing the ability in the JSON file.
+   * @param {string} abilityKey The key representing the ability in the JSON file.
+   * @param {any} abilities The object.
    * @returns {string} The description of the ability.
    */
-  public findAbilityDescription(abilityName: string): string {
-    const data: any = abilities
-
-    return data[abilityName].desc
+  public findAbilityDescription(abilityKey: string, abilities: any): string {
+    return abilities[abilityKey] ? abilities[abilityKey].desc : ""
   }
 
   /**
-   * Finds an attributes of an ability in JSON file.
+   * Finds an ability attributes in object by key.
    *
-   * @param {string} abilityName The key representing the ability in the JSON file.
+   * @param {string} abilityKey The key representing the ability in the JSON file.
+   * @param {any} abilities The object.
    * @returns {any} The array of objects that represent attributes:
    * `[{
    *    header: string,
    *    value: string
    *  }, ...]`
    */
-  public findAbilityAttributes(abilityName: string): any {
-    const data: any = abilities
-
+  public findAbilityAttributes(abilityKey: string, abilities: any): any {
     const res: any = []
 
-    const attrib = data[abilityName].attrib
+    const attrib = abilities[abilityKey].attrib
     for (let i = 0; i < attrib.length; ++i) {
       const attribData = {
         header: attrib[i].header,
@@ -208,7 +195,7 @@ export class AbilityDetailsUtility implements UAbilityDetails {
   }
 
   /**
-   * Finds a mana cost and cooldown of an ability in JSON file.
+   * Finds an ability mana cost and cooldown in object by key.
    *
    * @param {string} abilityName The key representing the ability in the JSON file.
    * @returns {any} The mana cost and/or cooldown of the ability:
@@ -217,36 +204,34 @@ export class AbilityDetailsUtility implements UAbilityDetails {
    *    cd: string
    *  }`
    */
-  public findAbilityCost(abilityName: string): any {
-    const data: any = abilities
-
+  public findAbilityCost(abilityName: string, abilities: any): any {
     const cost = {
       mc: "",
       cd: "",
     }
 
-    if (Array.isArray(data[abilityName].mc)) {
-      const length = data[abilityName].mc.length
+    if (Array.isArray(abilities[abilityName].mc)) {
+      const length = abilities[abilityName].mc.length
       for (let i = 0; i < length; ++i) {
-        cost.mc += data[abilityName].mc[i]
+        cost.mc += abilities[abilityName].mc[i]
         if (i < length - 1) {
           cost.mc += " / "
         }
       }
-    } else if (typeof data[abilityName].mc === "string") {
-      cost.mc = data[abilityName].mc
+    } else if (typeof abilities[abilityName].mc === "string") {
+      cost.mc = abilities[abilityName].mc
     }
 
-    if (Array.isArray(data[abilityName].cd)) {
-      const length = data[abilityName].cd.length
+    if (Array.isArray(abilities[abilityName].cd)) {
+      const length = abilities[abilityName].cd.length
       for (let i = 0; i < length; ++i) {
-        cost.cd += data[abilityName].cd[i]
+        cost.cd += abilities[abilityName].cd[i]
         if (i < length - 1) {
           cost.cd += " / "
         }
       }
-    } else if (typeof data[abilityName].cd === "string") {
-      cost.cd = data[abilityName].cd
+    } else if (typeof abilities[abilityName].cd === "string") {
+      cost.cd = abilities[abilityName].cd
     }
 
     return cost

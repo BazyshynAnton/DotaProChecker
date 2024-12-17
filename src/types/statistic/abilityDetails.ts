@@ -1,7 +1,15 @@
 export interface UAbilityDetails {
-  findAbilityByID(id: number): string
+  findAbilityKey(id: number, abilityIDs: any): string
+
+  findAbilityRealName(abilityName: string, abilities: any): string
 
   setAbilityBuild(ability_upgrades_arr: number[]): number[]
 
-  findAbilityRealName(ailityName: string): string
+  findAbilityBehavior(abilityKey: string, abilities: any): any
+
+  findAbilityDescription(abilityKey: string, abilities: any): string
+
+  findAbilityAttributes(abilityKey: string, abilities: any): any
+
+  findAbilityCost(abilityName: string, abilities: any): any
 }

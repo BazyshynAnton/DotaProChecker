@@ -1,10 +1,13 @@
 import { AbilityDetailsUtility } from "@/utils/statistic/AbilityDetailsUtility"
+import { useAppSelector } from "@/hooks/useAppSelector"
 
 import styles from "@/styles/statistic/AbilityDescription.module.scss"
 
-export default function Behavior({ abilityName }: { abilityName: string }) {
+export default function Behavior({ abilityKey }: { abilityKey: string }) {
+  const { abilities } = useAppSelector((store) => store.statisticSlice)
+
   const uAbilityDetails = AbilityDetailsUtility.getInstance()
-  const behavior = uAbilityDetails.findAbilityBehavior(abilityName)
+  const behavior = uAbilityDetails.findAbilityBehavior(abilityKey, abilities)
 
   let conditionBkbpierce = true
   if (Array.isArray(behavior.bkbpierce)) {
