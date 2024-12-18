@@ -10,11 +10,10 @@ import { HERO_ICON_URL } from "@/utils/urls"
 import styles from "@/styles/statistic/TableAbilities.module.scss"
 
 export default function Hero({ playersTeam }: { playersTeam: Player[] }) {
-  const { heroList, playersProfiles } = useAppSelector(
+  const { heroList, playersProfiles, heroAbilities } = useAppSelector(
     (store) => store.statisticSlice
   )
-  //
-  // Check existence
+
   if (!heroList || !playersProfiles) return
 
   const uRowDetails = new PlayerRowDetailsUtility()
@@ -24,7 +23,8 @@ export default function Hero({ playersTeam }: { playersTeam: Player[] }) {
       {playersTeam.map((player) => {
         const detailsAboutHero = uRowDetails.findAppropriateHero(
           player,
-          heroList
+          heroList,
+          heroAbilities
         )
         return (
           <tr key={player.hero_id} className={styles.tableBodyRow}>

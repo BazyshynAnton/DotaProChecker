@@ -40,7 +40,7 @@ export class AbilityDetailsUtility implements UAbilityDetails {
    *
    * @param {string} abilityKey The key representing the ability in the JSON file.
    * @param {any} abilities The object.
-   * @returns {string} The real name of the ability.
+   * @returns {string} The real name of the ability if found, otherwise "unnamed".
    */
   public findAbilityRealName(abilityKey: string, abilities: any): string {
     return abilities[abilityKey] ? abilities[abilityKey].dname : "unnamed"
@@ -56,10 +56,10 @@ export class AbilityDetailsUtility implements UAbilityDetails {
    * - Special levels at indices (16, 17, 19, and 24) follow unique mapping logic.
    * - Other levels are initialized to `-1`.
    *
-   * @param {number[]} ability_upgrades_arr - An array representing ability upgrades to map to hero levels.
+   * @param {number[]} abilityUpgradesArr - An array representing ability upgrades to map to hero levels.
    * @returns {number[]} An array of length 25 where each index corresponds to the ability assigned at that level.
    */
-  public setAbilityBuild(ability_upgrades_arr: number[]): number[] {
+  public setAbilityBuild(abilityUpgradesArr: number[]): number[] {
     const build = new Array(25).fill(-1)
 
     const enum patterns {
@@ -73,23 +73,23 @@ export class AbilityDetailsUtility implements UAbilityDetails {
       if (i == patterns.FirstLevels) continue
 
       if (i == patterns.CriticalLevel) {
-        build[i] = ability_upgrades_arr[i - 1]
+        build[i] = abilityUpgradesArr[i - 1]
         continue
       }
 
       if (i == patterns.TreeLevel) {
-        build[i] = ability_upgrades_arr[i - 2]
+        build[i] = abilityUpgradesArr[i - 2]
 
         continue
       }
 
       if (i == patterns.LastLevel) {
-        build[i] = ability_upgrades_arr[i - 6]
+        build[i] = abilityUpgradesArr[i - 6]
         continue
       }
 
       if (i < patterns.FirstLevels) {
-        build[i] = ability_upgrades_arr[i]
+        build[i] = abilityUpgradesArr[i]
         continue
       }
     }
@@ -148,7 +148,7 @@ export class AbilityDetailsUtility implements UAbilityDetails {
    *
    * @param {string} abilityKey The key representing the ability in the JSON file.
    * @param {any} abilities The object.
-   * @returns {string} The description of the ability.
+   * @returns {string} The description of the ability if found, otherwise "".
    */
   public findAbilityDescription(abilityKey: string, abilities: any): string {
     return abilities[abilityKey] ? abilities[abilityKey].desc : ""
@@ -197,41 +197,42 @@ export class AbilityDetailsUtility implements UAbilityDetails {
   /**
    * Finds an ability mana cost and cooldown in object by key.
    *
-   * @param {string} abilityName The key representing the ability in the JSON file.
+   * @param {string} abilityKey The key representing the ability in the JSON file.
+   * @param {any} abilities The object.
    * @returns {any} The mana cost and/or cooldown of the ability:
    * `{
    *    mc: string,
    *    cd: string
    *  }`
    */
-  public findAbilityCost(abilityName: string, abilities: any): any {
+  public findAbilityCost(abilityKey: string, abilities: any): any {
     const cost = {
       mc: "",
       cd: "",
     }
 
-    if (Array.isArray(abilities[abilityName].mc)) {
-      const length = abilities[abilityName].mc.length
+    if (Array.isArray(abilities[abilityKey].mc)) {
+      const length = abilities[abilityKey].mc.length
       for (let i = 0; i < length; ++i) {
-        cost.mc += abilities[abilityName].mc[i]
+        cost.mc += abilities[abilityKey].mc[i]
         if (i < length - 1) {
           cost.mc += " / "
         }
       }
-    } else if (typeof abilities[abilityName].mc === "string") {
-      cost.mc = abilities[abilityName].mc
+    } else if (typeof abilities[abilityKey].mc === "string") {
+      cost.mc = abilities[abilityKey].mc
     }
 
-    if (Array.isArray(abilities[abilityName].cd)) {
-      const length = abilities[abilityName].cd.length
+    if (Array.isArray(abilities[abilityKey].cd)) {
+      const length = abilities[abilityKey].cd.length
       for (let i = 0; i < length; ++i) {
-        cost.cd += abilities[abilityName].cd[i]
+        cost.cd += abilities[abilityKey].cd[i]
         if (i < length - 1) {
           cost.cd += " / "
         }
       }
-    } else if (typeof abilities[abilityName].cd === "string") {
-      cost.cd = abilities[abilityName].cd
+    } else if (typeof abilities[abilityKey].cd === "string") {
+      cost.cd = abilities[abilityKey].cd
     }
 
     return cost

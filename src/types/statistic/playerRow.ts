@@ -2,7 +2,11 @@ import type { HeroList, PlayerProfile } from "../redux/statisticSlice"
 import type { Player } from "./tableDetails"
 
 export interface UPlayerRowDetails {
-  findAppropriateHero(player: Player, heroList: HeroList[]): DetailsAboutHero
+  findAppropriateHero(
+    player: Player,
+    heroList: HeroList[],
+    heroAbilities: any
+  ): DetailsAboutHero
 
   findAppropriatePlayer(
     player: Player,
@@ -13,9 +17,9 @@ export interface UPlayerRowDetails {
 
   findPlayerAvatar(): string
 
-  findAppropriateItems(player: Player): ItemDetails | null
+  findAppropriateItems(player: Player, items: any): ItemDetails | null
 
-  findItemCostByName(item: string): string
+  findItemCostByKey(key: string, items: Item): string
 }
 
 export type AbilityIDs = {

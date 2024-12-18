@@ -16,6 +16,8 @@ export const HERO_ABILITIES_URL =
 export const ABILITY_IDS_URL =
   "https://api.opendota.com/api/constants/ability_ids"
 
+export const ITEMS_URL = "https://api.opendota.com/api/constants/items"
+
 // Images
 export const HERO_ABILITY_ICON_URL =
   "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/"

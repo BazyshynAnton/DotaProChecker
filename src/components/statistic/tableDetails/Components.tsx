@@ -1,10 +1,10 @@
 import { Image } from "@/shared/nextjsImports"
-
 import { PlayerRowDetailsUtility } from "@/utils/statistic/PlayerRowDetailsUtility"
-
-import type { ItemDescriptionInterface } from "@/types/statistic/playerRow"
+import { useAppSelector } from "@/hooks/useAppSelector"
 
 import { ITEM_ICON_URL } from "@/utils/urls"
+
+import type { ItemDescriptionInterface } from "@/types/statistic/playerRow"
 
 import styles from "@/styles/statistic/ItemDescription.module.scss"
 
@@ -12,9 +12,9 @@ export default function Components({
   details,
   item,
 }: ItemDescriptionInterface) {
-  //
-  // Check for existence
-  if (!details) {
+  const { items } = useAppSelector((store) => store.statisticSlice)
+
+  if (!details || !items) {
     throw new Error("[DATA] Cannot get data about Item Details")
   }
 
@@ -26,7 +26,7 @@ export default function Components({
           <div className={styles.components__items}>
             {details[item].components.map((component, idx) => {
               const rdUtility = new PlayerRowDetailsUtility()
-              const itemCost = rdUtility.findItemCostByName(component)
+              const itemCost = rdUtility.findItemCostByKey(component, items)
 
               return (
                 <div key={idx} className={styles.components__items__item}>

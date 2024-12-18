@@ -3,7 +3,7 @@ export interface UAbilityDetails {
 
   findAbilityRealName(abilityName: string, abilities: any): string
 
-  setAbilityBuild(ability_upgrades_arr: number[]): number[]
+  setAbilityBuild(abilityUpgradesArr: number[]): number[]
 
   findAbilityBehavior(abilityKey: string, abilities: any): any
 
@@ -11,5 +11,5 @@ export interface UAbilityDetails {
 
   findAbilityAttributes(abilityKey: string, abilities: any): any
 
-  findAbilityCost(abilityName: string, abilities: any): any
+  findAbilityCost(abilityKey: string, abilities: any): any
 }

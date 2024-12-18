@@ -52,3 +52,7 @@ export interface PlayerColors {
     }
   }
 }
+
+export interface FacetGradientColor {
+  [ket: string]: string
+}

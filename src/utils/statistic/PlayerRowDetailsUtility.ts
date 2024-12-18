@@ -1,13 +1,12 @@
-import items from "../../../public/data/items/items.json"
-import hero_abilities from "../../../public/data/heroAbilities/hero_abilities.json"
-
 import type { Player } from "@/types/statistic/tableDetails"
-import type { PlayerColors } from "@/types/statistic/matchDetails"
-import type { HeroList, PlayerProfile } from "@/types/redux/statisticSlice"
+
 import type {
-  HeroAbilities,
-  HeroAbilitiesValue,
-} from "@/types/statistic/static"
+  FacetGradientColor,
+  PlayerColors,
+} from "@/types/statistic/matchDetails"
+
+import type { HeroList, PlayerProfile } from "@/types/redux/statisticSlice"
+
 import type {
   DetailsAboutHero,
   DetailsAboutPlayer,
@@ -39,11 +38,13 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
    * information to identify the hero.
    * @param {HeroList[]} heroList The list of available heroes
    * with their details.
+   * @param {any} heroAbilities The object of hero abilities.
    * @returns {DetailsAboutHero} The detailed information about the hero.
    */
   public findAppropriateHero(
     player: Player,
-    heroList: HeroList[]
+    heroList: HeroList[],
+    heroAbilities: any
   ): DetailsAboutHero {
     this.m_HeroDetails = {
       heroName: "",
@@ -61,7 +62,7 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
 
     this.findHeroName(player, heroList)
 
-    this.findHeroFacet(player)
+    this.findHeroFacet(player, heroAbilities)
 
     return this.m_HeroDetails
   }
@@ -152,6 +153,11 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
     return `${imagePath}00.png`
   }
 
+  /**
+   * Finds player's avatar.
+   *
+   * @returns {string} The player's avatar if finds, otherwise the file path to anonymous avatar.
+   */
   public findPlayerAvatar(): string {
     const avatar = this.m_PlayerDetails.profileInfo.avatar
 
@@ -160,10 +166,14 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
     return "/pictures/dotaPlayerIcons/anonymous.jpg"
   }
 
-  // Find item details
-  public findAppropriateItems(player: Player): ItemDetails | null {
-    const playerItems: Item = items
-
+  /**
+   * Finds player items and details about them in object.
+   *
+   * @param {Player} player The player's data.
+   * @param {Item} items The object.
+   * @returns {ItemDetails | null} The items and item details if found, otherwise `null`.
+   */
+  public findAppropriateItems(player: Player, items: Item): ItemDetails | null {
     const emptyValue = {
       abilities: [],
       hint: [],
@@ -201,7 +211,7 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
       aghanims_shard: emptyValue,
     }
 
-    for (const [key, value] of Object.entries(playerItems)) {
+    for (const [key, value] of Object.entries(items)) {
       const itemValue = {
         abilities: value.abilities,
         hint: value.hint,
@@ -267,12 +277,17 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
     return this.m_ItemDetails
   }
 
-  public findItemCostByName(item: string): string {
-    const playerItems: Item = items
+  /**
+   * Find item cost in object by key.
+   * @param {string} key The key.
+   * @param {Item} items The object.
+   * @returns {string} Item cost.
+   */
+  public findItemCostByKey(key: string, items: Item): string {
     let cost = 0
 
-    for (const [key, value] of Object.entries(playerItems)) {
-      if (item === key) {
+    for (const [itemsKey, value] of Object.entries(items)) {
+      if (key === itemsKey) {
         if (value.cost) cost = value.cost
       }
     }
@@ -280,9 +295,7 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
     return cost.toString()
   }
 
-  //
-  //
-  // Hero details for [FUNCTION](findAppropriateHero)
+  // Hero details
   private m_HeroDetails: DetailsAboutHero = {
     heroName: "",
     heroLocalizedName: "",
@@ -295,7 +308,7 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
     playerColor: "",
   }
 
-  // Player details for [FUNCTION](findAppropriatePlayer)
+  // Player details
   private m_PlayerDetails: DetailsAboutPlayer = {
     profileInfo: {
       avatar: "",
@@ -305,7 +318,7 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
     leaderboard_rank_info: null,
   }
 
-  // Player's item details for [FUNCTION](findAppropriateItems)
+  // Player's item details
   private m_ItemDetails: ItemDetails | any = {}
 
   // Cache for current hero
@@ -336,6 +349,59 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
     },
   }
 
+  // Hero facet gradient colors
+  private facetGradientColor: FacetGradientColor = {
+    colorRed0: "linear-gradient(to right, #9F3C3C, #4A2040)",
+
+    colorRed1: "linear-gradient(to right, #954533, #452732)",
+
+    colorRed2: "linear-gradient(to right, #A3735E, #4F2A25)",
+
+    colorYellow0: "linear-gradient(to right, #C8A45C, #6F3D21)",
+
+    colorYellow1: "linear-gradient(to right, #C6A158, #604928)",
+
+    colorYellow2: "linear-gradient(to right, #CAC194, #433828)",
+
+    colorYellow3: "linear-gradient(to right, #C3A99A, #4D352B)",
+
+    colorPurple0: "linear-gradient(to right, #B57789, #412755)",
+
+    colorPurple1: "linear-gradient(to right, #9C70A4, #282752)",
+
+    colorPurple2: "linear-gradient(to right, #675CAE, #261C44)",
+
+    colorBlue0: "linear-gradient(to right, #727CB2, #342D5B)",
+
+    colorBlue1: "linear-gradient(to right, #547EA6, #2A385E)",
+
+    colorBlue2: "linear-gradient(to right, #6BAEBC, #135459)",
+
+    colorBlue3: "linear-gradient(to right, #94B5BA, #385B59)",
+
+    colorGreen0: "linear-gradient(to right, #A2B23E, #2D5A18)",
+    colorGreen1: "linear-gradient(to right, #7EC2B2, #29493A)",
+
+    colorGreen2: "linear-gradient(to right, #A2B23E, #2D5A18)",
+
+    colorGreen3: "linear-gradient(to right, #9A9F6A, #223824)",
+
+    colorGreen4: "linear-gradient(to right, #9FAD8E, #3F4129)",
+
+    colorGray0: "linear-gradient(to right, #565C61, #1B1B21)",
+
+    colorGray1: "linear-gradient(to right, #6A6D73, #29272C)",
+
+    colorGray2: "linear-gradient(to right, #95A9B1, #3E464F)",
+
+    colorGray3: "linear-gradient(to right, #ADB6BE, #4E5557)",
+  }
+
+  /**
+   * Finds player's color.
+   *
+   * @param {Player} player The player's data.
+   */
   private findColor(player: Player): void {
     if (player.team_number === this.m_PlayerColors.radiant.team_number) {
       for (const [colorKey, colorValue] of Object.entries(
@@ -358,6 +424,12 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
     }
   }
 
+  /**
+   * Finds hero's name in array.
+   *
+   * @param {Player} player The player's data.
+   * @param {HeroList[]} heroList The array.
+   */
   private findHeroName(player: Player, heroList: HeroList[]): void {
     for (let i = 0; i < heroList.length; ++i) {
       const hero = heroList[i]
@@ -374,42 +446,59 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
     }
   }
 
-  private findHeroFacet(player: Player): void {
-    const heroAbilities: HeroAbilities = hero_abilities
-    for (const [heroID, value] of Object.entries(heroAbilities)) {
-      if (this.m_CurrentHero === heroID) {
-        switch (player.hero_variant) {
-          case 1:
-            this.setHeroFacet(value, 0)
-            break
+  /**
+   * Finds hero's facet in object.
+   * @param {Player} player The player's data.
+   * @param {any} heroAbilities The object.
+   */
+  private findHeroFacet(player: Player, heroAbilities: any): void {
+    if (heroAbilities) {
+      for (const [heroID, value] of Object.entries(heroAbilities)) {
+        if (this.m_CurrentHero === heroID) {
+          switch (player.hero_variant) {
+            case 1:
+              this.setHeroFacet(value, 0)
+              break
 
-          case 2:
-            this.setHeroFacet(value, 1)
-            break
+            case 2:
+              this.setHeroFacet(value, 1)
+              break
 
-          case 3:
-            this.setHeroFacet(value, 2)
-            break
+            case 3:
+              this.setHeroFacet(value, 2)
+              break
 
-          case 4:
-            this.setHeroFacet(value, 3)
-            break
+            case 4:
+              this.setHeroFacet(value, 3)
+              break
 
-          case 5:
-            this.setHeroFacet(value, 4)
-            break
+            case 5:
+              this.setHeroFacet(value, 4)
+              break
 
-          default:
-            break
+            default:
+              break
+          }
         }
       }
     }
   }
 
-  private setHeroFacet(value: HeroAbilitiesValue, facetID: number): void {
+  /**
+   * Sets hero's facet data.
+   *
+   * @param {any} value The hero's data.
+   * @param {number} facetID The facet's ID.
+   */
+  private setHeroFacet(value: any, facetID: number): void {
     if (value.facets[facetID]) {
       this.m_HeroDetails.heroVariant.icon = value.facets[facetID].icon
-      this.m_HeroDetails.heroVariant.color = value.facets[facetID].color
+
+      let highLevelColor: string = value.facets[facetID].color
+      let gradientId: number = value.facets[facetID].gradient_id
+      this.m_HeroDetails.heroVariant.color =
+        this.facetGradientColor[`color${highLevelColor}${gradientId}`]
+
       this.m_HeroDetails.heroVariant.title = value.facets[facetID].title
       this.m_HeroDetails.heroVariant.description =
         value.facets[facetID].description

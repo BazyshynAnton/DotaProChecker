@@ -3,6 +3,7 @@ import {
   ABILITY_IDS_URL,
   HERO_ABILITIES_URL,
   HERO_LIST_URL,
+  ITEMS_URL,
   MATCH_DETAILS_URL,
   MATCH_HISTORY_URL,
   PLAYER_PROFILE_URL,
@@ -16,6 +17,7 @@ import type {
   MatchDetails,
   PlayerProfile,
 } from "@/types/redux/statisticSlice"
+import { Item } from "@/types/statistic/playerRow"
 
 /**
  * MatchDataUtility is a utility class responsible for handling
@@ -58,6 +60,10 @@ export class MatchDataUtility implements UMatchData {
    * - `heroListData` (HeroList[]): List of heroes fetched from the API.
    * - `matchDetailsData` (MatchDetails): Details about the specified match.
    * - `playerProfilesData` (PlayerProfile[]): Profile information of players in the match.
+   * - `abilitiesData` (any): Object of all abilities.
+   * - `heroAbilitiesData` (any): Object of hero abilities.
+   * - `abilityIDs` (any): Object of ability IDs.
+   * - `abilityIDsData` (Item): Object of ability IDs.
    */
   public fetchMatchData = async (
     matchID: number = 0
@@ -116,6 +122,11 @@ export class MatchDataUtility implements UMatchData {
 
       if (abilityIDsData instanceof Error) throw abilityIDsData
 
+      // Get items object
+      const itemsData = await this.fetchHelper<Item>(ITEMS_URL)
+
+      if (itemsData instanceof Error) throw itemsData
+
       return {
         heroListData,
         matchDetailsData,
@@ -123,6 +134,7 @@ export class MatchDataUtility implements UMatchData {
         abilitiesData,
         heroAbilitiesData,
         abilityIDsData,
+        itemsData,
       } as MatchData
       //
     } catch (error) {

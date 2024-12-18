@@ -8,6 +8,7 @@ const initialState: InitialStatisticState = {
   abilities: null,
   heroAbilities: null,
   abilityIDs: null,
+  items: null,
   tooltipAbilityPortal: false,
 
   search: {
@@ -30,6 +31,7 @@ export const statisticSlice = createSlice({
         state.abilities = action.payload.abilitiesData
         state.heroAbilities = action.payload.heroAbilitiesData
         state.abilityIDs = action.payload.abilityIDsData
+        state.items = action.payload.itemsData
       } else {
         state.error = action.payload
       }

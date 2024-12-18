@@ -19,11 +19,9 @@ export default function TableDetails({
   return (
     <div className={styles.result}>
       <section className={styles.result__team}>
-        <header
-          className={`${styles.result__team__header} ${teamHeaderCondition}`}
-        >
+        <h4 className={`${styles.result__team__header} ${teamHeaderCondition}`}>
           the {side}
-        </header>
+        </h4>
         <article className={styles.result__team__tableWrapper}>
           <table className={styles.table}>
             <thead className={styles.table__thead}>

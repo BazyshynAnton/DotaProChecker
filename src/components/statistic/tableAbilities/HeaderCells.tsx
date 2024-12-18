@@ -1,5 +1,3 @@
-import TableHeaderCell from "./TableHeaderCell"
-
 import styles from "@/styles/statistic/TableAbilities.module.scss"
 
 export default function HeaderCells() {
@@ -13,4 +11,8 @@ export default function HeaderCells() {
       ))}
     </tr>
   )
+}
+
+function TableHeaderCell({ str, title }: { str: string; title: string }) {
+  return <th title={title}>{str}</th>
 }

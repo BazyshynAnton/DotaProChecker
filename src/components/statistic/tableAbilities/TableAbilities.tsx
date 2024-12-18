@@ -1,7 +1,7 @@
 import HeaderCells from "./HeaderCells"
 import Hero from "./Hero"
 
-import { Player } from "@/types/statistic/tableDetails"
+import type { Player } from "@/types/statistic/tableDetails"
 
 import styles from "@/styles/statistic/TableAbilities.module.scss"
 
@@ -18,9 +18,9 @@ export default function TableAbilities({
 
   return (
     <section className={styles.builds}>
-      <header className={`${styles.builds__header} ${teamHeaderCondition}`}>
+      <h4 className={`${styles.builds__header} ${teamHeaderCondition}`}>
         {side} builds
-      </header>
+      </h4>
       <article className={styles.builds__tableWrapper}>
         <table className={styles.table}>
           <thead>

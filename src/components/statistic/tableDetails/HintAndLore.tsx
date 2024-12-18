@@ -6,8 +6,6 @@ export default function HintAndLore({
   details,
   item,
 }: ItemDescriptionInterface) {
-  //
-  // Check for existence
   if (!details) {
     throw new Error("[DATA] Cannot get data about Item Details")
   }

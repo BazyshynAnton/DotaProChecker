@@ -1,3 +1,4 @@
+import { Item } from "../statistic/playerRow"
 import type { Player } from "../statistic/tableDetails"
 
 export interface UMatchData {
@@ -11,6 +12,7 @@ export interface InitialStatisticState {
   abilities: any | null
   heroAbilities: any | null
   abilityIDs: any | null
+  items: Item | null
   tooltipAbilityPortal: boolean
 
   search: {
@@ -27,6 +29,7 @@ export interface MatchData {
   abilitiesData: any
   heroAbilitiesData: any
   abilityIDsData: any
+  itemsData: any
 }
 
 export interface HeroList {

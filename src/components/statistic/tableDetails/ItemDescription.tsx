@@ -8,9 +8,7 @@ import HintAndLore from "./HintAndLore"
 import Components from "./Components"
 
 import useMousePosition from "@/hooks/useMousePosition"
-
 import { ReactDOM, useEffect, useState } from "@/shared/reactImports"
-
 import type { ItemDescriptionInterface } from "@/types/statistic/playerRow"
 
 import styles from "@/styles/statistic/ItemDescription.module.scss"

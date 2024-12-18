@@ -16,12 +16,11 @@ import type {
 import styles from "@/styles/statistic/PlayerRow.module.scss"
 
 export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
-  const { heroList, playersProfiles } = useAppSelector(
+  const { heroList, playersProfiles, heroAbilities, items } = useAppSelector(
     (store) => store.statisticSlice
   )
-  //
-  // Check existence
-  if (!heroList || !playersProfiles) return
+
+  if (!heroList || !playersProfiles || !items) return
 
   return (
     <>
@@ -32,7 +31,7 @@ export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
 
         // Find details about hero
         const detailsAboutHero: DetailsAboutHero =
-          uRowDetails.findAppropriateHero(player, heroList)
+          uRowDetails.findAppropriateHero(player, heroList, heroAbilities)
 
         // Find details about player
         const detailsAboutPlayer: DetailsAboutPlayer =
@@ -40,7 +39,7 @@ export default function PlayerRow({ playersTeam }: { playersTeam: Player[] }) {
 
         // Find details about items
         const itemDetails: ItemDetails | null =
-          uRowDetails.findAppropriateItems(player)
+          uRowDetails.findAppropriateItems(player, items)
 
         return (
           <tr key={player.hero_id} className={styles.playerRow}>

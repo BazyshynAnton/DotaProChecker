@@ -3,8 +3,6 @@ import type { ItemDescriptionInterface } from "@/types/statistic/playerRow"
 import styles from "@/styles/statistic/ItemDescription.module.scss"
 
 export default function Attribute({ details, item }: ItemDescriptionInterface) {
-  //
-  // Check for existence
   if (!details) {
     throw new Error("[DATA] Cannot get data about Item Details")
   }
@@ -12,8 +10,6 @@ export default function Attribute({ details, item }: ItemDescriptionInterface) {
   return (
     <div className={styles.attrib}>
       {details[item].attrib?.map((att) => {
-        //
-        // Check for existence
         if (!att.display) return
 
         // Erase {value} from string
