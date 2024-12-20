@@ -28,7 +28,7 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
   /**
    * Finds and sets detailed information about a hero based on the player's data.
    *
-   * This function fills the `m_HeroDetails` object with detailed information
+   * This function fills the `mHeroDetails` object with detailed information
    * about the hero associated with the given player. It determines
    * the hero's name, localized name, appearance (icon, color, title,
    * and description), and the player's associated color.
@@ -46,7 +46,7 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
     heroList: HeroList[],
     heroAbilities: any
   ): DetailsAboutHero {
-    this.m_HeroDetails = {
+    this.mHeroDetails = {
       heroName: "",
       heroLocalizedName: "",
       heroVariant: {
@@ -64,7 +64,7 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
 
     this.findHeroFacet(player, heroAbilities)
 
-    return this.m_HeroDetails
+    return this.mHeroDetails
   }
 
   /**
@@ -74,9 +74,9 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
    * This function searches for a player's profile
    * in the provided list of player profiles and sets
    * the player's details such as avatar, profile URL,
-   * leaderboard rank, and rank tier into the `m_PlayerDetails`
+   * leaderboard rank, and rank tier into the `mPlayerDetails`
    * object. If the player is anonymous (without account ID),
-   * no updates are made to `m_PlayerDetails`.
+   * no updates are made to `mPlayerDetails`.
    *
    * @param {Player} player The player object containing the account ID and other details.
    * @param {PlayerProfile[]} playersProfiles A list of player profiles retrieved from external sources.
@@ -94,25 +94,25 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
         if ("profile" in playerProfile) {
           if (player.account_id === playerProfile.profile.account_id) {
             // avatar
-            this.m_PlayerDetails.profileInfo.avatar =
+            this.mPlayerDetails.profileInfo.avatar =
               playerProfile.profile.avatar
 
             // profile url
-            this.m_PlayerDetails.profileInfo.profileurl =
+            this.mPlayerDetails.profileInfo.profileurl =
               playerProfile.profile.profileurl
 
             // rank
-            this.m_PlayerDetails.leaderboard_rank_info =
+            this.mPlayerDetails.leaderboard_rank_info =
               playerProfile.leaderboard_rank
 
             // rank tier
-            this.m_PlayerDetails.rank_tier_info = playerProfile.rank_tier
+            this.mPlayerDetails.rank_tier_info = playerProfile.rank_tier
           }
         }
       })
     }
 
-    return this.m_PlayerDetails
+    return this.mPlayerDetails
   }
 
   /**
@@ -128,9 +128,9 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
   public findPlayerRankIcon(): string {
     const imagePath = "/pictures/dotaPlayerRankIcons/"
 
-    const leaderboardRank = this.m_PlayerDetails.leaderboard_rank_info
+    const leaderboardRank = this.mPlayerDetails.leaderboard_rank_info
 
-    const rankTier = this.m_PlayerDetails.rank_tier_info
+    const rankTier = this.mPlayerDetails.rank_tier_info
 
     if (rankTier && leaderboardRank) {
       if (leaderboardRank <= 10 && leaderboardRank >= 1) {
@@ -159,7 +159,7 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
    * @returns {string} The player's avatar if finds, otherwise the file path to anonymous avatar.
    */
   public findPlayerAvatar(): string {
-    const avatar = this.m_PlayerDetails.profileInfo.avatar
+    const avatar = this.mPlayerDetails.profileInfo.avatar
 
     if (avatar !== "") return avatar
 
@@ -193,7 +193,7 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
     }
 
     // use loop to init it
-    this.m_ItemDetails = {
+    this.mItemDetails = {
       item_0: emptyValue,
       item_1: emptyValue,
       item_2: emptyValue,
@@ -232,49 +232,49 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
 
       switch (value.id) {
         case player.item_0:
-          this.m_ItemDetails["item_0"] = itemValue
+          this.mItemDetails["item_0"] = itemValue
           break
 
         case player.item_1:
-          this.m_ItemDetails["item_1"] = itemValue
+          this.mItemDetails["item_1"] = itemValue
           break
 
         case player.item_2:
-          this.m_ItemDetails["item_2"] = itemValue
+          this.mItemDetails["item_2"] = itemValue
           break
 
         case player.item_3:
-          this.m_ItemDetails["item_3"] = itemValue
+          this.mItemDetails["item_3"] = itemValue
           break
 
         case player.item_4:
-          this.m_ItemDetails["item_4"] = itemValue
+          this.mItemDetails["item_4"] = itemValue
           break
         case player.item_5:
-          this.m_ItemDetails["item_5"] = itemValue
+          this.mItemDetails["item_5"] = itemValue
           break
 
         case player.backpack_0:
-          this.m_ItemDetails["backpack_0"] = itemValue
+          this.mItemDetails["backpack_0"] = itemValue
           break
 
         case player.backpack_1:
-          this.m_ItemDetails["backpack_1"] = itemValue
+          this.mItemDetails["backpack_1"] = itemValue
           break
 
         case player.backpack_2:
-          this.m_ItemDetails["backpack_2"] = itemValue
+          this.mItemDetails["backpack_2"] = itemValue
           break
 
         case player.item_neutral:
-          this.m_ItemDetails["item_neutral"] = itemValue
+          this.mItemDetails["item_neutral"] = itemValue
 
         default:
           break
       }
     }
 
-    return this.m_ItemDetails
+    return this.mItemDetails
   }
 
   /**
@@ -296,7 +296,7 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
   }
 
   // Hero details
-  private m_HeroDetails: DetailsAboutHero = {
+  private mHeroDetails: DetailsAboutHero = {
     heroName: "",
     heroLocalizedName: "",
     heroVariant: {
@@ -309,7 +309,7 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
   }
 
   // Player details
-  private m_PlayerDetails: DetailsAboutPlayer = {
+  private mPlayerDetails: DetailsAboutPlayer = {
     profileInfo: {
       avatar: "",
       profileurl: "",
@@ -319,13 +319,13 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
   }
 
   // Player's item details
-  private m_ItemDetails: ItemDetails | any = {}
+  private mItemDetails: ItemDetails | any = {}
 
   // Cache for current hero
-  private m_CurrentHero: string = ""
+  private mCurrentHero: string = ""
 
   // Player's slot colors
-  private m_PlayerColors: PlayerColors = {
+  private mPlayerColors: PlayerColors = {
     radiant: {
       team_number: 0,
       colors: {
@@ -350,7 +350,7 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
   }
 
   // Hero facet gradient colors
-  private facetGradientColor: FacetGradientColor = {
+  private mFacetGradientColor: FacetGradientColor = {
     colorRed0: "linear-gradient(to right, #9F3C3C, #4A2040)",
 
     colorRed1: "linear-gradient(to right, #954533, #452732)",
@@ -403,22 +403,22 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
    * @param {Player} player The player's data.
    */
   private findColor(player: Player): void {
-    if (player.team_number === this.m_PlayerColors.radiant.team_number) {
+    if (player.team_number === this.mPlayerColors.radiant.team_number) {
       for (const [colorKey, colorValue] of Object.entries(
-        this.m_PlayerColors.radiant.colors
+        this.mPlayerColors.radiant.colors
       )) {
         if (player.player_slot.toString() === colorKey) {
-          this.m_HeroDetails.playerColor = colorValue
+          this.mHeroDetails.playerColor = colorValue
         }
       }
     }
 
-    if (player.team_number === this.m_PlayerColors.dire.team_number) {
+    if (player.team_number === this.mPlayerColors.dire.team_number) {
       for (const [colorKey, colorValue] of Object.entries(
-        this.m_PlayerColors.dire.colors
+        this.mPlayerColors.dire.colors
       )) {
         if (player.team_slot.toString() === colorKey) {
-          this.m_HeroDetails.playerColor = colorValue
+          this.mHeroDetails.playerColor = colorValue
         }
       }
     }
@@ -435,13 +435,13 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
       const hero = heroList[i]
 
       if (player.hero_id === hero.id) {
-        this.m_HeroDetails.heroName = hero.name
-        this.m_HeroDetails.heroName = this.m_HeroDetails.heroName.replace(
+        this.mHeroDetails.heroName = hero.name
+        this.mHeroDetails.heroName = this.mHeroDetails.heroName.replace(
           "npc_dota_hero_",
           ""
         )
-        this.m_HeroDetails.heroLocalizedName = hero.localized_name
-        this.m_CurrentHero = hero.name
+        this.mHeroDetails.heroLocalizedName = hero.localized_name
+        this.mCurrentHero = hero.name
       }
     }
   }
@@ -454,7 +454,7 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
   private findHeroFacet(player: Player, heroAbilities: any): void {
     if (heroAbilities) {
       for (const [heroID, value] of Object.entries(heroAbilities)) {
-        if (this.m_CurrentHero === heroID) {
+        if (this.mCurrentHero === heroID) {
           switch (player.hero_variant) {
             case 1:
               this.setHeroFacet(value, 0)
@@ -492,15 +492,15 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
    */
   private setHeroFacet(value: any, facetID: number): void {
     if (value.facets[facetID]) {
-      this.m_HeroDetails.heroVariant.icon = value.facets[facetID].icon
+      this.mHeroDetails.heroVariant.icon = value.facets[facetID].icon
 
       let highLevelColor: string = value.facets[facetID].color
       let gradientId: number = value.facets[facetID].gradient_id
-      this.m_HeroDetails.heroVariant.color =
-        this.facetGradientColor[`color${highLevelColor}${gradientId}`]
+      this.mHeroDetails.heroVariant.color =
+        this.mFacetGradientColor[`color${highLevelColor}${gradientId}`]
 
-      this.m_HeroDetails.heroVariant.title = value.facets[facetID].title
-      this.m_HeroDetails.heroVariant.description =
+      this.mHeroDetails.heroVariant.title = value.facets[facetID].title
+      this.mHeroDetails.heroVariant.description =
         value.facets[facetID].description
     }
   }

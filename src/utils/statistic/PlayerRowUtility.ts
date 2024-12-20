@@ -1,7 +1,27 @@
 import { ItemDetails, UPlayerRow } from "@/types/statistic/playerRow"
 
-// [CLASS] Helper for PlayerRowReusable.tsx component
+const enum slotSizes {
+  Main = 6,
+  Backpack = 3,
+}
+
+/**
+ * PlayerRowUtility is an class that uses for setting
+ * information in row within `PlayerRowReusable.tsx`.
+ *
+ * Implements the Singleton pattern.
+ *
+ * @class
+ * @constructor Default.
+ * @implements {UPlayerRow}
+ */
 export class PlayerRowUtility implements UPlayerRow {
+  /**
+   * Retrieves the singleton instance of the PlayerRowUtility class.
+   * If an instance does not exist, it creates one.
+   *
+   * @returns {PlayerRowUtility} The singleton instance of the class.
+   */
   public static getInstance() {
     if (!PlayerRowUtility.instance) {
       PlayerRowUtility.instance = new PlayerRowUtility()
@@ -12,34 +32,46 @@ export class PlayerRowUtility implements UPlayerRow {
   // Array<string> for items
   public m_Items: string[] = []
 
-  // Creates an Array<string> of items
-  public setItems(detailsAboutItems: ItemDetails, flag: string) {
+  /**
+   * Creates an Array<string> of items for appropriate slot.
+   *
+   * @param detailsAboutItems Data about items.
+   * @param slotType Type of slot { `main_slot`, `backpack` }
+   */
+  public setItems(detailsAboutItems: ItemDetails, slotType: string) {
     this.m_Items = []
-    if (flag === "main_slot") {
-      for (let i = 0; i < 6; ++i) {
-        const icon = detailsAboutItems[`item_${i}`]?.img
-        if (typeof icon === "string") {
-          this.m_Items.push(icon)
+
+    switch (slotType) {
+      case "main_slot": {
+        for (let i = 0; i < slotSizes.Main; ++i) {
+          const icon = detailsAboutItems[`item_${i}`]?.img
+          if (typeof icon === "string") {
+            this.m_Items.push(icon)
+          }
         }
+        break
       }
-    } else if (flag === "backpack") {
-      for (let i = 0; i < 3; ++i) {
-        const icon = detailsAboutItems[`backpack_${i}`]?.img
-        if (typeof icon === "string") {
-          this.m_Items.push(icon)
+      case "backpack": {
+        for (let i = 0; i < slotSizes.Backpack; ++i) {
+          const icon = detailsAboutItems[`backpack_${i}`]?.img
+          if (typeof icon === "string") {
+            this.m_Items.push(icon)
+          }
         }
+        break
       }
+      default:
+        break
     }
   }
 
-  //  Update the state when mouse enter
   public handleMouseEnter(
     item: string,
-    flag: string,
+    slotType: string,
     idx?: number | string,
     setter?: any
   ) {
-    switch (flag) {
+    switch (slotType) {
       case "main_slot":
       case "backpack": {
         if (item === "empty_slot" || idx === undefined) return
@@ -54,7 +86,7 @@ export class PlayerRowUtility implements UPlayerRow {
         break
       }
       case "neutral_slot": {
-        if (item == "empty_slot") return
+        if (item === "empty_slot") return
 
         setter(true)
 
@@ -62,6 +94,7 @@ export class PlayerRowUtility implements UPlayerRow {
       }
       case "aghanim_slot": {
         if (idx === undefined) return
+
         setter((prevState: any) => {
           const newState = { ...prevState, [idx]: true }
           return newState
@@ -74,9 +107,12 @@ export class PlayerRowUtility implements UPlayerRow {
     }
   }
 
-  // Update the state when mouse leave
-  public handleMouseLeave(flag: string, idx?: number | string, setter?: any) {
-    switch (flag) {
+  public handleMouseLeave(
+    slotType: string,
+    idx?: number | string,
+    setter?: any
+  ) {
+    switch (slotType) {
       case "main_slot":
       case "backpack": {
         if (idx === undefined) return
@@ -109,6 +145,15 @@ export class PlayerRowUtility implements UPlayerRow {
     }
   }
 
+  /**
+   * Finds details about a specified item based on the
+   * provided flag and item identifier.
+   *
+   * @param {string} flag Specifies the type of search.
+   * @param {string} item The identifier of the item to search for.
+   * @param {ItemDetails} [detailsAboutItems] Item details, required when flag is "item".
+   * @returns {ItemDetails | null} Returns the details of the specified item if found, otherwise null.
+   */
   public findDetailsAboutCurrentItem(
     flag: string,
     item: string,
@@ -126,11 +171,11 @@ export class PlayerRowUtility implements UPlayerRow {
       }
     } else if (flag === "aghanim") {
       if (item === "ultimate_scepter") {
-        return this.m_UltimateScepter
+        return this.mUltimateScepter
       }
 
       if (item === "aghanims_shard") {
-        return this.m_AghanimsShard
+        return this.mAghanimsShard
       }
     }
 
@@ -143,7 +188,7 @@ export class PlayerRowUtility implements UPlayerRow {
   private constructor() {}
 
   // Constant for "ultimate_scepter" item
-  private m_UltimateScepter: ItemDetails = {
+  private mUltimateScepter: ItemDetails = {
     ultimate_scepter: {
       abilities: [
         {
@@ -188,7 +233,7 @@ export class PlayerRowUtility implements UPlayerRow {
   }
 
   // Constant for "aghanims_shard" item
-  private m_AghanimsShard: ItemDetails = {
+  private mAghanimsShard: ItemDetails = {
     aghanims_shard: {
       abilities: [
         {

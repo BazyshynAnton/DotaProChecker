@@ -3,7 +3,7 @@ import { Image } from "@/shared/nextjsImports"
 export default function Loader() {
   return (
     <div style={loaderContainer}>
-      <p>Searching for your match...</p>
+      <p>Loading...</p>
       <Image
         src="/pictures/dotaScopeIcons/tango.gif"
         alt="tango"
