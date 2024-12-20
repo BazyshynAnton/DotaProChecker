@@ -16,12 +16,16 @@ export default function Statistic({
 }: {
   matchData: MatchData | string
 }) {
-  const { error } = useAppSelector((store) => store.statisticSlice)
+  const { isTableDataExist, error } = useAppSelector(
+    (store) => store.statisticSlice
+  )
   const dispatch = useAppDispatch()
   const [isReady, setIsReady] = useState(false)
 
   useEffect(() => {
-    dispatch(setMatchData(matchData))
+    if (!isTableDataExist) {
+      dispatch(setMatchData(matchData))
+    }
 
     const delay = async () => {
       await dataLoadingDelaySimulation()
@@ -52,6 +56,6 @@ async function dataLoadingDelaySimulation() {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(true)
-    }, 100) // Simulates a 500ms delay
+    }, 100)
   })
 }

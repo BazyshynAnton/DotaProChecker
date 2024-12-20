@@ -13,6 +13,7 @@ export interface InitialStatisticState {
   heroAbilities: any | null
   abilityIDs: any | null
   items: Item | null
+  isTableDataExist: boolean
   tooltipAbilityPortal: boolean
 
   search: {

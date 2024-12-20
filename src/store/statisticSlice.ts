@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice } from "@/shared/reduxImports"
 import type { InitialStatisticState } from "@/types/redux/statisticSlice"
 
 const initialState: InitialStatisticState = {
@@ -9,6 +9,7 @@ const initialState: InitialStatisticState = {
   heroAbilities: null,
   abilityIDs: null,
   items: null,
+  isTableDataExist: false,
   tooltipAbilityPortal: false,
 
   search: {
@@ -25,13 +26,19 @@ export const statisticSlice = createSlice({
   reducers: {
     setMatchData: (state, action) => {
       if (typeof action.payload !== "string") {
-        state.heroList = action.payload.heroListData
-        state.matchDetails = action.payload.matchDetailsData
-        state.playersProfiles = action.payload.playerProfilesData
-        state.abilities = action.payload.abilitiesData
-        state.heroAbilities = action.payload.heroAbilitiesData
-        state.abilityIDs = action.payload.abilityIDsData
-        state.items = action.payload.itemsData
+        if (
+          state.matchDetails?.match_id !==
+          action.payload.matchDetailsData?.match_id
+        ) {
+          state.heroList = action.payload.heroListData
+          state.matchDetails = action.payload.matchDetailsData
+          state.playersProfiles = action.payload.playerProfilesData
+          state.abilities = action.payload.abilitiesData
+          state.heroAbilities = action.payload.heroAbilitiesData
+          state.abilityIDs = action.payload.abilityIDsData
+          state.items = action.payload.itemsData
+          state.isTableDataExist = true
+        }
       } else {
         state.error = action.payload
       }
