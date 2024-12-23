@@ -1,8 +1,22 @@
+"use client"
+
 import HomeContent from "./HomeContent"
+
+import { useAppDispatch } from "@/shared/reduxImports"
+import { useEffect } from "@/shared/reactImports"
+import { setHomeData } from "@/store/homeSlice"
+
+import type { HomeData } from "@/types/home/homeDataUtility"
 
 import styles from "@/styles/home/Home.module.scss"
 
-export default function Home() {
+export default function Home({ homeData }: { homeData: HomeData | string }) {
+  const dispatch = useAppDispatch()
+
+  useEffect(() => {
+    dispatch(setHomeData(homeData))
+  })
+
   return (
     <div className={styles.homeWrapper}>
       <HomeContent />
