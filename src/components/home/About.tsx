@@ -25,7 +25,7 @@ export default function About() {
           authorization on same Dota2 data platforms such as DotaBuff, Opendota,
           etc.
           <br />
-          I created DotaChecker because I have a passion for developing
+          I created DotaScope because I have a passion for developing
           applications that can help people solve various problems.
           <br />
         </p>

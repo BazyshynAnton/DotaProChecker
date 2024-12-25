@@ -1,11 +1,12 @@
 import { fetchHelper } from "../sharedUtils"
 
+import { PRO_MATCHES_URL } from "../urls"
+
 import type {
   HomeData,
   ProMatch,
   UHomeData,
 } from "@/types/home/homeDataUtility"
-import { PRO_MATCHES_URL } from "../urls"
 
 export class HomeDataUtility implements UHomeData {
   public static getInstance(): HomeDataUtility {
