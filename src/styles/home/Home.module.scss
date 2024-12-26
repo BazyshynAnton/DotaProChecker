@@ -47,6 +47,10 @@ $border: 1px solid rgba(255, 255, 255, 0.1);
 
 .proMatches {
   width: 30%;
+  height: max-content;
+}
+
+.proMatches__content {
   height: 600px;
   overflow-y: scroll;
   scrollbar-width: thin;
@@ -57,5 +61,47 @@ $border: 1px solid rgba(255, 255, 255, 0.1);
 
   &:not(:last-child) {
     border-bottom: $border;
+  }
+}
+
+.teams {
+  padding: 10px 0px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@media (max-width: 1190px) {
+  .content {
+    flex-direction: column-reverse;
+  }
+
+  .content__info {
+    width: 100%;
+  }
+
+  .proMatches {
+    width: 100%;
+  }
+
+  .proMatches__content {
+    width: 100%;
+    height: max-content;
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: scroll;
+  }
+
+  .proMatch {
+    min-width: max-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    &:not(:last-child) {
+      border-right: $border;
+    }
   }
 }

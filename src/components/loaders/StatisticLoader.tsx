@@ -1,6 +1,6 @@
 import { Image } from "@/shared/nextjsImports"
 
-export default function Loader() {
+export default function StatisticLoader() {
   return (
     <div style={loaderContainer}>
       <p>Loading...</p>
@@ -16,7 +16,7 @@ export default function Loader() {
 }
 
 const loaderContainer: React.CSSProperties = {
-  paddingTop: "3rem",
+  padding: "3rem 0rem",
   display: "flex",
   justifyContent: "center",
   alignItems: "flex-end",

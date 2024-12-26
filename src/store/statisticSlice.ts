@@ -48,13 +48,21 @@ export const statisticSlice = createSlice({
       state.tooltipAbilityPortal = action.payload
     },
 
+    setIsTableDataExist: (state, action) => {
+      state.isTableDataExist = action.payload
+    },
+
     setSearch: (state, action) => {
       state.search.matchID = action.payload.value
     },
   },
 })
 
-export const { setMatchData, setSearch, setTooltipAbilityPortal } =
-  statisticSlice.actions
+export const {
+  setMatchData,
+  setSearch,
+  setTooltipAbilityPortal,
+  setIsTableDataExist,
+} = statisticSlice.actions
 
 export default statisticSlice.reducer
