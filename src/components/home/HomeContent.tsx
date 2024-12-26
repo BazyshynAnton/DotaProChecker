@@ -1,13 +1,15 @@
 import About from "./About"
-import Info from "./Info"
 
 import styles from "@/styles/home/Home.module.scss"
+import ProMatches from "./ProMatches"
 
 export default function HomeContent() {
   return (
     <div className={styles.content}>
-      <About />
-      <Info />
+      <div className={styles.content__info}>
+        <About />
+      </div>
+      <ProMatches />
     </div>
   )
 }

@@ -1,4 +1,6 @@
 // Opendota API
+export const PRO_MATCHES_URL = "https://api.opendota.com/api/proMatches"
+
 export const MATCH_HISTORY_URL =
   "https://api.opendota.com/api/players/173978074/recentMatches"
 

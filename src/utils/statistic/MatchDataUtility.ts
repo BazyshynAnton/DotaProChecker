@@ -1,3 +1,5 @@
+import { fetchHelper } from "../sharedUtils"
+
 import {
   ABILITIES_URL,
   ABILITY_IDS_URL,
@@ -77,14 +79,14 @@ export class MatchDataUtility implements UMatchData {
       }
 
       // Get data about the Last Played Match using Opendota API
-      const matchDetailsData = await this.fetchHelper<MatchDetails>(
+      const matchDetailsData = await fetchHelper<MatchDetails>(
         MATCH_DETAILS_URL + matchID
       )
 
       if (matchDetailsData instanceof Error) throw matchDetailsData
 
       // Get list of Heroes using Opendota API
-      const heroListData = await this.fetchHelper<HeroList[]>(HERO_LIST_URL)
+      const heroListData = await fetchHelper<HeroList[]>(HERO_LIST_URL)
 
       if (heroListData instanceof Error) throw heroListData
 
@@ -108,22 +110,22 @@ export class MatchDataUtility implements UMatchData {
       )
 
       // Get abilities object
-      const abilitiesData = await this.fetchHelper<any>(ABILITIES_URL)
+      const abilitiesData = await fetchHelper<any>(ABILITIES_URL)
 
       if (abilitiesData instanceof Error) throw abilitiesData
 
       // Get hero_abilities object
-      const heroAbilitiesData = await this.fetchHelper<any>(HERO_ABILITIES_URL)
+      const heroAbilitiesData = await fetchHelper<any>(HERO_ABILITIES_URL)
 
       if (heroAbilitiesData instanceof Error) throw heroAbilitiesData
 
       // Get ability_ids object
-      const abilityIDsData = await this.fetchHelper<any>(ABILITY_IDS_URL)
+      const abilityIDsData = await fetchHelper<any>(ABILITY_IDS_URL)
 
       if (abilityIDsData instanceof Error) throw abilityIDsData
 
       // Get items object
-      const itemsData = await this.fetchHelper<Item>(ITEMS_URL)
+      const itemsData = await fetchHelper<Item>(ITEMS_URL)
 
       if (itemsData instanceof Error) throw itemsData
 
@@ -168,8 +170,7 @@ export class MatchDataUtility implements UMatchData {
     try {
       // Get Matches History data using fetchHelper async func using Opendota API
       // Default player - Cheng Jin Xiang "NothingToSay"
-      const matchesHistoryData =
-        await this.fetchHelper<Match[]>(MATCH_HISTORY_URL)
+      const matchesHistoryData = await fetchHelper<Match[]>(MATCH_HISTORY_URL)
 
       if (matchesHistoryData instanceof Error) throw matchesHistoryData
 
@@ -187,32 +188,5 @@ export class MatchDataUtility implements UMatchData {
       else message = String(error)
       return message
     }
-  }
-
-  /**
-   * Helper function to fetch data from a given URL
-   * and parse the response as JSON.
-   *
-   * This function sends a GET request to the specified URL,
-   * handles the response, and returns the parsed JSON data
-   * if the response is successful. If an error occurs,
-   * it returns the error message or a string indicating the failure.
-   *
-   * @template T The type of the data expected in the response.
-   * @param {string} URL The URL to fetch data from.
-   * @returns {Promise<T | Error>}
-   * A promise that resolves to the parsed JSON data of type `T`,
-   * or an `Error` object if the fetch operation fails.
-   */
-  private fetchHelper = async function <T>(URL: string): Promise<T | Error> {
-    const response = await fetch(URL, {
-      cache: "force-cache",
-    })
-
-    if (!response.ok) {
-      return new Error(`Failed to fetch using URL -> ${URL}`)
-    }
-
-    return await response.json()
   }
 }

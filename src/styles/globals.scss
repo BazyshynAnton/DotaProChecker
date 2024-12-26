@@ -50,6 +50,7 @@ h3 {
   @include adaptive-font(1, 1.4, 120);
 }
 
+h4,
 p,
 span {
   @include adaptive-font(0.7, 1.1, 120);
@@ -60,6 +61,7 @@ span {
     font-size: 1.4rem;
   }
 
+  h4,
   p,
   span {
     font-size: 1.1rem;
