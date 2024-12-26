@@ -1,6 +1,6 @@
 import { Link } from "@/shared/nextjsImports"
 import { useAppDispatch } from "@/shared/reduxImports"
-import { setMatchData } from "@/store/statisticSlice"
+import { setIsTableDataExist, setMatchData } from "@/store/statisticSlice"
 import { MatchDataUtility } from "@/utils/statistic/MatchDataUtility"
 
 import type { ProMatch } from "@/types/home/homeDataUtility"
@@ -17,10 +17,12 @@ export default function ProMatch({ proMatch }: { proMatch: ProMatch }) {
   const matchDurationSeconds = proMatch.duration % 60
 
   const handleOverviewClick = async () => {
+    dispatch(setIsTableDataExist(true))
     const mID = proMatch.match_id
     const uMatchData = MatchDataUtility.getInstance()
     const matchData = await uMatchData.fetchMatchData(mID)
     dispatch(setMatchData(matchData))
+    dispatch(setIsTableDataExist(false))
   }
 
   const radiantName = proMatch.radiant_name ? proMatch.radiant_name : "TBD"
