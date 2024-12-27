@@ -2,6 +2,7 @@ export interface UHomeData {}
 
 export interface HomeData {
   proMatchesData: ProMatch[]
+  dotaNewsData: DotaNews
 }
 
 export interface ProMatch {
@@ -20,4 +21,19 @@ export interface ProMatch {
   dire_score: number
   radiant_win: boolean
   version: number
+}
+
+export interface DotaNews {
+  appnews: {
+    newsitems: [NewsItem]
+  }
+}
+
+export type NewsItem = {
+  gid: string
+  feedlabel: string
+  title: string
+  url: string
+  author: string
+  date: number
 }

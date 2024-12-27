@@ -4,6 +4,7 @@ import type { InitialHomeState } from "@/types/redux/homeSlice"
 
 const initialState: InitialHomeState = {
   proMatches: null,
+  dotaNews: null,
   isHomeDataExist: false,
 
   error: null,
@@ -17,6 +18,7 @@ export const homeSlice = createSlice({
       if (typeof action.payload !== "string") {
         if (!state.isHomeDataExist) {
           state.proMatches = action.payload.proMatchesData
+          state.dotaNews = action.payload.dotaNewsData
           state.isHomeDataExist = true
         }
       } else {

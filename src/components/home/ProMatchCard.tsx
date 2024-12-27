@@ -7,7 +7,7 @@ import type { ProMatch } from "@/types/home/homeDataUtility"
 
 import styles from "@/styles/home/Home.module.scss"
 
-export default function ProMatch({ proMatch }: { proMatch: ProMatch }) {
+export default function ProMatchCard({ proMatch }: { proMatch: ProMatch }) {
   const dispatch = useAppDispatch()
 
   const endTime = proMatch.start_time + proMatch.duration
@@ -29,7 +29,7 @@ export default function ProMatch({ proMatch }: { proMatch: ProMatch }) {
   const direName = proMatch.dire_name ? proMatch.dire_name : "TBD"
 
   return (
-    <div className={styles.proMatch}>
+    <div className={styles.proMatchCard}>
       <div className={styles.proMatch__nameAndTeams}>
         <h4>League: {proMatch.league_name}</h4>
         <div className={styles.teams}>

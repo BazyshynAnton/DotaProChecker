@@ -1,8 +1,9 @@
 import { fetchHelper } from "../sharedUtils"
 
-import { PRO_MATCHES_URL } from "../urls"
+import { DOTA_NEWS_URL, PRO_MATCHES_URL } from "../urls"
 
 import type {
+  DotaNews,
   HomeData,
   ProMatch,
   UHomeData,
@@ -23,7 +24,11 @@ export class HomeDataUtility implements UHomeData {
 
       if (typeof proMatchesData === "string") throw proMatchesData
 
-      return { proMatchesData } as HomeData
+      const dotaNewsData = await fetchHelper<DotaNews>(DOTA_NEWS_URL)
+
+      if (typeof dotaNewsData === "string") throw dotaNewsData
+
+      return { proMatchesData, dotaNewsData } as HomeData
     } catch (error) {
       let message
       if (error instanceof Error) message = error.message

@@ -20,6 +20,10 @@ export const ABILITY_IDS_URL =
 
 export const ITEMS_URL = "https://api.opendota.com/api/constants/items"
 
+// Steam API
+export const DOTA_NEWS_URL =
+  "https://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=570&count=10&maxlength=300&format=json"
+
 // Images
 export const HERO_ABILITY_ICON_URL =
   "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/"
