@@ -56,16 +56,13 @@ $border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .dotaNewsCard {
-  min-width: max-content;
+  width: 100%;
   display: flex;
-  gap: 0.3rem;
+  flex-wrap: wrap;
   flex-direction: column;
-  justify-content: space-between;
-  &:not(:last-child) {
-    border-right: $border;
-  }
-  border-bottom: $border;
-
+  gap: 0.3rem;
+  border-right: $border !important;
+  // TODO smth with border
   &:hover {
     color: #3b82f6;
   }
