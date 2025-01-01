@@ -6,6 +6,7 @@ import StatisticLoader from "../loaders/StatisticLoader"
 import { useEffect, useState } from "@/shared/reactImports"
 import { useAppSelector } from "@/hooks/useAppSelector"
 import { Swiper, SwiperSlide } from "swiper/react"
+import { Autoplay } from "swiper/modules"
 
 import "swiper/css"
 import "swiper/css/navigation"
@@ -37,12 +38,43 @@ export default function InteractiveList({
     }
   }, [])
 
+  const [slidesNumber, setSlidesNumber] = useState(3)
+  useEffect(() => {
+    const handleSlidesNumberChange = () => {
+      const width = window.innerWidth
+      if (width <= 625) {
+        setSlidesNumber(1)
+      } else if (width <= 980) {
+        setSlidesNumber(2)
+      } else if (width <= 1190) {
+        setSlidesNumber(3)
+      } else {
+        setSlidesNumber(3)
+      }
+    }
+
+    handleSlidesNumberChange()
+    window.addEventListener("resize", handleSlidesNumberChange)
+
+    return () => {
+      window.removeEventListener("resize", handleSlidesNumberChange)
+    }
+  }, [])
+
   return (
     <div
       className={type === "matchesList" ? styles.proMatches : styles.dotaNews}
     >
       <ContentHeader headerTitle={listHeader} />
-      <Swiper slidesPerView={3} grabCursor={true}>
+      <Swiper
+        slidesPerView={slidesNumber}
+        grabCursor={true}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: true,
+        }}
+        modules={[Autoplay]}
+      >
         <div
           className={
             type === "matchesList"
@@ -59,7 +91,7 @@ export default function InteractiveList({
                   <SwiperSlide key={match.match_id}>
                     <ProMatchCard proMatch={match} />
                   </SwiperSlide>
-                ),
+                )
               )
             ) : (
               <Loader />
@@ -95,5 +127,6 @@ function Loader() {
 }
 
 /**
- * 1. no pag, nav
+ * 1. nav
+ * 3. id copyable
  */

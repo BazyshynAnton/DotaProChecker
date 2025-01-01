@@ -25,20 +25,26 @@ export default function ProMatchCard({ proMatch }: { proMatch: ProMatch }) {
     dispatch(setIsTableDataExist(false))
   }
 
+  let formattedLeagueName =
+    proMatch.league_name.length > 25
+      ? proMatch.league_name.substring(0, 24) + "..."
+      : proMatch.league_name
   const radiantName = proMatch.radiant_name ? proMatch.radiant_name : "TBD"
   const direName = proMatch.dire_name ? proMatch.dire_name : "TBD"
 
   return (
     <div className={styles.proMatchCard}>
       <div className={styles.proMatch__nameAndTeams}>
-        <h4>League: {proMatch.league_name}</h4>
+        <h4>{formattedLeagueName}</h4>
         <div className={styles.teams}>
           <span style={{ color: "#59ce8f" }}>{radiantName}</span>VS
           <span style={{ color: "#df2e38" }}>{direName}</span>
         </div>
       </div>
       <div className={styles.proMatch__info}>
-        <p>ID: {proMatch.match_id}</p>
+        <p>
+          ID: <span title="Copy!">{proMatch.match_id}</span>
+        </p>
         <p>
           Duration:{" "}
           {`${matchDurationMinutes}:${matchDurationSeconds.toString().padStart(2, "0")}`}

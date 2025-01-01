@@ -9,8 +9,12 @@ export default function DotaNewsCard({ newsItem }: { newsItem: NewsItem }) {
       : newsItem.title
 
   return (
-    <a href={newsItem.url} className={styles.dotaNewsCard} target="_blank">
-      <h4>{formattedTitle}</h4>
+    <div className={styles.dotaNewsCard}>
+      <h4>
+        <a href={newsItem.url} target="_blank">
+          {formattedTitle}
+        </a>
+      </h4>
       <div className={styles.newsDetails}>
         <p>{newsItem.feedlabel}</p>
         <p>Author: {newsItem.author}</p>
@@ -19,6 +23,6 @@ export default function DotaNewsCard({ newsItem }: { newsItem: NewsItem }) {
           {`${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`}
         </p>
       </div>
-    </a>
+    </div>
   )
 }

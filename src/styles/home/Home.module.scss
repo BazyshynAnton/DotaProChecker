@@ -61,10 +61,21 @@ $border: 1px solid rgba(255, 255, 255, 0.1);
   flex-wrap: wrap;
   flex-direction: column;
   gap: 0.3rem;
-  border-right: $border !important;
-  // TODO smth with border
+  cursor: grab;
+
+  h4 {
+    a {
+      color: $fontColor;
+    }
+  }
+
   &:hover {
-    color: #3b82f6;
+    h4 {
+      a {
+        cursor: pointer;
+        color: #3b82f6;
+      }
+    }
   }
 }
 
@@ -81,6 +92,15 @@ $border: 1px solid rgba(255, 255, 255, 0.1);
 
 .proMatchCard {
   width: 100%;
+  a {
+    color: $fontColor;
+  }
+
+  &:hover {
+    a {
+      color: #3b82f6;
+    }
+  }
 
   &:not(:last-child) {
     border-bottom: $border;
@@ -99,7 +119,7 @@ $border: 1px solid rgba(255, 255, 255, 0.1);
 
 @media (max-width: 1190px) {
   .content {
-    flex-direction: column-reverse;
+    flex-direction: column;
   }
 
   .content__info {
@@ -123,9 +143,14 @@ $border: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    &:not(:last-child) {
-      border-right: $border;
-    }
-    border-bottom: $border;
+  }
+}
+
+@keyframes idColor {
+  0% {
+    color: $fontColor;
+  }
+  100% {
+    color: #3b82f6;
   }
 }
