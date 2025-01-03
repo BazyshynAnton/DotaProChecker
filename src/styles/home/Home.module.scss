@@ -117,6 +117,29 @@ $border: 1px solid rgba(255, 255, 255, 0.1);
   gap: 0.5rem;
 }
 
+.buttons {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+}
+.button_active,
+.button_nav {
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.button_active {
+  background-color: #fff;
+}
+.button_nav {
+  background-color: #ffffffb0;
+}
+
 @media (max-width: 1190px) {
   .content {
     flex-direction: column;

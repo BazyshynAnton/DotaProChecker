@@ -2,11 +2,11 @@ import ProMatchCard from "./ProMatchCard"
 import DotaNewsCard from "./DotaNewsCard"
 import ContentHeader from "./ContentHeader"
 import StatisticLoader from "../loaders/StatisticLoader"
+import CustomPagination from "./CustomPagination"
 
 import { useEffect, useState } from "@/shared/reactImports"
 import { useAppSelector } from "@/hooks/useAppSelector"
 import { Swiper, SwiperSlide } from "swiper/react"
-import { Autoplay } from "swiper/modules"
 
 import "swiper/css"
 import "swiper/css/navigation"
@@ -66,15 +66,7 @@ export default function InteractiveList({
       className={type === "matchesList" ? styles.proMatches : styles.dotaNews}
     >
       <ContentHeader headerTitle={listHeader} />
-      <Swiper
-        slidesPerView={slidesNumber}
-        grabCursor={true}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: true,
-        }}
-        modules={[Autoplay]}
-      >
+      <Swiper slidesPerView={slidesNumber} grabCursor={true}>
         <div
           className={
             type === "matchesList"
@@ -84,15 +76,17 @@ export default function InteractiveList({
         >
           {type === "matchesList" ? (
             proMatches ? (
-              proMatches.map((match) =>
-                isDesktop ? (
-                  <ProMatchCard key={match.match_id} proMatch={match} />
-                ) : (
-                  <SwiperSlide key={match.match_id}>
-                    <ProMatchCard proMatch={match} />
-                  </SwiperSlide>
-                )
-              )
+              proMatches.map((match, idx) => {
+                if (idx <= 10) {
+                  return isDesktop ? (
+                    <ProMatchCard key={match.match_id} proMatch={match} />
+                  ) : (
+                    <SwiperSlide key={match.match_id}>
+                      <ProMatchCard proMatch={match} />
+                    </SwiperSlide>
+                  )
+                }
+              })
             ) : (
               <Loader />
             )
@@ -106,6 +100,9 @@ export default function InteractiveList({
             <Loader />
           )}
         </div>
+        <CustomPagination
+          content={type === "matchesList" ? proMatches : news}
+        />
       </Swiper>
     </div>
   )
@@ -125,8 +122,3 @@ function Loader() {
     </div>
   )
 }
-
-/**
- * 1. nav
- * 3. id copyable
- */

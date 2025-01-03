@@ -16,5 +16,5 @@ const appLoader: React.CSSProperties = {
   bottom: "0",
   display: "flex",
   alignItems: "center",
-  background: "#000",
+  background: "#1c242d",
 }

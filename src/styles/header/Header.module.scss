@@ -9,11 +9,11 @@ $border1: 4px solid #ffffff00;
   width: 100%;
   height: max-content;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   gap: 1rem;
-  padding: 5px 0px 5px 0px;
-  background-color: #000;
+  padding: 5px 10px;
+  background-color: #242f39;
   border-bottom: $border;
   z-index: 100;
 }
@@ -30,12 +30,12 @@ $border1: 4px solid #ffffff00;
 
 .headerLink {
   &:hover {
-    border-bottom: $border1;
+    color: #fff;
   }
 }
 
 .activeHeaderLink {
-  border-bottom: $border1;
+  color: #fff;
 }
 
 // small header
