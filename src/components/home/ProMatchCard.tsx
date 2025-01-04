@@ -37,14 +37,18 @@ export default function ProMatchCard({ proMatch }: { proMatch: ProMatch }) {
       <div className={styles.proMatch__nameAndTeams}>
         <h4>{formattedLeagueName}</h4>
         <div className={styles.teams}>
-          <span style={{ color: "#59ce8f" }}>{radiantName}</span>VS
-          <span style={{ color: "#df2e38" }}>{direName}</span>
+          <div>
+            <span style={{ color: "#59ce8f" }}>Radiant: </span>
+            <span>{radiantName}</span>
+          </div>
+          <div>
+            <span style={{ color: "#df2e38" }}>Dire: </span>
+            <span>{direName}</span>
+          </div>
         </div>
       </div>
       <div className={styles.proMatch__info}>
-        <p>
-          ID: <span title="Copy!">{proMatch.match_id}</span>
-        </p>
+        <p>ID: {proMatch.match_id}</p>
         <p>
           Duration:{" "}
           {`${matchDurationMinutes}:${matchDurationSeconds.toString().padStart(2, "0")}`}

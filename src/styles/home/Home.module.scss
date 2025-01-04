@@ -4,6 +4,20 @@
 $fontColor: #ffffffb0;
 $border: 1px solid rgba(255, 255, 255, 0.1);
 
+@mixin cardContainer {
+  position: relative;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 0.4rem;
+  width: 100%;
+  height: 400px;
+
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+}
+
 .homeWrapper {
   margin-top: 4rem;
   padding: 10px 0px;
@@ -48,11 +62,7 @@ $border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .dotaNews__content {
-  display: flex;
-
-  overflow-x: scroll;
-  height: max-content;
-  scrollbar-width: thin;
+  @include cardContainer();
 }
 
 .dotaNewsCard {
@@ -61,8 +71,7 @@ $border: 1px solid rgba(255, 255, 255, 0.1);
   flex-wrap: wrap;
   flex-direction: column;
   gap: 0.3rem;
-  cursor: grab;
-
+  border: $border;
   h4 {
     a {
       color: $fontColor;
@@ -85,6 +94,7 @@ $border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .proMatches__content {
+  position: relative;
   height: 600px;
   overflow-y: scroll;
   scrollbar-width: thin;
@@ -111,33 +121,10 @@ $border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 10px 0px;
   width: 100%;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.buttons {
-  width: 100%;
-  padding: 10px;
-  display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   justify-content: center;
-  gap: 0.3rem;
-}
-.button_active,
-.button_nav {
-  width: 10px;
-  height: 10px;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.button_active {
-  background-color: #fff;
-}
-.button_nav {
-  background-color: #ffffffb0;
+  flex-wrap: wrap;
 }
 
 @media (max-width: 1190px) {
@@ -154,18 +141,30 @@ $border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .proMatches__content {
-    width: 100%;
-    height: max-content;
-    display: flex;
-    overflow-y: hidden;
-    overflow-x: scroll;
+    @include cardContainer();
   }
 
   .proMatchCard {
-    min-width: max-content;
+    border: $border;
+    width: 100%;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     justify-content: space-between;
+  }
+}
+
+@media (max-width: 660px) {
+  .dotaNews__content,
+  .proMatches__content {
+    grid-template-columns: auto auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .dotaNews__content,
+  .proMatches__content {
+    grid-template-columns: auto;
   }
 }
 
