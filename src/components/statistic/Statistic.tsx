@@ -10,6 +10,7 @@ import { useAppSelector, useAppDispatch } from "@/shared/reduxImports"
 import { setMatchData } from "@/store/statisticSlice"
 
 import type { MatchData } from "@/types/redux/statisticSlice"
+import MatchSideInfo from "./MatchSideInfo"
 
 export default function Statistic({
   matchData,
@@ -40,7 +41,10 @@ export default function Statistic({
       <Search />
       {isReady ? (
         !error ? (
-          <MatchDetails />
+          <>
+            <MatchSideInfo />
+            <MatchDetails />
+          </>
         ) : (
           <FetchError error={error} />
         )
