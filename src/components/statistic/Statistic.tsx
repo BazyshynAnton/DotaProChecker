@@ -34,7 +34,7 @@ export default function Statistic({
     }
 
     delay()
-  }, [dispatch, matchData, isTableDataExist])
+  }, [dispatch, matchData])
 
   return (
     <div style={{ width: "100%" }}>
