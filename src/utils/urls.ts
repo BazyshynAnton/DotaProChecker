@@ -20,6 +20,13 @@ export const ABILITY_IDS_URL =
 
 export const ITEMS_URL = "https://api.opendota.com/api/constants/items"
 
+export const REGION_URL = "https://api.opendota.com/api/constants/region"
+
+export const GAME_MODE_URL = "https://api.opendota.com/api/constants/game_mode"
+
+export const LOBBY_TYPE_URL =
+  "https://api.opendota.com/api/constants/lobby_type"
+
 // Steam API
 export const DOTA_NEWS_URL =
   "https://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=570&count=10&maxlength=300&format=json"
