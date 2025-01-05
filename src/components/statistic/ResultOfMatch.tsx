@@ -23,6 +23,20 @@ export default function ResultOfMatch() {
   const side = resultOfMatch?.resultOfMatch ? "RADIANT" : "DIRE"
   const sideColor = resultOfMatch?.resultOfMatch ? "#59ce8f" : "#df2e38"
 
+  let teamName
+  switch (side) {
+    case "RADIANT": {
+      teamName = matchDetails?.radiant_name
+        ? `"${matchDetails.radiant_name}"`
+        : side
+      break
+    }
+    case "DIRE": {
+      teamName = matchDetails?.dire_name ? `"${matchDetails.dire_name}"` : side
+      break
+    }
+  }
+
   return (
     <>
       <div className={styles.result}>
@@ -31,7 +45,7 @@ export default function ResultOfMatch() {
             color: sideColor,
           }}
         >
-          TEAM {side} {"WIN"}
+          TEAM {teamName} {"WIN"}
         </h4>
         <div className={styles.scoreAndTime}>
           <p className={styles.scoreAndTime__radiantScore}>

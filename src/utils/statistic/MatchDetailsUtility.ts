@@ -71,10 +71,10 @@ export class MatchDetailsUtility implements UMatchDetails {
    */
   public filterPlayersByTeam(matchDetails: MatchDetails): PlayersByTeam {
     const playersRadiant = matchDetails.players.filter(
-      (player) => player.isRadiant,
+      (player) => player.isRadiant
     )
     const playersDire = matchDetails.players.filter(
-      (player) => !player.isRadiant,
+      (player) => !player.isRadiant
     )
 
     return { playersRadiant, playersDire }
@@ -98,24 +98,29 @@ export class MatchDetailsUtility implements UMatchDetails {
    */
   public picksBans(
     side: string,
-    matchDetails: MatchDetails,
+    matchDetails: MatchDetails
   ): PicksAndBans[] | string {
     switch (side) {
       case "radiant": {
+        if (!matchDetails.picks_bans) return []
+
         const radiantPicksBans = matchDetails.picks_bans.filter(
-          (el) => el.team == 0,
+          (el) => el.team == 0
         )
         return radiantPicksBans
       }
       case "dire": {
+        if (!matchDetails.picks_bans) return []
+
         const direPicksBans = matchDetails.picks_bans.filter(
-          (el) => el.team == 1,
+          (el) => el.team == 1
         )
         return direPicksBans
       }
+      default: {
+        return "error"
+      }
     }
-
-    return "error"
   }
 
   /**
@@ -133,7 +138,7 @@ export class MatchDetailsUtility implements UMatchDetails {
    */
   public findHeroInPickBans(
     hero_id: number,
-    heroList: HeroList[],
+    heroList: HeroList[]
   ): void | string {
     for (let i = 0; i < heroList.length; ++i) {
       const hero = heroList[i]

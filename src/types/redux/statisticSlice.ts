@@ -89,6 +89,8 @@ export interface MatchDetails {
   game_mode: number
   flags: number
   engine: number
+  radiant_name: string
+  dire_name: string
   radiant_score: number
   dire_score: number
 
