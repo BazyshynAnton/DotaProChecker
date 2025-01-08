@@ -15,7 +15,7 @@
  */
 export async function fetchHelper<T>(URL: string): Promise<T | Error> {
   const response = await fetch(URL, {
-    cache: "force-cache",
+    cache: "no-store",
   })
 
   if (!response.ok) {

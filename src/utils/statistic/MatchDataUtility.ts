@@ -3,12 +3,15 @@ import { fetchHelper } from "../sharedUtils"
 import {
   ABILITIES_URL,
   ABILITY_IDS_URL,
+  GAME_MODE_URL,
   HERO_ABILITIES_URL,
   HERO_LIST_URL,
   ITEMS_URL,
+  LOBBY_TYPE_URL,
   MATCH_DETAILS_URL,
   MATCH_HISTORY_URL,
   PLAYER_PROFILE_URL,
+  REGION_URL,
 } from "@/utils/urls"
 
 import type {
@@ -99,7 +102,7 @@ export class MatchDataUtility implements UMatchData {
 
       // Array<string> store of player profile links
       const playerProfilePromises = playerAccountIDs.map((accountID) =>
-        fetch(`${PLAYER_PROFILE_URL}${accountID}`, { cache: "force-cache" })
+        fetch(`${PLAYER_PROFILE_URL}${accountID}`, { cache: "no-store" })
       )
       // Fetch data about player profiles
       const playerProfileResponses = await Promise.all(playerProfilePromises)
@@ -128,6 +131,20 @@ export class MatchDataUtility implements UMatchData {
       const itemsData = await fetchHelper<Item>(ITEMS_URL)
 
       if (itemsData instanceof Error) throw itemsData
+
+      // Get region object
+      const regionData = await fetchHelper<any>(REGION_URL)
+
+      if (regionData instanceof Error) throw regionData
+
+      // Get game_mode object
+      const gameModeData = await fetchHelper<any>(GAME_MODE_URL)
+
+      if (gameModeData instanceof Error) throw gameModeData
+
+      const lobbyTypeData = await fetchHelper<any>(LOBBY_TYPE_URL)
+
+      if (lobbyTypeData instanceof Error) throw lobbyTypeData
 
       return {
         heroListData,

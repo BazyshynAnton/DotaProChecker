@@ -36,6 +36,8 @@ export default function TableDetails({
     }
   }
 
+  if (teamName === "") teamName = "TBD"
+
   return (
     <div className={styles.result}>
       <section className={styles.result__team}>

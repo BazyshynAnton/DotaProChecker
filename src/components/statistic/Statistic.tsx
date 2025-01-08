@@ -7,7 +7,7 @@ import StatisticLoader from "@/components/loaders/StatisticLoader"
 
 import { useEffect, useState } from "@/shared/reactImports"
 import { useAppSelector, useAppDispatch } from "@/shared/reduxImports"
-import { setMatchData } from "@/store/statisticSlice"
+import { setIsTableDataExist, setMatchData } from "@/store/statisticSlice"
 
 import type { MatchData } from "@/types/redux/statisticSlice"
 import MatchSideInfo from "./MatchSideInfo"
@@ -26,6 +26,8 @@ export default function Statistic({
   useEffect(() => {
     if (!isTableDataExist) {
       dispatch(setMatchData(matchData))
+    } else {
+      dispatch(setIsTableDataExist(false))
     }
 
     const delay = async () => {
