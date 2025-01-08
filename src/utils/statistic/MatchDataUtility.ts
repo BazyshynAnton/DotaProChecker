@@ -102,7 +102,7 @@ export class MatchDataUtility implements UMatchData {
 
       // Array<string> store of player profile links
       const playerProfilePromises = playerAccountIDs.map((accountID) =>
-        fetch(`${PLAYER_PROFILE_URL}${accountID}`, { cache: "force-cache" })
+        fetch(`${PLAYER_PROFILE_URL}${accountID}`, { cache: "no-store" })
       )
       // Fetch data about player profiles
       const playerProfileResponses = await Promise.all(playerProfilePromises)

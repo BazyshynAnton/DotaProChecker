@@ -37,6 +37,8 @@ export default function ResultOfMatch() {
     }
   }
 
+  if (teamName === "") teamName = `"TBD"`
+
   return (
     <>
       <div className={styles.result}>

@@ -22,7 +22,6 @@ export default function ProMatchCard({ proMatch }: { proMatch: ProMatch }) {
     const uMatchData = MatchDataUtility.getInstance()
     const matchData = await uMatchData.fetchMatchData(mID)
     dispatch(setMatchData(matchData))
-    dispatch(setIsTableDataExist(false))
   }
 
   let formattedLeagueName =
