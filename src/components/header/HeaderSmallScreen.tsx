@@ -1,8 +1,8 @@
-import Links from "./Links"
+import Links from './Links'
 
-import { useState } from "@/shared/reactImports"
+import { useState } from '@/shared/reactImports'
 
-import styles from "@/styles/header/Header.module.scss"
+import styles from '@/styles/header/Header.module.scss'
 
 export default function HeaderSmallScreen() {
   const [isOpen, setIsOpen] = useState(false)

@@ -1,9 +1,9 @@
-import { Image } from "@/shared/nextjsImports"
-import { PlayerRowDetailsUtility } from "@/utils/statistic/PlayerRowDetailsUtility"
+import { Image } from '@/shared/nextjsImports'
+import { PlayerRowDetailsUtility } from '@/utils/statistic/PlayerRowDetailsUtility'
 
-import type { DetailsAboutPlayer } from "@/types/statistic/playerRow"
+import type { DetailsAboutPlayer } from '@/types/statistic/playerRow'
 
-import styles from "@/styles/statistic/PlayerRow.module.scss"
+import styles from '@/styles/statistic/PlayerRow.module.scss'
 
 export default function RankAndAvatar({
   detailsAboutPlayer,

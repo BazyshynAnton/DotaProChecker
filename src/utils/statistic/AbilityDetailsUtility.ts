@@ -1,4 +1,4 @@
-import type { UAbilityDetails } from "@/types/statistic/abilityDetails"
+import type { UAbilityDetails } from '@/types/statistic/abilityDetails'
 
 /**
  * AbilityDetailsUtility is an class that uses for setting
@@ -32,7 +32,7 @@ export class AbilityDetailsUtility implements UAbilityDetails {
    * @returns {string} The name of the ability if found, otherwise "none".
    */
   public findAbilityKey(id: number, abilityIDs: any): string {
-    return abilityIDs[id] ? abilityIDs[id] : "none"
+    return abilityIDs[id] ? abilityIDs[id] : 'none'
   }
 
   /**
@@ -43,7 +43,7 @@ export class AbilityDetailsUtility implements UAbilityDetails {
    * @returns {string} The real name of the ability if found, otherwise "unnamed".
    */
   public findAbilityRealName(abilityKey: string, abilities: any): string {
-    return abilities[abilityKey] ? abilities[abilityKey].dname : "unnamed"
+    return abilities[abilityKey] ? abilities[abilityKey].dname : 'unnamed'
   }
 
   /**
@@ -116,10 +116,10 @@ export class AbilityDetailsUtility implements UAbilityDetails {
    */
   public findAbilityBehavior(abilityKey: string, abilities: any): any {
     const res = {
-      target: "",
-      dmg_type: "",
-      bkbpierce: "",
-      dispellable: "",
+      target: '',
+      dmg_type: '',
+      bkbpierce: '',
+      dispellable: '',
     }
 
     if (Array.isArray(abilities[abilityKey].behavior)) {
@@ -127,10 +127,10 @@ export class AbilityDetailsUtility implements UAbilityDetails {
       for (let i = 0; i < length; ++i) {
         res.target += abilities[abilityKey].behavior[i]
         if (i < length - 1) {
-          res.target += " / "
+          res.target += ' / '
         }
       }
-    } else if (typeof abilities[abilityKey].behavior === "string") {
+    } else if (typeof abilities[abilityKey].behavior === 'string') {
       res.target = abilities[abilityKey].behavior
     }
 
@@ -151,7 +151,7 @@ export class AbilityDetailsUtility implements UAbilityDetails {
    * @returns {string} The description of the ability if found, otherwise "".
    */
   public findAbilityDescription(abilityKey: string, abilities: any): string {
-    return abilities[abilityKey] ? abilities[abilityKey].desc : ""
+    return abilities[abilityKey] ? abilities[abilityKey].desc : ''
   }
 
   /**
@@ -172,7 +172,7 @@ export class AbilityDetailsUtility implements UAbilityDetails {
     for (let i = 0; i < attrib.length; ++i) {
       const attribData = {
         header: attrib[i].header,
-        value: "",
+        value: '',
       }
 
       const value = attrib[i].value
@@ -181,10 +181,10 @@ export class AbilityDetailsUtility implements UAbilityDetails {
         for (let j = 0; j < value.length; ++j) {
           attribData.value += value[j]
           if (j < value.length - 1) {
-            attribData.value += " / "
+            attribData.value += ' / '
           }
         }
-      } else if (typeof value === "string") {
+      } else if (typeof value === 'string') {
         attribData.value = value
       }
 
@@ -207,8 +207,8 @@ export class AbilityDetailsUtility implements UAbilityDetails {
    */
   public findAbilityCost(abilityKey: string, abilities: any): any {
     const cost = {
-      mc: "",
-      cd: "",
+      mc: '',
+      cd: '',
     }
 
     if (Array.isArray(abilities[abilityKey].mc)) {
@@ -216,10 +216,10 @@ export class AbilityDetailsUtility implements UAbilityDetails {
       for (let i = 0; i < length; ++i) {
         cost.mc += abilities[abilityKey].mc[i]
         if (i < length - 1) {
-          cost.mc += " / "
+          cost.mc += ' / '
         }
       }
-    } else if (typeof abilities[abilityKey].mc === "string") {
+    } else if (typeof abilities[abilityKey].mc === 'string') {
       cost.mc = abilities[abilityKey].mc
     }
 
@@ -228,10 +228,10 @@ export class AbilityDetailsUtility implements UAbilityDetails {
       for (let i = 0; i < length; ++i) {
         cost.cd += abilities[abilityKey].cd[i]
         if (i < length - 1) {
-          cost.cd += " / "
+          cost.cd += ' / '
         }
       }
-    } else if (typeof abilities[abilityKey].cd === "string") {
+    } else if (typeof abilities[abilityKey].cd === 'string') {
       cost.cd = abilities[abilityKey].cd
     }
 

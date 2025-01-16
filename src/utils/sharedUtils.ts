@@ -1,3 +1,4 @@
+'use server'
 /**
  * Helper function to fetch data from a given URL
  * and parse the response as JSON.
@@ -15,7 +16,7 @@
  */
 export async function fetchHelper<T>(URL: string): Promise<T | Error> {
   const response = await fetch(URL, {
-    cache: "no-store",
+    cache: 'no-store',
   })
 
   if (!response.ok) {

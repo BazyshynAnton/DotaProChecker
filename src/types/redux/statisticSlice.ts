@@ -1,5 +1,5 @@
-import { Item } from "../statistic/playerRow"
-import type { Player } from "../statistic/tableDetails"
+import { Item } from '../statistic/playerRow'
+import type { Player } from '../statistic/tableDetails'
 
 export interface UMatchData {
   fetchMatchData(): Promise<MatchData | string>

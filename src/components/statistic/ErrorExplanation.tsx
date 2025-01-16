@@ -1,4 +1,4 @@
-import styles from "@/styles/statistic/FetchError.module.scss"
+import styles from '@/styles/statistic/FetchError.module.scss'
 
 export default function ErrorExplanation() {
   return (
@@ -7,7 +7,7 @@ export default function ErrorExplanation() {
         &bull; Problem with internet connection.
         <br />
         &bull; Opendota API is not available at that moment [
-        <a href="https://www.opendota.com/" target="blank">
+        <a href='https://www.opendota.com/' target='blank'>
           Check
         </a>
         ].

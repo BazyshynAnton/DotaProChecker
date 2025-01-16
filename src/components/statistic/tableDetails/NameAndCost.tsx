@@ -1,29 +1,22 @@
-import Tier from "./Tier"
+import Tier from './Tier'
 
-import { Image } from "@/shared/nextjsImports"
+import { Image } from '@/shared/nextjsImports'
 
-import { ITEM_ICON_URL } from "@/utils/urls"
+import type { ItemDescriptionInterface } from '@/types/statistic/playerRow'
 
-import type { ItemDescriptionInterface } from "@/types/statistic/playerRow"
+import styles from '@/styles/statistic/ItemDescription.module.scss'
 
-import styles from "@/styles/statistic/ItemDescription.module.scss"
-
-export default function NameAndCost({
-  details,
-  item,
-}: ItemDescriptionInterface) {
+export default function NameAndCost({ details, item }: ItemDescriptionInterface) {
   if (!details) {
-    throw new Error("[DATA] Cannot get data about Item Details")
+    throw new Error('[DATA] Cannot get data about Item Details')
   }
 
   return (
     <div className={styles.nameAndCostWrapper}>
       <div className={styles.nameAndCostWrapper__itemPicture}>
         <Image
-          src={`${ITEM_ICON_URL}${
-            item.includes("recipe") ? "recipe" : item
-          }.png`}
-          alt=""
+          src={`${process.env.NEXT_PUBLIC_ITEM_ICON_URL}${item.includes('recipe') ? 'recipe' : item}.png`}
+          alt=''
           width={90}
           height={70}
         />

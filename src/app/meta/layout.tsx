@@ -1,7 +1,7 @@
-import type { Metadata } from "next"
+import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: "DotaScope | Meta",
+  title: 'DotaScope | Meta',
 }
 
 export default function MetaLayout({

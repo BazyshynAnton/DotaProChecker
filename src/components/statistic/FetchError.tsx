@@ -1,9 +1,9 @@
-import ErrorExplanation from "./ErrorExplanation"
+import ErrorExplanation from './ErrorExplanation'
 
-import { Image } from "@/shared/nextjsImports"
-import { useState } from "@/shared/reactImports"
+import { Image } from '@/shared/nextjsImports'
+import { useState } from '@/shared/reactImports'
 
-import styles from "@/styles/statistic/FetchError.module.scss"
+import styles from '@/styles/statistic/FetchError.module.scss'
 
 export default function FetchError({ error }: { error: string }) {
   const [isHintOpen, setIsHintOpen] = useState(false)
@@ -12,11 +12,11 @@ export default function FetchError({ error }: { error: string }) {
 
   return (
     <div className={styles.error}>
-      <div style={{ display: "flex", alignItems: "flex-end", gap: "0.3rem" }}>
+      <div style={{ display: 'flex', alignItems: 'flex-end', gap: '0.3rem' }}>
         <h3>Error {error}</h3>
         <Image
-          src={"/pictures/dotaScopeIcons/enigma_error.gif"}
-          alt={"enigma_error"}
+          src={'/pictures/dotaScopeIcons/enigma_error.gif'}
+          alt={'enigma_error'}
           width={22}
           height={22}
         />

@@ -1,5 +1,5 @@
-import { createSlice } from "@/shared/reduxImports"
-import type { InitialStatisticState } from "@/types/redux/statisticSlice"
+import { createSlice } from '@/shared/reduxImports'
+import type { InitialStatisticState } from '@/types/redux/statisticSlice'
 
 const initialState: InitialStatisticState = {
   matchDetails: null,
@@ -13,23 +13,20 @@ const initialState: InitialStatisticState = {
   tooltipAbilityPortal: false,
 
   search: {
-    accountID: "",
-    matchID: "",
+    accountID: '',
+    matchID: '',
   },
 
   error: null,
 }
 
 export const statisticSlice = createSlice({
-  name: "statistic",
+  name: 'statistic',
   initialState,
   reducers: {
     setMatchData: (state, action) => {
-      if (typeof action.payload !== "string") {
-        if (
-          state.matchDetails?.match_id !==
-          action.payload.matchDetailsData?.match_id
-        ) {
+      if (typeof action.payload !== 'string') {
+        if (state.matchDetails?.match_id !== action.payload.matchDetailsData?.match_id) {
           state.heroList = action.payload.heroListData
           state.matchDetails = action.payload.matchDetailsData
           state.playersProfiles = action.payload.playerProfilesData
@@ -58,11 +55,7 @@ export const statisticSlice = createSlice({
   },
 })
 
-export const {
-  setMatchData,
-  setSearch,
-  setTooltipAbilityPortal,
-  setIsTableDataExist,
-} = statisticSlice.actions
+export const { setMatchData, setSearch, setTooltipAbilityPortal, setIsTableDataExist } =
+  statisticSlice.actions
 
 export default statisticSlice.reducer

@@ -1,42 +1,26 @@
-import { fetchHelper } from "../sharedUtils"
+'use server'
 
-import { DOTA_NEWS_URL, PRO_MATCHES_URL } from "../urls"
+import { fetchHelper } from '../sharedUtils'
 
-import type {
-  DotaNews,
-  HomeData,
-  ProMatch,
-  UHomeData,
-} from "@/types/home/homeDataUtility"
+import type { DotaNews, HomeData, ProMatch, UHomeData } from '@/types/home/homeDataUtility'
 
-export class HomeDataUtility implements UHomeData {
-  public static getInstance(): HomeDataUtility {
-    if (!HomeDataUtility.instance) {
-      HomeDataUtility.instance = new HomeDataUtility()
-    }
+export async function fetchHomeData(): Promise<HomeData | string> {
+  try {
+    const proMatchesData = await fetchHelper<ProMatch[]>(
+      process.env.NEXT_PUBLIC_PRO_MATCHES_URL as string,
+    )
+    if (typeof proMatchesData === 'string') throw proMatchesData
 
-    return HomeDataUtility.instance
+    const dotaNewsData = await fetchHelper<DotaNews>(
+      process.env.NEXT_PUBLIC_DOTA_NEWS_URL as string,
+    )
+    if (typeof dotaNewsData === 'string') throw dotaNewsData
+
+    return { proMatchesData, dotaNewsData } as HomeData
+  } catch (error) {
+    let message
+    if (error instanceof Error) message = error.message
+    else message = String(error)
+    return message
   }
-
-  public async fetchHomeData(): Promise<HomeData | string> {
-    try {
-      const proMatchesData = await fetchHelper<ProMatch[]>(PRO_MATCHES_URL)
-
-      if (typeof proMatchesData === "string") throw proMatchesData
-
-      const dotaNewsData = await fetchHelper<DotaNews>(DOTA_NEWS_URL)
-
-      if (typeof dotaNewsData === "string") throw dotaNewsData
-
-      return { proMatchesData, dotaNewsData } as HomeData
-    } catch (error) {
-      let message
-      if (error instanceof Error) message = error.message
-      else message = String(error)
-      return message
-    }
-  }
-
-  private static instance: HomeDataUtility
-  private constructor() {}
 }

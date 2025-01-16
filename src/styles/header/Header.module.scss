@@ -64,7 +64,7 @@ $border1: 4px solid #ffffff00;
   &::before,
   &::after {
     position: absolute;
-    content: " ";
+    content: ' ';
     height: 33px;
     width: 2px;
     background-color: $fontColor;

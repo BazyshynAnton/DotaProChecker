@@ -1,17 +1,10 @@
-import type { HeroList, PlayerProfile } from "../redux/statisticSlice"
-import type { Player } from "./tableDetails"
+import type { HeroList, PlayerProfile } from '../redux/statisticSlice'
+import type { Player } from './tableDetails'
 
 export interface UPlayerRowDetails {
-  findAppropriateHero(
-    player: Player,
-    heroList: HeroList[],
-    heroAbilities: any
-  ): DetailsAboutHero
+  findAppropriateHero(player: Player, heroList: HeroList[], heroAbilities: any): DetailsAboutHero
 
-  findAppropriatePlayer(
-    player: Player,
-    playersProfiles: PlayerProfile[]
-  ): DetailsAboutPlayer
+  findAppropriatePlayer(player: Player, playersProfiles: PlayerProfile[]): DetailsAboutPlayer
 
   findPlayerRankIcon(): string
 
@@ -29,19 +22,14 @@ export type AbilityIDs = {
 export interface UPlayerRow {
   setItems(detailsAboutItems: ItemDetails, flag: string): void
 
-  handleMouseEnter(
-    item: string,
-    flag: string,
-    idx?: number | string,
-    setter?: any
-  ): void
+  handleMouseEnter(item: string, flag: string, idx?: number | string, setter?: any): void
 
   handleMouseLeave(flag: string, idx?: number | string, setter?: any): void
 
   findDetailsAboutCurrentItem(
     flag: string,
     item: string,
-    detailsAboutItems?: ItemDetails
+    detailsAboutItems?: ItemDetails,
   ): ItemDetails | null
 }
 

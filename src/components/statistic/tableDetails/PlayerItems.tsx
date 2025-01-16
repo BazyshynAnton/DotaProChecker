@@ -1,12 +1,12 @@
-import Aghanim from "./Aghanim"
-import BackpackItems from "./BackpackItems"
-import MainSlotItems from "./MainSlotItems"
-import NeutralItem from "./NeutralItem"
+import Aghanim from './Aghanim'
+import BackpackItems from './BackpackItems'
+import MainSlotItems from './MainSlotItems'
+import NeutralItem from './NeutralItem'
 
-import type { Player } from "@/types/statistic/tableDetails"
-import type { ItemDetails } from "@/types/statistic/playerRow"
+import type { Player } from '@/types/statistic/tableDetails'
+import type { ItemDetails } from '@/types/statistic/playerRow'
 
-import styles from "@/styles/statistic/PlayerRow.module.scss"
+import styles from '@/styles/statistic/PlayerRow.module.scss'
 
 export default function PlayerItems({
   itemDetails,

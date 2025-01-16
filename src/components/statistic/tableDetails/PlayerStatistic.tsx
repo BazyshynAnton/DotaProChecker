@@ -1,6 +1,6 @@
-import type { Player } from "@/types/statistic/tableDetails"
+import type { Player } from '@/types/statistic/tableDetails'
 
-import styles from "@/styles/statistic/PlayerRow.module.scss"
+import styles from '@/styles/statistic/PlayerRow.module.scss'
 
 export default function PlayerStatistic({ player }: { player: Player }) {
   return (

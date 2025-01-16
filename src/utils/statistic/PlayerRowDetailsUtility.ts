@@ -1,11 +1,8 @@
-import type { Player } from "@/types/statistic/tableDetails"
+import type { Player } from '@/types/statistic/tableDetails'
 
-import type {
-  FacetGradientColor,
-  PlayerColors,
-} from "@/types/statistic/matchDetails"
+import type { FacetGradientColor, PlayerColors } from '@/types/statistic/matchDetails'
 
-import type { HeroList, PlayerProfile } from "@/types/redux/statisticSlice"
+import type { HeroList, PlayerProfile } from '@/types/redux/statisticSlice'
 
 import type {
   DetailsAboutHero,
@@ -13,7 +10,7 @@ import type {
   Item,
   ItemDetails,
   UPlayerRowDetails,
-} from "@/types/statistic/playerRow"
+} from '@/types/statistic/playerRow'
 
 /**
  * PlayerRowDetailsUtility is an class that uses for setting
@@ -44,18 +41,18 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
   public findAppropriateHero(
     player: Player,
     heroList: HeroList[],
-    heroAbilities: any
+    heroAbilities: any,
   ): DetailsAboutHero {
     this.mHeroDetails = {
-      heroName: "",
-      heroLocalizedName: "",
+      heroName: '',
+      heroLocalizedName: '',
       heroVariant: {
-        icon: "",
-        color: "",
-        title: "",
-        description: "",
+        icon: '',
+        color: '',
+        title: '',
+        description: '',
       },
-      playerColor: "",
+      playerColor: '',
     }
 
     this.findColor(player)
@@ -84,26 +81,23 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
    */
   public findAppropriatePlayer(
     player: Player,
-    playersProfiles: PlayerProfile[]
+    playersProfiles: PlayerProfile[],
   ): DetailsAboutPlayer {
     //
     // If player is not Anonymous -> find player data
 
-    if ("account_id" in player) {
+    if ('account_id' in player) {
       playersProfiles.forEach((playerProfile) => {
-        if ("profile" in playerProfile) {
+        if ('profile' in playerProfile) {
           if (player.account_id === playerProfile.profile.account_id) {
             // avatar
-            this.mPlayerDetails.profileInfo.avatar =
-              playerProfile.profile.avatar
+            this.mPlayerDetails.profileInfo.avatar = playerProfile.profile.avatar
 
             // profile url
-            this.mPlayerDetails.profileInfo.profileurl =
-              playerProfile.profile.profileurl
+            this.mPlayerDetails.profileInfo.profileurl = playerProfile.profile.profileurl
 
             // rank
-            this.mPlayerDetails.leaderboard_rank_info =
-              playerProfile.leaderboard_rank
+            this.mPlayerDetails.leaderboard_rank_info = playerProfile.leaderboard_rank
 
             // rank tier
             this.mPlayerDetails.rank_tier_info = playerProfile.rank_tier
@@ -126,7 +120,7 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
    * @returns {string} The file path to the player's rank icon.
    */
   public findPlayerRankIcon(): string {
-    const imagePath = "/pictures/dotaPlayerRankIcons/"
+    const imagePath = '/pictures/dotaPlayerRankIcons/'
 
     const leaderboardRank = this.mPlayerDetails.leaderboard_rank_info
 
@@ -161,9 +155,9 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
   public findPlayerAvatar(): string {
     const avatar = this.mPlayerDetails.profileInfo.avatar
 
-    if (avatar !== "") return avatar
+    if (avatar !== '') return avatar
 
-    return "/pictures/dotaPlayerIcons/anonymous.jpg"
+    return '/pictures/dotaPlayerIcons/anonymous.jpg'
   }
 
   /**
@@ -177,9 +171,9 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
     const emptyValue = {
       abilities: [],
       hint: [],
-      img: "empty_slot",
-      id: "",
-      dname: "Empty Slot",
+      img: 'empty_slot',
+      id: '',
+      dname: 'Empty Slot',
       cost: null,
       attrib: [],
       behavior: undefined,
@@ -232,42 +226,42 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
 
       switch (value.id) {
         case player.item_0:
-          this.mItemDetails["item_0"] = itemValue
+          this.mItemDetails['item_0'] = itemValue
           break
 
         case player.item_1:
-          this.mItemDetails["item_1"] = itemValue
+          this.mItemDetails['item_1'] = itemValue
           break
 
         case player.item_2:
-          this.mItemDetails["item_2"] = itemValue
+          this.mItemDetails['item_2'] = itemValue
           break
 
         case player.item_3:
-          this.mItemDetails["item_3"] = itemValue
+          this.mItemDetails['item_3'] = itemValue
           break
 
         case player.item_4:
-          this.mItemDetails["item_4"] = itemValue
+          this.mItemDetails['item_4'] = itemValue
           break
         case player.item_5:
-          this.mItemDetails["item_5"] = itemValue
+          this.mItemDetails['item_5'] = itemValue
           break
 
         case player.backpack_0:
-          this.mItemDetails["backpack_0"] = itemValue
+          this.mItemDetails['backpack_0'] = itemValue
           break
 
         case player.backpack_1:
-          this.mItemDetails["backpack_1"] = itemValue
+          this.mItemDetails['backpack_1'] = itemValue
           break
 
         case player.backpack_2:
-          this.mItemDetails["backpack_2"] = itemValue
+          this.mItemDetails['backpack_2'] = itemValue
           break
 
         case player.item_neutral:
-          this.mItemDetails["item_neutral"] = itemValue
+          this.mItemDetails['item_neutral'] = itemValue
 
         default:
           break
@@ -297,22 +291,22 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
 
   // Hero details
   private mHeroDetails: DetailsAboutHero = {
-    heroName: "",
-    heroLocalizedName: "",
+    heroName: '',
+    heroLocalizedName: '',
     heroVariant: {
-      icon: "",
-      color: "",
-      title: "",
-      description: "",
+      icon: '',
+      color: '',
+      title: '',
+      description: '',
     },
-    playerColor: "",
+    playerColor: '',
   }
 
   // Player details
   private mPlayerDetails: DetailsAboutPlayer = {
     profileInfo: {
-      avatar: "",
-      profileurl: "",
+      avatar: '',
+      profileurl: '',
     },
     rank_tier_info: null,
     leaderboard_rank_info: null,
@@ -322,79 +316,79 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
   private mItemDetails: ItemDetails | any = {}
 
   // Cache for current hero
-  private mCurrentHero: string = ""
+  private mCurrentHero: string = ''
 
   // Player's slot colors
   private mPlayerColors: PlayerColors = {
     radiant: {
       team_number: 0,
       colors: {
-        "0": "#3375ff",
-        "1": "#66ffbf",
-        "2": "#bf00bf",
-        "3": "#f3f00b",
-        "4": "#ff6b00",
+        '0': '#3375ff',
+        '1': '#66ffbf',
+        '2': '#bf00bf',
+        '3': '#f3f00b',
+        '4': '#ff6b00',
       },
     },
 
     dire: {
       team_number: 1,
       colors: {
-        "0": "#fe86c2",
-        "1": "#a1b447",
-        "2": "#65d9f7",
-        "3": "#008321",
-        "4": "#a46900",
+        '0': '#fe86c2',
+        '1': '#a1b447',
+        '2': '#65d9f7',
+        '3': '#008321',
+        '4': '#a46900',
       },
     },
   }
 
   // Hero facet gradient colors
   private mFacetGradientColor: FacetGradientColor = {
-    colorRed0: "linear-gradient(to right, #9F3C3C, #4A2040)",
+    colorRed0: 'linear-gradient(to right, #9F3C3C, #4A2040)',
 
-    colorRed1: "linear-gradient(to right, #954533, #452732)",
+    colorRed1: 'linear-gradient(to right, #954533, #452732)',
 
-    colorRed2: "linear-gradient(to right, #A3735E, #4F2A25)",
+    colorRed2: 'linear-gradient(to right, #A3735E, #4F2A25)',
 
-    colorYellow0: "linear-gradient(to right, #C8A45C, #6F3D21)",
+    colorYellow0: 'linear-gradient(to right, #C8A45C, #6F3D21)',
 
-    colorYellow1: "linear-gradient(to right, #C6A158, #604928)",
+    colorYellow1: 'linear-gradient(to right, #C6A158, #604928)',
 
-    colorYellow2: "linear-gradient(to right, #CAC194, #433828)",
+    colorYellow2: 'linear-gradient(to right, #CAC194, #433828)',
 
-    colorYellow3: "linear-gradient(to right, #C3A99A, #4D352B)",
+    colorYellow3: 'linear-gradient(to right, #C3A99A, #4D352B)',
 
-    colorPurple0: "linear-gradient(to right, #B57789, #412755)",
+    colorPurple0: 'linear-gradient(to right, #B57789, #412755)',
 
-    colorPurple1: "linear-gradient(to right, #9C70A4, #282752)",
+    colorPurple1: 'linear-gradient(to right, #9C70A4, #282752)',
 
-    colorPurple2: "linear-gradient(to right, #675CAE, #261C44)",
+    colorPurple2: 'linear-gradient(to right, #675CAE, #261C44)',
 
-    colorBlue0: "linear-gradient(to right, #727CB2, #342D5B)",
+    colorBlue0: 'linear-gradient(to right, #727CB2, #342D5B)',
 
-    colorBlue1: "linear-gradient(to right, #547EA6, #2A385E)",
+    colorBlue1: 'linear-gradient(to right, #547EA6, #2A385E)',
 
-    colorBlue2: "linear-gradient(to right, #6BAEBC, #135459)",
+    colorBlue2: 'linear-gradient(to right, #6BAEBC, #135459)',
 
-    colorBlue3: "linear-gradient(to right, #94B5BA, #385B59)",
+    colorBlue3: 'linear-gradient(to right, #94B5BA, #385B59)',
 
-    colorGreen0: "linear-gradient(to right, #A2B23E, #2D5A18)",
-    colorGreen1: "linear-gradient(to right, #7EC2B2, #29493A)",
+    colorGreen0: 'linear-gradient(to right, #A2B23E, #2D5A18)',
+    colorGreen1: 'linear-gradient(to right, #7EC2B2, #29493A)',
 
-    colorGreen2: "linear-gradient(to right, #A2B23E, #2D5A18)",
+    colorGreen2: 'linear-gradient(to right, #A2B23E, #2D5A18)',
 
-    colorGreen3: "linear-gradient(to right, #9A9F6A, #223824)",
+    colorGreen3: 'linear-gradient(to right, #9A9F6A, #223824)',
 
-    colorGreen4: "linear-gradient(to right, #9FAD8E, #3F4129)",
+    colorGreen4: 'linear-gradient(to right, #9FAD8E, #3F4129)',
 
-    colorGray0: "linear-gradient(to right, #565C61, #1B1B21)",
+    colorGray0: 'linear-gradient(to right, #565C61, #1B1B21)',
 
-    colorGray1: "linear-gradient(to right, #6A6D73, #29272C)",
+    colorGray1: 'linear-gradient(to right, #6A6D73, #29272C)',
 
-    colorGray2: "linear-gradient(to right, #95A9B1, #3E464F)",
+    colorGray2: 'linear-gradient(to right, #95A9B1, #3E464F)',
 
-    colorGray3: "linear-gradient(to right, #ADB6BE, #4E5557)",
+    colorGray3: 'linear-gradient(to right, #ADB6BE, #4E5557)',
   }
 
   /**
@@ -404,9 +398,7 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
    */
   private findColor(player: Player): void {
     if (player.team_number === this.mPlayerColors.radiant.team_number) {
-      for (const [colorKey, colorValue] of Object.entries(
-        this.mPlayerColors.radiant.colors
-      )) {
+      for (const [colorKey, colorValue] of Object.entries(this.mPlayerColors.radiant.colors)) {
         if (player.player_slot.toString() === colorKey) {
           this.mHeroDetails.playerColor = colorValue
         }
@@ -414,9 +406,7 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
     }
 
     if (player.team_number === this.mPlayerColors.dire.team_number) {
-      for (const [colorKey, colorValue] of Object.entries(
-        this.mPlayerColors.dire.colors
-      )) {
+      for (const [colorKey, colorValue] of Object.entries(this.mPlayerColors.dire.colors)) {
         if (player.team_slot.toString() === colorKey) {
           this.mHeroDetails.playerColor = colorValue
         }
@@ -436,10 +426,7 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
 
       if (player.hero_id === hero.id) {
         this.mHeroDetails.heroName = hero.name
-        this.mHeroDetails.heroName = this.mHeroDetails.heroName.replace(
-          "npc_dota_hero_",
-          ""
-        )
+        this.mHeroDetails.heroName = this.mHeroDetails.heroName.replace('npc_dota_hero_', '')
         this.mHeroDetails.heroLocalizedName = hero.localized_name
         this.mCurrentHero = hero.name
       }
@@ -500,8 +487,7 @@ export class PlayerRowDetailsUtility implements UPlayerRowDetails {
         this.mFacetGradientColor[`color${highLevelColor}${gradientId}`]
 
       this.mHeroDetails.heroVariant.title = value.facets[facetID].title
-      this.mHeroDetails.heroVariant.description =
-        value.facets[facetID].description
+      this.mHeroDetails.heroVariant.description = value.facets[facetID].description
     }
   }
 }

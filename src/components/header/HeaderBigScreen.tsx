@@ -1,4 +1,4 @@
-import Links from "./Links"
+import Links from './Links'
 
 // possibly might be deleted because
 // it contains only one component.

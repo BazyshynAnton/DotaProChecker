@@ -1,8 +1,8 @@
-import { AbilityDetailsUtility } from "@/utils/statistic/AbilityDetailsUtility"
-import { Image } from "@/shared/nextjsImports"
-import { useAppSelector } from "@/hooks/useAppSelector"
+import { AbilityDetailsUtility } from '@/utils/statistic/AbilityDetailsUtility'
+import { Image } from '@/shared/nextjsImports'
+import { useAppSelector } from '@/hooks/useAppSelector'
 
-import styles from "@/styles/statistic/AbilityDescription.module.scss"
+import styles from '@/styles/statistic/AbilityDescription.module.scss'
 
 export default function Cost({ abilityKey }: { abilityKey: string }) {
   const { abilities } = useAppSelector((store) => store.statisticSlice)
@@ -16,13 +16,13 @@ export default function Cost({ abilityKey }: { abilityKey: string }) {
         <div className={styles.cost}>
           {cost.mc && (
             <div className={styles.mana}>
-              <CostImage type={"ability_manacost"} />
+              <CostImage type={'ability_manacost'} />
               {cost.mc}
             </div>
           )}
           {cost.cd && (
             <div className={styles.cooldown}>
-              <CostImage type={"ability_cooldown"} />
+              <CostImage type={'ability_cooldown'} />
               {cost.cd}
             </div>
           )}
@@ -33,12 +33,5 @@ export default function Cost({ abilityKey }: { abilityKey: string }) {
 }
 
 function CostImage({ type }: { type: string }) {
-  return (
-    <Image
-      src={`/pictures/dotaIcons/${type}.png`}
-      alt={type}
-      width={15}
-      height={15}
-    />
-  )
+  return <Image src={`/pictures/dotaIcons/${type}.png`} alt={type} width={15} height={15} />
 }

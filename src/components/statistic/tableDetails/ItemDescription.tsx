@@ -1,22 +1,19 @@
-"use client"
+'use client'
 
-import NameAndCost from "./NameAndCost"
-import Behavior from "./Behavior"
-import Attribute from "./Attribute"
-import Abilities from "./Abilities"
-import HintAndLore from "./HintAndLore"
-import Components from "./Components"
+import NameAndCost from './NameAndCost'
+import Behavior from './Behavior'
+import Attribute from './Attribute'
+import Abilities from './Abilities'
+import HintAndLore from './HintAndLore'
+import Components from './Components'
 
-import useMousePosition from "@/hooks/useMousePosition"
-import { ReactDOM, useEffect, useState } from "@/shared/reactImports"
-import type { ItemDescriptionInterface } from "@/types/statistic/playerRow"
+import useMousePosition from '@/hooks/useMousePosition'
+import { ReactDOM, useEffect, useState } from '@/shared/reactImports'
+import type { ItemDescriptionInterface } from '@/types/statistic/playerRow'
 
-import styles from "@/styles/statistic/ItemDescription.module.scss"
+import styles from '@/styles/statistic/ItemDescription.module.scss'
 
-export default function ItemDescription({
-  details,
-  item,
-}: ItemDescriptionInterface) {
+export default function ItemDescription({ details, item }: ItemDescriptionInterface) {
   //
   /* 
     Using React Portal transfer this component to another
@@ -25,7 +22,7 @@ export default function ItemDescription({
   const [isBlurEffect, setIsBlurEffect] = useState(false)
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
+    if (typeof window !== 'undefined') {
       setIsBlurEffect(window.innerWidth <= 790)
       const updateWindowWidth = () => {
         setIsBlurEffect(window.innerWidth <= 790)
@@ -33,9 +30,9 @@ export default function ItemDescription({
 
       updateWindowWidth()
 
-      window.addEventListener("resize", updateWindowWidth)
+      window.addEventListener('resize', updateWindowWidth)
 
-      return () => window.removeEventListener("resize", updateWindowWidth)
+      return () => window.removeEventListener('resize', updateWindowWidth)
     }
   }, [])
 
@@ -68,7 +65,7 @@ function MobilePortal({ details, item }: ItemDescriptionInterface) {
         <ItemContent details={details} item={item} />
       </div>
     </div>,
-    document.getElementById("tooltip_item_portal") as Element | DocumentFragment
+    document.getElementById('tooltip_item_portal') as Element | DocumentFragment,
   )
 }
 
@@ -80,7 +77,7 @@ function DesktopPortal({ details, item }: ItemDescriptionInterface) {
   return ReactDOM.createPortal(
     <div
       style={{
-        position: "absolute",
+        position: 'absolute',
         top: mousePosition.y,
         left: mousePosition.x - 300,
       }}
@@ -88,6 +85,6 @@ function DesktopPortal({ details, item }: ItemDescriptionInterface) {
     >
       <ItemContent details={details} item={item} />
     </div>,
-    document.getElementById("tooltip_item_portal") as Element | DocumentFragment
+    document.getElementById('tooltip_item_portal') as Element | DocumentFragment,
   )
 }

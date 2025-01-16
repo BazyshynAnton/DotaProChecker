@@ -1,4 +1,4 @@
-import { ItemDetails, UPlayerRow } from "@/types/statistic/playerRow"
+import { ItemDetails, UPlayerRow } from '@/types/statistic/playerRow'
 
 const enum slotSizes {
   Main = 6,
@@ -42,19 +42,19 @@ export class PlayerRowUtility implements UPlayerRow {
     this.m_Items = []
 
     switch (slotType) {
-      case "main_slot": {
+      case 'main_slot': {
         for (let i = 0; i < slotSizes.Main; ++i) {
           const icon = detailsAboutItems[`item_${i}`]?.img
-          if (typeof icon === "string") {
+          if (typeof icon === 'string') {
             this.m_Items.push(icon)
           }
         }
         break
       }
-      case "backpack": {
+      case 'backpack': {
         for (let i = 0; i < slotSizes.Backpack; ++i) {
           const icon = detailsAboutItems[`backpack_${i}`]?.img
-          if (typeof icon === "string") {
+          if (typeof icon === 'string') {
             this.m_Items.push(icon)
           }
         }
@@ -65,16 +65,11 @@ export class PlayerRowUtility implements UPlayerRow {
     }
   }
 
-  public handleMouseEnter(
-    item: string,
-    slotType: string,
-    idx?: number | string,
-    setter?: any
-  ) {
+  public handleMouseEnter(item: string, slotType: string, idx?: number | string, setter?: any) {
     switch (slotType) {
-      case "main_slot":
-      case "backpack": {
-        if (item === "empty_slot" || idx === undefined) return
+      case 'main_slot':
+      case 'backpack': {
+        if (item === 'empty_slot' || idx === undefined) return
 
         idx.toString()
         setter((prevState: any) => {
@@ -85,14 +80,14 @@ export class PlayerRowUtility implements UPlayerRow {
 
         break
       }
-      case "neutral_slot": {
-        if (item === "empty_slot") return
+      case 'neutral_slot': {
+        if (item === 'empty_slot') return
 
         setter(true)
 
         break
       }
-      case "aghanim_slot": {
+      case 'aghanim_slot': {
         if (idx === undefined) return
 
         setter((prevState: any) => {
@@ -107,14 +102,10 @@ export class PlayerRowUtility implements UPlayerRow {
     }
   }
 
-  public handleMouseLeave(
-    slotType: string,
-    idx?: number | string,
-    setter?: any
-  ) {
+  public handleMouseLeave(slotType: string, idx?: number | string, setter?: any) {
     switch (slotType) {
-      case "main_slot":
-      case "backpack": {
+      case 'main_slot':
+      case 'backpack': {
         if (idx === undefined) return
 
         idx.toString()
@@ -126,11 +117,11 @@ export class PlayerRowUtility implements UPlayerRow {
 
         break
       }
-      case "neutral_slot": {
+      case 'neutral_slot': {
         setter(false)
         break
       }
-      case "aghanim_slot": {
+      case 'aghanim_slot': {
         if (idx === undefined) return
 
         setter((prevState: any) => {
@@ -157,9 +148,9 @@ export class PlayerRowUtility implements UPlayerRow {
   public findDetailsAboutCurrentItem(
     flag: string,
     item: string,
-    detailsAboutItems?: ItemDetails
+    detailsAboutItems?: ItemDetails,
   ): ItemDetails | null {
-    if (flag === "item" && detailsAboutItems) {
+    if (flag === 'item' && detailsAboutItems) {
       const res: ItemDetails = {}
 
       for (const [_, value] of Object.entries(detailsAboutItems)) {
@@ -169,12 +160,12 @@ export class PlayerRowUtility implements UPlayerRow {
           return res
         }
       }
-    } else if (flag === "aghanim") {
-      if (item === "ultimate_scepter") {
+    } else if (flag === 'aghanim') {
+      if (item === 'ultimate_scepter') {
         return this.mUltimateScepter
       }
 
-      if (item === "aghanims_shard") {
+      if (item === 'aghanims_shard') {
         return this.mAghanimsShard
       }
     }
@@ -192,43 +183,37 @@ export class PlayerRowUtility implements UPlayerRow {
     ultimate_scepter: {
       abilities: [
         {
-          type: "passive",
-          title: "Ability Upgrade",
-          description:
-            "Upgrades the ultimate, and some abilities, of all heroes.",
+          type: 'passive',
+          title: 'Ability Upgrade',
+          description: 'Upgrades the ultimate, and some abilities, of all heroes.',
         },
       ],
       hint: [],
       id: 108,
-      img: "ultimate_scepter",
+      img: 'ultimate_scepter',
       dname: "Aghanim's Scepter",
       cost: 4200,
       attrib: [
         {
-          key: "bonus_all_stats",
-          display: "+ {value} All Attributes",
-          value: "10",
+          key: 'bonus_all_stats',
+          display: '+ {value} All Attributes',
+          value: '10',
         },
         {
-          key: "bonus_health",
-          display: "+ {value} Health",
-          value: "175",
+          key: 'bonus_health',
+          display: '+ {value} Health',
+          value: '175',
         },
         {
-          key: "bonus_mana",
-          display: "+ {value} Mana",
-          value: "175",
+          key: 'bonus_mana',
+          display: '+ {value} Mana',
+          value: '175',
         },
       ],
       mc: false,
       cd: false,
-      lore: "The scepter of a wizard with demigod-like powers.",
-      components: [
-        "point_booster",
-        "staff_of_wizardry",
-        "ogre_axe",
-        "blade_of_alacrity",
-      ],
+      lore: 'The scepter of a wizard with demigod-like powers.',
+      components: ['point_booster', 'staff_of_wizardry', 'ogre_axe', 'blade_of_alacrity'],
     },
   }
 
@@ -237,21 +222,20 @@ export class PlayerRowUtility implements UPlayerRow {
     aghanims_shard: {
       abilities: [
         {
-          type: "passive",
-          title: "Ability Upgrade",
-          description:
-            "Upgrades an existing ability or adds a new ability to your hero.",
+          type: 'passive',
+          title: 'Ability Upgrade',
+          description: 'Upgrades an existing ability or adds a new ability to your hero.',
         },
       ],
       hint: [],
       id: 609,
-      img: "aghanims_shard",
+      img: 'aghanims_shard',
       dname: "Aghanim's Shard",
       cost: 1400,
       attrib: [],
       mc: false,
       cd: false,
-      lore: "With origins known only to a single wizard, fragments of this impossible crystal are nearly as coveted as the renowned scepter itself.",
+      lore: 'With origins known only to a single wizard, fragments of this impossible crystal are nearly as coveted as the renowned scepter itself.',
       components: null,
     },
   }
