@@ -3,7 +3,6 @@ import DotaNewsCard from './DotaNewsCard'
 import ContentHeader from './ContentHeader'
 import StatisticLoader from '../loaders/StatisticLoader'
 
-import { useEffect, useState } from '@/shared/reactImports'
 import { useAppSelector } from '@/hooks/useAppSelector'
 
 import styles from '@/styles/home/Home.module.scss'
@@ -17,22 +16,6 @@ export default function InteractiveList({
 }) {
   const { proMatches, dotaNews } = useAppSelector((store) => store.homeSlice)
   const news = dotaNews?.appnews.newsitems
-
-  const [isDesktop, setIsDesktop] = useState(false)
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setIsDesktop(window.innerWidth >= 1190)
-
-      const handleResizeEvent = () => {
-        setIsDesktop(window.innerWidth >= 1190)
-      }
-
-      window.addEventListener('resize', handleResizeEvent)
-      return () => {
-        window.removeEventListener('resize', handleResizeEvent)
-      }
-    }
-  }, [])
 
   return (
     <div className={type === 'matchesList' ? styles.proMatches : styles.dotaNews}>

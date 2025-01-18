@@ -2,7 +2,7 @@
 
 import HomeContent from './HomeContent'
 
-import { useAppDispatch } from '@/shared/reduxImports'
+import { useAppDispatch, useAppSelector } from '@/shared/reduxImports'
 import { useEffect } from '@/shared/reactImports'
 import { setHomeData } from '@/store/homeSlice'
 

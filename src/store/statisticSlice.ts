@@ -36,6 +36,7 @@ export const statisticSlice = createSlice({
           state.abilityIDs = action.payload.abilityIDsData
           state.items = action.payload.itemsData
           state.isTableDataExist = true
+          state.error = null
         }
       } else {
         state.error = action.payload

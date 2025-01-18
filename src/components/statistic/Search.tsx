@@ -12,7 +12,7 @@ import styles from '@/styles/statistic/Search.module.scss'
 
 export default function Search() {
   const [isLoading, setIsLoading] = useState(false)
-  const { search } = useAppSelector((store) => store.statisticSlice)
+  const { search, error } = useAppSelector((store) => store.statisticSlice)
   const dispatch = useAppDispatch()
 
   const handleInputChange = (type: string) => (e: ChangeEvent<HTMLInputElement>) => {
@@ -29,6 +29,7 @@ export default function Search() {
     const matchData = await fetchMatchData(mID)
 
     dispatch(setMatchData(matchData))
+
     setIsLoading(false)
   }
 

@@ -2,7 +2,6 @@
 
 import MatchDetails from './MatchDetails'
 import MatchSideInfo from './MatchSideInfo'
-// import FetchError from './FetchError'
 import Search from './Search'
 import StatisticLoader from '@/components/loaders/StatisticLoader'
 
@@ -25,12 +24,14 @@ export default function Statistic({ matchData }: { matchData: MatchData | string
     }
 
     const delay = async () => {
-      await dataLoadingDelaySimulation()
+      await dataLoadingDelay()
       setIsReady(true)
     }
 
     delay()
   }, [dispatch, matchData])
+
+  if (error) throw Error(error) // Error handling
 
   return (
     <div style={{ width: '100%' }}>
@@ -47,8 +48,7 @@ export default function Statistic({ matchData }: { matchData: MatchData | string
   )
 }
 
-async function dataLoadingDelaySimulation() {
-  // Simulate data loading
+async function dataLoadingDelay() {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(true)
