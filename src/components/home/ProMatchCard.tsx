@@ -1,12 +1,12 @@
 import { Link } from '@/shared/nextjsImports'
 import { useAppDispatch } from '@/shared/reduxImports'
 import { setIsTableDataExist, setMatchData } from '@/store/statisticSlice'
-// import { MatchDataUtility } from '@/utils/statistic/MatchDataUtility'
+import { fetchMatchData } from '@/utils/statistic/MatchDataUtility'
 
 import type { ProMatch } from '@/types/home/homeDataUtility'
 
 import styles from '@/styles/home/Home.module.scss'
-import { fetchMatchData } from '@/utils/statistic/MatchDataUtility'
+import { useEffect } from 'react'
 
 export default function ProMatchCard({ proMatch }: { proMatch: ProMatch }) {
   const dispatch = useAppDispatch()
@@ -18,10 +18,9 @@ export default function ProMatchCard({ proMatch }: { proMatch: ProMatch }) {
   const matchDurationSeconds = proMatch.duration % 60
 
   const handleOverviewClick = async () => {
+    console.log('called')
     dispatch(setIsTableDataExist(true))
     const mID = proMatch.match_id
-    //  const uMatchData = MatchDataUtility.getInstance()
-    //const matchData = await uMatchData.fetchMatchData(mID)
     const matchData = await fetchMatchData(mID)
     dispatch(setMatchData(matchData))
   }

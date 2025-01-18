@@ -2,10 +2,12 @@ import Header from '@/components/header/Header'
 import Footer from '@/components/footer/Footer'
 import TooltipItemPortal from '@/components/portals/TooltipItemPortal'
 import TooltipAbilityPortal from '@/components/portals/TooltipAbilityPortal'
-
 import StoreProvider from '@/store/StoreProvider'
+
 import { Exo_2 } from 'next/font/google'
+
 import type { Metadata } from 'next'
+
 import '@/styles/globals.scss'
 
 const exo2 = Exo_2({

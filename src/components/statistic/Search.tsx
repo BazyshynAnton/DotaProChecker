@@ -1,15 +1,14 @@
-import { ChangeEvent, FormEvent } from 'react'
 import { Image } from '@/shared/nextjsImports'
 import { useState } from '@/shared/reactImports'
 import { useAppDispatch, useAppSelector } from '@/shared/reduxImports'
 import { setMatchData, setSearch } from '@/store/statisticSlice'
-
-//import { MatchDataUtility } from '@/utils/statistic/MatchDataUtility'
+import { fetchMatchData } from '@/utils/statistic/MatchDataUtility'
 
 import { BsSearch } from 'react-icons/bs'
 
+import type { ChangeEvent, FormEvent } from 'react'
+
 import styles from '@/styles/statistic/Search.module.scss'
-import { fetchMatchData } from '@/utils/statistic/MatchDataUtility'
 
 export default function Search() {
   const [isLoading, setIsLoading] = useState(false)
@@ -27,11 +26,9 @@ export default function Search() {
     setIsLoading(true)
 
     const mID = Number(search.matchID)
-    // const uMatchData = MatchDataUtility.getInstance()
-    //const matchData = await uMatchData.fetchMatchData(mID)
     const matchData = await fetchMatchData(mID)
-    dispatch(setMatchData(matchData))
 
+    dispatch(setMatchData(matchData))
     setIsLoading(false)
   }
 

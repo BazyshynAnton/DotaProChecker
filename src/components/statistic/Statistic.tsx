@@ -1,7 +1,8 @@
 'use client'
 
 import MatchDetails from './MatchDetails'
-import FetchError from './FetchError'
+import MatchSideInfo from './MatchSideInfo'
+// import FetchError from './FetchError'
 import Search from './Search'
 import StatisticLoader from '@/components/loaders/StatisticLoader'
 
@@ -10,7 +11,6 @@ import { useAppSelector, useAppDispatch } from '@/shared/reduxImports'
 import { setIsTableDataExist, setMatchData } from '@/store/statisticSlice'
 
 import type { MatchData } from '@/types/redux/statisticSlice'
-import MatchSideInfo from './MatchSideInfo'
 
 export default function Statistic({ matchData }: { matchData: MatchData | string }) {
   const { isTableDataExist, error } = useAppSelector((store) => store.statisticSlice)
@@ -32,20 +32,14 @@ export default function Statistic({ matchData }: { matchData: MatchData | string
     delay()
   }, [dispatch, matchData])
 
-  console.log(matchData)
-
   return (
     <div style={{ width: '100%' }}>
       <Search />
       {isReady ? (
-        !error ? (
-          <>
-            <MatchSideInfo />
-            <MatchDetails />
-          </>
-        ) : (
-          <FetchError error={error} />
-        )
+        <>
+          <MatchSideInfo />
+          <MatchDetails />
+        </>
       ) : (
         <StatisticLoader />
       )}

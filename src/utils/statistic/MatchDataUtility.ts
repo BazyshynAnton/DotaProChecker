@@ -1,12 +1,9 @@
-'use server'
-
 import { fetchHelper } from '../sharedUtils'
 
 import type {
   Match,
   HeroList,
   MatchData,
-  UMatchData,
   MatchDetails,
   PlayerProfile,
 } from '@/types/redux/statisticSlice'
@@ -35,7 +32,7 @@ import type { Item } from '@/types/statistic/playerRow'
  * - `abilityIDs` (any): Object of ability IDs.
  * - `abilityIDsData` (Item): Object of ability IDs.
  */
-export const fetchMatchData = async (matchID: number = 0): Promise<MatchData | string> => {
+export async function fetchMatchData(matchID: number = 0): Promise<MatchData | string> {
   try {
     if (matchID === 0) {
       const response = await genDefaultMatchID()
@@ -63,9 +60,7 @@ export const fetchMatchData = async (matchID: number = 0): Promise<MatchData | s
 
     // Array<string> store of player profile links
     const playerProfilePromises = playerAccountIDs.map((accountID) =>
-      fetch(`${process.env.NEXT_PUBLIC_PLAYER_PROFILE_URL as string}${accountID}`, {
-        cache: 'no-store',
-      }),
+      fetch(`${process.env.NEXT_PUBLIC_PLAYER_PROFILE_URL}${accountID}`, { cache: 'no-store' }),
     )
     // Fetch data about player profiles
     const playerProfileResponses = await Promise.all(playerProfilePromises)
@@ -138,7 +133,7 @@ export const fetchMatchData = async (matchID: number = 0): Promise<MatchData | s
  * The match ID of the most recent match, or an error message
  * if the fetch operation fails.
  */
-export const genDefaultMatchID = async (): Promise<number | Error | string> => {
+async function genDefaultMatchID(): Promise<number | Error | string> {
   try {
     // Get Matches History data using fetchHelper async func using Opendota API
     // Default player - Cheng Jin Xiang "NothingToSay"

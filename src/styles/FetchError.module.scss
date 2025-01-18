@@ -1,11 +1,10 @@
-@import '../mixins/fontsize.scss';
+@import './mixins/fontsize.scss';
 
 $fontColor: #ffffffb0;
 
 .error {
-  padding-bottom: 10rem;
   width: 100%;
-  height: max-content;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;

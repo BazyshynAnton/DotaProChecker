@@ -1,5 +1,3 @@
-export interface UHomeData {}
-
 export interface HomeData {
   proMatchesData: ProMatch[]
   dotaNewsData: DotaNews

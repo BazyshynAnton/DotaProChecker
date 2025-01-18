@@ -1,4 +1,3 @@
-'use server'
 /**
  * Helper function to fetch data from a given URL
  * and parse the response as JSON.

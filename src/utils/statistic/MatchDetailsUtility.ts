@@ -1,4 +1,4 @@
-import { HeroList, MatchDetails, PicksAndBans } from '@/types/redux/statisticSlice'
+import type { HeroList, MatchDetails, PicksAndBans } from '@/types/redux/statisticSlice'
 import type { MatchResult, PlayersByTeam, UMatchDetails } from '@/types/statistic/matchDetails'
 
 /**

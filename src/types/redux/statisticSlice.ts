@@ -1,10 +1,6 @@
 import { Item } from '../statistic/playerRow'
 import type { Player } from '../statistic/tableDetails'
 
-export interface UMatchData {
-  fetchMatchData(): Promise<MatchData | string>
-}
-
 export interface InitialStatisticState {
   matchDetails: MatchDetails | null
   heroList: HeroList[] | null
@@ -15,6 +11,7 @@ export interface InitialStatisticState {
   items: Item | null
   isTableDataExist: boolean
   tooltipAbilityPortal: boolean
+  tableLoading: boolean
 
   search: {
     [key: string]: string

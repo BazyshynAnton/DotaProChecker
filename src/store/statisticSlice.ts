@@ -11,6 +11,7 @@ const initialState: InitialStatisticState = {
   items: null,
   isTableDataExist: false,
   tooltipAbilityPortal: false,
+  tableLoading: false,
 
   search: {
     accountID: '',
@@ -49,13 +50,22 @@ export const statisticSlice = createSlice({
       state.isTableDataExist = action.payload
     },
 
+    setTableLoading: (state, action) => {
+      state.tableLoading = action.payload
+    },
+
     setSearch: (state, action) => {
       state.search.matchID = action.payload.value
     },
   },
 })
 
-export const { setMatchData, setSearch, setTooltipAbilityPortal, setIsTableDataExist } =
-  statisticSlice.actions
+export const {
+  setMatchData,
+  setSearch,
+  setTooltipAbilityPortal,
+  setIsTableDataExist,
+  setTableLoading,
+} = statisticSlice.actions
 
 export default statisticSlice.reducer
