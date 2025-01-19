@@ -99,15 +99,17 @@ export async function fetchMatchData(matchID: number = 0): Promise<MatchData | s
     const lobbyTypeData = await fetchHelper<any>(process.env.NEXT_PUBLIC_LOBBY_TYPE_URL as string)
     if (lobbyTypeData instanceof Error) throw lobbyTypeData
 
-    return {
-      heroListData,
-      matchDetailsData,
-      playerProfilesData,
-      abilitiesData,
-      heroAbilitiesData,
-      abilityIDsData,
-      itemsData,
-    } as MatchData
+    return JSON.parse(
+      JSON.stringify({
+        heroListData,
+        matchDetailsData,
+        playerProfilesData,
+        abilitiesData,
+        heroAbilitiesData,
+        abilityIDsData,
+        itemsData,
+      } as MatchData),
+    )
     //
   } catch (error) {
     let message
@@ -134,25 +136,17 @@ export async function fetchMatchData(matchID: number = 0): Promise<MatchData | s
  * if the fetch operation fails.
  */
 async function genDefaultMatchID(): Promise<number | Error | string> {
-  try {
-    // Get Matches History data using fetchHelper async func using Opendota API
-    // Default player - Cheng Jin Xiang "NothingToSay"
-    const matchesHistoryData = await fetchHelper<Match[]>(
-      process.env.NEXT_PUBLIC_MATCH_HISTORY_URL as string,
-    )
+  // Get Matches History data using fetchHelper async func using Opendota API
+  // Default player - Cheng Jin Xiang "NothingToSay"
+  const matchesHistoryData = await fetchHelper<Match[]>(
+    process.env.NEXT_PUBLIC_MATCH_HISTORY_URL as string,
+  )
+  if (matchesHistoryData instanceof Error) throw matchesHistoryData
 
-    if (matchesHistoryData instanceof Error) throw matchesHistoryData
+  // Array<number> for store match IDs
+  const matchHistoryDataIDs: number[] = []
+  // Set IDs to matchesHistoryDataIDs
+  matchesHistoryData.forEach((match) => matchHistoryDataIDs.push(match.match_id))
 
-    // Array<number> for store match IDs
-    const matchHistoryDataIDs: number[] = []
-    // Set IDs to matchesHistoryDataIDs
-    matchesHistoryData.forEach((match) => matchHistoryDataIDs.push(match.match_id))
-
-    return matchHistoryDataIDs[0]
-  } catch (error) {
-    let message
-    if (error instanceof Error) message = error
-    else message = String(error)
-    return message
-  }
+  return matchHistoryDataIDs[0]
 }

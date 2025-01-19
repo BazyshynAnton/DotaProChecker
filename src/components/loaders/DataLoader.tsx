@@ -1,6 +1,6 @@
 import { Image } from '@/shared/nextjsImports'
 
-export default function StatisticLoader() {
+export default function DataLoader() {
   return (
     <div style={loaderContainer}>
       <p>Loading...</p>

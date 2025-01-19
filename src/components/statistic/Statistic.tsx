@@ -3,32 +3,38 @@
 import MatchDetails from './MatchDetails'
 import MatchSideInfo from './MatchSideInfo'
 import Search from './Search'
-import StatisticLoader from '@/components/loaders/StatisticLoader'
+import DataLoader from '@/components/loaders/DataLoader'
 
-import { useEffect, useState } from '@/shared/reactImports'
+import { useEffect } from '@/shared/reactImports'
 import { useAppSelector, useAppDispatch } from '@/shared/reduxImports'
-import { setIsTableDataExist, setMatchData } from '@/store/statisticSlice'
+import { setIsTableDataExist, setMatchData, setTableLoading } from '@/store/statisticSlice'
 
 import type { MatchData } from '@/types/redux/statisticSlice'
 
 export default function Statistic({ matchData }: { matchData: MatchData | string }) {
-  const { isTableDataExist, error } = useAppSelector((store) => store.statisticSlice)
+  const { tableLoading, isTableDataExist, error } = useAppSelector((store) => store.statisticSlice)
   const dispatch = useAppDispatch()
-  const [isReady, setIsReady] = useState(false)
 
   useEffect(() => {
     if (!isTableDataExist) {
       dispatch(setMatchData(matchData))
+
+      const delay = async () => {
+        await dataLoadingDelay(100)
+        dispatch(setTableLoading(true))
+      }
+
+      delay()
     } else {
+      const delay = async () => {
+        dispatch(setTableLoading(false))
+        await dataLoadingDelay(3000)
+        dispatch(setTableLoading(true))
+      }
+
+      delay()
       dispatch(setIsTableDataExist(false))
     }
-
-    const delay = async () => {
-      await dataLoadingDelay()
-      setIsReady(true)
-    }
-
-    delay()
   }, [dispatch, matchData])
 
   if (error) throw Error(error) // Error handling
@@ -36,22 +42,22 @@ export default function Statistic({ matchData }: { matchData: MatchData | string
   return (
     <div style={{ width: '100%' }}>
       <Search />
-      {isReady ? (
+      {tableLoading ? (
         <>
           <MatchSideInfo />
           <MatchDetails />
         </>
       ) : (
-        <StatisticLoader />
+        <DataLoader />
       )}
     </div>
   )
 }
 
-async function dataLoadingDelay() {
+async function dataLoadingDelay(ms: number) {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(true)
-    }, 100)
+    }, ms)
   })
 }

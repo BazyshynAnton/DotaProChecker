@@ -1,7 +1,7 @@
 import ProMatchCard from './ProMatchCard'
 import DotaNewsCard from './DotaNewsCard'
 import ContentHeader from './ContentHeader'
-import StatisticLoader from '../loaders/StatisticLoader'
+import DataLoader from '../loaders/DataLoader'
 
 import { useAppSelector } from '@/hooks/useAppSelector'
 
@@ -54,7 +54,7 @@ function Loader() {
         alignItems: 'center',
       }}
     >
-      <StatisticLoader />
+      <DataLoader />
     </div>
   )
 }

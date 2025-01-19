@@ -1,4 +1,6 @@
-import Image from 'next/image'
+'use client'
+
+import { Image } from '@/shared/nextjsImports'
 
 export default function NotFound() {
   return (

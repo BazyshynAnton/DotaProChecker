@@ -1,12 +1,12 @@
 import TableDetails from './tableDetails/TableDetails'
 import ResultOfMatch from './ResultOfMatch'
-import StatisticLoader from '@/components/loaders/StatisticLoader'
 import PicksBans from './PicksBans'
 import TableAbilities from './tableAbilities/TableAbilities'
 
 import { MatchDetailsUtility } from '@/utils/statistic/MatchDetailsUtility'
 import { useEffect, useState } from '@/shared/reactImports'
-import { useAppSelector } from '@/shared/reduxImports'
+import { useAppDispatch, useAppSelector } from '@/shared/reduxImports'
+import { setTableLoading } from '@/store/statisticSlice'
 
 import type { PlayersByTeam } from '@/types/statistic/matchDetails'
 
@@ -14,6 +14,7 @@ import styles from '@/styles/statistic/MatchDetails.module.scss'
 
 export default function MatchDetails() {
   const { matchDetails } = useAppSelector((store) => store.statisticSlice)
+  const dispatch = useAppDispatch()
 
   const [playersByTeam, setPlayersByTeam] = useState<PlayersByTeam>()
 
@@ -24,7 +25,12 @@ export default function MatchDetails() {
     }
   }, [matchDetails])
 
-  if (!playersByTeam) return <StatisticLoader />
+  if (!playersByTeam) {
+    dispatch(setTableLoading(true))
+    return
+  } else {
+    setTableLoading(false)
+  }
 
   return (
     <div className={styles.match}>
