@@ -1,12 +1,14 @@
-'use client'
-
 import { Image } from '@/shared/nextjsImports'
-import { useState } from '@/shared/reactImports'
+import { useEffect, useState } from '@/shared/reactImports'
 
-import styles from '@/styles/FetchError.module.scss'
+import styles from '@/styles/error/AppCrash.module.scss'
 
-export default function ErrorBoundary({ error }: { error: Error }) {
+export default function AppCrash({ error, reset }: { error: Error; reset: () => void }) {
   const [isHintOpen, setIsHintOpen] = useState(false)
+
+  useEffect(() => {
+    console.error(error)
+  }, [error])
 
   const handleHintClick = () => setIsHintOpen(!isHintOpen)
 
@@ -23,6 +25,9 @@ export default function ErrorBoundary({ error }: { error: Error }) {
       </div>
       <span onClick={handleHintClick}>why you see this error </span>
       {isHintOpen && <ErrorExplanation />}
+      <button onClick={reset}>
+        <span>Try again</span>
+      </button>
     </div>
   )
 }

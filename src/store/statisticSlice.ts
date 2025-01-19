@@ -9,8 +9,10 @@ const initialState: InitialStatisticState = {
   heroAbilities: null,
   abilityIDs: null,
   items: null,
-  isTableDataExist: false,
+
   tooltipAbilityPortal: false,
+  isSameData: false,
+  isTableDataExist: false,
   tableLoading: false,
 
   search: {
@@ -36,7 +38,10 @@ export const statisticSlice = createSlice({
           state.abilityIDs = action.payload.abilityIDsData
           state.items = action.payload.itemsData
 
+          state.isSameData = false
           state.error = null
+        } else {
+          state.isSameData = true
         }
       } else {
         state.error = action.payload
@@ -45,6 +50,10 @@ export const statisticSlice = createSlice({
 
     setTooltipAbilityPortal: (state, action) => {
       state.tooltipAbilityPortal = action.payload
+    },
+
+    setIsSameData: (state, action) => {
+      state.isSameData = action.payload
     },
 
     setIsTableDataExist: (state, action) => {
@@ -65,6 +74,7 @@ export const {
   setMatchData,
   setSearch,
   setTooltipAbilityPortal,
+  setIsSameData,
   setIsTableDataExist,
   setTableLoading,
 } = statisticSlice.actions

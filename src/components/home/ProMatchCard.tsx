@@ -18,7 +18,6 @@ export default function ProMatchCard({ proMatch }: { proMatch: ProMatch }) {
 
   const handleOverviewClick = async () => {
     dispatch(setIsTableDataExist(true))
-    dispatch(setTableLoading(true))
     const mID = proMatch.match_id
     const matchData = await fetchMatchData(mID)
     dispatch(setMatchData(matchData))

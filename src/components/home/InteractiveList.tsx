@@ -6,6 +6,7 @@ import DataLoader from '../loaders/DataLoader'
 import { useAppSelector } from '@/hooks/useAppSelector'
 
 import styles from '@/styles/home/Home.module.scss'
+import AppError from '../error/AppError'
 
 export default function InteractiveList({
   type,
@@ -43,6 +44,8 @@ export default function InteractiveList({
 }
 
 function Loader() {
+  const { error } = useAppSelector((store) => store.homeSlice)
+
   return (
     <div
       style={{
@@ -54,7 +57,7 @@ function Loader() {
         alignItems: 'center',
       }}
     >
-      <DataLoader />
+      {!error ? <DataLoader /> : <AppError />}
     </div>
   )
 }
