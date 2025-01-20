@@ -4,13 +4,13 @@
 
 1.&nbsp;Clone the repository or download the archive.  
 2.&nbsp;Navigate to the project's root folder.  
-3.&nbsp;Install dependencies: `npm install`  
+3.&nbsp;Install dependencies: `npm install`
 
 ## Getting Started
 
-Start the project - `npm run dev`    <br/>
-Build the project - `npm run build`  <br/>
-Production - `npm run start`  <br/>
+Start the project - `npm run dev` <br/>
+Build the project - `npm run build` <br/>
+Production - `npm run start` <br/>
 
 ## Technologies
 

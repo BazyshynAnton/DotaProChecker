@@ -1,9 +1,5 @@
-import type {
-  HeroList,
-  MatchDetails,
-  PicksAndBans,
-} from "../redux/statisticSlice"
-import type { Player } from "./tableDetails"
+import type { HeroList, MatchDetails, PicksAndBans } from '../redux/statisticSlice'
+import type { Player } from './tableDetails'
 
 export interface UMatchDetails {
   findMatchResult(matchDetails: MatchDetails): MatchResult
@@ -32,11 +28,11 @@ export interface PlayerColors {
     team_number: number
 
     colors: {
-      "0": string
-      "1": string
-      "2": string
-      "3": string
-      "4": string
+      '0': string
+      '1': string
+      '2': string
+      '3': string
+      '4': string
     }
   }
 
@@ -44,11 +40,11 @@ export interface PlayerColors {
     team_number: number
 
     colors: {
-      "0": string
-      "1": string
-      "2": string
-      "3": string
-      "4": string
+      '0': string
+      '1': string
+      '2': string
+      '3': string
+      '4': string
     }
   }
 }

@@ -1,6 +1,6 @@
-import { createSlice } from "@/shared/reduxImports"
+import { createSlice } from '@/shared/reduxImports'
 
-import type { InitialHomeState } from "@/types/redux/homeSlice"
+import type { InitialHomeState } from '@/types/redux/homeSlice'
 
 const initialState: InitialHomeState = {
   proMatches: null,
@@ -11,11 +11,11 @@ const initialState: InitialHomeState = {
 }
 
 export const homeSlice = createSlice({
-  name: "home",
+  name: 'home',
   initialState,
   reducers: {
     setHomeData: (state, action) => {
-      if (typeof action.payload !== "string") {
+      if (typeof action.payload !== 'string') {
         if (!state.isHomeDataExist) {
           state.proMatches = action.payload.proMatchesData
           state.dotaNews = action.payload.dotaNewsData

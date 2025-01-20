@@ -43,7 +43,7 @@ $border: 1px solid rgba(255, 255, 255, 0.1);
   .heroImg {
     overflow: hidden;
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       top: 0;
       bottom: 0px;
@@ -53,7 +53,7 @@ $border: 1px solid rgba(255, 255, 255, 0.1);
       background: #393e468a;
     }
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       width: 90px;
       height: 3px;

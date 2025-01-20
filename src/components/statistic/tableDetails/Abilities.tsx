@@ -1,12 +1,12 @@
-import { Image } from "@/shared/nextjsImports"
+import { Image } from '@/shared/nextjsImports'
 
-import type { ItemDescriptionInterface } from "@/types/statistic/playerRow"
+import type { ItemDescriptionInterface } from '@/types/statistic/playerRow'
 
-import styles from "@/styles/statistic/ItemDescription.module.scss"
+import styles from '@/styles/statistic/ItemDescription.module.scss'
 
 export default function Abilities({ details, item }: ItemDescriptionInterface) {
   if (!details) {
-    throw new Error("[DATA] Cannot get data about Item Details")
+    throw new Error('[DATA] Cannot get data about Item Details')
   }
 
   return (
@@ -18,65 +18,49 @@ export default function Abilities({ details, item }: ItemDescriptionInterface) {
             // Format description from JSON file:
             // replace all "\n" symbols to <br/>
             // for using in HTML
-            const formattedDescription = abil.description.replace(
-              /\n/g,
-              "<br/>"
-            )
+            const formattedDescription = abil.description.replace(/\n/g, '<br/>')
 
             const abilityCondition =
-              abil.type === "active"
+              abil.type === 'active'
                 ? styles.abilities_active
-                : abil.type === "use"
+                : abil.type === 'use'
                   ? styles.abilities_use
                   : styles.abilities_passive
 
             const abilityHeaderCondition =
-              abil.type === "active"
+              abil.type === 'active'
                 ? styles.abilities_active__header
-                : abil.type === "use"
+                : abil.type === 'use'
                   ? styles.abilities_use__header
                   : styles.abilities_passive__header
 
             const displayAbilityTypeCondition =
-              abil.type === "active"
-                ? "Active"
-                : abil.type === "use"
-                  ? "Use"
-                  : "Passive"
+              abil.type === 'active' ? 'Active' : abil.type === 'use' ? 'Use' : 'Passive'
 
-            const renderAbilityCondition =
-              abil.type === "active" || abil.type === "use"
+            const renderAbilityCondition = abil.type === 'active' || abil.type === 'use'
 
             const abilityDescriptionCondition =
-              abil.type === "active"
+              abil.type === 'active'
                 ? styles.abilities_active__description
-                : abil.type === "use"
+                : abil.type === 'use'
                   ? styles.abilities_use__description
                   : styles.abilities_passive__description
 
             return (
               <div key={abil.description} className={abilityCondition}>
                 <div className={abilityHeaderCondition}>
-                  <div
-                    className={styles.abilities_active_passive__header__content}
-                  >
+                  <div className={styles.abilities_active_passive__header__content}>
                     <div>{displayAbilityTypeCondition}:</div>
                     <div> {abil.title}</div>
                   </div>
-                  <div
-                    className={
-                      styles.abilities_active_passive__header__manaAndCooldown
-                    }
-                  >
+                  <div className={styles.abilities_active_passive__header__manaAndCooldown}>
                     {renderAbilityCondition && details[item].mc ? (
                       <div
-                        className={
-                          styles.abilities_active_passive__header__manaAndCooldown_image
-                        }
+                        className={styles.abilities_active_passive__header__manaAndCooldown_image}
                       >
                         <Image
-                          src="/pictures/dotaIcons/ability_manacost.png"
-                          alt=""
+                          src='/pictures/dotaIcons/ability_manacost.png'
+                          alt=''
                           width={20}
                           height={20}
                         />
@@ -88,13 +72,11 @@ export default function Abilities({ details, item }: ItemDescriptionInterface) {
 
                     {renderAbilityCondition && details[item].cd ? (
                       <div
-                        className={
-                          styles.abilities_active_passive__header__manaAndCooldown_image
-                        }
+                        className={styles.abilities_active_passive__header__manaAndCooldown_image}
                       >
                         <Image
-                          src="/pictures/dotaIcons/ability_cooldown.png"
-                          alt=""
+                          src='/pictures/dotaIcons/ability_cooldown.png'
+                          alt=''
                           width={20}
                           height={20}
                         />
@@ -106,9 +88,7 @@ export default function Abilities({ details, item }: ItemDescriptionInterface) {
                   </div>
                 </div>
                 <div className={abilityDescriptionCondition}>
-                  <div
-                    dangerouslySetInnerHTML={{ __html: formattedDescription }}
-                  />
+                  <div dangerouslySetInnerHTML={{ __html: formattedDescription }} />
                 </div>
               </div>
             )

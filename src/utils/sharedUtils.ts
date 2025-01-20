@@ -13,9 +13,12 @@
  * A promise that resolves to the parsed JSON data of type `T`,
  * or an `Error` object if the fetch operation fails.
  */
-export async function fetchHelper<T>(URL: string): Promise<T | Error> {
+export async function fetchHelper<T>(
+  URL: string,
+  cache: RequestCache = 'force-cache',
+): Promise<T | Error> {
   const response = await fetch(URL, {
-    cache: "no-store",
+    cache,
   })
 
   if (!response.ok) {

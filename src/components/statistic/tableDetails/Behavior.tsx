@@ -1,33 +1,30 @@
-import type { ItemDescriptionInterface } from "@/types/statistic/playerRow"
+import type { ItemDescriptionInterface } from '@/types/statistic/playerRow'
 
-import styles from "@/styles/statistic/ItemDescription.module.scss"
+import styles from '@/styles/statistic/ItemDescription.module.scss'
 
 export default function Behavior({ details, item }: ItemDescriptionInterface) {
   //
   // Check for existence
   if (!details) {
-    throw new Error("[DATA] Cannot get data about Item Details")
+    throw new Error('[DATA] Cannot get data about Item Details')
   }
 
   // Formatting string to get the result like that:
   // [example] -> Point Target / AOE
-  let target: string = ""
+  let target: string = ''
   if (Array.isArray(details[item].behavior)) {
     details[item].behavior.forEach((str) => {
-      target += str + " / "
+      target += str + ' / '
     })
 
     target = target.substring(0, target.length - 2)
-  } else if (typeof details[item].behavior === "string")
-    target = details[item].behavior
+  } else if (typeof details[item].behavior === 'string') target = details[item].behavior
 
   const dispellableCondition =
-    details[item].dispellable === "Yes"
-      ? styles.dispellable_typeOne
-      : styles.dispellable_typeTwo
+    details[item].dispellable === 'Yes' ? styles.dispellable_typeOne : styles.dispellable_typeTwo
 
   const bkbpierceCondition =
-    details[item].bkbpierce === "Yes"
+    details[item].bkbpierce === 'Yes'
       ? styles.piercesDebuffImmunity_typeOne
       : styles.piercesDebuffImmunity_typeTwo
 
@@ -36,16 +33,13 @@ export default function Behavior({ details, item }: ItemDescriptionInterface) {
       {details[item].behavior && (
         <div className={styles.target}>
           <div>TARGET:</div>
-          <div style={{ color: "#ffffffde" }}> {target}</div>
+          <div style={{ color: '#ffffffde' }}> {target}</div>
         </div>
       )}
       {details[item].dispellable && (
         <div className={styles.dispellable}>
           <div>DISPELLABLE:</div>
-          <div className={dispellableCondition}>
-            {" "}
-            {details[item].dispellable}
-          </div>
+          <div className={dispellableCondition}> {details[item].dispellable}</div>
         </div>
       )}
       {details[item].bkbpierce && (
@@ -54,19 +48,17 @@ export default function Behavior({ details, item }: ItemDescriptionInterface) {
           <div className={bkbpierceCondition}> {details[item].bkbpierce}</div>
         </div>
       )}
-      {details[item].behavior &&
-        details[item].dispellable &&
-        details[item].bkbpierce && (
-          <hr
-            style={{
-              width: "100%",
-              height: "1.5px",
-              background: "#6c7b7e",
-              border: "none",
-              margin: "18px 0px 13px 0px",
-            }}
-          />
-        )}
+      {details[item].behavior && details[item].dispellable && details[item].bkbpierce && (
+        <hr
+          style={{
+            width: '100%',
+            height: '1.5px',
+            background: '#6c7b7e',
+            border: 'none',
+            margin: '18px 0px 13px 0px',
+          }}
+        />
+      )}
     </>
   )
 }

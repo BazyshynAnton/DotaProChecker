@@ -1,5 +1,5 @@
-import { createSlice } from "@/shared/reduxImports"
-import type { InitialStatisticState } from "@/types/redux/statisticSlice"
+import { createSlice } from '@/shared/reduxImports'
+import type { InitialStatisticState } from '@/types/redux/statisticSlice'
 
 const initialState: InitialStatisticState = {
   matchDetails: null,
@@ -9,27 +9,26 @@ const initialState: InitialStatisticState = {
   heroAbilities: null,
   abilityIDs: null,
   items: null,
-  isTableDataExist: false,
+
   tooltipAbilityPortal: false,
+  isTableDataExist: false,
+  tableLoading: false,
 
   search: {
-    accountID: "",
-    matchID: "",
+    accountID: '',
+    matchID: '',
   },
 
   error: null,
 }
 
 export const statisticSlice = createSlice({
-  name: "statistic",
+  name: 'statistic',
   initialState,
   reducers: {
     setMatchData: (state, action) => {
-      if (typeof action.payload !== "string") {
-        if (
-          state.matchDetails?.match_id !==
-          action.payload.matchDetailsData?.match_id
-        ) {
+      if (typeof action.payload !== 'string') {
+        if (state.matchDetails?.match_id !== action.payload.matchDetailsData?.match_id) {
           state.heroList = action.payload.heroListData
           state.matchDetails = action.payload.matchDetailsData
           state.playersProfiles = action.payload.playerProfilesData
@@ -37,7 +36,8 @@ export const statisticSlice = createSlice({
           state.heroAbilities = action.payload.heroAbilitiesData
           state.abilityIDs = action.payload.abilityIDsData
           state.items = action.payload.itemsData
-          state.isTableDataExist = true
+
+          state.error = null
         }
       } else {
         state.error = action.payload
@@ -52,6 +52,10 @@ export const statisticSlice = createSlice({
       state.isTableDataExist = action.payload
     },
 
+    setTableLoading: (state, action) => {
+      state.tableLoading = action.payload
+    },
+
     setSearch: (state, action) => {
       state.search.matchID = action.payload.value
     },
@@ -63,6 +67,7 @@ export const {
   setSearch,
   setTooltipAbilityPortal,
   setIsTableDataExist,
+  setTableLoading,
 } = statisticSlice.actions
 
 export default statisticSlice.reducer

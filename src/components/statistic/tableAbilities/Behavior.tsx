@@ -1,7 +1,7 @@
-import { AbilityDetailsUtility } from "@/utils/statistic/AbilityDetailsUtility"
-import { useAppSelector } from "@/hooks/useAppSelector"
+import { AbilityDetailsUtility } from '@/utils/statistic/AbilityDetailsUtility'
+import { useAppSelector } from '@/hooks/useAppSelector'
 
-import styles from "@/styles/statistic/AbilityDescription.module.scss"
+import styles from '@/styles/statistic/AbilityDescription.module.scss'
 
 export default function Behavior({ abilityKey }: { abilityKey: string }) {
   const { abilities } = useAppSelector((store) => store.statisticSlice)
@@ -23,12 +23,12 @@ export default function Behavior({ abilityKey }: { abilityKey: string }) {
       )}
       {behavior.dmg_type && (
         <div className={styles.dmgType}>
-          <div>DAMAGE TYPE:</div>{" "}
+          <div>DAMAGE TYPE:</div>{' '}
           <div
             className={
-              behavior.dmg_type === "Magical"
+              behavior.dmg_type === 'Magical'
                 ? styles.dmgType_magical
-                : behavior.dmg_type === "Pure"
+                : behavior.dmg_type === 'Pure'
                   ? styles.dmgType_pure
                   : styles.dmgType_physical
             }
@@ -39,26 +39,20 @@ export default function Behavior({ abilityKey }: { abilityKey: string }) {
       )}
       {behavior.bkbpierce && conditionBkbpierce && (
         <div className={styles.pierces}>
-          <div>PIERCES DEBUFF IMMUNITY:</div>{" "}
-          <div
-            className={
-              behavior.bkbpierce === "Yes"
-                ? styles.pierces_yes
-                : styles.pierces_no
-            }
-          >
+          <div>PIERCES DEBUFF IMMUNITY:</div>{' '}
+          <div className={behavior.bkbpierce === 'Yes' ? styles.pierces_yes : styles.pierces_no}>
             {behavior.bkbpierce}
           </div>
         </div>
       )}
       {behavior.dispellable && (
         <div className={styles.dispellable}>
-          <div>DISPELLABLE:</div>{" "}
+          <div>DISPELLABLE:</div>{' '}
           <div
             className={
-              behavior.dispellable === "Yes"
+              behavior.dispellable === 'Yes'
                 ? styles.dispellable_yes
-                : behavior.dispellable === "No"
+                : behavior.dispellable === 'No'
                   ? styles.dispellable_no
                   : styles.dispellable_strong
             }

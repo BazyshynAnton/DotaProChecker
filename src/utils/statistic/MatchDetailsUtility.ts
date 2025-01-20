@@ -1,13 +1,5 @@
-import {
-  HeroList,
-  MatchDetails,
-  PicksAndBans,
-} from "@/types/redux/statisticSlice"
-import type {
-  MatchResult,
-  PlayersByTeam,
-  UMatchDetails,
-} from "@/types/statistic/matchDetails"
+import type { HeroList, MatchDetails, PicksAndBans } from '@/types/redux/statisticSlice'
+import type { MatchResult, PlayersByTeam, UMatchDetails } from '@/types/statistic/matchDetails'
 
 /**
  * MatchDetailsUtility is an class that uses for setting
@@ -49,7 +41,7 @@ export class MatchDetailsUtility implements UMatchDetails {
   public findMatchResult(matchDetails: MatchDetails): MatchResult {
     const matchResult: MatchResult = {
       resultOfMatch: matchDetails.radiant_win,
-      matchDuration: `${Math.floor(matchDetails.duration / 60)}:${(matchDetails.duration % 60).toString().padStart(2, "0")}`,
+      matchDuration: `${Math.floor(matchDetails.duration / 60)}:${(matchDetails.duration % 60).toString().padStart(2, '0')}`,
       radiantScore: matchDetails.radiant_score.toString(),
       direScore: matchDetails.dire_score.toString(),
     }
@@ -70,12 +62,8 @@ export class MatchDetailsUtility implements UMatchDetails {
    * one for the Radiant team players and one for the Dire team players.
    */
   public filterPlayersByTeam(matchDetails: MatchDetails): PlayersByTeam {
-    const playersRadiant = matchDetails.players.filter(
-      (player) => player.isRadiant
-    )
-    const playersDire = matchDetails.players.filter(
-      (player) => !player.isRadiant
-    )
+    const playersRadiant = matchDetails.players.filter((player) => player.isRadiant)
+    const playersDire = matchDetails.players.filter((player) => !player.isRadiant)
 
     return { playersRadiant, playersDire }
   }
@@ -96,29 +84,22 @@ export class MatchDetailsUtility implements UMatchDetails {
    * bans for the specified team side, or an error message
    * if the side is invalid.
    */
-  public picksBans(
-    side: string,
-    matchDetails: MatchDetails
-  ): PicksAndBans[] | string {
+  public picksBans(side: string, matchDetails: MatchDetails): PicksAndBans[] | string {
     switch (side) {
-      case "radiant": {
+      case 'radiant': {
         if (!matchDetails.picks_bans) return []
 
-        const radiantPicksBans = matchDetails.picks_bans.filter(
-          (el) => el.team == 0
-        )
+        const radiantPicksBans = matchDetails.picks_bans.filter((el) => el.team == 0)
         return radiantPicksBans
       }
-      case "dire": {
+      case 'dire': {
         if (!matchDetails.picks_bans) return []
 
-        const direPicksBans = matchDetails.picks_bans.filter(
-          (el) => el.team == 1
-        )
+        const direPicksBans = matchDetails.picks_bans.filter((el) => el.team == 1)
         return direPicksBans
       }
       default: {
-        return "error"
+        return 'error'
       }
     }
   }
@@ -136,15 +117,12 @@ export class MatchDetailsUtility implements UMatchDetails {
    * @returns {string | void} The formatted hero name if found,
    * or `undefined` if not found.
    */
-  public findHeroInPickBans(
-    hero_id: number,
-    heroList: HeroList[]
-  ): void | string {
+  public findHeroInPickBans(hero_id: number, heroList: HeroList[]): void | string {
     for (let i = 0; i < heroList.length; ++i) {
       const hero = heroList[i]
 
       if (hero_id === hero.id) {
-        return hero.name.replace("npc_dota_hero_", "")
+        return hero.name.replace('npc_dota_hero_', '')
       }
     }
   }

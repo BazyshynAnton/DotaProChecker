@@ -1,13 +1,11 @@
-import ItemDescription from "./ItemDescription"
-import CannotFind from "./CannotFind"
+import ItemDescription from './ItemDescription'
+import CannotFind from './CannotFind'
 
-import { Image } from "@/shared/nextjsImports"
-import { React, useState } from "@/shared/reactImports"
-import { PlayerRowUtility } from "@/utils/statistic/PlayerRowUtility"
+import { Image } from '@/shared/nextjsImports'
+import { React, useState } from '@/shared/reactImports'
+import { PlayerRowUtility } from '@/utils/statistic/PlayerRowUtility'
 
-import { ITEM_ICON_URL } from "@/utils/urls"
-
-import type { SlotInterface } from "@/types/statistic/playerRow"
+import type { SlotInterface } from '@/types/statistic/playerRow'
 
 export default function NeutralItem({ itemDetails }: SlotInterface) {
   //
@@ -22,39 +20,28 @@ export default function NeutralItem({ itemDetails }: SlotInterface) {
   const prrUtility = PlayerRowUtility.getInstance()
 
   // Get details about Current Neutral Item
-  const details = prrUtility.findDetailsAboutCurrentItem(
-    "item",
-    neutralItem,
-    itemDetails
-  )
+  const details = prrUtility.findDetailsAboutCurrentItem('item', neutralItem, itemDetails)
 
   // Function to update the toolTipStatus when mouse enter
   const handleMouseEnter = () => {
-    prrUtility.handleMouseEnter(
-      neutralItem,
-      "neutral_slot",
-      -1,
-      setToolTipStatus
-    )
+    prrUtility.handleMouseEnter(neutralItem, 'neutral_slot', -1, setToolTipStatus)
   }
 
   // Function to update the toolTipStatus when mouse leave
   const handleMouseLeave = () => {
-    prrUtility.handleMouseLeave("neutral_slot", -1, setToolTipStatus)
+    prrUtility.handleMouseLeave('neutral_slot', -1, setToolTipStatus)
   }
 
   return (
     <React.Fragment>
-      {toolTipStatus && (
-        <ItemDescription details={details} item={neutralItem} />
-      )}
+      {toolTipStatus && <ItemDescription details={details} item={neutralItem} />}
       <Image
         src={
-          neutralItem !== "empty_slot"
-            ? `${ITEM_ICON_URL}${neutralItem}.png`
-            : "pictures/dotaItemIcons/empty_slot.webp"
+          neutralItem !== 'empty_slot'
+            ? `${process.env.NEXT_PUBLIC_ITEM_ICON_URL}${neutralItem}.png`
+            : 'pictures/dotaItemIcons/empty_slot.webp'
         }
-        alt=""
+        alt=''
         width={39}
         height={32}
         quality={100}

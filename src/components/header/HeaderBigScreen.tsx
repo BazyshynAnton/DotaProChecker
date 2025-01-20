@@ -1,7 +1,46 @@
-import Links from "./Links"
+import Links from './Links'
 
-// possibly might be deleted because
-// it contains only one component.
+import { useState } from '@/shared/reactImports'
+
+import styles from '@/styles/header/Header.module.scss'
+
 export default function HeaderBigScreen() {
-  return <Links />
+  const [isBackground, setIsBackground] = useState(false)
+  const [componentStyles, setComponentStyles] = useState<ComponentStyles>(initComponentStyles)
+
+  return (
+    <div className={styles.headerContent}>
+      {isBackground && (
+        <span
+          style={{
+            position: 'absolute',
+            top: componentStyles.offsetTop || 0,
+            left: componentStyles.offsetLeft || 0,
+            width: componentStyles.width || 0,
+            height: componentStyles.height || 0,
+            transition: 'all 0.15s ease-in-out',
+            padding: '5px 20px',
+            background: '#ffffff14',
+            borderRadius: '4px',
+            zIndex: 1,
+          }}
+        />
+      )}
+      <Links setComponentStyles={setComponentStyles} setIsBackground={setIsBackground} />
+    </div>
+  )
+}
+
+const initComponentStyles: ComponentStyles = {
+  width: null,
+  height: null,
+  offsetTop: null,
+  offsetLeft: null,
+}
+
+export interface ComponentStyles {
+  width: number | null
+  height: number | null
+  offsetTop: number | null
+  offsetLeft: number | null
 }

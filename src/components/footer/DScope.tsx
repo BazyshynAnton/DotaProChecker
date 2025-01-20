@@ -1,4 +1,4 @@
-import styles from "@/styles/footer/Footer.module.scss"
+import styles from '@/styles/footer/Footer.module.scss'
 
 export default function DScope() {
   const data = new Date()

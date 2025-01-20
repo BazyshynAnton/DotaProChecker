@@ -1,12 +1,12 @@
-import ProMatchCard from "./ProMatchCard"
-import DotaNewsCard from "./DotaNewsCard"
-import ContentHeader from "./ContentHeader"
-import StatisticLoader from "../loaders/StatisticLoader"
+import ProMatchCard from './ProMatchCard'
+import DotaNewsCard from './DotaNewsCard'
+import ContentHeader from './ContentHeader'
+import DataLoader from '../loaders/DataLoader'
 
-import { useEffect, useState } from "@/shared/reactImports"
-import { useAppSelector } from "@/hooks/useAppSelector"
+import { useAppSelector } from '@/hooks/useAppSelector'
 
-import styles from "@/styles/home/Home.module.scss"
+import styles from '@/styles/home/Home.module.scss'
+import AppError from '../error/AppError'
 
 export default function InteractiveList({
   type,
@@ -18,36 +18,14 @@ export default function InteractiveList({
   const { proMatches, dotaNews } = useAppSelector((store) => store.homeSlice)
   const news = dotaNews?.appnews.newsitems
 
-  const [isDesktop, setIsDesktop] = useState(false)
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setIsDesktop(window.innerWidth >= 1190)
-
-      const handleResizeEvent = () => {
-        setIsDesktop(window.innerWidth >= 1190)
-      }
-
-      window.addEventListener("resize", handleResizeEvent)
-      return () => {
-        window.removeEventListener("resize", handleResizeEvent)
-      }
-    }
-  }, [])
-
   return (
-    <div
-      className={type === "matchesList" ? styles.proMatches : styles.dotaNews}
-    >
+    <div className={type === 'matchesList' ? styles.proMatches : styles.dotaNews}>
       <ContentHeader headerTitle={listHeader} />
 
       <div
-        className={
-          type === "matchesList"
-            ? styles.proMatches__content
-            : styles.dotaNews__content
-        }
+        className={type === 'matchesList' ? styles.proMatches__content : styles.dotaNews__content}
       >
-        {type === "matchesList" ? (
+        {type === 'matchesList' ? (
           proMatches ? (
             proMatches.map((match, idx) => {
               return <ProMatchCard key={match.match_id} proMatch={match} />
@@ -66,18 +44,20 @@ export default function InteractiveList({
 }
 
 function Loader() {
+  const { error } = useAppSelector((store) => store.homeSlice)
+
   return (
     <div
       style={{
-        position: "absolute",
-        width: "100%",
-        height: "100%",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
+        position: 'absolute',
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
       }}
     >
-      <StatisticLoader />
+      {!error ? <DataLoader /> : <AppError />}
     </div>
   )
 }

@@ -1,11 +1,9 @@
-import { Image } from "@/shared/nextjsImports"
+import { Image } from '@/shared/nextjsImports'
 
-import type { DetailsAboutHero } from "@/types/statistic/playerRow"
-import type { Player } from "@/types/statistic/tableDetails"
+import type { DetailsAboutHero } from '@/types/statistic/playerRow'
+import type { Player } from '@/types/statistic/tableDetails'
 
-import { HERO_FACET_ICON_URL, HERO_ICON_URL } from "@/utils/urls"
-
-import styles from "@/styles/statistic/PlayerRow.module.scss"
+import styles from '@/styles/statistic/PlayerRow.module.scss'
 
 export default function HeroAndNickname({
   detailsAboutHero,
@@ -24,15 +22,13 @@ export default function HeroAndNickname({
           }}
         >
           <Image
-            src={`${HERO_ICON_URL}${detailsAboutHero.heroName}.png`}
+            src={`${process.env.NEXT_PUBLIC_HERO_ICON_URL}${detailsAboutHero.heroName}.png`}
             alt={detailsAboutHero.heroLocalizedName}
             width={54}
             height={30}
           />
         </div>
-        <div className={styles.heroAndNickname__hero__level}>
-          {player.level}
-        </div>
+        <div className={styles.heroAndNickname__hero__level}>{player.level}</div>
         <span
           style={{
             background: `${detailsAboutHero.heroVariant.color}`,
@@ -40,7 +36,7 @@ export default function HeroAndNickname({
         >
           {detailsAboutHero.heroVariant.icon && (
             <Image
-              src={`${HERO_FACET_ICON_URL}${detailsAboutHero.heroVariant.icon}.png`}
+              src={`${process.env.NEXT_PUBLIC_HERO_FACET_ICON_URL}${detailsAboutHero.heroVariant.icon}.png`}
               alt={detailsAboutHero.heroVariant.icon}
               width={72}
               height={72}
@@ -57,7 +53,7 @@ export default function HeroAndNickname({
           }
         >
           {/* {player.personaname ? player.personaname : "Anonymous"} */}
-          {player.personaname ? "Player" : "Anonymous"}
+          {player.personaname ? 'Player' : 'Anonymous'}
         </div>
       </div>
     </div>

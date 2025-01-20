@@ -1,11 +1,10 @@
-@import "../mixins/fontsize.scss";
+@import '../mixins/fontsize.scss';
 
 $fontColor: #ffffffb0;
 
 .error {
-  padding-bottom: 10rem;
   width: 100%;
-  height: max-content;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -22,6 +21,18 @@ $fontColor: #ffffffb0;
     color: #3b82f6;
     font-size: 15px;
     cursor: pointer;
+  }
+
+  button {
+    margin-top: 0.5rem;
+    padding: 3px 10px;
+    border-radius: 4px;
+    background: #ffffff14;
+
+    span {
+      color: #ffffffb0;
+      text-decoration: none;
+    }
   }
 }
 

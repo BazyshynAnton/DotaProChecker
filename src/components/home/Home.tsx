@@ -1,14 +1,14 @@
-"use client"
+'use client'
 
-import HomeContent from "./HomeContent"
+import HomeContent from './HomeContent'
 
-import { useAppDispatch } from "@/shared/reduxImports"
-import { useEffect } from "@/shared/reactImports"
-import { setHomeData } from "@/store/homeSlice"
+import { useAppDispatch, useAppSelector } from '@/shared/reduxImports'
+import { useEffect } from '@/shared/reactImports'
+import { setHomeData } from '@/store/homeSlice'
 
-import type { HomeData } from "@/types/home/homeDataUtility"
+import type { HomeData } from '@/types/home/homeDataUtility'
 
-import styles from "@/styles/home/Home.module.scss"
+import styles from '@/styles/home/Home.module.scss'
 
 export default function Home({ homeData }: { homeData: HomeData | string }) {
   const dispatch = useAppDispatch()

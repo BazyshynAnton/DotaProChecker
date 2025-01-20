@@ -1,9 +1,5 @@
-import { Item } from "../statistic/playerRow"
-import type { Player } from "../statistic/tableDetails"
-
-export interface UMatchData {
-  fetchMatchData(): Promise<MatchData | string>
-}
+import { Item } from '../statistic/playerRow'
+import type { Player } from '../statistic/tableDetails'
 
 export interface InitialStatisticState {
   matchDetails: MatchDetails | null
@@ -13,8 +9,10 @@ export interface InitialStatisticState {
   heroAbilities: any | null
   abilityIDs: any | null
   items: Item | null
+
   isTableDataExist: boolean
   tooltipAbilityPortal: boolean
+  tableLoading: boolean
 
   search: {
     [key: string]: string

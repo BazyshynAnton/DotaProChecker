@@ -1,6 +1,6 @@
-"use client"
+'use client'
 
-import { useEffect, useState } from "@/shared/reactImports"
+import { useEffect, useState } from '@/shared/reactImports'
 
 interface MouseXY {
   [key: string]: number | null
@@ -17,10 +17,10 @@ const useMousePosition = () => {
       setMousePosition({ x: ev.clientX, y: ev.clientY })
     }
 
-    window.addEventListener("mousemove", updateMousePosition)
+    window.addEventListener('mousemove', updateMousePosition)
 
     return () => {
-      window.removeEventListener("mousemove", updateMousePosition)
+      window.removeEventListener('mousemove', updateMousePosition)
     }
   }, [])
 

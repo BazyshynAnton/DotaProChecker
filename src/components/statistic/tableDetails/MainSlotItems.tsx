@@ -1,13 +1,11 @@
-import ItemDescription from "./ItemDescription"
-import CannotFind from "./CannotFind"
+import ItemDescription from './ItemDescription'
+import CannotFind from './CannotFind'
 
-import { Image } from "@/shared/nextjsImports"
-import { React, useState } from "@/shared/reactImports"
-import { PlayerRowUtility } from "@/utils/statistic/PlayerRowUtility"
+import { Image } from '@/shared/nextjsImports'
+import { React, useState } from '@/shared/reactImports'
+import { PlayerRowUtility } from '@/utils/statistic/PlayerRowUtility'
 
-import { ITEM_ICON_URL } from "@/utils/urls"
-
-import type { SlotInterface } from "@/types/statistic/playerRow"
+import type { SlotInterface } from '@/types/statistic/playerRow'
 
 // Initial State for useState in MainSlotItems component.
 const initialStateMainSlot = {
@@ -34,7 +32,7 @@ export default function MainSlotItems({ itemDetails }: SlotInterface) {
   const prrUtility = PlayerRowUtility.getInstance()
 
   // Create an Array<string> of items in main slot
-  prrUtility.setItems(itemDetails, "main_slot")
+  prrUtility.setItems(itemDetails, 'main_slot')
   const items = prrUtility.m_Items
 
   return (
@@ -42,32 +40,26 @@ export default function MainSlotItems({ itemDetails }: SlotInterface) {
       {items.map((item: string, idx: number) => {
         //
         // Get details about Current Item
-        const details = prrUtility.findDetailsAboutCurrentItem(
-          "item",
-          item,
-          itemDetails
-        )
+        const details = prrUtility.findDetailsAboutCurrentItem('item', item, itemDetails)
 
         // Function to update the toolTipStatus when mouse enter
         const handleMouseEnter = () =>
-          prrUtility.handleMouseEnter(item, "main_slot", idx, setToolTipStatus)
+          prrUtility.handleMouseEnter(item, 'main_slot', idx, setToolTipStatus)
 
         // Function to update the toolTipStatus when mouse leave
         const handleMouseLeave = () =>
-          prrUtility.handleMouseLeave("main_slot", idx, setToolTipStatus)
+          prrUtility.handleMouseLeave('main_slot', idx, setToolTipStatus)
 
         return (
           <React.Fragment key={idx}>
-            {toolTipStatus[idx] && (
-              <ItemDescription details={details} item={item} />
-            )}
+            {toolTipStatus[idx] && <ItemDescription details={details} item={item} />}
             <Image
               src={
-                item !== "empty_slot"
-                  ? `${ITEM_ICON_URL}${item}.png`
-                  : "pictures/dotaItemIcons/empty_slot.webp"
+                item !== 'empty_slot'
+                  ? `${process.env.NEXT_PUBLIC_ITEM_ICON_URL}${item}.png`
+                  : 'pictures/dotaItemIcons/empty_slot.webp'
               }
-              alt=""
+              alt=''
               width={37}
               height={27}
               quality={100}

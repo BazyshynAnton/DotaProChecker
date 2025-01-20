@@ -1,6 +1,7 @@
 $fontColor: #ffffffb0;
 $border: 1px solid rgba(255, 255, 255, 0.1);
 $border1: 4px solid #ffffff00;
+$bgColor: #242f39;
 
 .headerContainer {
   position: fixed;
@@ -11,21 +12,29 @@ $border1: 4px solid #ffffff00;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 1rem;
   padding: 5px 10px;
-  background-color: #242f39;
+  background-color: $bgColor;
   border-bottom: $border;
   z-index: 100;
 }
 
+.headerContent {
+  position: relative;
+  width: max-content;
+  height: max-content;
+  display: flex;
+}
+
 .headerLink,
 .activeHeaderLink {
-  padding: 3px;
+  position: relative;
+  padding: 3px 7px;
   font-size: 19px;
   font-weight: 400;
   text-transform: capitalize;
   color: $fontColor;
   cursor: pointer;
+  z-index: 2;
 }
 
 .headerLink {
@@ -64,7 +73,7 @@ $border1: 4px solid #ffffff00;
   &::before,
   &::after {
     position: absolute;
-    content: " ";
+    content: ' ';
     height: 33px;
     width: 2px;
     background-color: $fontColor;
@@ -87,7 +96,8 @@ $border1: 4px solid #ffffff00;
   width: 100vw;
   height: 100vh;
   top: 55px;
-  background: #000;
+  left: 0px;
+  background: $bgColor;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

@@ -1,67 +1,64 @@
-"use client"
+'use client'
 
-import MatchDetails from "./MatchDetails"
-import FetchError from "./FetchError"
-import Search from "./Search"
-import StatisticLoader from "@/components/loaders/StatisticLoader"
+import MatchDetails from './MatchDetails'
+import MatchSideInfo from './MatchSideInfo'
+import Search from './Search'
+import DataLoader from '@/components/loaders/DataLoader'
 
-import { useEffect, useState } from "@/shared/reactImports"
-import { useAppSelector, useAppDispatch } from "@/shared/reduxImports"
-import { setIsTableDataExist, setMatchData } from "@/store/statisticSlice"
+import { useEffect } from '@/shared/reactImports'
+import { useAppSelector, useAppDispatch } from '@/shared/reduxImports'
+import { setIsTableDataExist, setMatchData, setTableLoading } from '@/store/statisticSlice'
 
-import type { MatchData } from "@/types/redux/statisticSlice"
-import MatchSideInfo from "./MatchSideInfo"
+import type { MatchData } from '@/types/redux/statisticSlice'
 
-export default function Statistic({
-  matchData,
-}: {
-  matchData: MatchData | string
-}) {
-  const { isTableDataExist, error } = useAppSelector(
-    (store) => store.statisticSlice
-  )
+export default function Statistic({ matchData }: { matchData: MatchData | string }) {
+  const { tableLoading, isTableDataExist, error } = useAppSelector((store) => store.statisticSlice)
   const dispatch = useAppDispatch()
-  const [isReady, setIsReady] = useState(false)
 
   useEffect(() => {
     if (!isTableDataExist) {
       dispatch(setMatchData(matchData))
+
+      const delay = async () => {
+        dispatch(setTableLoading(false)) // activate loading
+        await dataLoadingDelay(100)
+        dispatch(setTableLoading(true)) // disable loading
+      }
+
+      delay()
     } else {
+      const delay = async () => {
+        dispatch(setTableLoading(false))
+        await dataLoadingDelay(3000)
+        dispatch(setTableLoading(true))
+      }
+
+      delay()
       dispatch(setIsTableDataExist(false))
     }
-
-    const delay = async () => {
-      await dataLoadingDelaySimulation()
-      setIsReady(true)
-    }
-
-    delay()
   }, [dispatch, matchData])
 
+  if (error !== null) throw Error(error) // Error handling
+
   return (
-    <div style={{ width: "100%" }}>
+    <div style={{ width: '100%' }}>
       <Search />
-      {isReady ? (
-        !error ? (
-          <>
-            <MatchSideInfo />
-            <MatchDetails />
-          </>
-        ) : (
-          <FetchError error={error} />
-        )
+      {tableLoading ? (
+        <>
+          <MatchSideInfo />
+          <MatchDetails />
+        </>
       ) : (
-        <StatisticLoader />
+        <DataLoader />
       )}
     </div>
   )
 }
 
-async function dataLoadingDelaySimulation() {
-  // Simulate data loading
+async function dataLoadingDelay(ms: number) {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(true)
-    }, 100)
+    }, ms)
   })
 }

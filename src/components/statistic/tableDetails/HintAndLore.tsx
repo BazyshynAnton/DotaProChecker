@@ -1,13 +1,10 @@
-import type { ItemDescriptionInterface } from "@/types/statistic/playerRow"
+import type { ItemDescriptionInterface } from '@/types/statistic/playerRow'
 
-import styles from "@/styles/statistic/ItemDescription.module.scss"
+import styles from '@/styles/statistic/ItemDescription.module.scss'
 
-export default function HintAndLore({
-  details,
-  item,
-}: ItemDescriptionInterface) {
+export default function HintAndLore({ details, item }: ItemDescriptionInterface) {
   if (!details) {
-    throw new Error("[DATA] Cannot get data about Item Details")
+    throw new Error('[DATA] Cannot get data about Item Details')
   }
 
   return (

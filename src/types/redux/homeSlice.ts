@@ -1,4 +1,4 @@
-import { DotaNews, ProMatch } from "../home/homeDataUtility"
+import { DotaNews, ProMatch } from '../home/homeDataUtility'
 
 export interface InitialHomeState {
   proMatches: ProMatch[] | null
