@@ -8,7 +8,7 @@ import HintAndLore from './HintAndLore'
 import Components from './Components'
 
 import useMousePosition from '@/hooks/useMousePosition'
-import { ReactDOM, useEffect, useState } from '@/shared/reactImports'
+import { ReactDOM, useEffect, useRef, useState } from '@/shared/reactImports'
 import type { ItemDescriptionInterface } from '@/types/statistic/playerRow'
 
 import styles from '@/styles/statistic/ItemDescription.module.scss'
@@ -70,16 +70,27 @@ function MobilePortal({ details, item }: ItemDescriptionInterface) {
 }
 
 function DesktopPortal({ details, item }: ItemDescriptionInterface) {
+  const [componentHeight, setComponentHeight] = useState<number | null>(null)
+  const ref = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (ref.current) {
+      setComponentHeight(ref.current.offsetHeight)
+    }
+  }, [ref.current])
+
   const mousePosition = useMousePosition()
 
   if (!mousePosition.x || !mousePosition.y) return
 
   return ReactDOM.createPortal(
     <div
+      ref={ref}
       style={{
+        visibility: componentHeight ? 'visible' : 'hidden',
         position: 'absolute',
-        top: mousePosition.y,
-        left: mousePosition.x - 300,
+        top: mousePosition.y - (componentHeight || 0) / 2,
+        left: mousePosition.x - 308,
       }}
       className={styles.itemDescription}
     >

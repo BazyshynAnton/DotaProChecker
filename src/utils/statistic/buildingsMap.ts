@@ -1,0 +1,51 @@
+export const buildings = [
+  {
+    offsetTop: 280,
+    offsetLeft: 33,
+    url: process.env.NEXT_PUBLIC_GOODGUYS_FORT as string,
+    width: 25,
+    height: 25,
+  },
+  {
+    offsetTop: 268,
+    offsetLeft: 43,
+    url: process.env.NEXT_PUBLIC_GOODGUYS_TOWER as string,
+    width: 16,
+    height: 16,
+  },
+  {
+    offsetTop: 280,
+    offsetLeft: 53,
+    url: process.env.NEXT_PUBLIC_GOODGUYS_TOWER as string,
+    width: 16,
+    height: 16,
+  },
+  {
+    offsetTop: 293,
+    offsetLeft: 85,
+    url: process.env.NEXT_PUBLIC_GOODGUYS_TOWER as string,
+    width: 16,
+    height: 16,
+  },
+  {
+    offsetTop: 297,
+    offsetLeft: 160,
+    url: process.env.NEXT_PUBLIC_GOODGUYS_TOWER as string,
+    width: 16,
+    height: 16,
+  },
+  {
+    offsetTop: 290,
+    offsetLeft: 273,
+    url: process.env.NEXT_PUBLIC_GOODGUYS_TOWER as string,
+    width: 16,
+    height: 16,
+  },
+  {
+    offsetTop: 238,
+    offsetLeft: 30,
+    url: process.env.NEXT_PUBLIC_GOODGUYS_TOWER as string,
+    width: 16,
+    height: 16,
+  },
+]
