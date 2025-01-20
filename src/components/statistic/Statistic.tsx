@@ -12,9 +12,7 @@ import { setIsTableDataExist, setMatchData, setTableLoading } from '@/store/stat
 import type { MatchData } from '@/types/redux/statisticSlice'
 
 export default function Statistic({ matchData }: { matchData: MatchData | string }) {
-  const { tableLoading, isSameData, isTableDataExist, error } = useAppSelector(
-    (store) => store.statisticSlice,
-  )
+  const { tableLoading, isTableDataExist, error } = useAppSelector((store) => store.statisticSlice)
   const dispatch = useAppDispatch()
 
   useEffect(() => {
@@ -22,12 +20,13 @@ export default function Statistic({ matchData }: { matchData: MatchData | string
       dispatch(setMatchData(matchData))
 
       const delay = async () => {
+        dispatch(setTableLoading(false)) // activate loading
         await dataLoadingDelay(100)
-        dispatch(setTableLoading(true))
+        dispatch(setTableLoading(true)) // disable loading
       }
 
       delay()
-    } else if (!isSameData) {
+    } else {
       const delay = async () => {
         dispatch(setTableLoading(false))
         await dataLoadingDelay(3000)

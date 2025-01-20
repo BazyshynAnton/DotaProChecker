@@ -10,7 +10,6 @@ export interface InitialStatisticState {
   abilityIDs: any | null
   items: Item | null
 
-  isSameData: boolean
   isTableDataExist: boolean
   tooltipAbilityPortal: boolean
   tableLoading: boolean
